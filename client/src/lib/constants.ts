@@ -19,6 +19,10 @@ export const SCHOOL_INFO = {
 
 export const NAVIGATION = [
   {
+    title: "Ana Sayfa",
+    href: "/",
+  },
+  {
     title: "Kurumsal",
     href: "/kurumsal",
     items: [
