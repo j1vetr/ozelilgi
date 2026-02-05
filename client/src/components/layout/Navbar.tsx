@@ -36,29 +36,21 @@ export function Navbar() {
         <Link href="/">
           <a className="flex items-center group">
             <div className="relative">
-              {/* Animated gradient border */}
-              <div className={cn(
-                "absolute -inset-1 rounded-xl logo-ring",
-                scrolled 
-                  ? "bg-gradient-to-r from-brand-blue via-brand-green to-brand-orange opacity-70" 
-                  : "bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-orange opacity-90"
-              )} />
+              {/* Animated border - only stroke, not fill */}
+              <div className="absolute -inset-[3px] rounded-xl overflow-hidden">
+                <div className="absolute inset-0 logo-ring bg-gradient-conic from-brand-blue via-brand-green via-brand-orange via-brand-yellow to-brand-blue" 
+                     style={{ background: 'conic-gradient(from 0deg, hsl(217, 91%, 60%), hsl(142, 76%, 36%), hsl(24, 95%, 53%), hsl(48, 96%, 53%), hsl(217, 91%, 60%))' }} 
+                />
+              </div>
               {/* Inner white box with logo */}
               <div className={cn(
-                "relative w-16 h-16 md:w-20 md:h-20 rounded-lg p-2 transition-all duration-300 group-hover:scale-105",
+                "relative w-36 h-14 md:w-48 md:h-16 rounded-lg p-2 transition-all duration-300 group-hover:scale-105",
                 scrolled 
                   ? "bg-white shadow-md" 
                   : "bg-white shadow-xl"
               )}>
                 <img src="/images/logo.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" />
               </div>
-              {/* Glow effect */}
-              <div className={cn(
-                "absolute -inset-2 rounded-xl blur-md logo-glow pointer-events-none",
-                scrolled 
-                  ? "bg-brand-blue/20" 
-                  : "bg-white/30"
-              )} />
             </div>
           </a>
         </Link>
