@@ -1,99 +1,11 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "../ui/button";
-import { useRef, useEffect, useState } from "react";
+import { useState } from "react";
 import { 
   ArrowRight, Palette, Music, Code, FlaskConical, Dumbbell, 
-  BookOpen, UtensilsCrossed, Users, Building2, TreePine, 
-  GraduationCap, Shield
+  BookOpen, UtensilsCrossed, Users
 } from "lucide-react";
-
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const duration = 1800;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [isInView, target]);
-
-  return (
-    <span ref={ref}>
-      {count.toLocaleString("tr-TR")}{suffix}
-    </span>
-  );
-}
-
-const bentoItems = [
-  {
-    id: "kapali-alan",
-    title: "Kapalı Eğitim Alanı",
-    value: 2000,
-    suffix: "m²",
-    desc: "Derslikler, laboratuvarlar ve atölyeler dahil toplam kapalı alan",
-    icon: Building2,
-    gradient: "from-blue-600 via-blue-700 to-indigo-800",
-    span: "md:col-span-2 md:row-span-2",
-    size: "large"
-  },
-  {
-    id: "bahce",
-    title: "Yeşil Bahçe",
-    value: 600,
-    suffix: "m²",
-    desc: "Oyun ve açık hava etkinlik alanı",
-    icon: TreePine,
-    gradient: "from-emerald-500 to-green-600",
-    span: "md:col-span-1 md:row-span-1",
-    size: "small"
-  },
-  {
-    id: "sinif",
-    title: "Anaokulu Sınıfı",
-    value: 4,
-    suffix: " Adet",
-    desc: "Yaş grubuna özel tasarım",
-    icon: GraduationCap,
-    gradient: "from-violet-500 to-purple-600",
-    span: "md:col-span-1 md:row-span-1",
-    size: "small"
-  },
-  {
-    id: "spor",
-    title: "Kapalı Spor Salonu",
-    value: 100,
-    suffix: "m²",
-    desc: "Basketbol, voleybol ve jimnastik",
-    icon: Dumbbell,
-    gradient: "from-orange-500 to-red-500",
-    span: "md:col-span-1 md:row-span-1",
-    size: "small"
-  },
-  {
-    id: "guvenlik",
-    title: "Güvenli Kampüs",
-    value: 24,
-    suffix: " Saat",
-    desc: "Kameralı izleme ve güvenlik",
-    icon: Shield,
-    gradient: "from-cyan-500 to-blue-500",
-    span: "md:col-span-1 md:row-span-1",
-    size: "small"
-  }
-];
 
 const facilityStrip = [
   { icon: Palette, name: "Sanat Atölyesi" },
@@ -114,7 +26,66 @@ const facilityStrip = [
   { icon: Users, name: "Rehberlik" },
 ];
 
+const facilities = [
+  {
+    icon: Palette,
+    title: "Görsel Sanatlar Atölyesi",
+    desc: "Resim, heykel ve seramik çalışmaları için profesyonel atölye",
+    gradient: "from-rose-500 to-pink-600",
+    lightBg: "bg-rose-50",
+    accent: "text-rose-500",
+    features: ["Profesyonel Malzemeler", "Sergi Alanı"]
+  },
+  {
+    icon: Music,
+    title: "Müzik Atölyesi",
+    desc: "Bireysel ve toplu müzik eğitimi için ses yalıtımlı stüdyo",
+    gradient: "from-violet-500 to-purple-600",
+    lightBg: "bg-violet-50",
+    accent: "text-violet-500",
+    features: ["Ses Yalıtımı", "Enstrüman Çeşitliliği"]
+  },
+  {
+    icon: Code,
+    title: "Kodlama & Robotik Lab.",
+    desc: "STEM eğitimi için donanımlı teknoloji laboratuvarı",
+    gradient: "from-blue-500 to-cyan-600",
+    lightBg: "bg-blue-50",
+    accent: "text-blue-500",
+    features: ["3D Yazıcı", "Robot Kitleri"]
+  },
+  {
+    icon: FlaskConical,
+    title: "Fen Bilimleri Lab.",
+    desc: "Deney ve gözlem için tam donanımlı bilim laboratuvarı",
+    gradient: "from-emerald-500 to-teal-600",
+    lightBg: "bg-emerald-50",
+    accent: "text-emerald-500",
+    features: ["Deney Setleri", "Güvenlik Ekipmanı"]
+  },
+  {
+    icon: Dumbbell,
+    title: "Kapalı Spor Salonu",
+    desc: "100m² alanda basketbol, voleybol ve jimnastik imkanı",
+    gradient: "from-orange-500 to-red-500",
+    lightBg: "bg-orange-50",
+    accent: "text-orange-500",
+    features: ["100m² Alan", "Çok Amaçlı"]
+  },
+  {
+    icon: BookOpen,
+    title: "Kütüphane & Okuma Salonu",
+    desc: "Binlerce kitap ve sessiz çalışma alanıyla donatılmış kütüphane",
+    gradient: "from-indigo-500 to-blue-600",
+    lightBg: "bg-indigo-50",
+    accent: "text-indigo-500",
+    features: ["Zengin Arşiv", "Sessiz Çalışma Alanı"]
+  },
+];
+
 export function FacilitiesSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/80 to-white" />
@@ -137,7 +108,7 @@ export function FacilitiesSection() {
         </motion.div>
 
         {/* Scrolling Facility Ribbon */}
-        <div className="relative mb-12 -mx-4 overflow-hidden">
+        <div className="relative mb-14 -mx-4 overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
           
@@ -158,57 +129,76 @@ export function FacilitiesSection() {
           </motion.div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto mb-10">
-          {bentoItems.map((item, i) => {
-            const isLarge = item.size === "large";
-            
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className={`${item.span} group`}
-              >
-                <div className={`relative bg-gradient-to-br ${item.gradient} rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full ${isLarge ? 'min-h-[280px] md:min-h-[320px]' : 'min-h-[140px] md:min-h-[155px]'}`}>
-                  {/* Decorative Elements */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-700" />
-                    <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/5 rounded-full" />
-                    {isLarge && (
-                      <>
-                        <div className="absolute top-1/2 right-8 w-24 h-24 bg-white/5 rounded-full" />
-                        <div className="absolute bottom-12 right-1/3 w-16 h-16 bg-white/8 rounded-full" />
-                      </>
-                    )}
-                  </div>
+        {/* Facilities Showcase Grid */}
+        <div className="max-w-5xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-4">
+            {facilities.map((facility, i) => {
+              const isHovered = hoveredIndex === i;
 
-                  {/* Content */}
-                  <div className={`relative z-10 flex flex-col justify-between h-full ${isLarge ? 'p-6 md:p-8' : 'p-4 md:p-5'}`}>
-                    <div>
-                      <div className={`${isLarge ? 'w-14 h-14 md:w-16 md:h-16' : 'w-10 h-10'} rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300`}>
-                        <item.icon className={`${isLarge ? 'w-7 h-7 md:w-8 md:h-8' : 'w-5 h-5'} text-white`} />
-                      </div>
-                      {isLarge && (
-                        <p className="text-white/60 text-xs md:text-sm max-w-[200px] mb-4 hidden md:block">{item.desc}</p>
-                      )}
-                    </div>
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07, duration: 0.5 }}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="group relative"
+                >
+                  <div className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${isHovered ? 'shadow-2xl -translate-y-2' : 'shadow-md'}`}>
+                    {/* Gradient Background - shows on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${facility.gradient} transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+                    
+                    {/* Light Background - default */}
+                    <div className={`absolute inset-0 ${facility.lightBg} border border-gray-100 rounded-2xl transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
 
-                    <div>
-                      <div className={`${isLarge ? 'text-4xl md:text-6xl' : 'text-2xl md:text-3xl'} font-bold text-white leading-none mb-1`}>
-                        <AnimatedCounter target={item.value} suffix={item.suffix} />
+                    {/* Decorative circles on hover */}
+                    <div className={`absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full transition-all duration-700 ${isHovered ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+                    <div className={`absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full transition-all duration-700 delay-100 ${isHovered ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+
+                    {/* Content */}
+                    <div className="relative z-10 p-6">
+                      {/* Icon */}
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-500 ${
+                        isHovered 
+                          ? 'bg-white/20 backdrop-blur-sm shadow-lg scale-110' 
+                          : `bg-gradient-to-br ${facility.gradient} shadow-lg`
+                      }`}>
+                        <facility.icon className="w-7 h-7 text-white" />
                       </div>
-                      <div className={`${isLarge ? 'text-sm md:text-base' : 'text-xs'} font-semibold text-white/80`}>
-                        {item.title}
+
+                      {/* Title */}
+                      <h3 className={`font-bold text-lg mb-2 transition-colors duration-500 ${isHovered ? 'text-white' : 'text-gray-900'}`}>
+                        {facility.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className={`text-sm mb-4 transition-colors duration-500 leading-relaxed ${isHovered ? 'text-white/80' : 'text-gray-500'}`}>
+                        {facility.desc}
+                      </p>
+
+                      {/* Feature Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {facility.features.map((feat, fi) => (
+                          <span 
+                            key={fi}
+                            className={`text-xs font-medium px-3 py-1 rounded-full transition-all duration-500 ${
+                              isHovered 
+                                ? 'bg-white/20 text-white border border-white/20' 
+                                : `bg-white ${facility.accent} border border-gray-100`
+                            }`}
+                          >
+                            {feat}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* CTA */}
