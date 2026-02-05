@@ -18,7 +18,7 @@ export function PageHeader({ title, subtitle, breadcrumbs, backgroundImage }: Pa
   }, [title]);
 
   return (
-    <div className="relative bg-primary py-20 md:py-28 overflow-hidden">
+    <div className="relative bg-primary pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       {/* Background Overlay */}
       <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
       
