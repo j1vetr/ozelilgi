@@ -1,6 +1,7 @@
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { FeaturesShowcase } from "@/components/home/FeaturesShowcase";
 import { SchoolLevels } from "@/components/home/SchoolLevels";
+import { VideoSlider } from "@/components/home/VideoSlider";
 import { FacilitiesGallery } from "@/components/home/FacilitiesGallery";
 import { StatsSection } from "@/components/home/StatsSection";
 import { TestimonialsScroll } from "@/components/home/TestimonialsScroll";
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSlider />
       <FeaturesShowcase />
       <SchoolLevels />
+      <VideoSlider />
       <FacilitiesGallery />
       <StatsSection />
       <TestimonialsScroll />
