@@ -1,5 +1,4 @@
 import { HeroSlider } from "@/components/home/HeroSlider";
-import { FeaturesShowcase } from "@/components/home/FeaturesShowcase";
 import { SchoolLevels } from "@/components/home/SchoolLevels";
 import { VideoSlider } from "@/components/home/VideoSlider";
 import { FacilitiesSection } from "@/components/home/FacilitiesSection";
@@ -11,10 +10,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden font-sans">
       <HeroSlider />
-      <FeaturesShowcase />
+      <FacilitiesSection />
       <SchoolLevels />
       <VideoSlider />
-      <FacilitiesSection />
       <StatsSection />
       <TestimonialsScroll />
       <CTASection />
