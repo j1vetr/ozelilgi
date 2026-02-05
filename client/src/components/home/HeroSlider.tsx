@@ -27,10 +27,15 @@ const heroSlides = [
   },
 ];
 
-const educationLevels = [
-  { name: "Anaokulu", ages: "3-6 yaş", color: "from-brand-yellow to-amber-500" },
-  { name: "İlkokul", ages: "6-10 yaş", color: "from-brand-green to-emerald-600" },
-  { name: "Ortaokul", ages: "10-14 yaş", color: "from-brand-blue to-blue-700" },
+const marqueeItems = [
+  "Anaokulu 3-6 Yaş",
+  "İlkokul 1-4. Sınıf", 
+  "Ortaokul 5-8. Sınıf",
+  "Cambridge İngilizce",
+  "STEM Eğitimi",
+  "Müzik & Sanat",
+  "Spor Aktiviteleri",
+  "Kodlama Dersleri",
 ];
 
 export function HeroSlider() {
@@ -110,39 +115,17 @@ export function HeroSlider() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               data-testid="hero-subtitle"
-              className="text-base lg:text-lg text-white/80 mb-6 leading-relaxed max-w-xl"
+              className="text-base lg:text-lg text-white/80 mb-8 leading-relaxed max-w-xl"
             >
               {heroSlides[activeSlide].subtitle}
             </motion.p>
           </AnimatePresence>
 
-          {/* Education Levels */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-2 mb-8"
-          >
-            {educationLevels.map((level, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + i * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className={`bg-gradient-to-r ${level.color} px-4 py-2 rounded-full cursor-pointer shadow-md`}
-              >
-                <span className="text-white font-semibold text-sm">{level.name}</span>
-                <span className="text-white/80 ml-1.5 text-xs">{level.ages}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.5 }}
             className="flex flex-wrap gap-3"
           >
             <Link href="/kayit/on-kayit">
@@ -190,7 +173,7 @@ export function HeroSlider() {
         </div>
 
         {/* Bottom Slide Indicators - Mobile */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 lg:hidden">
+        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex gap-2 lg:hidden">
           {heroSlides.map((_, idx) => (
             <button
               key={idx}
@@ -204,19 +187,39 @@ export function HeroSlider() {
         </div>
       </div>
 
+      {/* Marquee Strip */}
+      <div className="absolute bottom-16 left-0 right-0 overflow-hidden">
+        <div className="bg-white/10 backdrop-blur-md border-y border-white/10 py-3">
+          <motion.div
+            animate={{ x: [0, -1920] }}
+            transition={{ 
+              x: { duration: 30, repeat: Infinity, ease: "linear" }
+            }}
+            className="flex gap-8 whitespace-nowrap"
+          >
+            {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-brand-orange rounded-full" />
+                <span className="text-white font-medium text-sm">{item}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
           className="text-white/50"
         >
-          <ChevronDown className="w-6 h-6" />
+          <ChevronDown className="w-5 h-5" />
         </motion.div>
       </motion.div>
     </section>
