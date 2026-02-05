@@ -36,16 +36,16 @@ export function Navbar() {
         <Link href="/">
           <a className="flex items-center group">
             <div className="relative">
-              {/* Rotating gradient border */}
+              {/* Animated gradient border */}
               <div className={cn(
-                "absolute -inset-1 rounded-full logo-ring",
+                "absolute -inset-1 rounded-xl logo-ring",
                 scrolled 
                   ? "bg-gradient-to-r from-brand-blue via-brand-green to-brand-orange opacity-70" 
                   : "bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-orange opacity-90"
               )} />
-              {/* Inner white circle with logo */}
+              {/* Inner white box with logo */}
               <div className={cn(
-                "relative w-12 h-12 md:w-14 md:h-14 rounded-full p-2 transition-all duration-300 group-hover:scale-105",
+                "relative w-16 h-16 md:w-20 md:h-20 rounded-lg p-2 transition-all duration-300 group-hover:scale-105",
                 scrolled 
                   ? "bg-white shadow-md" 
                   : "bg-white shadow-xl"
@@ -54,7 +54,7 @@ export function Navbar() {
               </div>
               {/* Glow effect */}
               <div className={cn(
-                "absolute -inset-2 rounded-full blur-md logo-glow pointer-events-none",
+                "absolute -inset-2 rounded-xl blur-md logo-glow pointer-events-none",
                 scrolled 
                   ? "bg-brand-blue/20" 
                   : "bg-white/30"
