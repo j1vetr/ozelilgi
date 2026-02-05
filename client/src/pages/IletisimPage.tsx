@@ -128,10 +128,18 @@ export default function IletisimPage() {
                 </Card>
             </div>
             
-            {/* Map Placeholder */}
-            <div className="h-64 bg-muted rounded-xl border border-border flex items-center justify-center relative overflow-hidden group">
-                 <div className="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=41.0,29.0&zoom=13&size=600x300&sensor=false')] bg-cover bg-center opacity-50 grayscale hover:grayscale-0 transition-all"></div>
-                 <Button variant="secondary" className="relative z-10 shadow-lg pointer-events-none">Haritada Göster</Button>
+            {/* Google Maps */}
+            <div className="h-72 rounded-xl overflow-hidden border border-border shadow-lg">
+                 <iframe
+                    src={SCHOOL_INFO.mapEmbed}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Okul Konumu"
+                 />
             </div>
           </div>
 

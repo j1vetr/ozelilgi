@@ -66,11 +66,17 @@ export function Footer() {
           {/* Newsletter / Map */}
           <div>
             <h3 className="font-display text-lg font-semibold mb-6 text-accent">Konum</h3>
-            <div data-testid="footer-map-container" className="w-full h-48 bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group">
-               {/* Placeholder for Map */}
-               <div className="absolute inset-0 flex items-center justify-center bg-muted/20 group-hover:bg-muted/30 transition-colors">
-                  <span data-testid="footer-map-placeholder" className="text-xs text-white/50">Google Maps Embed</span>
-               </div>
+            <div data-testid="footer-map-container" className="w-full h-48 bg-white/5 rounded-lg overflow-hidden border border-white/10">
+               <iframe
+                  src={SCHOOL_INFO.mapEmbed}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Okul Konumu"
+               />
             </div>
           </div>
         </div>
