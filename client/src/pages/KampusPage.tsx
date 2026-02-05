@@ -212,6 +212,8 @@ export default function KampusPage() {
                           src={facility.image}
                           alt={facility.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                         
@@ -265,6 +267,8 @@ export default function KampusPage() {
                         src={img} 
                         alt={`Kampüs - ${i + 1}`}
                         className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                         <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-lg">

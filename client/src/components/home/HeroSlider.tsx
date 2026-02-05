@@ -19,6 +19,13 @@ const heroSlides = [
   },
 ];
 
+function preloadImages() {
+  heroSlides.slice(1).forEach((slide) => {
+    const img = new Image();
+    img.src = slide.image;
+  });
+}
+
 const marqueeItems = [
   "Anaokulu",
   "İlkokul",
@@ -36,10 +43,11 @@ export function HeroSlider() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
+    const idleTimeout = setTimeout(preloadImages, 2000);
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
-    return () => clearInterval(timer);
+    return () => { clearInterval(timer); clearTimeout(idleTimeout); };
   }, []);
 
   return (
@@ -58,6 +66,9 @@ export function HeroSlider() {
             src={heroSlides[activeSlide].image}
             alt="Hero"
             className="w-full h-full object-cover"
+            loading={activeSlide === 0 ? "eager" : "lazy"}
+            fetchPriority={activeSlide === 0 ? "high" : "auto"}
+            decoding={activeSlide === 0 ? "sync" : "async"}
           />
         </motion.div>
       </AnimatePresence>

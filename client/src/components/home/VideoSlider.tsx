@@ -13,7 +13,7 @@ const videos = [
 ];
 
 const getThumbnail = (videoId: string) => {
-  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 };
 
 function VideoCard({ video, index, onClick }: { video: typeof videos[0]; index: number; onClick: () => void }) {
@@ -28,6 +28,8 @@ function VideoCard({ video, index, onClick }: { video: typeof videos[0]; index: 
           src={getThumbnail(video.id)}
           alt={video.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
           }}

@@ -20,11 +20,11 @@ export function PageHeader({ title, subtitle, breadcrumbs, backgroundImage }: Pa
   return (
     <div className="relative bg-primary pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       {/* Background Overlay */}
-      <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+      <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay" style={{backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%)'}}></div>
       
       {backgroundImage && (
         <div className="absolute inset-0 z-0">
-          <img src={backgroundImage} alt={title} className="w-full h-full object-cover opacity-20" />
+          <img src={backgroundImage} alt={title} className="w-full h-full object-cover opacity-20" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
         </div>
       )}

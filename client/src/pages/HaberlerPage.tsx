@@ -30,7 +30,7 @@ export default function HaberlerPage() {
 
                     <article className="prose prose-lg prose-blue max-w-none">
                         <div className="not-prose mb-8 rounded-xl overflow-hidden shadow-lg">
-                            <img src={newsItem.image} alt={newsItem.title} className="w-full h-auto object-cover max-h-[500px]" />
+                            <img src={newsItem.image} alt={newsItem.title} className="w-full h-auto object-cover max-h-[500px]" loading="lazy" decoding="async" />
                         </div>
                         <div className="flex items-center gap-4 mb-6 not-prose">
                             <Badge className="bg-accent text-primary font-bold">{newsItem.category}</Badge>
@@ -71,6 +71,8 @@ export default function HaberlerPage() {
                                         src={news.image} 
                                         alt={news.title} 
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                                 <div className="md:w-2/3 flex flex-col">

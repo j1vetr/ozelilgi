@@ -77,5 +77,29 @@ Preferred communication style: Simple, everyday language.
 - `@replit/vite-plugin-dev-banner` - Development banner (dev only)
 
 ### Fonts
-- Google Fonts: Montserrat (display headings) and Poppins (body text)
-- Loaded via `<link>` tags in `client/index.html`
+- Google Fonts: Montserrat (600,700,800 weights for display headings) and Poppins (400,500,600,700 weights for body text)
+- Loaded via `<link>` tags in `client/index.html` with `display=swap`
+
+## Performance Optimizations
+
+### Code Splitting
+- All non-home pages use React.lazy() for route-based code splitting
+- Home page remains eagerly loaded for fastest initial render
+- Suspense fallback provides a minimal spinner during lazy loads
+
+### Image Loading
+- Hero first slide: preloaded in index.html with `fetchpriority="high"`
+- Hero subsequent slides: preloaded via JS after 2s idle
+- All other images: `loading="lazy"` and `decoding="async"`
+- Video thumbnails: Use `hqdefault.jpg` instead of `maxresdefault.jpg` for smaller size
+- CSS `content-visibility: auto` on img/video elements
+
+### External Resources
+- DNS prefetch for youtube and google map domains
+- Google Fonts reduced to only used weights (was loading ALL 100-900)
+- External texture pattern replaced with CSS gradient (PageHeader)
+- Google Maps iframe loaded via IntersectionObserver with 200px rootMargin
+
+### Critical Resources
+- Logo and hero image preloaded in HTML head
+- Navbar logo uses `loading="eager"` with `fetchPriority="high"`

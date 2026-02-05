@@ -69,6 +69,8 @@ function AkademikOverview() {
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     
@@ -180,6 +182,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                   src={content.galleryImages?.[selectedImage] || content.image}
                   alt={content.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 
@@ -204,7 +208,7 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                         selectedImage === i ? 'border-primary ring-2 ring-primary/20' : 'border-transparent hover:border-gray-200'
                       }`}
                     >
-                      <img src={img} alt="" className="w-full h-full object-cover" />
+                      <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                     </button>
                   ))}
                 </div>
@@ -315,6 +319,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                       src={img} 
                       alt={`${content.title} - ${i + 1}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </motion.div>
                 ))}

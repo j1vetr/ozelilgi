@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,43 @@ import {
 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { Link } from "wouter";
+
+function LazyMap({ src, title }: { src: string; title: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="w-full h-full">
+      {isVisible ? (
+        <iframe
+          src={src}
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title={title}
+        />
+      ) : (
+        <div className="w-full h-full bg-gray-100 animate-pulse rounded-xl flex items-center justify-center">
+          <MapPin className="w-8 h-8 text-gray-300" />
+        </div>
+      )}
+    </div>
+  );
+}
 
 const formSchema = z.object({
   name: z.string().min(2, "İsim en az 2 karakter olmalıdır"),
@@ -177,16 +214,7 @@ export default function IletisimPage() {
               {/* Google Maps */}
               <div className="bg-white rounded-2xl p-3 border border-gray-100 shadow-lg overflow-hidden">
                 <div className="rounded-xl overflow-hidden h-64">
-                  <iframe
-                    src={SCHOOL_INFO.mapEmbed}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Okul Konumu"
-                  />
+                  <LazyMap src={SCHOOL_INFO.mapEmbed} title="Okul Konumu" />
                 </div>
                 <div className="p-4">
                   <h3 className="font-bold text-gray-900 mb-1 flex items-center gap-2">
