@@ -8,9 +8,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
+import { useMutation } from "@tanstack/react-query";
 
 const formSchema = z.object({
   parentName: z.string().min(2, "Veli Adı en az 2 karakter olmalıdır"),
@@ -37,15 +38,39 @@ export default function OnKayitPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setTimeout(() => {
-        setIsSubmitted(true);
-        toast({
+  const mutation = useMutation({
+    mutationFn: async (values: z.infer<typeof formSchema>) => {
+      const response = await fetch("/api/pre-registrations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Başvuru gönderilemedi");
+      }
+      
+      return response.json();
+    },
+    onSuccess: () => {
+      setIsSubmitted(true);
+      toast({
         title: "Ön Kayıt Talebi Alındı",
         description: "Eğitim danışmanlarımız en kısa sürede sizinle iletişime geçecektir.",
-        });
-    }, 1000);
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        title: "Hata",
+        description: "Başvurunuz gönderilemedi. Lütfen tekrar deneyiniz.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    mutation.mutate(values);
   }
 
   return (
@@ -207,8 +232,19 @@ export default function OnKayitPage() {
                                     />
                                 </div>
                                 
-                                <Button type="submit" className="w-full text-lg h-12 font-bold shadow-lg shadow-primary/10">
-                                    Ön Kayıt Başvurusu Gönder
+                                <Button 
+                                  type="submit" 
+                                  className="w-full text-lg h-12 font-bold shadow-lg shadow-primary/10"
+                                  disabled={mutation.isPending}
+                                >
+                                  {mutation.isPending ? (
+                                    <>
+                                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                                      Gönderiliyor...
+                                    </>
+                                  ) : (
+                                    "Ön Kayıt Başvurusu Gönder"
+                                  )}
                                 </Button>
                                 <p className="text-xs text-muted-foreground text-center mt-4">
                                     Kişisel verileriniz KVKK kapsamında korunmaktadır.

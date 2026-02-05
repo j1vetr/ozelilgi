@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, serial, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -16,3 +16,40 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+// Pre-Registration Form Submissions
+export const preRegistrations = pgTable("pre_registrations", {
+  id: serial("id").primaryKey(),
+  studentName: text("student_name").notNull(),
+  parentName: text("parent_name").notNull(),
+  phone: text("phone").notNull(),
+  email: text("email").notNull(),
+  grade: text("grade").notNull(),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertPreRegistrationSchema = createInsertSchema(preRegistrations).omit({
+  id: true,
+  createdAt: true,
+});
+export type InsertPreRegistration = z.infer<typeof insertPreRegistrationSchema>;
+export type PreRegistration = typeof preRegistrations.$inferSelect;
+
+// Contact Form Submissions
+export const contactSubmissions = pgTable("contact_submissions", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  subject: text("subject").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).omit({
+  id: true,
+  createdAt: true,
+});
+export type InsertContactSubmission = z.infer<typeof insertContactSubmissionSchema>;
+export type ContactSubmission = typeof contactSubmissions.$inferSelect;

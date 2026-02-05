@@ -10,7 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { SCHOOL_INFO } from "@/lib/constants";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Loader2 } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
 
 const formSchema = z.object({
   name: z.string().min(2, "İsim en az 2 karakter olmalıdır"),
@@ -33,14 +34,38 @@ export default function IletisimPage() {
     },
   });
 
+  const mutation = useMutation({
+    mutationFn: async (values: z.infer<typeof formSchema>) => {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Mesaj gönderilemedi");
+      }
+      
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Mesajınız Alındı",
+        description: "En kısa sürede sizinle iletişime geçeceğiz.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        title: "Hata",
+        description: "Mesajınız gönderilemedi. Lütfen tekrar deneyiniz.",
+        variant: "destructive",
+      });
+    },
+  });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, this would be an API call
-    console.log(values);
-    toast({
-      title: "Mesajınız Alındı",
-      description: "En kısa sürede sizinle iletişime geçeceğiz.",
-    });
-    form.reset();
+    mutation.mutate(values);
   }
 
   return (
@@ -204,7 +229,20 @@ export default function IletisimPage() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full font-bold text-lg h-12">Gönder</Button>
+                    <Button 
+                      type="submit" 
+                      className="w-full font-bold text-lg h-12"
+                      disabled={mutation.isPending}
+                    >
+                      {mutation.isPending ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Gönderiliyor...
+                        </>
+                      ) : (
+                        "Gönder"
+                      )}
+                    </Button>
                   </form>
                 </Form>
               </CardContent>
