@@ -23,7 +23,7 @@ export function Navbar() {
     <>
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2 text-xs md:text-sm">
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <div className="flex gap-4">
             <span className="flex items-center gap-1 opacity-90">
               <Phone className="w-3 h-3" /> {SCHOOL_INFO.phone}
@@ -49,7 +49,7 @@ export function Navbar() {
             : "bg-background border-transparent py-4"
         )}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center gap-3 group">
@@ -98,7 +98,7 @@ export function Navbar() {
             ))}
             <div className="ml-4">
                <Link href="/kayit/on-kayit">
-                <Button className="bg-primary hover:bg-primary/90 text-white font-medium px-6 shadow-lg shadow-primary/20">
+                <Button className="bg-primary hover:bg-primary/90 text-white font-medium px-6 shadow-lg shadow-primary/20 rounded-full">
                   Kayıt Ol
                 </Button>
               </Link>
