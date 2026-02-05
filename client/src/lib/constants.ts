@@ -6,7 +6,7 @@ export const SCHOOL_INFO = {
   slogan: "Geleceğe Güvenle",
   phone: "0216 642 8 642",
   email: "info@ozelilgiokullari.k12.tr",
-  address: "Çekmeköy, İstanbul",
+  address: "Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48, 34782 Çekmeköy/İstanbul",
   mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96240.65365494956!2d29.063444752930042!3d41.079474428733654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacef195370a07%3A0x835559aac7366212!2zw5Z6ZWwgQm-En2F6acOnaSDEsGxnaSBPa3VsbGFyxLEgw4dla21la8O2eQ!5e0!3m2!1str!2str!4v1770303876462!5m2!1str!2str",
   social: {
     instagram: "https://instagram.com",
