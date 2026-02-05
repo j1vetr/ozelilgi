@@ -9,6 +9,8 @@ import Home from "@/pages/Home";
 import KurumsalPage from "@/pages/KurumsalPage";
 import AkademikPage from "@/pages/AkademikPage";
 import IletisimPage from "@/pages/IletisimPage";
+import KayitPage from "@/pages/KayitPage";
+import KayitSureciPage from "@/pages/KayitSureciPage";
 import OnKayitPage from "@/pages/OnKayitPage";
 import KampusPage from "@/pages/KampusPage";
 import ProgramlarPage from "@/pages/ProgramlarPage";
@@ -61,9 +63,9 @@ function Router() {
           <Route path="/veli-ogrenci/:tab" component={VeliOgrenciPage} />
 
           <Route path="/iletisim" component={IletisimPage} />
-          <Route path="/kayit" component={OnKayitPage} /> 
+          <Route path="/kayit" component={KayitPage} /> 
+          <Route path="/kayit/kayit-sureci" component={KayitSureciPage} />
           <Route path="/kayit/on-kayit" component={OnKayitPage} />
-          <Route path="/kayit/burs" component={OnKayitPage} /> {/* Reusing for demo */}
           
           <Route component={NotFound} />
         </Switch>

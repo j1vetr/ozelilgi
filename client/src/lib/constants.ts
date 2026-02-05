@@ -50,8 +50,7 @@ export const NAVIGATION = [
     href: "/kayit",
     items: [
       { title: "Kayıt Süreci", href: "/kayit/kayit-sureci" },
-      { title: "Ön Kayıt", href: "/kayit/on-kayit" },
-      { title: "Bursluluk", href: "/kayit/burs" },
+      { title: "Ön Kayıt Formu", href: "/kayit/on-kayit" },
     ],
   },
   {
