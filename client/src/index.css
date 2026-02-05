@@ -137,3 +137,30 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
+
+/* Logo Rotating Border Animation */
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-glow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.logo-ring {
+  animation: logo-spin 8s linear infinite;
+}
+
+.logo-glow {
+  animation: logo-glow 2s ease-in-out infinite;
+}

@@ -34,23 +34,31 @@ export function Navbar() {
       <div className="container flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/">
-          <a className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-105">
-               <img src="/images/logo.png" alt="Logo" className="w-full h-full object-contain" />
-            </div>
-            <div className="flex flex-col">
-              <span className={cn(
-                "font-display font-bold text-lg md:text-xl leading-none tracking-tight transition-colors",
-                scrolled ? "text-primary" : "text-white drop-shadow-md"
+          <a className="flex items-center group">
+            <div className="relative">
+              {/* Rotating gradient border */}
+              <div className={cn(
+                "absolute -inset-1 rounded-full logo-ring",
+                scrolled 
+                  ? "bg-gradient-to-r from-brand-blue via-brand-green to-brand-orange opacity-70" 
+                  : "bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-orange opacity-90"
+              )} />
+              {/* Inner white circle with logo */}
+              <div className={cn(
+                "relative w-12 h-12 md:w-14 md:h-14 rounded-full p-2 transition-all duration-300 group-hover:scale-105",
+                scrolled 
+                  ? "bg-white shadow-md" 
+                  : "bg-white shadow-xl"
               )}>
-                Boğaziçi İlgi
-              </span>
-              <span className={cn(
-                "text-[10px] md:text-xs font-medium tracking-widest uppercase transition-colors",
-                scrolled ? "text-muted-foreground" : "text-white/90 drop-shadow-md"
-              )}>
-                Çekmeköy
-              </span>
+                <img src="/images/logo.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" />
+              </div>
+              {/* Glow effect */}
+              <div className={cn(
+                "absolute -inset-2 rounded-full blur-md logo-glow pointer-events-none",
+                scrolled 
+                  ? "bg-brand-blue/20" 
+                  : "bg-white/30"
+              )} />
             </div>
           </a>
         </Link>
