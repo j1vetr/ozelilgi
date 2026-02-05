@@ -3,16 +3,73 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import Home from "@/pages/Home";
+import KurumsalPage from "@/pages/KurumsalPage";
+import AkademikPage from "@/pages/AkademikPage";
+import IletisimPage from "@/pages/IletisimPage";
+import OnKayitPage from "@/pages/OnKayitPage";
+import KampusPage from "@/pages/KampusPage";
+import ProgramlarPage from "@/pages/ProgramlarPage";
+import HaberlerPage from "@/pages/HaberlerPage";
+import BasarilarPage from "@/pages/BasarilarPage";
+import VeliOgrenciPage from "@/pages/VeliOgrenciPage";
 import NotFound from "@/pages/not-found";
+import { useLocation } from "wouter";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const [pathname] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function Router() {
   return (
-    <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
+    <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
+      <Navbar />
+      <main className="flex-grow">
+        <Switch>
+          <Route path="/" component={Home} />
+          
+          <Route path="/kurumsal" component={KurumsalPage} />
+          <Route path="/kurumsal/:slug" component={KurumsalPage} />
+          
+          <Route path="/akademik" component={AkademikPage} />
+          <Route path="/akademik/:slug" component={AkademikPage} />
+
+          <Route path="/kampus" component={KampusPage} />
+          <Route path="/kampus/:tab" component={KampusPage} />
+
+          <Route path="/programlar" component={ProgramlarPage} />
+          <Route path="/programlar/:slug" component={ProgramlarPage} />
+
+          <Route path="/haberler" component={HaberlerPage} />
+          <Route path="/haberler/:slug" component={HaberlerPage} />
+          <Route path="/duyurular" component={HaberlerPage} />
+
+          <Route path="/basarilar" component={BasarilarPage} />
+          <Route path="/basarilar/:category" component={BasarilarPage} />
+
+          <Route path="/veli-ogrenci" component={VeliOgrenciPage} />
+          <Route path="/veli-ogrenci/:tab" component={VeliOgrenciPage} />
+
+          <Route path="/iletisim" component={IletisimPage} />
+          <Route path="/kayit" component={OnKayitPage} /> 
+          <Route path="/kayit/on-kayit" component={OnKayitPage} />
+          <Route path="/kayit/burs" component={OnKayitPage} /> {/* Reusing for demo */}
+          
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
