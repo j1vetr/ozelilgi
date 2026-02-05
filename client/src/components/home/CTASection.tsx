@@ -19,28 +19,28 @@ export function CTASection() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img 
-                  src="/images/kindergarten-blue-2.jpg" 
+                  src="/images/kindergarten-numbers-2.jpg" 
                   alt="Anaokulu Sınıfı"
                   data-testid="cta-image-1"
                   className="rounded-2xl shadow-xl w-full h-48 object-cover"
                 />
                 <img 
-                  src="/images/classroom-green-new-2.jpg" 
-                  alt="Modern Sınıf"
+                  src="/images/playground-slide-2.jpg" 
+                  alt="Oyun Parkı"
                   data-testid="cta-image-2"
                   className="rounded-2xl shadow-xl w-full h-64 object-cover"
                 />
               </div>
               <div className="space-y-4 pt-8">
                 <img 
-                  src="/images/kindergarten-colorful.jpg" 
-                  alt="Oyun Odası"
+                  src="/images/classroom-blue-1.jpg" 
+                  alt="Modern Sınıf"
                   data-testid="cta-image-3"
                   className="rounded-2xl shadow-xl w-full h-64 object-cover"
                 />
                 <img 
-                  src="/images/library-1.jpg" 
-                  alt="Kütüphane"
+                  src="/images/welcome-stairs.jpg" 
+                  alt="Hoş Geldiniz"
                   data-testid="cta-image-4"
                   className="rounded-2xl shadow-xl w-full h-48 object-cover"
                 />

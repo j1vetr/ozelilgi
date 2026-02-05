@@ -10,7 +10,7 @@ const levels = [
     subtitle: "3-6 Yaş",
     description: "Oyun temelli öğrenme metoduyla çocuklarınızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
     icon: Baby,
-    image: "/images/kindergarten-orange-full.jpg",
+    image: "/images/kindergarten-kitchen.jpg",
     color: "bg-brand-yellow",
     textColor: "text-brand-yellow",
     features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma"]
@@ -21,7 +21,7 @@ const levels = [
     subtitle: "1-4. Sınıf",
     description: "Akademik temelleri sağlamlaştırırken, eleştirel düşünme ve problem çözme becerilerini geliştiriyoruz.",
     icon: BookOpen,
-    image: "/images/classroom-green-new-3.jpg",
+    image: "/images/classroom-blue-2.jpg",
     color: "bg-brand-green",
     textColor: "text-brand-green",
     features: ["Cambridge İngilizce", "Kodlama", "STEM"]
@@ -32,7 +32,7 @@ const levels = [
     subtitle: "5-8. Sınıf",
     description: "Lise ve üniversite yolculuğuna hazırlık yaparak, öğrencilerimizi geleceğin liderleri olarak yetiştiriyoruz.",
     icon: GraduationCap,
-    image: "/images/classroom-orange-blue.jpg",
+    image: "/images/classroom-orange-new-2.jpg",
     color: "bg-brand-orange",
     textColor: "text-brand-orange",
     features: ["Sınav Hazırlık", "2. Yabancı Dil", "Proje Bazlı Öğrenme"]
