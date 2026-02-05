@@ -124,7 +124,7 @@ export function VideoSlider() {
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
-              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&loop=1`}
+              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&loop=1&modestbranding=1&rel=0&showinfo=0&controls=1&iv_load_policy=3&disablekb=0`}
               title="YouTube video"
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
