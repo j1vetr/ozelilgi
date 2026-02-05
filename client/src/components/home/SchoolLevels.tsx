@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Sparkles, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowRight, Sparkles, BookOpen, GraduationCap, Users, Clock, Award } from "lucide-react";
 import { Button } from "../ui/button";
 
 const levels = [
@@ -9,194 +9,196 @@ const levels = [
     id: "anaokulu",
     title: "Anaokulu",
     ages: "3-6 Yaş",
+    color: "from-amber-400 to-orange-500",
+    bgColor: "bg-gradient-to-br from-amber-50 to-orange-50",
+    accentColor: "text-orange-600",
+    borderColor: "border-orange-200",
+    icon: Sparkles,
     description: "Oyun temelli öğrenme metoduyla çocuklarınızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
     image: "/images/kindergarten-kitchen.jpg",
-    secondaryImage: "/images/hallway-underwater.jpg",
     features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma", "Sosyal Beceriler"],
-    stats: { students: "120+", teachers: "12", years: "15+" }
+    stats: { students: "120+", classes: "8", experience: "15 Yıl" }
   },
   {
     id: "ilkokul",
     title: "İlkokul",
     ages: "1-4. Sınıf",
+    color: "from-blue-400 to-indigo-500",
+    bgColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
+    accentColor: "text-blue-600",
+    borderColor: "border-blue-200",
+    icon: BookOpen,
     description: "Akademik temelleri sağlamlaştırırken, eleştirel düşünme ve problem çözme becerilerini geliştiriyoruz.",
     image: "/images/classroom-smartboard.jpg",
-    secondaryImage: "/images/library-1.jpg",
     features: ["Cambridge İngilizce", "Kodlama Eğitimi", "STEM Projeleri", "Matematik Atölyesi"],
-    stats: { students: "200+", teachers: "18", years: "15+" }
+    stats: { students: "200+", classes: "12", experience: "15 Yıl" }
   },
   {
     id: "ortaokul",
     title: "Ortaokul",
     ages: "5-8. Sınıf",
+    color: "from-emerald-400 to-teal-500",
+    bgColor: "bg-gradient-to-br from-emerald-50 to-teal-50",
+    accentColor: "text-emerald-600",
+    borderColor: "border-emerald-200",
+    icon: GraduationCap,
     description: "Lise ve üniversite yolculuğuna hazırlık yaparak, öğrencilerimizi geleceğin liderleri olarak yetiştiriyoruz.",
     image: "/images/science-room-1.jpg",
-    secondaryImage: "/images/sports-hall-1.jpg",
     features: ["LGS Hazırlık", "2. Yabancı Dil", "Proje Bazlı Öğrenme", "Kariyer Rehberliği"],
-    stats: { students: "180+", teachers: "20", years: "15+" }
+    stats: { students: "180+", classes: "10", experience: "15 Yıl" }
   }
 ];
 
 export function SchoolLevels() {
   const [activeLevel, setActiveLevel] = useState(0);
+  const currentLevel = levels[activeLevel];
+  const Icon = currentLevel.icon;
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Blurry Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50" />
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-brand-orange/5 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-green/3 rounded-full blur-3xl" />
+    <section className="py-16 md:py-20 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50" />
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-3xl" />
       
-      <div className="container relative">
+      <div className="container relative px-4">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-10"
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/5 text-primary font-medium rounded-full text-xs tracking-wider uppercase mb-4"
-          >
-            <Sparkles className="w-3 h-3" />
+          <h2 data-testid="school-levels-section-title" className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary mb-3">
             Eğitim Kademeleri
-          </motion.span>
-          <h2 data-testid="school-levels-section-title" className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-            Her Yaşa Özel Program
           </h2>
-          <p data-testid="school-levels-section-description" className="text-muted-foreground leading-relaxed">
+          <p data-testid="school-levels-section-description" className="text-sm sm:text-base text-muted-foreground leading-relaxed">
             3 yaşından 14 yaşına kadar, çocuğunuzun gelişim dönemine özel hazırlanmış eğitim programları.
           </p>
         </motion.div>
 
-        {/* Level Selector Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex bg-white rounded-2xl p-1.5 shadow-lg shadow-black/5 border border-gray-100">
-            {levels.map((level, i) => (
+        {/* Level Cards - Horizontal on Desktop, Vertical on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+          {levels.map((level, i) => {
+            const LevelIcon = level.icon;
+            const isActive = activeLevel === i;
+            
+            return (
               <motion.button
                 key={level.id}
                 onClick={() => setActiveLevel(i)}
-                className={`relative px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${
-                  activeLevel === i 
-                    ? 'text-white' 
-                    : 'text-gray-600 hover:text-primary'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -4 }}
+                className={`relative p-5 rounded-2xl text-left transition-all duration-300 border-2 ${
+                  isActive 
+                    ? `${level.bgColor} ${level.borderColor} shadow-lg` 
+                    : 'bg-white border-gray-100 hover:border-gray-200 hover:shadow-md'
                 }`}
-                whileHover={{ scale: activeLevel === i ? 1 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
-                {activeLevel === i && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-gradient-to-r from-primary to-primary/90 rounded-xl shadow-md"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-2">
-                  {i === 0 && <Sparkles className="w-4 h-4" />}
-                  {i === 1 && <BookOpen className="w-4 h-4" />}
-                  {i === 2 && <GraduationCap className="w-4 h-4" />}
-                  {level.title}
-                </span>
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${level.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                    <LevelIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`font-bold text-lg ${isActive ? level.accentColor : 'text-gray-900'}`}>
+                      {level.title}
+                    </h3>
+                    <p className="text-sm text-gray-500">{level.ages}</p>
+                  </div>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className={`w-2 h-2 rounded-full bg-gradient-to-r ${level.color}`}
+                    />
+                  )}
+                </div>
               </motion.button>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Level Content */}
+        {/* Active Level Content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeLevel}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="grid lg:grid-cols-2 gap-8 items-center"
+            transition={{ duration: 0.3 }}
+            className={`rounded-3xl overflow-hidden ${currentLevel.bgColor} border-2 ${currentLevel.borderColor} shadow-xl`}
           >
-            {/* Left - Images */}
-            <div className="relative">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
-              >
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Image Side */}
+              <div className="relative h-64 md:h-auto md:min-h-[400px]">
                 <img 
-                  src={levels[activeLevel].image}
-                  alt={levels[activeLevel].title}
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                
-                {/* Age Badge */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                  <span className="text-primary font-bold text-sm">{levels[activeLevel].ages}</span>
-                </div>
-              </motion.div>
-              
-              {/* Secondary Image */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden md:block"
-              >
-                <img 
-                  src={levels[activeLevel].secondaryImage}
-                  alt=""
+                  src={currentLevel.image}
+                  alt={currentLevel.title}
                   className="w-full h-full object-cover"
                 />
-              </motion.div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-brand-yellow/20 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-blue/20 rounded-full blur-2xl" />
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 to-transparent" />
+                
+                {/* Stats Overlay */}
+                <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 flex gap-3">
+                  {[
+                    { icon: Users, label: "Öğrenci", value: currentLevel.stats.students },
+                    { icon: Clock, label: "Sınıf", value: currentLevel.stats.classes },
+                    { icon: Award, label: "Tecrübe", value: currentLevel.stats.experience },
+                  ].map((stat, idx) => (
+                    <div key={idx} className="bg-white/90 backdrop-blur-sm rounded-xl px-3 py-2 flex-1 text-center">
+                      <div className={`text-sm font-bold ${currentLevel.accentColor}`}>{stat.value}</div>
+                      <div className="text-[10px] text-gray-500">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-            {/* Right - Content */}
-            <div className="lg:pl-8">
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15 }}
-              >
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-primary mb-2">
-                  {levels[activeLevel].title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {levels[activeLevel].description}
+              {/* Content Side */}
+              <div className="p-6 md:p-8 flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${currentLevel.color} flex items-center justify-center shadow-md`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl md:text-2xl font-display font-bold ${currentLevel.accentColor}`}>
+                      {currentLevel.title}
+                    </h3>
+                    <span className="text-xs text-gray-500">{currentLevel.ages}</span>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+                  {currentLevel.description}
                 </p>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-2 gap-3 mb-8">
-                  {levels[activeLevel].features.map((feature, idx) => (
+                {/* Features */}
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {currentLevel.features.map((feature, idx) => (
                     <motion.div
                       key={idx}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 + idx * 0.05 }}
-                      className="flex items-center gap-2 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.05 }}
+                      className="flex items-center gap-2"
                     >
-                      <div className="w-2 h-2 bg-brand-green rounded-full" />
-                      <span className="text-sm font-medium text-gray-700">{feature}</span>
+                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${currentLevel.color}`} />
+                      <span className="text-xs md:text-sm text-gray-700">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* CTA */}
-                <Link href={`/akademik/${levels[activeLevel].id}`}>
+                <Link href={`/akademik/${currentLevel.id}`}>
                   <Button 
-                    data-testid={`school-level-button-${levels[activeLevel].id}`}
-                    className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20"
+                    data-testid={`school-level-button-${currentLevel.id}`}
+                    className={`w-full sm:w-auto h-11 px-6 rounded-full bg-gradient-to-r ${currentLevel.color} hover:opacity-90 text-white font-semibold shadow-lg`}
                   >
                     Detaylı Bilgi Al
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
