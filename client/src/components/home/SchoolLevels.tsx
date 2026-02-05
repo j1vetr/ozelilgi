@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Sparkles, BookOpen, GraduationCap, Users, Clock, Award } from "lucide-react";
+import { ArrowRight, Baby, BookOpen, GraduationCap, Users, Clock, Award } from "lucide-react";
 import { Button } from "../ui/button";
 
 const levels = [
@@ -13,7 +13,7 @@ const levels = [
     bgColor: "bg-gradient-to-br from-amber-50 to-orange-50",
     accentColor: "text-orange-600",
     borderColor: "border-orange-200",
-    icon: Sparkles,
+    icon: Baby,
     description: "Oyun temelli öğrenme metoduyla çocuklarınızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
     image: "/images/kindergarten-kitchen.jpg",
     features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma", "Sosyal Beceriler"],
@@ -51,8 +51,17 @@ const levels = [
 
 export function SchoolLevels() {
   const [activeLevel, setActiveLevel] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const currentLevel = levels[activeLevel];
   const Icon = currentLevel.icon;
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveLevel((prev) => (prev + 1) % levels.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   return (
     <section className="py-16 md:py-20 relative overflow-hidden">
@@ -86,7 +95,9 @@ export function SchoolLevels() {
             return (
               <motion.button
                 key={level.id}
-                onClick={() => setActiveLevel(i)}
+                onClick={() => { setActiveLevel(i); setIsPaused(true); }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
