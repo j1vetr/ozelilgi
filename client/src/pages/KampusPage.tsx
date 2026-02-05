@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRoute, useLocation } from "wouter";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CAMPUS_FACILITIES, CAMPUS_GALLERY } from "@/lib/page-content";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Building2, TreePine, Calendar, Users, ChevronLeft, ChevronRight, X,
-  Palette, Music, Code, FlaskConical, Dumbbell, BookOpen, Utensils, HeartHandshake
+  Palette, Music, Code, FlaskConical, Dumbbell, BookOpen, Utensils, HeartHandshake,
+  Shield, Wifi, Cctv, Leaf
 } from "lucide-react";
 
 const facilityIcons: Record<string, any> = {
@@ -66,32 +67,100 @@ export default function KampusPage() {
       />
 
       <div className="container py-12 px-4">
-        {/* Stats */}
+        {/* Campus Overview - Premium Design */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12"
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto mb-16"
         >
-          {[
-            { icon: Building2, label: "Kapalı Alan", value: "2000m²", color: "from-blue-500 to-indigo-500" },
-            { icon: TreePine, label: "Bahçe", value: "600m²", color: "from-green-500 to-emerald-500" },
-            { icon: Calendar, label: "Kuruluş", value: "2013", color: "from-orange-500 to-amber-500" },
-            { icon: Users, label: "Anaokulu Sınıfı", value: "4 Adet", color: "from-purple-500 to-violet-500" }
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center group"
-            >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform`}>
-                <stat.icon className="w-6 h-6 text-white" />
+          {/* Main Stats Showcase */}
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-blue-600 to-indigo-700 shadow-2xl">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/3" />
+              <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full translate-y-1/3 -translate-x-1/4" />
+            </div>
+
+            <div className="relative p-8 md:p-12">
+              <div className="text-center mb-10">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-block bg-white/15 backdrop-blur-sm text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/20 mb-4"
+                >
+                  KAMPÜS OLANAKLARI
+                </motion.span>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+                  Rakamlarla Kampüsümüz
+                </h2>
+                <p className="text-white/70 text-sm max-w-lg mx-auto">
+                  Modern altyapı ve donanımıyla öğrencilerimize en iyi eğitim ortamını sunuyoruz
+                </p>
               </div>
-              <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-              <div className="text-xs text-gray-500">{stat.label}</div>
-            </motion.div>
-          ))}
+
+              {/* Big Stats Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                {[
+                  { icon: Building2, label: "Kapalı Alan", value: "2.000", unit: "m²", desc: "Toplam eğitim alanı" },
+                  { icon: TreePine, label: "Açık Alan", value: "600", unit: "m²", desc: "Yeşil bahçe alanı" },
+                  { icon: Calendar, label: "Kuruluş", value: "2013", unit: "", desc: "Yılından bu yana" },
+                  { icon: Users, label: "Anaokulu", value: "4", unit: "Sınıf", desc: "Ayrı anaokulu sınıfı" }
+                ].map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                    className="relative group"
+                  >
+                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/15 hover:bg-white/20 transition-all duration-300 text-center h-full">
+                      <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <stat.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex items-baseline justify-center gap-1 mb-1">
+                        <span className="text-3xl md:text-4xl font-bold text-white">{stat.value}</span>
+                        {stat.unit && <span className="text-sm font-medium text-white/70">{stat.unit}</span>}
+                      </div>
+                      <div className="text-sm font-semibold text-white/90 mb-0.5">{stat.label}</div>
+                      <div className="text-xs text-white/50">{stat.desc}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Feature Badges Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+            {[
+              { icon: Shield, title: "Güvenli Kampüs", desc: "24 saat güvenlik", gradient: "from-emerald-500 to-teal-600" },
+              { icon: Wifi, title: "Akıllı Kampüs", desc: "Tam dijital altyapı", gradient: "from-blue-500 to-cyan-600" },
+              { icon: Cctv, title: "Kamera Sistemi", desc: "Tüm alanlarda izleme", gradient: "from-orange-500 to-amber-600" },
+              { icon: Leaf, title: "Yeşil Kampüs", desc: "Çevre dostu tasarım", gradient: "from-green-500 to-emerald-600" }
+            ].map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + i * 0.08 }}
+                className="group"
+              >
+                <div className={`bg-gradient-to-br ${feature.gradient} rounded-2xl p-4 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full`}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                      <feature.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-bold text-sm leading-tight">{feature.title}</h4>
+                      <p className="text-white/70 text-xs">{feature.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Tab Buttons */}
