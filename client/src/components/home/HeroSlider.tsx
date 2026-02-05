@@ -76,7 +76,7 @@ export function HeroSlider() {
             className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4"
           >
             Her Çocuk{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-green">
+            <span className="relative inline-block px-3 py-1 bg-brand-orange text-white rounded-lg shadow-lg">
               Özel İlgiyi
             </span>{" "}
             Hak Eder
