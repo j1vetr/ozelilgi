@@ -3,29 +3,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 const facilities = [
-  { id: 1, image: "/images/entrance-stairs.jpg", title: "Çok Dilli Hoş Geldiniz Merdivenleri", category: "Giriş" },
-  { id: 2, image: "/images/building-exterior.jpg", title: "Modern Bina Cephesi", category: "Dış Mekan" },
-  { id: 3, image: "/images/classroom-smartboard.jpg", title: "Akıllı Tahta Sınıfı", category: "Sınıf" },
-  { id: 4, image: "/images/classroom-blue-1.jpg", title: "Mavi Temalı Sınıf", category: "Sınıf" },
-  { id: 5, image: "/images/classroom-orange-new-1.jpg", title: "Turuncu Temalı Sınıf", category: "Sınıf" },
-  { id: 6, image: "/images/classroom-yellow.jpg", title: "Sarı Temalı Sınıf", category: "Sınıf" },
-  { id: 7, image: "/images/kindergarten-numbers-1.jpg", title: "Sayılarla Öğrenme Sınıfı", category: "Anaokulu" },
-  { id: 8, image: "/images/kindergarten-kitchen.jpg", title: "Oyuncak Mutfak Köşesi", category: "Anaokulu" },
-  { id: 9, image: "/images/kindergarten-numbers-2.jpg", title: "Eğlenceli Anaokulu", category: "Anaokulu" },
-  { id: 10, image: "/images/playground-slide-1.jpg", title: "Oyun Parkı", category: "Dış Mekan" },
-  { id: 11, image: "/images/playground-mural.jpg", title: "Renkli Kaydırak Alanı", category: "Dış Mekan" },
-  { id: 12, image: "/images/playground-slide-2.jpg", title: "Zürafa Duvar Resmi", category: "Dış Mekan" },
-  { id: 13, image: "/images/sports-court.jpg", title: "Kapalı Spor Alanı", category: "Dış Mekan" },
-  { id: 14, image: "/images/hopscotch.jpg", title: "Seksek Oyun Alanı", category: "Dış Mekan" },
-  { id: 15, image: "/images/entrance-lobby.jpg", title: "Giriş Holü", category: "Giriş" },
-  { id: 16, image: "/images/welcome-stairs.jpg", title: "Hoş Geldiniz Merdiveni", category: "Giriş" },
-  { id: 17, image: "/images/library-1.jpg", title: "Modern Kütüphane", category: "Kütüphane" },
-  { id: 18, image: "/images/science-room-1.jpg", title: "Bilim Atölyesi", category: "Laboratuvar" },
-  { id: 19, image: "/images/cafeteria-1.jpg", title: "Hijyenik Yemekhane", category: "Yemekhane" },
-  { id: 20, image: "/images/hallway-classroom.jpg", title: "Sınıf Koridoru", category: "Genel" },
+  { id: 1, image: "/images/building-drone-1.jpg", title: "Okul Binası Drone Görünümü", category: "Bina" },
+  { id: 2, image: "/images/building-drone-3.jpg", title: "Modern Cam Cephe", category: "Bina" },
+  { id: 3, image: "/images/building-playground.jpg", title: "Oyun Alanı ve Bina", category: "Bina" },
+  { id: 4, image: "/images/outdoor-entrance-ataturk.jpg", title: "Atatürk Köşesi ve Giriş", category: "Giriş" },
+  { id: 5, image: "/images/outdoor-vr-billboard.jpg", title: "Teknoloji Köşesi", category: "Giriş" },
+  { id: 6, image: "/images/entrance-stairs.jpg", title: "Hoş Geldiniz Merdiveni", category: "Giriş" },
+  { id: 7, image: "/images/sports-hall-1.jpg", title: "Spor Salonu - Basketbol", category: "Spor" },
+  { id: 8, image: "/images/sports-hall-2.jpg", title: "Spor Salonu - Voleybol", category: "Spor" },
+  { id: 9, image: "/images/music-room-1.jpg", title: "Müzik Odası - Enstrümanlar", category: "Müzik" },
+  { id: 10, image: "/images/music-room-2.jpg", title: "Müzik Odası - Perküsyon", category: "Müzik" },
+  { id: 11, image: "/images/music-studio.jpg", title: "Müzik Stüdyosu", category: "Müzik" },
+  { id: 12, image: "/images/art-room-1.jpg", title: "Sanat Atölyesi", category: "Sanat" },
+  { id: 13, image: "/images/art-room-2.jpg", title: "Resim Atölyesi", category: "Sanat" },
+  { id: 14, image: "/images/hallway-underwater.jpg", title: "Sualtı Temalı Koridor", category: "Koridor" },
+  { id: 15, image: "/images/classroom-smartboard.jpg", title: "Akıllı Tahta Sınıfı", category: "Sınıf" },
+  { id: 16, image: "/images/classroom-blue-1.jpg", title: "Mavi Temalı Sınıf", category: "Sınıf" },
+  { id: 17, image: "/images/classroom-orange-new-1.jpg", title: "Turuncu Temalı Sınıf", category: "Sınıf" },
+  { id: 18, image: "/images/kindergarten-kitchen.jpg", title: "Oyuncak Mutfak Köşesi", category: "Anaokulu" },
+  { id: 19, image: "/images/kindergarten-numbers-1.jpg", title: "Sayılarla Öğrenme", category: "Anaokulu" },
+  { id: 20, image: "/images/library-1.jpg", title: "Modern Kütüphane", category: "Kütüphane" },
 ];
 
-const categories = ["Tümü", "Giriş", "Anaokulu", "Sınıf", "Dış Mekan", "Kütüphane", "Laboratuvar", "Yemekhane", "Genel"];
+const categories = ["Tümü", "Bina", "Giriş", "Spor", "Müzik", "Sanat", "Sınıf", "Anaokulu", "Koridor", "Kütüphane"];
 
 export function FacilitiesGallery() {
   const [activeCategory, setActiveCategory] = useState("Tümü");

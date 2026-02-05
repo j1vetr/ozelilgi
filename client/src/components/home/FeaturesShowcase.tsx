@@ -6,42 +6,42 @@ const features = [
     icon: BookOpen,
     title: "Zengin Kütüphane",
     description: "Binlerce kitap, bireysel çalışma alanları ve okuma köşeleriyle donatılmış modern kütüphanemiz.",
-    image: "/images/library-2.jpg",
+    image: "/images/library-1.jpg",
     color: "from-blue-500 to-blue-600"
   },
   {
     icon: Brain,
     title: "Bilim & Keşif",
     description: "Uzay temalı laboratuvarlarımızda deneyler yaparak öğrenme fırsatı.",
-    image: "/images/science-room-2.jpg",
+    image: "/images/science-room-1.jpg",
     color: "from-purple-500 to-purple-600"
   },
   {
     icon: Palette,
     title: "Sanat & Yaratıcılık",
     description: "Resim, müzik ve el sanatları atölyelerinde yetenekleri keşfetme.",
-    image: "/images/hallway-art.jpg",
+    image: "/images/art-room-1.jpg",
     color: "from-pink-500 to-pink-600"
   },
   {
     icon: Users,
     title: "Sosyal Gelişim",
     description: "Grup aktiviteleri ve kulüp çalışmalarıyla sosyal becerileri güçlendiriyoruz.",
-    image: "/images/classroom-bright.jpg",
+    image: "/images/music-room-1.jpg",
     color: "from-green-500 to-green-600"
   },
   {
     icon: Heart,
     title: "Sağlıklı Beslenme",
     description: "Hijyenik mutfağımızda hazırlanan dengeli ve lezzetli öğünler.",
-    image: "/images/cafeteria-2.jpg",
+    image: "/images/cafeteria-1.jpg",
     color: "from-orange-500 to-orange-600"
   },
   {
     icon: Shield,
     title: "Güvenli Ortam",
     description: "7/24 kamera sistemi ve kontrollü giriş-çıkış ile tam güvenlik.",
-    image: "/images/classroom-orange-2.jpg",
+    image: "/images/building-drone-3.jpg",
     color: "from-teal-500 to-teal-600"
   }
 ];

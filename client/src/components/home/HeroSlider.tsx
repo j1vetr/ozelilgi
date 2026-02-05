@@ -7,7 +7,7 @@ import { Link } from "wouter";
 const SLIDES = [
   {
     id: 1,
-    image: "/images/entrance-stairs.jpg",
+    image: "/images/building-drone-1.jpg",
     title: "Her Öğrenci Özel İlgiyi Hak Eder",
     subtitle: "Anaokulu, İlkokul ve Ortaokul kademelerinde çocuğunuzun potansiyelini keşfediyoruz.",
     cta: "Kampüsü Keşfet",
@@ -16,36 +16,36 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: "/images/kindergarten-numbers-1.jpg",
-    title: "Öğrenmeyi Sevdiren Sınıflar",
-    subtitle: "Oyun temelli eğitimle çocuklarınız mutlu, başarılı öğrenciler oluyor.",
+    image: "/images/sports-hall-1.jpg",
+    title: "Spor ve Hareketle Gelişim",
+    subtitle: "Modern spor salonumuzda basketbol, voleybol ve jimnastik eğitimi.",
     cta: "Eğitim Modelimiz",
     link: "/akademik",
-    color: "bg-brand-yellow"
+    color: "bg-brand-orange"
   },
   {
     id: 3,
-    image: "/images/classroom-smartboard.jpg",
-    title: "Modern Eğitim Ortamları",
-    subtitle: "Akıllı tahta ve teknoloji destekli sınıflarımızda interaktif öğrenme.",
+    image: "/images/music-room-1.jpg",
+    title: "Sanat ve Müzikle Yaratıcılık",
+    subtitle: "Müzik odamızda piyano, davul ve perküsyon dersleri.",
     cta: "Ön Kayıt Yap",
     link: "/kayit/on-kayit",
-    color: "bg-brand-green"
+    color: "bg-brand-yellow"
   },
   {
     id: 4,
-    image: "/images/playground-mural.jpg",
+    image: "/images/building-playground.jpg",
     title: "Eğlenerek Öğreniyoruz",
     subtitle: "Renkli oyun alanları ve yaratıcı etkinliklerle gelişim.",
     cta: "Anaokulu",
     link: "/akademik/anaokulu",
-    color: "bg-brand-orange"
+    color: "bg-brand-green"
   },
   {
     id: 5,
-    image: "/images/building-exterior.jpg",
-    title: "Modern Kampüsümüz",
-    subtitle: "Güvenli ve ferah ortamda kaliteli eğitim.",
+    image: "/images/classroom-smartboard.jpg",
+    title: "Modern Eğitim Ortamları",
+    subtitle: "Akıllı tahta ve teknoloji destekli sınıflarımızda interaktif öğrenme.",
     cta: "Bizi Ziyaret Edin",
     link: "/iletisim",
     color: "bg-brand-blue"
