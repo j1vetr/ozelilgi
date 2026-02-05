@@ -68,7 +68,7 @@ export function HeroSlider() {
   const prev = () => setCurrent((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
 
   return (
-    <div className="relative h-screen min-h-[700px] w-full overflow-hidden bg-primary">
+    <div className="relative h-[75vh] min-h-[500px] max-h-[700px] w-full overflow-hidden bg-primary">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -103,11 +103,11 @@ export function HeroSlider() {
                 Anaokulu • İlkokul • Ortaokul
               </div>
 
-              <h1 data-testid="hero-title" className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] mb-8 tracking-tight">
+              <h1 data-testid="hero-title" className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
                 {SLIDES[current].title}
               </h1>
               
-              <p data-testid="hero-subtitle" className="text-xl md:text-2xl text-white/85 mb-12 max-w-2xl font-light leading-relaxed">
+              <p data-testid="hero-subtitle" className="text-lg md:text-xl text-white/85 mb-8 max-w-xl font-light leading-relaxed">
                 {SLIDES[current].subtitle}
               </p>
               
@@ -116,10 +116,10 @@ export function HeroSlider() {
                   <Button 
                     size="lg" 
                     data-testid="hero-cta-button"
-                    className={`h-16 px-10 rounded-full text-lg font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 ${SLIDES[current].color} border-none`}
+                    className={`h-12 px-8 rounded-full text-base font-semibold text-white shadow-xl hover:scale-105 transition-all duration-300 ${SLIDES[current].color} border-none`}
                   >
                     {SLIDES[current].cta} 
-                    <ArrowRight className="ml-3 w-6 h-6" />
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
                 
@@ -146,7 +146,7 @@ export function HeroSlider() {
       </div>
 
       {/* Bottom Controls */}
-      <div className="absolute bottom-12 left-0 right-0 z-20 container">
+      <div className="absolute bottom-6 left-0 right-0 z-20 container">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             {SLIDES.map((slide, idx) => (

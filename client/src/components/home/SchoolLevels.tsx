@@ -41,7 +41,7 @@ const levels = [
 
 export function SchoolLevels() {
   return (
-    <section className="py-28 bg-primary relative overflow-hidden">
+    <section className="py-16 bg-primary relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{
@@ -49,29 +49,27 @@ export function SchoolLevels() {
         }} />
       </div>
       
-      <div className="container relative">
+      <div className="container max-w-5xl relative">
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <span data-testid="school-levels-section-badge" className="inline-block px-4 py-2 bg-white/10 text-white font-bold rounded-full text-sm tracking-wider uppercase mb-4">
+          <span data-testid="school-levels-section-badge" className="inline-block px-3 py-1.5 bg-white/10 text-white font-semibold rounded-full text-xs tracking-wider uppercase mb-3">
             Eğitim Kademelerimiz
           </span>
-          <h2 data-testid="school-levels-section-title" className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
-            Her Yaşa Uygun <br/>
-            <span className="text-brand-yellow">Özel Programlar</span>
+          <h2 data-testid="school-levels-section-title" className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-4 leading-tight">
+            Her Yaşa Uygun <span className="text-brand-yellow">Özel Programlar</span>
           </h2>
-          <p data-testid="school-levels-section-description" className="text-xl text-white/70 leading-relaxed">
-            3 yaşından 14 yaşına kadar, çocuğunuzun gelişim dönemine özel 
-            hazırlanmış eğitim programlarıyla yanınızdayız.
+          <p data-testid="school-levels-section-description" className="text-base text-white/70 leading-relaxed">
+            3 yaşından 14 yaşına kadar, çocuğunuzun gelişim dönemine özel hazırlanmış eğitim programlarıyla yanınızdayız.
           </p>
         </motion.div>
 
         {/* Levels Cards */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {levels.map((level, i) => (
             <motion.div
               key={level.id}
@@ -81,42 +79,42 @@ export function SchoolLevels() {
               transition={{ delay: i * 0.15 }}
               className="group"
             >
-              <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl h-full flex flex-col transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-3xl">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl h-full flex flex-col transform transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl">
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <img 
                     src={level.image} 
                     alt={level.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   
                   {/* Badge */}
-                  <div className={`absolute top-4 left-4 ${level.color} text-white px-4 py-2 rounded-full font-bold text-sm`}>
+                  <div className={`absolute top-3 left-3 ${level.color} text-white px-3 py-1 rounded-full font-semibold text-xs`}>
                     {level.subtitle}
                   </div>
                   
                   {/* Icon */}
-                  <div className={`absolute bottom-4 right-4 w-16 h-16 ${level.color} rounded-2xl flex items-center justify-center shadow-lg`}>
-                    <level.icon className="w-8 h-8 text-white" />
+                  <div className={`absolute bottom-3 right-3 w-10 h-10 ${level.color} rounded-xl flex items-center justify-center shadow-md`}>
+                    <level.icon className="w-5 h-5 text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-display font-bold text-primary mb-3">
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-display font-bold text-primary mb-2">
                     {level.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                     {level.description}
                   </p>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {level.features.map((feature, idx) => (
                       <span 
                         key={idx}
-                        className={`px-3 py-1 ${level.color}/10 ${level.textColor} rounded-lg text-sm font-medium`}
+                        className={`px-2 py-0.5 ${level.color}/10 ${level.textColor} rounded text-xs font-medium`}
                       >
                         {feature}
                       </span>
@@ -127,11 +125,12 @@ export function SchoolLevels() {
                   <Link href={`/akademik/${level.id}`}>
                     <Button 
                       variant="outline" 
+                      size="sm"
                       data-testid={`school-level-button-${level.id}`}
-                      className={`w-full group/btn border-2 hover:${level.color} hover:text-white hover:border-transparent transition-all`}
+                      className={`w-full group/btn border hover:${level.color} hover:text-white hover:border-transparent transition-all`}
                     >
                       Detaylı Bilgi
-                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                      <ArrowRight className="w-3 h-3 ml-1.5 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
                   </Link>
                 </div>
