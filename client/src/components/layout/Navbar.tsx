@@ -132,64 +132,84 @@ export function Navbar() {
       {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden fixed inset-0 top-[80px] bg-white z-40 overflow-y-auto"
-          >
-            <div className="container px-6 py-10 flex flex-col gap-6">
-              {NAVIGATION.map((item, i) => (
-                <motion.div 
-                  key={item.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                  className="flex flex-col gap-3"
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
+              onClick={() => setIsOpen(false)}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="lg:hidden fixed right-0 top-0 bottom-0 w-[280px] bg-white z-40 shadow-2xl overflow-y-auto"
+            >
+              {/* Close Button */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                <span className="font-display font-bold text-primary">Menü</span>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200"
                 >
-                  <Link 
-                    href={item.href}
-                    data-testid={`mobile-nav-link-${i}`}
-                    className="text-2xl font-display font-bold text-primary flex items-center justify-between py-2 border-b border-gray-100"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.title}
-                    {item.items && <ChevronDown className="w-5 h-5 opacity-40" />}
-                  </Link>
-                  {item.items && (
-                    <div className="pl-4 flex flex-col gap-2 ml-2">
-                      {item.items.map((subItem, subIdx) => (
-                        <Link 
-                          key={subItem.title} 
-                          href={subItem.href}
-                          data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
-                          className="text-base text-gray-500 font-medium py-2 hover:text-primary transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-              <div className="mt-10 grid gap-4">
-                <Link href="/iletisim" onClick={() => setIsOpen(false)}>
-                  <Button size="lg" data-testid="mobile-contact-button" className="w-full bg-brand-orange rounded-xl h-14 text-lg font-bold" asChild>
-                    <span>
-                      <Phone className="w-5 h-5 mr-2" />
-                      İletişime Geç
-                    </span>
-                  </Button>
-                </Link>
-                <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)}>
-                  <Button size="lg" variant="outline" data-testid="mobile-preregister-button" className="w-full rounded-xl h-14 text-lg" asChild>
-                    <span>Ön Kayıt</span>
-                  </Button>
-                </Link>
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-            </div>
-          </motion.div>
+
+              <div className="p-4 flex flex-col gap-1">
+                {NAVIGATION.map((item, i) => (
+                  <div key={item.title} className="flex flex-col">
+                    <Link 
+                      href={item.href}
+                      data-testid={`mobile-nav-link-${i}`}
+                      className="text-base font-semibold text-gray-800 flex items-center justify-between py-3 px-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                      {item.items && <ChevronDown className="w-4 h-4 text-gray-400" />}
+                    </Link>
+                    {item.items && (
+                      <div className="ml-3 pl-3 border-l-2 border-gray-100 flex flex-col">
+                        {item.items.map((subItem, subIdx) => (
+                          <Link 
+                            key={subItem.title} 
+                            href={subItem.href}
+                            data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
+                            className="text-sm text-gray-500 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* CTA Buttons */}
+                <div className="mt-4 pt-4 border-t border-gray-100 grid gap-2">
+                  <Link href="/iletisim" onClick={() => setIsOpen(false)}>
+                    <Button data-testid="mobile-contact-button" className="w-full bg-brand-orange rounded-lg h-11 font-semibold" asChild>
+                      <span>
+                        <Phone className="w-4 h-4 mr-2" />
+                        İletişime Geç
+                      </span>
+                    </Button>
+                  </Link>
+                  <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" data-testid="mobile-preregister-button" className="w-full rounded-lg h-11 font-medium" asChild>
+                      <span>Ön Kayıt</span>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.header>
