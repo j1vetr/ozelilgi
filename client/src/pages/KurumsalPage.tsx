@@ -148,9 +148,10 @@ function KurucuMesajiContent() {
 
       {/* Video Embed */}
       <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-gray-900">
-        <div className="aspect-[9/16] max-w-xs mx-auto">
+        <div className="aspect-[9/16] max-w-xs mx-auto relative">
+          <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
           <iframe
-            src={`https://www.youtube.com/embed/${content.videoId}?autoplay=0&modestbranding=1&rel=0&showinfo=0&controls=1&iv_load_policy=3`}
+            src={`https://www.youtube-nocookie.com/embed/${content.videoId}?autoplay=0&modestbranding=1&rel=0&showinfo=0&controls=1&iv_load_policy=3&playsinline=1`}
             title="Kurucu Mesajı"
             className="w-full h-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

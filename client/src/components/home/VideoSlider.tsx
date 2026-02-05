@@ -123,8 +123,9 @@ export function VideoSlider() {
             className="relative w-full max-w-sm aspect-[9/16] rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
             <iframe
-              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&loop=1&modestbranding=1&rel=0&showinfo=0&controls=1&iv_load_policy=3&disablekb=0`}
+              src={`https://www.youtube-nocookie.com/embed/${activeVideo}?autoplay=1&loop=1&modestbranding=1&rel=0&showinfo=0&controls=1&iv_load_policy=3&playsinline=1`}
               title="YouTube video"
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
