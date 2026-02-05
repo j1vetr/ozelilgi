@@ -7,13 +7,21 @@ const facilities = [
   { id: 2, image: "/images/bookshelf.jpg", title: "Zengin Kitap Koleksiyonu", category: "Kütüphane" },
   { id: 3, image: "/images/study-area.jpg", title: "Bireysel Çalışma Alanları", category: "Kütüphane" },
   { id: 4, image: "/images/science-room-1.jpg", title: "Bilim Atölyesi", category: "Laboratuvar" },
-  { id: 5, image: "/images/classroom-bright.jpg", title: "Ferah Sınıflar", category: "Sınıf" },
-  { id: 6, image: "/images/classroom-orange-4.jpg", title: "Modern Donanım", category: "Sınıf" },
-  { id: 7, image: "/images/cafeteria-2.jpg", title: "Hijyenik Yemekhane", category: "Yemekhane" },
-  { id: 8, image: "/images/hallway-art.jpg", title: "Sanatsal Koridorlar", category: "Genel" },
+  { id: 5, image: "/images/classroom-green-new-1.jpg", title: "Modern Sınıflar", category: "Sınıf" },
+  { id: 6, image: "/images/classroom-green-new-4.jpg", title: "Akıllı Tahta Sistemleri", category: "Sınıf" },
+  { id: 7, image: "/images/classroom-orange-blue.jpg", title: "Ortaokul Sınıfları", category: "Sınıf" },
+  { id: 8, image: "/images/cafeteria-1.jpg", title: "Hijyenik Yemekhane", category: "Yemekhane" },
+  { id: 9, image: "/images/kindergarten-blue-1.jpg", title: "Anaokulu Mavi Sınıf", category: "Anaokulu" },
+  { id: 10, image: "/images/kindergarten-orange-1.jpg", title: "Anaokulu Turuncu Sınıf", category: "Anaokulu" },
+  { id: 11, image: "/images/kindergarten-colorful.jpg", title: "Oyun Odası", category: "Anaokulu" },
+  { id: 12, image: "/images/playroom-ballpit-1.jpg", title: "Top Havuzu Alanı", category: "Anaokulu" },
+  { id: 13, image: "/images/hallway-mural.jpg", title: "İlham Veren Koridorlar", category: "Genel" },
+  { id: 14, image: "/images/wall-art-caterpillar.jpg", title: "Duvar Sanatı", category: "Genel" },
+  { id: 15, image: "/images/staircase-safety.jpg", title: "Güvenli Merdivenler", category: "Genel" },
+  { id: 16, image: "/images/kindergarten-cabinets.jpg", title: "Çocuk Dostu Dolaplar", category: "Anaokulu" },
 ];
 
-const categories = ["Tümü", "Kütüphane", "Laboratuvar", "Sınıf", "Yemekhane", "Genel"];
+const categories = ["Tümü", "Anaokulu", "Sınıf", "Kütüphane", "Laboratuvar", "Yemekhane", "Genel"];
 
 export function FacilitiesGallery() {
   const [activeCategory, setActiveCategory] = useState("Tümü");

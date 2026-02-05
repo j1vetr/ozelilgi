@@ -7,8 +7,8 @@ import { Link } from "wouter";
 const SLIDES = [
   {
     id: 1,
-    image: "/images/school-exterior-1.jpg",
-    title: "Geleceğin Tohumları Burada Filizleniyor",
+    image: "/images/hallway-mural.jpg",
+    title: "Her Öğrenci Özel İlgiyi Hak Eder",
     subtitle: "Anaokulu, İlkokul ve Ortaokul kademelerinde çocuğunuzun potansiyelini keşfediyoruz.",
     cta: "Kampüsü Keşfet",
     link: "/kampus",
@@ -16,20 +16,29 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: "/images/classroom-bright.jpg",
+    image: "/images/kindergarten-orange-1.jpg",
     title: "Öğrenmeyi Sevdiren Sınıflar",
-    subtitle: "Modern donanımlı sınıflarımızda interaktif ve eğlenceli öğrenme deneyimi.",
+    subtitle: "Oyun temelli eğitimle çocuklarınız mutlu, başarılı öğrenciler oluyor.",
     cta: "Eğitim Modelimiz",
     link: "/akademik",
-    color: "bg-brand-green"
+    color: "bg-brand-yellow"
   },
   {
     id: 3,
-    image: "/images/science-room-2.jpg",
-    title: "Keşfederek Öğreniyoruz",
-    subtitle: "Bilim, sanat ve teknoloji atölyelerinde yaratıcılığı geliştiriyoruz.",
+    image: "/images/classroom-green-new-1.jpg",
+    title: "Modern Eğitim Ortamları",
+    subtitle: "Akıllı tahta ve teknoloji destekli sınıflarımızda interaktif öğrenme.",
     cta: "Ön Kayıt Yap",
     link: "/kayit/on-kayit",
+    color: "bg-brand-green"
+  },
+  {
+    id: 4,
+    image: "/images/playroom-ballpit-1.jpg",
+    title: "Eğlenerek Öğreniyoruz",
+    subtitle: "Top havuzu, oyun alanları ve yaratıcı etkinliklerle gelişim.",
+    cta: "Anaokulu",
+    link: "/akademik/anaokulu",
     color: "bg-brand-orange"
   }
 ];
