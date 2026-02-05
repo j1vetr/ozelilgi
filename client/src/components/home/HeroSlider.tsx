@@ -28,14 +28,14 @@ const heroSlides = [
 ];
 
 const marqueeItems = [
-  "Anaokulu 3-6 Yaş",
-  "İlkokul 1-4. Sınıf", 
-  "Ortaokul 5-8. Sınıf",
-  "Cambridge İngilizce",
-  "STEM Eğitimi",
-  "Müzik & Sanat",
-  "Spor Aktiviteleri",
-  "Kodlama Dersleri",
+  "Anaokulu",
+  "İlkokul",
+  "Ortaokul",
+  "Yabancı Dil",
+  "Fen Laboratuvarı",
+  "Müzik Atölyesi",
+  "Sanat Atölyesi",
+  "Spor Salonu",
 ];
 
 export function HeroSlider() {
@@ -133,7 +133,7 @@ export function HeroSlider() {
                 <Button
                   size="default"
                   data-testid="hero-cta-button"
-                  className="h-11 px-6 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25"
+                  className="h-11 w-44 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25 justify-center"
                 >
                   Ön Kayıt Yap
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -145,7 +145,7 @@ export function HeroSlider() {
                 <Button
                   size="default"
                   variant="outline"
-                  className="h-11 px-6 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm"
+                  className="h-11 w-44 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm justify-center"
                 >
                   <Play className="mr-2 w-4 h-4" />
                   Kampüsü Keşfet
@@ -198,9 +198,9 @@ export function HeroSlider() {
             className="flex gap-8 whitespace-nowrap"
           >
             {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-brand-orange rounded-full" />
+              <div key={i} className="flex items-center gap-6">
                 <span className="text-white font-medium text-sm">{item}</span>
+                <span className="text-white/30">|</span>
               </div>
             ))}
           </motion.div>
