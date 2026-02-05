@@ -187,23 +187,20 @@ export function HeroSlider() {
             </div>
           </motion.div>
 
-          {/* Stats Card */}
+          {/* Third Image Card */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="row-span-1 bg-white rounded-3xl p-4 flex items-center justify-between"
+            className="row-span-1 relative rounded-3xl overflow-hidden group"
           >
-            {[
-              { value: "24+", label: "Sınıf" },
-              { value: "3500", label: "m² Alan" },
-              { value: "15+", label: "Yıl" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-xl font-bold text-primary">{stat.value}</div>
-                <div className="text-xs text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
+            <img 
+              src="/images/art-room-1.jpg" 
+              alt="Sanat" 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <span className="absolute bottom-3 left-3 text-white font-semibold text-sm">Sanat Atölyesi</span>
           </motion.div>
 
           {/* Contact Card */}
