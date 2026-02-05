@@ -16,12 +16,12 @@ export function Footer() {
               <h2 className="font-display text-xl font-bold">{SCHOOL_INFO.shortName}</h2>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-              {SCHOOL_INFO.slogan}. Eğitimde mükemmellik, karakterde erdem, gelecekte başarı.
+              {SCHOOL_INFO.slogan}. Anaokulu, İlkokul ve Ortaokul kademelerinde kaliteli eğitim.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Instagram className="w-4 h-4" /></a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Facebook className="w-4 h-4" /></a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Linkedin className="w-4 h-4" /></a>
+              <a href="#" data-testid="footer-social-instagram" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Instagram className="w-4 h-4" /></a>
+              <a href="#" data-testid="footer-social-facebook" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Facebook className="w-4 h-4" /></a>
+              <a href="#" data-testid="footer-social-linkedin" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Linkedin className="w-4 h-4" /></a>
             </div>
           </div>
 
@@ -29,13 +29,15 @@ export function Footer() {
           <div>
             <h3 className="font-display text-lg font-semibold mb-6 text-accent">Hızlı Erişim</h3>
             <ul className="space-y-3">
-              {NAVIGATION.slice(0, 4).map((item) => (
+              {NAVIGATION.slice(0, 4).map((item, idx) => (
                 <li key={item.title}>
-                  <Link href={item.href}>
-                    <a className="text-sm text-primary-foreground/70 hover:text-white transition-colors flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-accent/50" />
-                      {item.title}
-                    </a>
+                  <Link 
+                    href={item.href}
+                    data-testid={`footer-nav-link-${idx}`}
+                    className="text-sm text-primary-foreground/70 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-accent/50" />
+                    {item.title}
                   </Link>
                 </li>
               ))}
@@ -48,15 +50,15 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-primary-foreground/70">
                 <MapPin className="w-5 h-5 shrink-0 text-accent" />
-                <span>{SCHOOL_INFO.address}</span>
+                <span data-testid="footer-address">{SCHOOL_INFO.address}</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <Phone className="w-5 h-5 shrink-0 text-accent" />
-                <span>{SCHOOL_INFO.phone}</span>
+                <span data-testid="footer-phone">{SCHOOL_INFO.phone}</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <Mail className="w-5 h-5 shrink-0 text-accent" />
-                <span>{SCHOOL_INFO.email}</span>
+                <span data-testid="footer-email">{SCHOOL_INFO.email}</span>
               </li>
             </ul>
           </div>
@@ -64,10 +66,10 @@ export function Footer() {
           {/* Newsletter / Map */}
           <div>
             <h3 className="font-display text-lg font-semibold mb-6 text-accent">Konum</h3>
-            <div className="w-full h-48 bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group">
+            <div data-testid="footer-map-container" className="w-full h-48 bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group">
                {/* Placeholder for Map */}
                <div className="absolute inset-0 flex items-center justify-center bg-muted/20 group-hover:bg-muted/30 transition-colors">
-                  <span className="text-xs text-white/50">Google Maps Embed</span>
+                  <span data-testid="footer-map-placeholder" className="text-xs text-white/50">Google Maps Embed</span>
                </div>
             </div>
           </div>
@@ -76,9 +78,9 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/50">
           <p>&copy; {new Date().getFullYear()} {SCHOOL_INFO.name}. Tüm hakları saklıdır.</p>
           <div className="flex gap-6">
-            <Link href="/gizlilik"><a className="hover:text-white">Gizlilik Politikası</a></Link>
-            <Link href="/kvkk"><a className="hover:text-white">KVKK</a></Link>
-            <Link href="/kullanim-sartlari"><a className="hover:text-white">Kullanım Şartları</a></Link>
+            <Link href="/gizlilik" data-testid="footer-privacy-link" className="hover:text-white">Gizlilik Politikası</Link>
+            <Link href="/kvkk" data-testid="footer-kvkk-link" className="hover:text-white">KVKK</Link>
+            <Link href="/kullanim-sartlari" data-testid="footer-terms-link" className="hover:text-white">Kullanım Şartları</Link>
           </div>
         </div>
       </div>

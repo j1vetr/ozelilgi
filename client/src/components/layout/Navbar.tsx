@@ -33,17 +33,15 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between">
         {/* Logo Section */}
-        <Link href="/">
-          <a className="flex items-center group">
-            <div className="relative p-[3px] rounded-xl logo-border-animation">
-              <div className={cn(
-                "relative w-44 h-16 md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
-                "bg-white"
-              )}>
-                <img src="/images/logo.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" />
-              </div>
+        <Link href="/" className="flex items-center group" data-testid="navbar-logo-link">
+          <div className="relative p-[3px] rounded-xl logo-border-animation">
+            <div className={cn(
+              "relative w-44 h-16 md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
+              "bg-white"
+            )}>
+              <img src="/images/logo.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" />
             </div>
-          </a>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -53,10 +51,12 @@ export function Navbar() {
             ? "bg-gray-50/80" 
             : "bg-white/10 backdrop-blur-md border border-white/20"
         )}>
-          {NAVIGATION.map((item) => (
+          {NAVIGATION.map((item, idx) => (
             <div key={item.title} className="relative group">
-              <Link href={item.href}>
-                <a className={cn(
+              <Link 
+                href={item.href}
+                data-testid={`navbar-nav-link-${idx}`}
+                className={cn(
                   "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-1.5",
                   location.startsWith(item.href) 
                     ? scrolled 
@@ -65,21 +65,24 @@ export function Navbar() {
                     : scrolled 
                       ? "text-gray-700 hover:bg-gray-100 hover:text-primary" 
                       : "text-white hover:bg-white/20"
-                )}>
-                  {item.title}
-                  {item.items && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
-                </a>
+                )}
+              >
+                {item.title}
+                {item.items && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
               </Link>
               
               {/* Dropdown */}
               {item.items && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                   <div className="bg-white rounded-2xl shadow-2xl p-2 min-w-[220px] border border-gray-100/80">
-                    {item.items.map((subItem) => (
-                      <Link key={subItem.title} href={subItem.href}>
-                        <a className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-xl transition-all">
-                          {subItem.title}
-                        </a>
+                    {item.items.map((subItem, subIdx) => (
+                      <Link 
+                        key={subItem.title} 
+                        href={subItem.href}
+                        data-testid={`navbar-dropdown-link-${idx}-${subIdx}`}
+                        className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-xl transition-all"
+                      >
+                        {subItem.title}
                       </Link>
                     ))}
                   </div>
@@ -94,21 +97,26 @@ export function Navbar() {
           <Link href="/iletisim">
             <Button 
               size="lg"
+              data-testid="navbar-contact-button"
               className={cn(
                 "rounded-full px-6 font-semibold transition-all duration-300 gap-2",
                 scrolled 
                   ? "bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg shadow-brand-orange/25" 
                   : "bg-white text-primary hover:bg-white/90 shadow-xl"
               )}
+              asChild
             >
-              <Phone className="w-4 h-4" />
-              İletişim
+              <span>
+                <Phone className="w-4 h-4" />
+                İletişim
+              </span>
             </Button>
           </Link>
         </div>
 
         {/* Mobile Toggle */}
         <button
+          data-testid="navbar-mobile-toggle"
           className={cn(
             "lg:hidden p-3 rounded-xl transition-all",
             scrolled 
@@ -139,25 +147,26 @@ export function Navbar() {
                   transition={{ delay: i * 0.08 }}
                   className="flex flex-col gap-3"
                 >
-                  <Link href={item.href}>
-                    <a 
-                      className="text-2xl font-display font-bold text-primary flex items-center justify-between py-2 border-b border-gray-100"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.title}
-                      {item.items && <ChevronDown className="w-5 h-5 opacity-40" />}
-                    </a>
+                  <Link 
+                    href={item.href}
+                    data-testid={`mobile-nav-link-${i}`}
+                    className="text-2xl font-display font-bold text-primary flex items-center justify-between py-2 border-b border-gray-100"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.title}
+                    {item.items && <ChevronDown className="w-5 h-5 opacity-40" />}
                   </Link>
                   {item.items && (
                     <div className="pl-4 flex flex-col gap-2 ml-2">
-                      {item.items.map((subItem) => (
-                        <Link key={subItem.title} href={subItem.href}>
-                          <a 
-                            className="text-base text-gray-500 font-medium py-2 hover:text-primary transition-colors"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subItem.title}
-                          </a>
+                      {item.items.map((subItem, subIdx) => (
+                        <Link 
+                          key={subItem.title} 
+                          href={subItem.href}
+                          data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
+                          className="text-base text-gray-500 font-medium py-2 hover:text-primary transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {subItem.title}
                         </Link>
                       ))}
                     </div>
@@ -165,15 +174,17 @@ export function Navbar() {
                 </motion.div>
               ))}
               <div className="mt-10 grid gap-4">
-                <Link href="/iletisim">
-                  <Button size="lg" className="w-full bg-brand-orange rounded-xl h-14 text-lg font-bold">
-                    <Phone className="w-5 h-5 mr-2" />
-                    İletişime Geç
+                <Link href="/iletisim" onClick={() => setIsOpen(false)}>
+                  <Button size="lg" data-testid="mobile-contact-button" className="w-full bg-brand-orange rounded-xl h-14 text-lg font-bold" asChild>
+                    <span>
+                      <Phone className="w-5 h-5 mr-2" />
+                      İletişime Geç
+                    </span>
                   </Button>
                 </Link>
-                <Link href="/kayit/on-kayit">
-                  <Button size="lg" variant="outline" className="w-full rounded-xl h-14 text-lg">
-                    Ön Kayıt
+                <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)}>
+                  <Button size="lg" variant="outline" data-testid="mobile-preregister-button" className="w-full rounded-xl h-14 text-lg" asChild>
+                    <span>Ön Kayıt</span>
                   </Button>
                 </Link>
               </div>
