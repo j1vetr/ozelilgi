@@ -1,236 +1,236 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "../ui/button";
+import { ArrowRight, Palette, BookOpen, GraduationCap, Star, Users, Award } from "lucide-react";
 
 const levels = [
   {
     id: "anaokulu",
     title: "Anaokulu",
+    subtitle: "Okul Öncesi Eğitim",
     ages: "3-6 Yaş",
-    description: "Oyun temelli öğrenme ile merak duygusunu besliyor, sosyal gelişimi destekliyoruz.",
+    description: "Oyun temelli öğrenme ile çocuklarımızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
     image: "/images/kindergarten-kitchen.jpg",
     color: "#F97316",
-    features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma", "Sosyal Beceriler"]
+    colorLight: "rgba(249, 115, 22, 0.12)",
+    colorMid: "rgba(249, 115, 22, 0.25)",
+    gradient: "from-orange-500 to-amber-500",
+    icon: Palette,
+    features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma Yazma", "Sosyal Beceriler"],
+    stat: { icon: Star, label: "Mutlu Öğrenci", value: "150+" }
   },
   {
     id: "ilkokul",
     title: "İlkokul",
+    subtitle: "Temel Eğitim",
     ages: "1-4. Sınıf",
-    description: "Akademik temelleri güçlendirirken, eleştirel düşünme becerilerini geliştiriyoruz.",
+    description: "Akademik temelleri güçlendirirken, eleştirel düşünme ve problem çözme becerilerini geliştiriyoruz.",
     image: "/images/classroom-smartboard.jpg",
     color: "#3B82F6",
-    features: ["Cambridge İngilizce", "Kodlama Eğitimi", "STEM Projeleri", "Matematik Atölyesi"]
+    colorLight: "rgba(59, 130, 246, 0.12)",
+    colorMid: "rgba(59, 130, 246, 0.25)",
+    gradient: "from-blue-500 to-indigo-500",
+    icon: BookOpen,
+    features: ["Cambridge İngilizce", "Kodlama Eğitimi", "STEM Projeleri", "Matematik Atölyesi"],
+    stat: { icon: Users, label: "Uzman Öğretmen", value: "25+" }
   },
   {
     id: "ortaokul",
     title: "Ortaokul",
+    subtitle: "Ortaöğretime Hazırlık",
     ages: "5-8. Sınıf",
-    description: "LGS hazırlığı ile öğrencilerimizi geleceğin liderleri olarak yetiştiriyoruz.",
+    description: "LGS hazırlığı ile öğrencilerimizi geleceğin liderleri olarak yetiştiriyor, akademik başarıyı en üst seviyeye taşıyoruz.",
     image: "/images/science-room-1.jpg",
     color: "#10B981",
-    features: ["LGS Hazırlık", "2. Yabancı Dil", "Proje Bazlı Öğrenme", "Kariyer Rehberliği"]
+    colorLight: "rgba(16, 185, 129, 0.12)",
+    colorMid: "rgba(16, 185, 129, 0.25)",
+    gradient: "from-emerald-500 to-teal-500",
+    icon: GraduationCap,
+    features: ["LGS Hazırlık", "2. Yabancı Dil", "Proje Bazlı Öğrenme", "Kariyer Rehberliği"],
+    stat: { icon: Award, label: "Yıllık Tecrübe", value: "25+" }
   }
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
 export function SchoolLevels() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % levels.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
-  const goTo = (index: number) => {
-    setActiveIndex(index);
-    setIsPaused(true);
-    setTimeout(() => setIsPaused(false), 10000);
-  };
-
-  const goNext = () => goTo((activeIndex + 1) % levels.length);
-  const goPrev = () => goTo((activeIndex - 1 + levels.length) % levels.length);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 md:py-20 relative overflow-hidden bg-gray-900">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                           radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%)`
-        }} />
+    <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-orange-100/40 blur-3xl" />
+        <div className="absolute top-1/2 -left-20 w-60 h-60 rounded-full bg-blue-100/40 blur-3xl" />
+        <div className="absolute -bottom-20 right-1/4 w-72 h-72 rounded-full bg-emerald-100/30 blur-3xl" />
       </div>
 
       <div className="container relative px-4">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-14 md:mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-3">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-4"
+          >
+            Eğitim Programlarımız
+          </motion.span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">
             Eğitim Kademeleri
           </h2>
-          <p className="text-white/60 text-sm md:text-base max-w-lg mx-auto">
-            Her yaş grubuna özel tasarlanmış eğitim programlarımız
+          <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Her yaş grubuna özel tasarlanmış müfredatımızla, öğrencilerimizi geleceğe hazırlıyoruz
           </p>
         </motion.div>
 
-        {/* Main Content */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Cards Container */}
-          <div 
-            className="relative h-[480px] md:h-[400px]"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            <AnimatePresence mode="wait">
-              {levels.map((level, index) => (
-                index === activeIndex && (
-                  <motion.div
-                    key={level.id}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="absolute inset-0"
-                  >
-                    <div className="grid md:grid-cols-2 gap-6 h-full">
-                      {/* Image Side */}
-                      <div className="relative rounded-3xl overflow-hidden group">
-                        <img 
-                          src={level.image}
-                          alt={level.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                        
-                        {/* Floating Age Badge */}
-                        <motion.div 
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.3, type: "spring" }}
-                          className="absolute top-4 left-4 px-4 py-2 rounded-full text-white text-sm font-bold shadow-lg"
-                          style={{ backgroundColor: level.color }}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
+        >
+          {levels.map((level, index) => {
+            const Icon = level.icon;
+            const StatIcon = level.stat.icon;
+            const isHovered = hoveredIndex === index;
+
+            return (
+              <motion.div
+                key={level.id}
+                variants={cardVariants}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="group relative"
+                data-testid={`card-level-${level.id}`}
+              >
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all duration-500 h-full flex flex-col border border-gray-100/80">
+                  <div className="relative h-52 md:h-56 overflow-hidden">
+                    <motion.img
+                      src={level.image}
+                      alt={level.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      animate={{ scale: isHovered ? 1.08 : 1 }}
+                      transition={{ duration: 0.7, ease: "easeOut" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                    <motion.div
+                      className="absolute top-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-md shadow-lg"
+                      style={{ backgroundColor: `${level.color}dd` }}
+                      animate={{ rotate: isHovered ? 12 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Icon className="w-6 h-6 text-white" />
+                    </motion.div>
+
+                    <div className="absolute bottom-0 left-0 right-0 p-5 pb-4">
+                      <motion.div
+                        className="inline-block px-3 py-1 rounded-full text-white text-[11px] font-bold tracking-wide uppercase mb-2"
+                        style={{ backgroundColor: `${level.color}cc`, backdropFilter: "blur(8px)" }}
+                      >
+                        {level.ages}
+                      </motion.div>
+                      <h3 className="text-2xl md:text-[1.65rem] font-display font-bold text-white leading-tight">
+                        {level.title}
+                      </h3>
+                      <p className="text-white/70 text-xs font-medium mt-0.5">{level.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <div className="p-5 md:p-6 flex flex-col flex-1">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                      {level.description}
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-2 mb-5">
+                      {level.features.map((feature, idx) => (
+                        <motion.div
+                          key={idx}
+                          className="flex items-center gap-2 px-2.5 py-2 rounded-xl transition-colors duration-300"
+                          style={{ backgroundColor: isHovered ? level.colorLight : "rgb(248,250,252)" }}
                         >
-                          {level.ages}
-                        </motion.div>
-
-                        {/* Title on Image */}
-                        <div className="absolute bottom-6 left-6 right-6">
-                          <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">
-                            {level.title}
-                          </h3>
-                        </div>
-                      </div>
-
-                      {/* Content Side */}
-                      <div className="flex flex-col justify-center p-2 md:p-6">
-                        <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6">
-                          {level.description}
-                        </p>
-
-                        {/* Features */}
-                        <div className="grid grid-cols-2 gap-2 mb-6">
-                          {level.features.map((feature, idx) => (
-                            <motion.div
-                              key={idx}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.2 + idx * 0.1 }}
-                              className="flex items-center gap-2"
-                            >
-                              <div 
-                                className="w-2 h-2 rounded-full"
-                                style={{ backgroundColor: level.color }}
-                              />
-                              <span className="text-white/70 text-xs md:text-sm">{feature}</span>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                        {/* Stats */}
-                        <div className="flex gap-4 mb-6">
-                          {[
-                            { label: "Tecrübe", value: "25 Yıl" },
-                            { label: "Öğretmen", value: "+25" },
-                            { label: "Memnuniyet", value: "%100" }
-                          ].map((stat, idx) => (
-                            <div key={idx} className="text-center">
-                              <div className="text-lg md:text-xl font-bold text-white">{stat.value}</div>
-                              <div className="text-[10px] text-white/50">{stat.label}</div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* CTA Button */}
-                        <Link href={`/akademik/${level.id}`}>
-                          <Button 
-                            className="w-full md:w-auto h-11 px-6 rounded-full text-white font-semibold shadow-lg"
+                          <div
+                            className="w-1.5 h-1.5 rounded-full shrink-0"
                             style={{ backgroundColor: level.color }}
-                          >
-                            Detaylı Bilgi
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Button>
-                        </Link>
+                          />
+                          <span className="text-gray-600 text-xs font-medium leading-tight">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <div
+                      className="flex items-center gap-3 px-4 py-3 rounded-2xl mb-5 transition-colors duration-300"
+                      style={{ backgroundColor: isHovered ? level.colorMid : level.colorLight }}
+                    >
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center"
+                        style={{ backgroundColor: level.color }}
+                      >
+                        <StatIcon className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-lg font-bold text-gray-900 leading-none">{level.stat.value}</div>
+                        <div className="text-[11px] text-gray-500 font-medium">{level.stat.label}</div>
                       </div>
                     </div>
-                  </motion.div>
-                )
-              ))}
-            </AnimatePresence>
-          </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            {/* Prev Button */}
-            <button
-              onClick={goPrev}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Dots */}
-            <div className="flex gap-2">
-              {levels.map((level, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => goTo(idx)}
-                  className="group relative"
-                >
-                  <div 
-                    className={`h-2 rounded-full transition-all duration-500 ${
-                      idx === activeIndex ? 'w-8' : 'w-2'
-                    }`}
-                    style={{ 
-                      backgroundColor: idx === activeIndex ? level.color : 'rgba(255,255,255,0.3)'
-                    }}
-                  />
-                  {/* Tooltip */}
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-white rounded text-xs font-medium text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    {level.title}
+                    <div className="mt-auto">
+                      <Link href={`/akademik/${level.id}`}>
+                        <motion.div
+                          className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl text-white text-sm font-semibold cursor-pointer transition-shadow duration-300"
+                          style={{ 
+                            background: `linear-gradient(135deg, ${level.color}, ${level.color}dd)`,
+                            boxShadow: isHovered ? `0 8px 25px ${level.color}40` : `0 4px 15px ${level.color}20`
+                          }}
+                          whileHover={{ y: -2 }}
+                          whileTap={{ scale: 0.98 }}
+                          data-testid={`link-detail-${level.id}`}
+                        >
+                          Detaylı Bilgi
+                          <motion.span
+                            animate={{ x: isHovered ? 4 : 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <ArrowRight className="w-4 h-4" />
+                          </motion.span>
+                        </motion.div>
+                      </Link>
+                    </div>
                   </div>
-                </button>
-              ))}
-            </div>
 
-            {/* Next Button */}
-            <button
-              onClick={goNext}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
+                  <motion.div
+                    className="absolute top-0 left-0 right-0 h-1"
+                    style={{ background: `linear-gradient(90deg, ${level.color}, ${level.color}88)` }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: isHovered ? 1 : 0 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
