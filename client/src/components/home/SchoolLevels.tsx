@@ -17,7 +17,7 @@ const levels = [
     description: "Oyun temelli öğrenme metoduyla çocuklarınızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
     image: "/images/kindergarten-kitchen.jpg",
     features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma", "Sosyal Beceriler"],
-    stats: { students: "120+", classes: "8", experience: "15 Yıl" }
+    stats: { experience: "25 Yıl", teachers: "+25", satisfaction: "%100" }
   },
   {
     id: "ilkokul",
@@ -31,7 +31,7 @@ const levels = [
     description: "Akademik temelleri sağlamlaştırırken, eleştirel düşünme ve problem çözme becerilerini geliştiriyoruz.",
     image: "/images/classroom-smartboard.jpg",
     features: ["Cambridge İngilizce", "Kodlama Eğitimi", "STEM Projeleri", "Matematik Atölyesi"],
-    stats: { students: "200+", classes: "12", experience: "15 Yıl" }
+    stats: { experience: "25 Yıl", teachers: "+25", satisfaction: "%100" }
   },
   {
     id: "ortaokul",
@@ -45,7 +45,7 @@ const levels = [
     description: "Lise ve üniversite yolculuğuna hazırlık yaparak, öğrencilerimizi geleceğin liderleri olarak yetiştiriyoruz.",
     image: "/images/science-room-1.jpg",
     features: ["LGS Hazırlık", "2. Yabancı Dil", "Proje Bazlı Öğrenme", "Kariyer Rehberliği"],
-    stats: { students: "180+", classes: "10", experience: "15 Yıl" }
+    stats: { experience: "25 Yıl", teachers: "+25", satisfaction: "%100" }
   }
 ];
 
@@ -143,9 +143,9 @@ export function SchoolLevels() {
                 {/* Stats Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 flex gap-3">
                   {[
-                    { icon: Users, label: "Öğrenci", value: currentLevel.stats.students },
-                    { icon: Clock, label: "Sınıf", value: currentLevel.stats.classes },
                     { icon: Award, label: "Tecrübe", value: currentLevel.stats.experience },
+                    { icon: Users, label: "Uzman Öğretmen", value: currentLevel.stats.teachers },
+                    { icon: Clock, label: "Veli Memnuniyeti", value: currentLevel.stats.satisfaction },
                   ].map((stat, idx) => (
                     <div key={idx} className="bg-white/90 backdrop-blur-sm rounded-xl px-3 py-2 flex-1 text-center">
                       <div className={`text-sm font-bold ${currentLevel.accentColor}`}>{stat.value}</div>
