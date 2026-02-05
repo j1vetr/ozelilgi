@@ -7,23 +7,15 @@ import { Link } from "wouter";
 const heroSlides = [
   {
     image: "/images/building-drone-1.jpg",
-    title: "Geleceği Birlikte İnşa Ediyoruz",
-    subtitle: "Modern eğitim anlayışımızla öğrencilerimizi hayata hazırlıyoruz."
   },
   {
     image: "/images/sports-hall-1.jpg",
-    title: "Spor ve Hareketle Büyüyoruz",
-    subtitle: "Basketbol, voleybol ve jimnastik ile sağlıklı nesiller yetiştiriyoruz."
   },
   {
     image: "/images/music-room-1.jpg",
-    title: "Sanatla Kendini İfade Et",
-    subtitle: "Müzik ve resim atölyelerimizde yetenekler keşfediliyor."
   },
   {
     image: "/images/hallway-underwater.jpg",
-    title: "Hayal Gücünü Serbest Bırak",
-    subtitle: "Renkli ve ilham verici öğrenme ortamlarımızla."
   },
 ];
 
@@ -75,57 +67,37 @@ export function HeroSlider() {
       {/* Content */}
       <div className="relative h-full container flex flex-col justify-center">
         <div className="max-w-2xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
+          {/* Static Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-5"
-            data-testid="hero-badge"
+            transition={{ duration: 0.6 }}
+            data-testid="hero-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4"
           >
-            <motion.span
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-2 h-2 bg-brand-green rounded-full"
-            />
-            <span className="text-white text-sm font-medium">2026-2027 Kayıtları Açık</span>
-          </motion.div>
+            Her Çocuk{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-green">
+              Özel İlgiyi
+            </span>{" "}
+            Hak Eder
+          </motion.h1>
 
-          {/* Title */}
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={`title-${activeSlide}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5 }}
-              data-testid="hero-title"
-              className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4"
-            >
-              {heroSlides[activeSlide].title}
-            </motion.h1>
-          </AnimatePresence>
-
-          {/* Subtitle */}
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`subtitle-${activeSlide}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              data-testid="hero-subtitle"
-              className="text-base lg:text-lg text-white/80 mb-8 leading-relaxed max-w-xl"
-            >
-              {heroSlides[activeSlide].subtitle}
-            </motion.p>
-          </AnimatePresence>
+          {/* Static Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            data-testid="hero-subtitle"
+            className="text-base lg:text-lg text-white/80 mb-8 leading-relaxed max-w-xl"
+          >
+            Anaokulu, İlkokul ve Ortaokul kademelerinde çocuğunuzun potansiyelini keşfediyoruz.
+          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.4 }}
             className="flex flex-wrap gap-3"
           >
             <Link href="/kayit/on-kayit">
