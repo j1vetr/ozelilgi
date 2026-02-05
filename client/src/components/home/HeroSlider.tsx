@@ -23,11 +23,13 @@ const marqueeItems = [
   "Anaokulu",
   "İlkokul",
   "Ortaokul",
-  "Yabancı Dil",
-  "Fen Laboratuvarı",
+  "Görsel Sanatlar Atölyesi",
   "Müzik Atölyesi",
-  "Sanat Atölyesi",
-  "Spor Salonu",
+  "Kodlama Atölyesi",
+  "Fen Bilgisi Laboratuvarı",
+  "100m² Spor Salonu",
+  "Kütüphane",
+  "Yemekhane",
 ];
 
 export function HeroSlider() {

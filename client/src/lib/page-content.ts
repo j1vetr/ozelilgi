@@ -11,11 +11,11 @@ export const PAGE_CONTENT = {
         { label: "Kuruluş", value: "2013" }
       ],
       facilities: [
-        "Güzel Sanatlar Atölyesi",
+        "Görsel Sanatlar Atölyesi",
         "Müzik Atölyesi", 
         "Kodlama Atölyesi",
-        "100m² Spor Salonu",
-        "Oyun Salonu",
+        "Fen Bilgisi Laboratuvarı",
+        "100m² Kapalı Spor Salonu",
         "Kütüphane",
         "Yemekhane",
         "Rehberlik Odası"
