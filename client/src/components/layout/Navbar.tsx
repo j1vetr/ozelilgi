@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { NAVIGATION } from "@/lib/constants";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -27,27 +27,18 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "py-3 bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100"
-          : "py-6 bg-transparent"
+          ? "py-2 bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100/50"
+          : "py-4 bg-transparent"
       )}
     >
       <div className="container flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/">
           <a className="flex items-center group">
-            <div className="relative">
-              {/* Animated border - only stroke, not fill */}
-              <div className="absolute -inset-[3px] rounded-xl overflow-hidden">
-                <div className="absolute inset-0 logo-ring bg-gradient-conic from-brand-blue via-brand-green via-brand-orange via-brand-yellow to-brand-blue" 
-                     style={{ background: 'conic-gradient(from 0deg, hsl(217, 91%, 60%), hsl(142, 76%, 36%), hsl(24, 95%, 53%), hsl(48, 96%, 53%), hsl(217, 91%, 60%))' }} 
-                />
-              </div>
-              {/* Inner white box with logo */}
+            <div className="relative p-[3px] rounded-xl logo-border-animation">
               <div className={cn(
-                "relative w-36 h-14 md:w-48 md:h-16 rounded-lg p-2 transition-all duration-300 group-hover:scale-105",
-                scrolled 
-                  ? "bg-white shadow-md" 
-                  : "bg-white shadow-xl"
+                "relative w-44 h-16 md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
+                "bg-white"
               )}>
                 <img src="/images/logo.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" />
               </div>
@@ -56,30 +47,37 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1.5 rounded-full border border-white/20 shadow-lg">
+        <nav className={cn(
+          "hidden lg:flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300",
+          scrolled 
+            ? "bg-gray-50/80" 
+            : "bg-white/10 backdrop-blur-md border border-white/20"
+        )}>
           {NAVIGATION.map((item) => (
             <div key={item.title} className="relative group">
               <Link href={item.href}>
                 <a className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-1",
+                  "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-1.5",
                   location.startsWith(item.href) 
-                    ? "bg-white text-primary shadow-sm" 
+                    ? scrolled 
+                      ? "bg-primary text-white shadow-md" 
+                      : "bg-white text-primary shadow-md"
                     : scrolled 
-                      ? "text-primary hover:bg-gray-100" 
+                      ? "text-gray-700 hover:bg-gray-100 hover:text-primary" 
                       : "text-white hover:bg-white/20"
                 )}>
                   {item.title}
-                  {item.items && <ChevronDown className="w-3 h-3 opacity-70" />}
+                  {item.items && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
                 </a>
               </Link>
               
               {/* Dropdown */}
               {item.items && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-                  <div className="bg-white border border-gray-100 rounded-2xl shadow-xl p-2 min-w-[200px] overflow-hidden">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+                  <div className="bg-white rounded-2xl shadow-2xl p-2 min-w-[220px] border border-gray-100/80">
                     {item.items.map((subItem) => (
                       <Link key={subItem.title} href={subItem.href}>
-                        <a className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-xl transition-colors">
+                        <a className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-xl transition-all">
                           {subItem.title}
                         </a>
                       </Link>
@@ -92,18 +90,19 @@ export function Navbar() {
         </nav>
 
         {/* Right Actions */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-4">
           <Link href="/iletisim">
-             <Button variant="ghost" className={cn(
-               "font-medium transition-colors hover:bg-white/10",
-               scrolled ? "text-primary hover:bg-gray-100" : "text-white"
-             )}>
-               İletişim
-             </Button>
-          </Link>
-          <Link href="/kayit/on-kayit">
-            <Button className="rounded-full px-6 bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/20 border-0">
-              Kayıt Ol
+            <Button 
+              size="lg"
+              className={cn(
+                "rounded-full px-6 font-semibold transition-all duration-300 gap-2",
+                scrolled 
+                  ? "bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg shadow-brand-orange/25" 
+                  : "bg-white text-primary hover:bg-white/90 shadow-xl"
+              )}
+            >
+              <Phone className="w-4 h-4" />
+              İletişim
             </Button>
           </Link>
         </div>
@@ -111,12 +110,14 @@ export function Navbar() {
         {/* Mobile Toggle */}
         <button
           className={cn(
-            "lg:hidden p-2 rounded-full transition-colors",
-            scrolled ? "text-primary hover:bg-gray-100" : "text-white hover:bg-white/20"
+            "lg:hidden p-3 rounded-xl transition-all",
+            scrolled 
+              ? "text-primary bg-gray-100 hover:bg-gray-200" 
+              : "text-white bg-white/10 hover:bg-white/20 backdrop-blur-md"
           )}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -127,32 +128,32 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden fixed inset-0 top-[60px] bg-background z-40 overflow-y-auto"
+            className="lg:hidden fixed inset-0 top-[80px] bg-white z-40 overflow-y-auto"
           >
-            <div className="container px-4 py-8 flex flex-col gap-6">
+            <div className="container px-6 py-10 flex flex-col gap-6">
               {NAVIGATION.map((item, i) => (
                 <motion.div 
                   key={item.title}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.08 }}
                   className="flex flex-col gap-3"
                 >
                   <Link href={item.href}>
                     <a 
-                      className="text-2xl font-display font-bold text-primary flex items-center justify-between"
+                      className="text-2xl font-display font-bold text-primary flex items-center justify-between py-2 border-b border-gray-100"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.title}
-                      {item.items && <ChevronDown className="w-5 h-5 opacity-50" />}
+                      {item.items && <ChevronDown className="w-5 h-5 opacity-40" />}
                     </a>
                   </Link>
                   {item.items && (
-                    <div className="pl-4 flex flex-col gap-3 border-l-2 border-gray-100 ml-1">
+                    <div className="pl-4 flex flex-col gap-2 ml-2">
                       {item.items.map((subItem) => (
                         <Link key={subItem.title} href={subItem.href}>
                           <a 
-                            className="text-base text-muted-foreground font-medium py-1"
+                            className="text-base text-gray-500 font-medium py-2 hover:text-primary transition-colors"
                             onClick={() => setIsOpen(false)}
                           >
                             {subItem.title}
@@ -163,9 +164,18 @@ export function Navbar() {
                   )}
                 </motion.div>
               ))}
-              <div className="mt-8 grid gap-4">
-                <Button size="lg" className="w-full bg-brand-orange rounded-xl">Hemen Başvur</Button>
-                <Button size="lg" variant="outline" className="w-full rounded-xl">İletişime Geç</Button>
+              <div className="mt-10 grid gap-4">
+                <Link href="/iletisim">
+                  <Button size="lg" className="w-full bg-brand-orange rounded-xl h-14 text-lg font-bold">
+                    <Phone className="w-5 h-5 mr-2" />
+                    İletişime Geç
+                  </Button>
+                </Link>
+                <Link href="/kayit/on-kayit">
+                  <Button size="lg" variant="outline" className="w-full rounded-xl h-14 text-lg">
+                    Ön Kayıt
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
