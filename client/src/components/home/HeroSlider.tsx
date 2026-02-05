@@ -7,23 +7,23 @@ import { Link } from "wouter";
 const heroSlides = [
   {
     image: "/images/building-drone-1.jpg",
-    title: "Geleceği birlikte inşa ediyoruz",
-    subtitle: "Modern eğitim anlayışımızla öğrencilerimizi hayata hazırlıyoruz"
+    title: "Geleceği Birlikte İnşa Ediyoruz",
+    subtitle: "Modern eğitim anlayışımızla öğrencilerimizi hayata hazırlıyoruz."
   },
   {
     image: "/images/sports-hall-1.jpg",
-    title: "Spor ve hareketle büyüyoruz",
-    subtitle: "Basketbol, voleybol ve jimnastik ile sağlıklı nesiller yetiştiriyoruz"
+    title: "Spor ve Hareketle Büyüyoruz",
+    subtitle: "Basketbol, voleybol ve jimnastik ile sağlıklı nesiller yetiştiriyoruz."
   },
   {
     image: "/images/music-room-1.jpg",
-    title: "Sanatla kendini ifade et",
-    subtitle: "Müzik ve resim atölyelerimizde yetenekler keşfediliyor"
+    title: "Sanatla Kendini İfade Et",
+    subtitle: "Müzik ve resim atölyelerimizde yetenekler keşfediliyor."
   },
   {
     image: "/images/hallway-underwater.jpg",
-    title: "Hayal gücünü serbest bırak",
-    subtitle: "Renkli ve ilham verici öğrenme ortamlarımızla"
+    title: "Hayal Gücünü Serbest Bırak",
+    subtitle: "Renkli ve ilham verici öğrenme ortamlarımızla."
   },
 ];
 
@@ -83,7 +83,7 @@ export function HeroSlider() {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-2 h-2 bg-brand-green rounded-full"
             />
-            <span className="text-white text-sm font-medium">2026-2027 Kayıtları açık</span>
+            <span className="text-white text-sm font-medium">2026-2027 Kayıtları Açık</span>
           </motion.div>
 
           {/* Title */}
@@ -152,7 +152,7 @@ export function HeroSlider() {
                   data-testid="hero-cta-button"
                   className="h-11 px-6 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25"
                 >
-                  Ön kayıt yap
+                  Ön Kayıt Yap
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </motion.div>
@@ -165,7 +165,7 @@ export function HeroSlider() {
                   className="h-11 px-6 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm"
                 >
                   <Play className="mr-2 w-4 h-4" />
-                  Kampüsü keşfet
+                  Kampüsü Keşfet
                 </Button>
               </motion.div>
             </Link>

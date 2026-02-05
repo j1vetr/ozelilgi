@@ -68,10 +68,10 @@ export function CTASection() {
             className="lg:pl-4"
           >
             <span data-testid="cta-section-badge" className="inline-block px-3 py-1 bg-brand-orange/10 text-brand-orange font-medium rounded-full text-xs tracking-wider uppercase mb-3">
-              Hemen başvurun
+              Hemen Başvurun
             </span>
             <h2 data-testid="cta-section-title" className="text-2xl md:text-3xl font-display font-bold text-primary mb-3 leading-tight">
-              Ailemize <span className="text-brand-orange">katılın</span>
+              Ailemize <span className="text-brand-orange">Katılın</span>
             </h2>
             <p data-testid="cta-section-description" className="text-sm text-muted-foreground leading-relaxed mb-5">
               Çocuğunuzun eğitim yolculuğuna birlikte başlayalım. Kampüsümüzü ziyaret edin, öğretmenlerimizle tanışın.
@@ -84,7 +84,7 @@ export function CTASection() {
                   <Phone className="w-4 h-4 text-brand-blue" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-muted-foreground">Bizi arayın</div>
+                  <div className="text-[10px] text-muted-foreground">Bizi Arayın</div>
                   <div className="text-sm font-semibold text-primary">0216 XXX XX XX</div>
                 </div>
               </div>
@@ -93,7 +93,7 @@ export function CTASection() {
                   <MapPin className="w-4 h-4 text-brand-green" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-muted-foreground">Adresimiz</div>
+                  <div className="text-[10px] text-muted-foreground">Adres</div>
                   <div className="text-sm font-semibold text-primary">Çekmeköy, İstanbul</div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export function CTASection() {
                   <Clock className="w-4 h-4 text-brand-orange" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-muted-foreground">Çalışma saatleri</div>
+                  <div className="text-[10px] text-muted-foreground">Çalışma Saatleri</div>
                   <div className="text-sm font-semibold text-primary">Pzt-Cuma: 08:30 - 17:30</div>
                 </div>
               </div>
@@ -112,13 +112,13 @@ export function CTASection() {
             <div className="flex flex-col sm:flex-row gap-2.5">
               <Link href="/kayit/on-kayit">
                 <Button data-testid="cta-preregister-button" className="h-9 px-5 rounded-lg bg-brand-orange hover:bg-brand-orange/90 text-sm font-semibold shadow-md">
-                  Ön kayıt formu
+                  Ön Kayıt Formu
                   <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Button>
               </Link>
               <Link href="/iletisim">
                 <Button variant="outline" data-testid="cta-contact-button" className="h-9 px-5 rounded-lg text-sm font-semibold">
-                  Kampüsü ziyaret et
+                  Kampüsü Ziyaret Et
                 </Button>
               </Link>
             </div>

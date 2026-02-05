@@ -62,10 +62,10 @@ export function SchoolLevels() {
           className="text-center max-w-xl mx-auto mb-10"
         >
           <span data-testid="school-levels-section-badge" className="inline-block px-3 py-1 bg-white/10 text-white font-medium rounded-full text-xs tracking-wider uppercase mb-3">
-            Eğitim kademeleri
+            Eğitim Kademeleri
           </span>
           <h2 data-testid="school-levels-section-title" className="text-2xl md:text-3xl font-display font-bold text-white mb-3 leading-tight">
-            Her yaşa uygun <span className="text-brand-yellow">özel programlar</span>
+            Her Yaşa Uygun <span className="text-brand-yellow">Özel Programlar</span>
           </h2>
           <p data-testid="school-levels-section-description" className="text-sm text-white/70 leading-relaxed">
             3 yaşından 14 yaşına kadar, çocuğunuzun gelişim dönemine özel hazırlanmış eğitim programlarıyla yanınızdayız.
@@ -133,7 +133,7 @@ export function SchoolLevels() {
                       data-testid={`school-level-button-${level.id}`}
                       className={`w-full h-8 text-xs group/btn border hover:${level.color} hover:text-white hover:border-transparent transition-all`}
                     >
-                      Detaylı bilgi
+                      Detaylı Bilgi
                       <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover/btn:translate-x-0.5" />
                     </Button>
                   </Link>

@@ -119,10 +119,10 @@ export function FacilitiesGallery() {
           className="text-center max-w-xl mx-auto mb-8"
         >
           <h2 data-testid="facilities-section-title" className="text-2xl md:text-3xl font-display font-bold text-primary mb-2">
-            Kampüsümüzü keşfedin
+            Kampüsümüzü Keşfedin
           </h2>
           <p data-testid="facilities-section-description" className="text-sm text-muted-foreground">
-            Modern ve çocuk dostu tasarımlarla hazırlanmış eğitim alanlarımız
+            Modern ve çocuk dostu tasarımlarla hazırlanmış eğitim alanlarımız.
           </p>
         </motion.div>
 

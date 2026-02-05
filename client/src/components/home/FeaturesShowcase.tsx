@@ -4,21 +4,21 @@ import { Music, Palette, Dumbbell, BookOpen, Utensils, Microscope } from "lucide
 const features = [
   {
     icon: Music,
-    title: "Müzik eğitimi",
+    title: "Müzik Eğitimi",
     description: "Piyano, davul, perküsyon ve daha fazlası ile müzik yeteneklerini geliştiriyoruz.",
     image: "/images/music-room-1.jpg",
     color: "from-purple-500 to-purple-600"
   },
   {
     icon: Palette,
-    title: "Sanat atölyesi",
+    title: "Sanat Atölyesi",
     description: "Resim, heykel ve el sanatları ile yaratıcılığı keşfediyoruz.",
     image: "/images/art-room-1.jpg",
     color: "from-pink-500 to-pink-600"
   },
   {
     icon: Dumbbell,
-    title: "Spor salonu",
+    title: "Spor Salonu",
     description: "Basketbol, voleybol ve jimnastik için tam donanımlı spor alanı.",
     image: "/images/sports-hall-1.jpg",
     color: "from-orange-500 to-orange-600"
@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: Microscope,
-    title: "Fen laboratuvarı",
+    title: "Fen Laboratuvarı",
     description: "Deneylerle öğrenme ve bilimsel keşif imkanı.",
     image: "/images/science-room-1.jpg",
     color: "from-green-500 to-green-600"
@@ -64,10 +64,10 @@ export function FeaturesShowcase() {
           className="text-center max-w-xl mx-auto mb-10"
         >
           <h2 data-testid="features-section-title" className="text-2xl md:text-3xl font-display font-bold text-primary mb-2">
-            En iyisini sunuyoruz
+            En İyisini Sunuyoruz
           </h2>
           <p data-testid="features-section-description" className="text-sm text-muted-foreground">
-            Öğrencilerimizin çok yönlü gelişimi için özel tasarlanmış alanlar
+            Öğrencilerimizin çok yönlü gelişimi için özel tasarlanmış alanlar.
           </p>
         </motion.div>
 
