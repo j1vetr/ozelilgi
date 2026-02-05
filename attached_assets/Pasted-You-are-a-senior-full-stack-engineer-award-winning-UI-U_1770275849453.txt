@@ -1,0 +1,123 @@
+You are a senior full-stack engineer + award-winning UI/UX designer.
+Build a “premium private school website” for: “Özel Boğaziçi İlgi Koleji Çekmeköy”.
+Language: Turkish (TR). Tone: corporate + warm + trustworthy.
+
+GOALS
+- Must look “luxury / high-end / modern school” (not template-like).
+- Very fast (Lighthouse 90+ target), accessible, SEO-friendly.
+- Mobile-first, smooth micro-animations, clean typography.
+- Easy to manage content (without a complex admin): use a simple CMS-like approach via JSON/MD files.
+
+TECH STACK
+- Next.js (App Router) + TypeScript
+- TailwindCSS
+- Framer Motion (micro animations)
+- next-seo or built-in metadata + JSON-LD
+- Images: next/image
+- Forms: simple API route + email via Resend OR nodemailer (use env variables)
+- No database required. Use local content files (content/*.json + content/*.md) to manage text.
+- Optional: i18n not required (only TR), but code should be ready for future EN.
+
+SITE STRUCTURE (ROUTES)
+1) / (Home)
+2) /kurumsal
+   - /kurumsal/hakkimizda
+   - /kurumsal/kurucu-mesaji
+   - /kurumsal/okul-muduru-mesaji
+   - /kurumsal/vizyon-misyon
+   - /kurumsal/degerlerimiz
+   - /kurumsal/egitim-yaklasimimiz
+3) /akademik
+   - /akademik/anaokulu
+   - /akademik/ilkokul
+   - /akademik/ortaokul
+4) /programlar
+   - /programlar/yabanci-dil
+   - /programlar/stem-robotik
+   - /programlar/kodlama
+   - /programlar/sanat-muzik
+   - /programlar/spor
+   - /programlar/degerler-egitimi
+   - /programlar/rehberlik
+5) /kampus
+   - /kampus/imkanlar (labs, library, sports, dining, health & security)
+   - /kampus/galeri (filterable)
+6) /sosyal-yasam
+   - /sosyal-yasam/kulupler
+   - /sosyal-yasam/etkinlikler
+   - /sosyal-yasam/yaz-okulu
+7) /basarilar
+   - /basarilar/akademik
+   - /basarilar/mezunlar
+8) /kayit
+   - /kayit/kayit-sureci
+   - /kayit/on-kayit (form)
+   - /kayit/burs (info + form)
+   - /kayit/sss
+9) /haberler (blog/news listing from md files)
+   - /haberler/[slug]
+10) /duyurular (listing from json)
+11) /veli-ogrenci
+   - /veli-ogrenci/yemek-listesi (weekly)
+   - /veli-ogrenci/servis-bilgisi
+   - /veli-ogrenci/okul-kurallari
+12) /iletisim (map + contact form + whatsapp CTA)
+13) /gizlilik
+14) /kvkk
+15) /cerez-politikasi
+16) /kullanim-sartlari
+
+DESIGN SYSTEM
+- Create a design token file: colors, spacing, shadows, radius, typography.
+- Use a premium palette (dark navy / ivory / gold accent) BUT do not hardcode “gold everywhere”; use subtle accents.
+- Use high-quality hero sections with gradient overlays and big typography.
+- Use cards with soft shadows, 2xl radius, clean grid.
+- Create reusable components: Container, SectionHeader, CTAButton, StatCard, Testimonial, FAQAccordion, Breadcrumbs, PageHero, GalleryGrid, ProgramCard.
+- Add a sticky header with mega-menu for desktop, and smooth mobile drawer.
+- Add a top bar for phone/address and quick “Kampüs Ziyareti” CTA.
+
+CONTENT MANAGEMENT
+- Store all page content in /content as json (for structured data) and md (for articles).
+- Provide example content in Turkish (not lorem ipsum) for at least:
+  - Home hero text + 3 key values + 3 stats + 6 programs + 3 testimonials + FAQ
+  - Each academic level page
+  - 5 news articles (md)
+  - 8 announcements (json)
+
+SEO REQUIREMENTS
+- Implement metadata per page (title, description, canonical).
+- Create JSON-LD schemas:
+  - Organization
+  - LocalBusiness (School)
+  - BreadcrumbList per route
+  - Article for news posts
+- Generate sitemap.xml and robots.txt.
+- Use semantic HTML, proper headings, alt texts.
+
+CONVERSION / FORMS
+- Build 3 forms:
+  1) /kayit/on-kayit (parent name, phone, email, student age, level, message)
+  2) /kayit/burs (same + income range optional)
+  3) /iletisim (name, email/phone, message)
+- Validate client-side + server-side.
+- On submit: send email to a configurable address via env vars.
+- Also show success states and friendly error messages.
+
+PERFORMANCE
+- Use static generation where possible.
+- Use dynamic routes only for /haberler/[slug].
+- Optimize images and avoid heavy libraries.
+- Provide a basic analytics hook placeholder (Google Tag optional but not required).
+
+DELIVERABLES
+- Create the full project with all routes, components, content files, and styling.
+- Provide instructions in README:
+  - how to run locally in Replit
+  - env vars needed for email
+  - how to add news posts and announcements
+  - how to edit page content in content/*.json
+
+IMPORTANT
+- Code must be clean, production-ready, typed, and organized.
+- No broken links. No placeholder “TODO” left.
+- Ensure everything builds successfully.
