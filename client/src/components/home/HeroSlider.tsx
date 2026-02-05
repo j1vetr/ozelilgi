@@ -65,21 +65,21 @@ export function HeroSlider() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
 
       {/* Content */}
-      <div className="relative h-full container flex flex-col justify-center">
-        <div className="max-w-2xl">
+      <div className="relative h-full container flex flex-col justify-center items-center text-center px-4">
+        <div className="max-w-3xl">
           {/* Static Title */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             data-testid="hero-title"
-            className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-5"
           >
             Her Çocuk{" "}
-            <span className="relative inline-block px-3 py-1 bg-brand-orange text-white rounded-lg shadow-lg">
+            <span className="relative inline-block px-2 sm:px-3 py-1 bg-brand-orange text-white rounded-lg shadow-lg whitespace-nowrap">
               Özel İlgiyi
             </span>{" "}
-            Hak Eder
+            <span className="block sm:inline">Hak Eder</span>
           </motion.h1>
 
           {/* Static Subtitle */}
@@ -88,7 +88,7 @@ export function HeroSlider() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             data-testid="hero-subtitle"
-            className="text-base lg:text-lg text-white/80 mb-8 leading-relaxed max-w-xl"
+            className="text-sm sm:text-base lg:text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto"
           >
             Anaokulu, İlkokul ve Ortaokul kademelerinde çocuğunuzun potansiyelini keşfediyoruz.
           </motion.p>
@@ -98,14 +98,14 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Link href="/kayit/on-kayit">
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   size="default"
                   data-testid="hero-cta-button"
-                  className="h-11 w-44 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25 justify-center"
+                  className="h-11 w-48 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25 justify-center"
                 >
                   Ön Kayıt Yap
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -117,7 +117,7 @@ export function HeroSlider() {
                 <Button
                   size="default"
                   variant="outline"
-                  className="h-11 w-44 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm justify-center"
+                  className="h-11 w-48 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm justify-center"
                 >
                   <Play className="mr-2 w-4 h-4" />
                   Kampüsü Keşfet
