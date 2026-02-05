@@ -2,13 +2,14 @@ import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { NAVIGATION } from "@/lib/constants";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { NAVIGATION, SCHOOL_INFO } from "@/lib/constants";
+import { Menu, X, ChevronDown, Phone, Home } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
   const [location] = useLocation();
 
   useEffect(() => {
@@ -18,6 +19,19 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  const toggleSection = (title: string) => {
+    setOpenSections(prev => ({ ...prev, [title]: !prev[title] }));
+  };
 
   return (
     <motion.header
@@ -138,75 +152,162 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
+              className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-30"
               onClick={() => setIsOpen(false)}
             />
             
-            {/* Menu Panel */}
+            {/* Menu Panel - Full Width */}
             <motion.div
               initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="lg:hidden fixed right-0 top-0 bottom-0 w-[280px] bg-white z-40 shadow-2xl flex flex-col h-screen overflow-hidden"
+              className="lg:hidden fixed right-0 top-0 bottom-0 w-full max-w-[360px] bg-white z-40 shadow-2xl flex flex-col h-screen"
             >
-              {/* Close Button */}
-              <div className="flex items-center justify-between p-3 border-b border-gray-100 shrink-0">
-                <span className="font-display font-bold text-primary text-sm">Menü</span>
+              {/* Header */}
+              <div className="flex items-center justify-between p-5 border-b border-gray-100 shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <img src="/images/logo.png" alt="Logo" className="w-7 h-7 object-contain" />
+                  </div>
+                  <span className="font-display font-bold text-primary text-base">Menü</span>
+                </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  className="p-2.5 rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="p-3 flex flex-col flex-1 overflow-hidden">
+              {/* Navigation Items */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-1">
+                {/* Ana Sayfa */}
+                <Link 
+                  href="/"
+                  data-testid="mobile-nav-link-home"
+                  className={cn(
+                    "flex items-center gap-3 py-3.5 px-4 rounded-xl font-semibold text-base transition-colors",
+                    location === "/" 
+                      ? "bg-primary/10 text-primary" 
+                      : "text-gray-800 hover:bg-gray-50"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Home className="w-5 h-5" />
+                  Ana Sayfa
+                </Link>
+
                 {NAVIGATION.map((item, i) => (
-                  <div key={item.title} className="flex flex-col">
-                    <Link 
-                      href={item.href}
-                      data-testid={`mobile-nav-link-${i}`}
-                      className="text-sm font-semibold text-gray-800 flex items-center justify-between py-2 px-2 rounded-lg hover:bg-gray-50 transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.title}
-                      {item.items && <ChevronDown className="w-4 h-4 text-gray-400" />}
-                    </Link>
-                    {item.items && (
-                      <div className="ml-2 pl-2 border-l-2 border-gray-100 flex flex-col">
-                        {item.items.map((subItem, subIdx) => (
-                          <Link 
-                            key={subItem.title} 
-                            href={subItem.href}
-                            data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
-                            className="text-xs text-gray-500 font-medium py-1.5 px-2 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors"
-                            onClick={() => setIsOpen(false)}
+                  <div key={item.title}>
+                    {item.items ? (
+                      <>
+                        {/* Collapsible Header */}
+                        <button
+                          data-testid={`mobile-nav-toggle-${i}`}
+                          className={cn(
+                            "flex items-center justify-between w-full py-3.5 px-4 rounded-xl font-semibold text-base transition-colors",
+                            location.startsWith(item.href)
+                              ? "bg-primary/10 text-primary"
+                              : "text-gray-800 hover:bg-gray-50"
+                          )}
+                          onClick={() => toggleSection(item.title)}
+                        >
+                          <span>{item.title}</span>
+                          <motion.div
+                            animate={{ rotate: openSections[item.title] ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </div>
+                            <ChevronDown className="w-5 h-5 text-gray-400" />
+                          </motion.div>
+                        </button>
+
+                        {/* Collapsible Content */}
+                        <AnimatePresence>
+                          {openSections[item.title] && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                            >
+                              <div className="ml-4 pl-4 border-l-2 border-primary/20 py-1 space-y-0.5">
+                                {/* Main category link */}
+                                <Link 
+                                  href={item.href}
+                                  data-testid={`mobile-nav-link-${i}`}
+                                  className={cn(
+                                    "block py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
+                                    location === item.href
+                                      ? "text-primary bg-primary/5"
+                                      : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                                  )}
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  Genel Bakış
+                                </Link>
+                                {item.items.map((subItem, subIdx) => (
+                                  <Link 
+                                    key={subItem.title} 
+                                    href={subItem.href}
+                                    data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
+                                    className={cn(
+                                      "block py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
+                                      location === subItem.href
+                                        ? "text-primary bg-primary/5"
+                                        : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                                    )}
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    {subItem.title}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link 
+                        href={item.href}
+                        data-testid={`mobile-nav-link-${i}`}
+                        className={cn(
+                          "flex items-center gap-3 py-3.5 px-4 rounded-xl font-semibold text-base transition-colors",
+                          location === item.href
+                            ? "bg-primary/10 text-primary"
+                            : "text-gray-800 hover:bg-gray-50"
+                        )}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
                     )}
                   </div>
                 ))}
+              </div>
 
-                {/* CTA Buttons - at bottom */}
-                <div className="mt-auto pt-3 border-t border-gray-100 grid gap-2 shrink-0">
-                  <Link href="/iletisim" onClick={() => setIsOpen(false)}>
-                    <Button size="sm" data-testid="mobile-contact-button" className="w-full bg-brand-orange rounded-lg h-10 font-semibold text-sm" asChild>
-                      <span>
-                        <Phone className="w-4 h-4 mr-2" />
-                        İletişime Geç
-                      </span>
-                    </Button>
-                  </Link>
-                  <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)}>
-                    <Button size="sm" variant="outline" data-testid="mobile-preregister-button" className="w-full rounded-lg h-10 font-medium text-sm" asChild>
-                      <span>Ön Kayıt</span>
-                    </Button>
-                  </Link>
-                </div>
+              {/* Bottom CTA */}
+              <div className="p-4 border-t border-gray-100 shrink-0 space-y-3 bg-gray-50/50">
+                <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)}>
+                  <Button 
+                    data-testid="mobile-preregister-button" 
+                    className="w-full bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 rounded-xl h-12 font-bold text-base shadow-lg"
+                  >
+                    Ön Kayıt Yap
+                    <ChevronDown className="w-4 h-4 ml-1 -rotate-90" />
+                  </Button>
+                </Link>
+                <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, '')}`} className="block">
+                  <Button 
+                    variant="outline" 
+                    data-testid="mobile-contact-button" 
+                    className="w-full rounded-xl h-12 font-semibold text-base border-gray-200"
+                  >
+                    <Phone className="w-4 h-4 mr-2" />
+                    {SCHOOL_INFO.phone}
+                  </Button>
+                </a>
               </div>
             </motion.div>
           </>
