@@ -103,29 +103,32 @@ export function FacilitiesGallery() {
   };
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gray-50 to-transparent" />
+    <section className="py-16 relative overflow-hidden">
+      {/* Blurry Gradient Background */}
+      <div className="absolute inset-0 bg-white" />
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-brand-orange/6 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-brand-green/6 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-brand-blue/5 rounded-full blur-3xl" />
       
       <div className="container relative">
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-10"
+          className="text-center max-w-xl mx-auto mb-8"
         >
-          <h2 data-testid="facilities-section-title" className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">
-            Kampüsümüzü Keşfedin
+          <h2 data-testid="facilities-section-title" className="text-2xl md:text-3xl font-display font-bold text-primary mb-2">
+            Kampüsümüzü keşfedin
           </h2>
-          <p data-testid="facilities-section-description" className="text-muted-foreground">
+          <p data-testid="facilities-section-description" className="text-sm text-muted-foreground">
             Modern ve çocuk dostu tasarımlarla hazırlanmış eğitim alanlarımız
           </p>
         </motion.div>
 
         {/* Category Filter */}
-        <div className="mb-8 overflow-x-auto pb-2 -mx-4 px-4">
-          <div className="flex gap-2 min-w-max justify-start md:justify-center">
+        <div className="mb-6 overflow-x-auto pb-2 -mx-4 px-4">
+          <div className="flex gap-1.5 min-w-max justify-start md:justify-center">
             {categories.map((category) => {
               const count = category === "Tümü" ? facilities.length : facilities.filter(f => f.category === category).length;
               const isActive = activeCategory === category;
@@ -134,10 +137,10 @@ export function FacilitiesGallery() {
                   key={category}
                   onClick={() => { setActiveCategory(category); setShowAll(false); }}
                   data-testid={`gallery-filter-${category}`}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 whitespace-nowrap ${
                     isActive
-                      ? "bg-primary text-white shadow-lg"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      ? "bg-primary text-white shadow-md"
+                      : "bg-gray-100/80 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
                   {category} ({count})
@@ -150,19 +153,19 @@ export function FacilitiesGallery() {
         {/* Masonry Gallery */}
         <motion.div 
           layout
-          className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-3 space-y-3"
+          className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-2.5 space-y-2.5"
         >
           <AnimatePresence>
             {displayedFacilities.map((facility, i) => (
               <motion.div
                 key={facility.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: i * 0.02 }}
+                transition={{ duration: 0.25, delay: i * 0.015 }}
                 data-testid={`gallery-item-${facility.id}`}
-                className="break-inside-avoid group cursor-pointer relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                className="break-inside-avoid group cursor-pointer relative rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
                 onClick={() => setSelectedImage(facility)}
               >
                 <img 
@@ -173,17 +176,17 @@ export function FacilitiesGallery() {
                 />
                 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Zoom icon */}
-                <div className="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ZoomIn className="w-4 h-4 text-gray-700" />
+                <div className="absolute top-2 right-2 w-6 h-6 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                  <ZoomIn className="w-3 h-3 text-gray-700" />
                 </div>
                 
                 {/* Title */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-brand-yellow text-xs font-medium">{facility.category}</span>
-                  <h4 className="text-white font-semibold text-sm leading-tight">{facility.title}</h4>
+                <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <span className="text-brand-yellow text-[10px] font-medium">{facility.category}</span>
+                  <h4 className="text-white font-semibold text-xs leading-tight">{facility.title}</h4>
                 </div>
               </motion.div>
             ))}

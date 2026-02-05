@@ -4,21 +4,21 @@ import { Music, Palette, Dumbbell, BookOpen, Utensils, Microscope } from "lucide
 const features = [
   {
     icon: Music,
-    title: "Müzik Eğitimi",
+    title: "Müzik eğitimi",
     description: "Piyano, davul, perküsyon ve daha fazlası ile müzik yeteneklerini geliştiriyoruz.",
     image: "/images/music-room-1.jpg",
     color: "from-purple-500 to-purple-600"
   },
   {
     icon: Palette,
-    title: "Sanat Atölyesi",
+    title: "Sanat atölyesi",
     description: "Resim, heykel ve el sanatları ile yaratıcılığı keşfediyoruz.",
     image: "/images/art-room-1.jpg",
     color: "from-pink-500 to-pink-600"
   },
   {
     icon: Dumbbell,
-    title: "Spor Salonu",
+    title: "Spor salonu",
     description: "Basketbol, voleybol ve jimnastik için tam donanımlı spor alanı.",
     image: "/images/sports-hall-1.jpg",
     color: "from-orange-500 to-orange-600"
@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: Microscope,
-    title: "Fen Laboratuvarı",
+    title: "Fen laboratuvarı",
     description: "Deneylerle öğrenme ve bilimsel keşif imkanı.",
     image: "/images/science-room-1.jpg",
     color: "from-green-500 to-green-600"
@@ -48,54 +48,60 @@ const features = [
 
 export function FeaturesShowcase() {
   return (
-    <section className="py-20 bg-gray-50 relative overflow-hidden">
-      <div className="container">
+    <section className="py-16 relative overflow-hidden">
+      {/* Blurry Gradient Background */}
+      <div className="absolute inset-0 bg-white" />
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-brand-yellow/8 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-brand-blue/8 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-green/5 rounded-full blur-3xl" />
+
+      <div className="container relative">
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-xl mx-auto mb-10"
         >
-          <h2 data-testid="features-section-title" className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">
-            En İyisini Sunuyoruz
+          <h2 data-testid="features-section-title" className="text-2xl md:text-3xl font-display font-bold text-primary mb-2">
+            En iyisini sunuyoruz
           </h2>
-          <p data-testid="features-section-description" className="text-muted-foreground">
+          <p data-testid="features-section-description" className="text-sm text-muted-foreground">
             Öğrencilerimizin çok yönlü gelişimi için özel tasarlanmış alanlar
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.08 }}
               data-testid={`feature-card-${i}`}
-              className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+              className="group bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-36 overflow-hidden">
                 <img 
                   src={feature.image} 
                   alt={feature.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${feature.color} opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-t ${feature.color} opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
                 
                 {/* Icon */}
-                <div className={`absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110`}>
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div className={`absolute bottom-3 right-3 w-9 h-9 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-105`}>
+                  <feature.icon className="w-4 h-4 text-white" />
                 </div>
               </div>
               
               {/* Content */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-primary mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              <div className="p-4">
+                <h3 className="text-base font-bold text-primary mb-1">{feature.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             </motion.div>
           ))}
