@@ -1,103 +1,102 @@
-import { HeroModern } from "@/components/home/HeroModern";
-import { BentoGrid } from "@/components/home/BentoGrid";
+import { HeroSlider } from "@/components/home/HeroSlider";
+import { FeatureGrid } from "@/components/home/FeatureGrid";
 import { StatsTicker } from "@/components/home/StatsTicker";
 import { TestimonialsScroll } from "@/components/home/TestimonialsScroll";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/animations";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden font-sans">
       
-      {/* 1. Modern Hero */}
-      <HeroModern />
+      {/* 1. Full Screen Hero Slider */}
+      <HeroSlider />
 
-      {/* 2. Introduction & Mission */}
-      <section className="py-24 container px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <FadeIn>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
-              Eğitimde <span className="text-accent">Yenilikçi</span> <br/>
-              Yaklaşım
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Geleneksel eğitim metotlarını modern teknolojilerle harmanlayarak, öğrencilerimize 21. yüzyıl yetkinliklerini kazandırıyoruz. Sorgulayan, üreten ve kendine güvenen bireyler yetiştirmek önceliğimizdir.
-            </p>
-            <ul className="space-y-4 mb-8">
-              {['Bireysel Öğrenme Planı', 'Çift Dilli Eğitim', 'Robotik ve Kodlama', 'Sanat ve Spor Akademileri'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-accent" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link href="/kurumsal/egitim-yaklasimimiz">
-              <Button variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
-                Eğitim Modelimizi İnceleyin
-              </Button>
-            </Link>
-          </FadeIn>
-          
-          <div className="relative">
-             <div className="absolute inset-0 bg-gradient-to-tr from-accent to-primary rounded-[2rem] transform rotate-6 opacity-20"></div>
-             <img 
-               src="https://images.unsplash.com/photo-1577896334614-529858534699?q=80&w=800&auto=format&fit=crop" 
-               alt="Classroom" 
-               className="relative rounded-[2rem] shadow-2xl object-cover w-full h-[500px]" 
-             />
-          </div>
-        </div>
-      </section>
+      {/* 2. Features Grid */}
+      <FeatureGrid />
 
-      {/* 3. Stats Ticker */}
+      {/* 3. Stats Section */}
       <StatsTicker />
 
-      {/* 4. Programs (Bento Grid) */}
-      <section className="py-32 bg-secondary/30">
-        <div className="container px-4">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-accent font-bold uppercase tracking-widest text-sm mb-2 block">Keşfet</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Eğitim Programlarımız</h2>
-            <p className="text-muted-foreground text-lg">
-              Akademik başarıyı sosyal ve kültürel gelişimle destekleyen bütüncül bir program sunuyoruz.
-            </p>
+      {/* 4. About Preview Section (Split Layout) */}
+      <section className="py-24 bg-muted/20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+               <div className="absolute -inset-4 bg-brand-orange/10 rounded-[2.5rem] rotate-3"></div>
+               <img 
+                 src="/images/school-exterior-2.jpg" 
+                 alt="Campus Life" 
+                 className="relative rounded-[2rem] shadow-2xl object-cover w-full h-[500px]" 
+               />
+               <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-border/50 hidden md:block animate-bounce-slow">
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green font-bold text-xl">
+                        A+
+                     </div>
+                     <div>
+                        <div className="font-bold text-primary text-lg">Eğitimde Kalite</div>
+                        <div className="text-sm text-muted-foreground">Uluslararası Standartlar</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+            <div className="space-y-8">
+               <div className="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue font-bold rounded-lg text-sm">
+                  BOĞAZİÇİ İLGİ KOLEJİ
+               </div>
+               <h2 className="text-4xl md:text-5xl font-display font-bold text-primary leading-tight">
+                  Her Öğrenci <br/>
+                  <span className="text-brand-orange">Özeldir.</span>
+               </h2>
+               <p className="text-lg text-muted-foreground leading-relaxed">
+                  Eğitim felsefemizin temelinde, her çocuğun biricik olduğu gerçeği yatar. Öğrencilerimizin akademik başarılarını desteklerken, onların duygusal ve sosyal gelişimlerini de önemsiyoruz.
+               </p>
+               <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Link href="/kurumsal/hakkimizda">
+                     <Button className="h-14 px-8 rounded-full bg-primary text-white hover:bg-primary/90 text-lg">
+                        Hakkımızda <ArrowRight className="ml-2 w-5 h-5" />
+                     </Button>
+                  </Link>
+               </div>
+            </div>
           </div>
-          
-          <BentoGrid />
         </div>
       </section>
 
-      {/* 5. Testimonials (Infinite Scroll) */}
+      {/* 5. Testimonials */}
       <TestimonialsScroll />
 
-      {/* 6. CTA Section */}
+      {/* 6. Big CTA / Footer Pre-roll */}
       <section className="py-32 container px-4">
         <div className="bg-primary rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden group">
-          {/* Animated Background */}
-          <div className="absolute inset-0 opacity-20">
-             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_var(--accent),transparent_70%)] animate-pulse" style={{ animationDuration: '4s' }}></div>
+          {/* Animated Background Blobs */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+             <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-brand-blue rounded-full blur-[100px]" />
+             <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-orange rounded-full blur-[100px]" />
           </div>
           
-          <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="relative z-10 max-w-4xl mx-auto">
             <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-8">
-              Geleceğin Lideri Olmaya <br/> Hazır mısın?
+              Büyük Ailemize <br/> Katılmaya Hazır Mısınız?
             </h2>
-            <p className="text-white/70 text-xl mb-12">
-              Sınırlı kontenjan ve erken kayıt avantajlarından yararlanmak için hemen başvurun.
+            <p className="text-white/70 text-xl mb-12 max-w-2xl mx-auto">
+              Erken kayıt avantajları ve bursluluk sınavı başvuruları için formu doldurun, sizi arayalım.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href="/kayit/on-kayit">
-                <Button className="h-16 px-10 rounded-full bg-accent text-primary font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-xl shadow-accent/20">
-                  Ön Kayıt Oluştur <ArrowRight className="ml-2" />
+                <Button className="h-16 px-12 rounded-full bg-brand-orange text-white font-bold text-lg hover:bg-white hover:text-primary transition-all shadow-xl shadow-brand-orange/20">
+                  Başvuru Yap
                 </Button>
               </Link>
-              <Link href="/iletisim">
-                <Button variant="outline" className="h-16 px-10 rounded-full border-white/20 text-white hover:bg-white/10 text-lg">
-                  Bize Ulaşın
-                </Button>
-              </Link>
+              <div className="flex gap-4 items-center justify-center mt-6 sm:mt-0">
+                 <a href="#" className="p-4 bg-white/10 rounded-full hover:bg-white/20 text-white transition-colors"><Instagram className="w-6 h-6" /></a>
+                 <a href="#" className="p-4 bg-white/10 rounded-full hover:bg-white/20 text-white transition-colors"><Facebook className="w-6 h-6" /></a>
+                 <a href="#" className="p-4 bg-white/10 rounded-full hover:bg-white/20 text-white transition-colors"><Twitter className="w-6 h-6" /></a>
+                 <a href="#" className="p-4 bg-white/10 rounded-full hover:bg-white/20 text-white transition-colors"><Linkedin className="w-6 h-6" /></a>
+              </div>
             </div>
           </div>
         </div>

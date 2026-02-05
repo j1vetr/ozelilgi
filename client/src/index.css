@@ -7,10 +7,11 @@
   --font-display: "Montserrat", sans-serif;
   --font-sans: "Poppins", sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 0.3rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.8rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -32,6 +33,12 @@
   
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+
+  /* Brand Colors */
+  --color-brand-blue: hsl(var(--brand-blue));
+  --color-brand-green: hsl(var(--brand-green));
+  --color-brand-orange: hsl(var(--brand-orange));
+  --color-brand-yellow: hsl(var(--brand-yellow));
   
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
@@ -45,21 +52,27 @@
 }
 
 :root {
-  /* Primary: Deep Royal Navy */
-  --primary: 222 47% 11%;
-  --primary-foreground: 210 40% 98%;
+  /* Core Palette - Clean & Modern White/Gray Base */
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
 
-  /* Secondary: Soft Gray-White */
+  /* Primary: Deep Navy (Professional Base) */
+  --primary: 222 47% 11%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary: Light Gray */
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222 47% 11.2%;
 
-  /* Accent: Elegant Gold */
-  --accent: 43 96% 64%; 
-  --accent-foreground: 26 83% 14%;
+  /* Accent: Warm Gold/Orange (for CTAs) */
+  --accent: 35 90% 55%; 
+  --accent-foreground: 0 0% 100%;
   
-  /* Backgrounds */
-  --background: 0 0% 100%;
-  --foreground: 222 47% 11%;
+  /* Brand Specific Colors (Playful but Controlled) */
+  --brand-blue: 217 91% 60%;
+  --brand-green: 142 76% 36%;
+  --brand-orange: 24 95% 53%;
+  --brand-yellow: 48 96% 53%;
 
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
@@ -93,7 +106,7 @@
   --secondary-foreground: 210 40% 98%;
   --muted: 217.2 32.6% 17.5%;
   --muted-foreground: 215 20.2% 65.1%;
-  --accent: 43 96% 64%;
+  --accent: 35 90% 55%;
   --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
@@ -117,5 +130,10 @@
 @layer components {
   .container {
     @apply mx-auto max-w-7xl px-4 md:px-8;
+  }
+  
+  /* Text Reveal Animation Class */
+  .reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
