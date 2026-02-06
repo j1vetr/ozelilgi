@@ -28,6 +28,16 @@ export const NEWS_CONTENT = [
     summary: "Okullar arası basketbol turnuvasında öğrencilerimiz büyük başarı gösterdi.",
     image: "/images/sports-hall-1.jpg",
     content: "<p>Kapalı spor salonumuzda düzenlenen okullar arası basketbol turnuvasında öğrencilerimiz mükemmel bir performans sergileyerek ilçe birinciliğini kazandı. Tebrikler!</p>"
+  },
+  {
+    id: 4,
+    slug: "muzik-odasi-konseri",
+    title: "Müzik Odamızda Öğrenci Konseri Gerçekleşti",
+    date: "10 Ocak 2026",
+    category: "Etkinlik",
+    summary: "Piyano ve keman öğrencilerimiz dönem sonu konserinde ailelerine unutulmaz bir müzik ziyafeti sundu.",
+    image: "/images/music-room-1.jpg",
+    content: "<p>Müzik odamızda düzenlenen dönem sonu konserinde piyano ve keman öğrencilerimiz birbirinden güzel eserler seslendirdi. Velilerimizin yoğun katılımıyla gerçekleşen konser büyük beğeni topladı.</p>"
   }
 ];
 
