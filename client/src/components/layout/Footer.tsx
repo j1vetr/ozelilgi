@@ -31,11 +31,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <div className="bg-white/10 p-2 rounded-lg">
-                <img src="/images/logo.png" alt="Logo" className="w-10 h-10 object-contain brightness-0 invert" />
+                <img src="/images/logo.png" alt="Özel Boğaziçi İlgi Koleji Çekmeköy" className="w-10 h-10 object-contain brightness-0 invert" />
               </div>
-              <h2 className="font-display text-xl font-bold">{SCHOOL_INFO.shortName}</h2>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               {SCHOOL_INFO.slogan}. Anaokulu, İlkokul ve Ortaokul kademelerinde kaliteli eğitim.
@@ -120,7 +119,8 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/50">
-          <p>&copy; {new Date().getFullYear()} {SCHOOL_INFO.name}. Tüm hakları saklıdır.</p>
+          <p>&copy; {new Date().getFullYear()} {SCHOOL_INFO.name} | Tüm Hakları Saklıdır.</p>
+          <p>Geliştirici &amp; Tasarım : <a href="https://toov.com.tr" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-white transition-colors font-medium">TOOV</a></p>
         </div>
       </div>
     </footer>
