@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertPreRegistrationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendPreRegistrationConfirmation, sendContactConfirmation } from "./email";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -14,6 +15,11 @@ export async function registerRoutes(
     try {
       const data = insertPreRegistrationSchema.parse(req.body);
       const result = await storage.createPreRegistration(data);
+
+      sendPreRegistrationConfirmation(data).catch((err) =>
+        console.error("Pre-registration email error:", err)
+      );
+
       res.json({ success: true, data: result });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -41,6 +47,11 @@ export async function registerRoutes(
     try {
       const data = insertContactSubmissionSchema.parse(req.body);
       const result = await storage.createContactSubmission(data);
+
+      sendContactConfirmation(data).catch((err) =>
+        console.error("Contact email error:", err)
+      );
+
       res.json({ success: true, data: result });
     } catch (error) {
       if (error instanceof z.ZodError) {

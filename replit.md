@@ -103,3 +103,19 @@ Preferred communication style: Simple, everyday language.
 ### Critical Resources
 - Logo and hero image preloaded in HTML head
 - Navbar logo uses `loading="eager"` with `fetchPriority="high"`
+
+## Email Notifications (SMTP)
+
+### Configuration
+- **Provider**: Custom SMTP via `mail.toov.com.tr` (SSL, port 465)
+- **From**: `no-reply@toov.com.tr`
+- **Admin**: `info@ozelilgiokullari.k12.tr`
+- **Secrets**: `SMTP_PASSWORD` (stored as Replit secret)
+- **Env Vars**: `SMTP_HOST`, `SMTP_USER`, `SMTP_PORT`, `ADMIN_EMAIL`
+
+### Behavior
+- Pre-registration form: sends confirmation to parent + notification to admin
+- Contact form: sends confirmation to sender + notification to admin
+- Fire-and-forget pattern: emails sent asynchronously, don't block form response
+- Email failures logged but don't affect form submission success
+- Professional HTML email templates with school branding
