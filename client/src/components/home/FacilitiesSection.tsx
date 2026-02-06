@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
   ArrowRight, Palette, Music, Code, FlaskConical, Dumbbell, 
   BookOpen, UtensilsCrossed, Users
@@ -84,14 +84,34 @@ const facilities = [
 ];
 
 export function FacilitiesSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (isPaused) return;
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % facilities.length);
+    }, 2500);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPaused]);
+
+  const handleMouseEnter = (i: number) => {
+    setIsPaused(true);
+    setActiveIndex(i);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
 
   return (
     <section className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/80 to-white" />
 
       <div className="container relative px-4">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +127,6 @@ export function FacilitiesSection() {
           </p>
         </motion.div>
 
-        {/* Scrolling Facility Ribbon */}
         <div className="relative mb-14 -mx-4 overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
@@ -129,11 +148,10 @@ export function FacilitiesSection() {
           </motion.div>
         </div>
 
-        {/* Facilities Showcase Grid */}
         <div className="max-w-5xl mx-auto mb-12">
           <div className="grid md:grid-cols-3 gap-4">
             {facilities.map((facility, i) => {
-              const isHovered = hoveredIndex === i;
+              const isActive = activeIndex === i;
 
               return (
                 <motion.div
@@ -142,49 +160,40 @@ export function FacilitiesSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07, duration: 0.5 }}
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  onMouseEnter={() => handleMouseEnter(i)}
+                  onMouseLeave={handleMouseLeave}
                   className="group relative"
                 >
-                  <div className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${isHovered ? 'shadow-2xl -translate-y-2' : 'shadow-md'}`}>
-                    {/* Gradient Background - shows on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${facility.gradient} transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
-                    
-                    {/* Light Background - default */}
-                    <div className={`absolute inset-0 ${facility.lightBg} border border-gray-100 rounded-2xl transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
+                  <div className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${isActive ? 'shadow-2xl -translate-y-2' : 'shadow-md'}`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${facility.gradient} transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
+                    <div className={`absolute inset-0 ${facility.lightBg} border border-gray-100 rounded-2xl transition-opacity duration-500 ${isActive ? 'opacity-0' : 'opacity-100'}`} />
 
-                    {/* Decorative circles on hover */}
-                    <div className={`absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full transition-all duration-700 ${isHovered ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
-                    <div className={`absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full transition-all duration-700 delay-100 ${isHovered ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+                    <div className={`absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full transition-all duration-700 ${isActive ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+                    <div className={`absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full transition-all duration-700 delay-100 ${isActive ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
 
-                    {/* Content */}
                     <div className="relative z-10 p-6">
-                      {/* Icon */}
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-500 ${
-                        isHovered 
+                        isActive 
                           ? 'bg-white/20 backdrop-blur-sm shadow-lg scale-110' 
                           : `bg-gradient-to-br ${facility.gradient} shadow-lg`
                       }`}>
                         <facility.icon className="w-7 h-7 text-white" />
                       </div>
 
-                      {/* Title */}
-                      <h3 className={`font-bold text-lg mb-2 transition-colors duration-500 ${isHovered ? 'text-white' : 'text-gray-900'}`}>
+                      <h3 className={`font-bold text-lg mb-2 transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-900'}`}>
                         {facility.title}
                       </h3>
 
-                      {/* Description */}
-                      <p className={`text-sm mb-4 transition-colors duration-500 leading-relaxed ${isHovered ? 'text-white/80' : 'text-gray-500'}`}>
+                      <p className={`text-sm mb-4 transition-colors duration-500 leading-relaxed ${isActive ? 'text-white/80' : 'text-gray-500'}`}>
                         {facility.desc}
                       </p>
 
-                      {/* Feature Tags */}
                       <div className="flex flex-wrap gap-2">
                         {facility.features.map((feat, fi) => (
                           <span 
                             key={fi}
                             className={`text-xs font-medium px-3 py-1 rounded-full transition-all duration-500 ${
-                              isHovered 
+                              isActive 
                                 ? 'bg-white/20 text-white border border-white/20' 
                                 : `bg-white ${facility.accent} border border-gray-100`
                             }`}
