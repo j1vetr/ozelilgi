@@ -1,10 +1,23 @@
 import { PageHeader } from "@/components/ui/PageHeader";
 import { NEWS_CONTENT, ANNOUNCEMENTS } from "@/lib/mock-news";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, ChevronRight, ArrowLeft } from "lucide-react";
+import { Calendar, ChevronRight, ArrowLeft, Megaphone, Clock, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useRoute } from "wouter";
+
+const categoryColors: Record<string, string> = {
+    "Kayıt": "bg-brand-orange/15 text-brand-orange border-brand-orange/30",
+    "Toplantı": "bg-brand-blue/15 text-brand-blue border-brand-blue/30",
+    "Bilgilendirme": "bg-brand-green/15 text-brand-green border-brand-green/30",
+    "Etkinlik": "bg-brand-yellow/15 text-yellow-700 border-brand-yellow/30",
+    "Program": "bg-purple-100 text-purple-700 border-purple-200",
+};
+
+const monthMap: Record<string, string> = {
+    "01": "Oca", "02": "Şub", "03": "Mar", "04": "Nis",
+    "05": "May", "06": "Haz", "07": "Tem", "08": "Ağu",
+    "09": "Eyl", "10": "Eki", "11": "Kas", "12": "Ara",
+};
 
 export default function HaberlerPage() {
     const [match, params] = useRoute("/haberler/:slug");
@@ -21,32 +34,56 @@ export default function HaberlerPage() {
                         { label: "Detay", href: `/haberler/${slug}` }
                     ]}
                 />
-                <div className="container py-16 px-4 max-w-4xl">
+                <div className="container py-10 px-4 max-w-3xl">
                     <Link href="/haberler">
-                        <Button variant="ghost" className="mb-6 pl-0 hover:bg-transparent text-muted-foreground">
-                            <ArrowLeft className="mr-2 w-4 h-4" /> Tüm Haberlere Dön
+                        <Button variant="ghost" size="sm" className="mb-4 pl-0 hover:bg-transparent text-muted-foreground text-xs">
+                            <ArrowLeft className="mr-1.5 w-3.5 h-3.5" /> Tüm Haberlere Dön
                         </Button>
                     </Link>
 
-                    <article className="prose prose-lg prose-blue max-w-none">
-                        <div className="not-prose mb-8 rounded-xl overflow-hidden shadow-lg">
-                            <img src={newsItem.image} alt={newsItem.title} className="w-full h-auto object-cover max-h-[500px]" loading="lazy" decoding="async" />
+                    <article>
+                        <div className="mb-5 rounded-lg overflow-hidden shadow-md">
+                            <img src={newsItem.image} alt={newsItem.title} className="w-full h-auto object-cover max-h-[360px]" loading="lazy" decoding="async" />
                         </div>
-                        <div className="flex items-center gap-4 mb-6 not-prose">
-                            <Badge className="bg-accent text-primary font-bold">{newsItem.category}</Badge>
-                            <span className="text-muted-foreground flex items-center text-sm">
-                                <Calendar className="w-4 h-4 mr-1" /> {newsItem.date}
+
+                        <div className="flex items-center gap-3 mb-4">
+                            <Badge variant="secondary" className="text-[11px] px-2 py-0.5 bg-brand-blue/10 text-brand-blue border-0">{newsItem.category}</Badge>
+                            <span className="text-muted-foreground flex items-center text-xs">
+                                <Calendar className="w-3 h-3 mr-1" /> {newsItem.date}
                             </span>
                         </div>
+
+                        <h1 className="font-display text-xl md:text-2xl font-bold text-foreground mb-4 leading-snug">
+                            {newsItem.title}
+                        </h1>
                         
-                        <div dangerouslySetInnerHTML={{ __html: newsItem.content }} />
-                        <p>{newsItem.summary}</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div className="prose prose-sm prose-blue max-w-none text-sm leading-relaxed text-muted-foreground">
+                            <div dangerouslySetInnerHTML={{ __html: newsItem.content }} />
+                            <p>{newsItem.summary}</p>
+                        </div>
+
+                        <div className="mt-8 pt-6 border-t border-border">
+                            <h3 className="font-display text-sm font-bold text-foreground mb-3">Diğer Haberler</h3>
+                            <div className="space-y-2">
+                                {NEWS_CONTENT.filter(n => n.slug !== slug).map((news) => (
+                                    <Link key={news.id} href={`/haberler/${news.slug}`}>
+                                        <div className="group flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                                            <div className="w-16 h-12 rounded overflow-hidden shrink-0">
+                                                <img src={news.image} alt={news.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                                            </div>
+                                            <div className="min-w-0">
+                                                <h4 className="text-xs font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">{news.title}</h4>
+                                                <span className="text-[10px] text-muted-foreground">{news.date}</span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
-        )
+        );
     }
 
     return (
@@ -56,81 +93,101 @@ export default function HaberlerPage() {
                 breadcrumbs={[{ label: "Haberler", href: "/haberler" }]}
             />
 
-            <div className="container py-16 px-4">
-                <div className="grid lg:grid-cols-12 gap-12">
-                    {/* Main News Feed */}
-                    <div className="lg:col-span-8 space-y-8">
-                        <h2 className="font-display text-3xl font-bold text-primary border-b border-border pb-4 mb-8">
-                            Güncel Haberler
-                        </h2>
+            <div className="container py-10 px-4">
+                <div className="grid lg:grid-cols-5 gap-6 items-stretch">
+                    <div className="lg:col-span-3 flex flex-col">
+                        <div className="flex items-center gap-2 mb-4">
+                            <Newspaper className="w-4 h-4 text-primary" />
+                            <h2 className="font-display text-lg font-bold text-foreground">Güncel Haberler</h2>
+                        </div>
                         
-                        {NEWS_CONTENT.map((news) => (
-                            <Card key={news.id} className="overflow-hidden group flex flex-col md:flex-row gap-0 hover:shadow-lg transition-shadow">
-                                <div className="md:w-1/3 aspect-video md:aspect-auto overflow-hidden">
-                                    <img 
-                                        src={news.image} 
-                                        alt={news.title} 
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                                <div className="md:w-2/3 flex flex-col">
-                                    <CardHeader>
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <Badge variant="secondary" className="bg-accent/20 text-accent-foreground border-accent/20">
-                                                {news.category}
-                                            </Badge>
-                                            <div className="flex items-center text-xs text-muted-foreground">
-                                                <Calendar className="w-3 h-3 mr-1" />
-                                                {news.date}
+                        <div className="space-y-3 flex-1">
+                            {NEWS_CONTENT.map((news) => (
+                                <Link key={news.id} href={`/haberler/${news.slug}`}>
+                                    <div
+                                        data-testid={`news-list-card-${news.id}`}
+                                        className="group bg-white rounded-lg border border-border overflow-hidden hover:shadow-sm hover:border-primary/20 transition-all duration-300 flex flex-row"
+                                    >
+                                        <div className="w-32 sm:w-40 shrink-0 overflow-hidden">
+                                            <img 
+                                                src={news.image} 
+                                                alt={news.title} 
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div className="p-3 flex-1 flex flex-col justify-center min-w-0">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 bg-brand-blue/10 text-brand-blue border-0">
+                                                    {news.category}
+                                                </Badge>
+                                                <span className="text-[10px] text-muted-foreground flex items-center gap-0.5">
+                                                    <Calendar className="w-2.5 h-2.5" />{news.date}
+                                                </span>
+                                            </div>
+                                            <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                                                {news.title}
+                                            </h3>
+                                            <p className="text-xs text-muted-foreground line-clamp-2 hidden sm:block">{news.summary}</p>
+                                            <div className="mt-1.5">
+                                                <span className="text-[11px] text-primary font-medium flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
+                                                    Devamını Oku <ChevronRight className="w-3 h-3" />
+                                                </span>
                                             </div>
                                         </div>
-                                        <CardTitle className="font-display text-xl group-hover:text-primary transition-colors">
-                                            <Link href={`/haberler/${news.slug}`}>{news.title}</Link>
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="text-muted-foreground text-sm line-clamp-2">{news.summary}</p>
-                                    </CardContent>
-                                    <CardFooter className="mt-auto pt-0">
-                                        <Link href={`/haberler/${news.slug}`}>
-                                            <Button variant="link" className="px-0 text-primary font-semibold">
-                                                Devamını Oku <ChevronRight className="ml-1 w-4 h-4" />
-                                            </Button>
-                                        </Link>
-                                    </CardFooter>
-                                </div>
-                            </Card>
-                        ))}
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Sidebar Announcements */}
-                    <div className="lg:col-span-4 space-y-8">
-                        <Card>
-                            <CardHeader className="bg-primary text-white rounded-t-xl">
-                                <CardTitle>Duyurular</CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-0">
-                                <div className="divide-y divide-border">
-                                    {ANNOUNCEMENTS.map((announcement) => (
-                                        <div key={announcement.id} className={`p-4 hover:bg-muted/50 transition-colors ${announcement.isImportant ? "bg-brand-orange/5" : ""}`}>
-                                            <div className="flex items-center gap-2 mb-1">
-                                                <Badge variant="outline" className="text-[10px] px-1.5 py-0">{announcement.category}</Badge>
-                                                <span className="text-xs text-muted-foreground font-mono">{announcement.date}</span>
-                                                {announcement.isImportant && (
-                                                    <Badge className="bg-brand-orange text-white text-[10px] px-1.5 py-0">Yeni</Badge>
-                                                )}
+                    <div className="lg:col-span-2 flex flex-col">
+                        <div className="flex items-center gap-2 mb-4">
+                            <Megaphone className="w-4 h-4 text-primary" />
+                            <h2 className="font-display text-lg font-bold text-foreground">Duyurular</h2>
+                        </div>
+
+                        <div className="bg-white rounded-lg border border-border overflow-hidden flex-1">
+                            <div className="bg-primary px-4 py-2.5">
+                                <span className="text-white text-xs font-semibold tracking-wide uppercase">Son Duyurular</span>
+                            </div>
+                            <div className="divide-y divide-border">
+                                {ANNOUNCEMENTS.map((announcement) => (
+                                    <div
+                                        key={announcement.id}
+                                        data-testid={`announcement-list-${announcement.id}`}
+                                        className={`px-3 py-2.5 hover:bg-muted/40 transition-colors ${announcement.isImportant ? "bg-brand-orange/5" : ""}`}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <div className="hidden sm:flex flex-col items-center min-w-[36px]">
+                                                <span className="text-[9px] text-muted-foreground font-medium uppercase leading-none">
+                                                    {monthMap[announcement.date.split(".")[1]] || ""}
+                                                </span>
+                                                <span className="text-base font-bold text-primary leading-tight">
+                                                    {announcement.date.split(".")[0]}
+                                                </span>
                                             </div>
-                                            <h4 className="font-medium text-sm leading-snug hover:text-primary transition-colors">
-                                                {announcement.title}
-                                            </h4>
-                                            <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{announcement.summary}</p>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-1.5 mb-0.5">
+                                                    <span className={`text-[9px] font-semibold px-1.5 py-0 rounded-full border ${categoryColors[announcement.category] || "bg-gray-100 text-gray-600 border-gray-200"}`}>
+                                                        {announcement.category}
+                                                    </span>
+                                                    {announcement.isImportant && (
+                                                        <span className="text-[9px] font-bold text-brand-orange bg-brand-orange/15 px-1.5 py-0 rounded-full">Yeni</span>
+                                                    )}
+                                                    <span className="sm:hidden text-[9px] text-muted-foreground flex items-center gap-0.5">
+                                                        <Clock className="w-2.5 h-2.5" />{announcement.date}
+                                                    </span>
+                                                </div>
+                                                <h4 className="font-medium text-[12px] text-foreground leading-snug">{announcement.title}</h4>
+                                                <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{announcement.summary}</p>
+                                            </div>
                                         </div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
