@@ -32,7 +32,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center">
-              <img src="/images/logo.png" alt="Özel Boğaziçi İlgi Koleji Çekmeköy" className="w-32 h-32 object-contain brightness-0 invert" />
+              <img src="/images/logo.png" alt="Özel Boğaziçi İlgi Koleji Çekmeköy" className="object-contain brightness-0 invert" style={{ width: "368px", height: "368px" }} />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               {SCHOOL_INFO.slogan}. Anaokulu, İlkokul ve Ortaokul kademelerinde kaliteli eğitim.
