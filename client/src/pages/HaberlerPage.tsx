@@ -94,21 +94,21 @@ export default function HaberlerPage() {
             />
 
             <div className="container py-10 px-4">
-                <div className="grid lg:grid-cols-5 gap-6">
-                    <div className="lg:col-span-3">
+                <div className="grid lg:grid-cols-5 gap-6 items-stretch">
+                    <div className="lg:col-span-3 flex flex-col">
                         <div className="flex items-center gap-2 mb-4">
                             <Newspaper className="w-4 h-4 text-primary" />
                             <h2 className="font-display text-lg font-bold text-foreground">Güncel Haberler</h2>
                         </div>
                         
-                        <div className="space-y-2.5">
+                        <div className="flex flex-col gap-3 flex-1">
                             {NEWS_CONTENT.map((news) => (
                                 <Link key={news.id} href={`/haberler/${news.slug}`}>
                                     <div
                                         data-testid={`news-list-card-${news.id}`}
-                                        className="group bg-white rounded-lg border border-border overflow-hidden hover:shadow-sm hover:border-primary/20 transition-all duration-300 flex flex-row h-[100px]"
+                                        className="group bg-white rounded-lg border border-border overflow-hidden hover:shadow-md hover:border-primary/20 transition-all duration-300 flex flex-row h-full"
                                     >
-                                        <div className="w-28 sm:w-36 shrink-0 overflow-hidden">
+                                        <div className="w-36 sm:w-44 shrink-0 overflow-hidden">
                                             <img 
                                                 src={news.image} 
                                                 alt={news.title} 
@@ -117,21 +117,21 @@ export default function HaberlerPage() {
                                                 decoding="async"
                                             />
                                         </div>
-                                        <div className="p-2.5 flex-1 flex flex-col justify-center min-w-0">
-                                            <div className="flex items-center gap-2 mb-0.5">
-                                                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 bg-brand-blue/10 text-brand-blue border-0">
+                                        <div className="p-3 sm:p-4 flex-1 flex flex-col justify-center min-w-0">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <Badge variant="secondary" className="text-[10px] sm:text-[11px] px-2 py-0.5 bg-brand-blue/10 text-brand-blue border-0">
                                                     {news.category}
                                                 </Badge>
-                                                <span className="text-[10px] text-muted-foreground flex items-center gap-0.5">
-                                                    <Calendar className="w-2.5 h-2.5" />{news.date}
+                                                <span className="text-[10px] sm:text-[11px] text-muted-foreground flex items-center gap-0.5">
+                                                    <Calendar className="w-3 h-3" />{news.date}
                                                 </span>
                                             </div>
-                                            <h3 className="font-semibold text-[13px] text-foreground group-hover:text-primary transition-colors leading-snug mb-0.5">
+                                            <h3 className="font-semibold text-sm sm:text-[15px] text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
                                                 {news.title}
                                             </h3>
-                                            <p className="text-[11px] text-muted-foreground line-clamp-1 hidden sm:block">{news.summary}</p>
-                                            <span className="text-[10px] text-primary font-medium flex items-center gap-0.5 group-hover:gap-1.5 transition-all mt-0.5">
-                                                Devamını Oku <ChevronRight className="w-3 h-3" />
+                                            <p className="text-xs text-muted-foreground line-clamp-2 hidden sm:block">{news.summary}</p>
+                                            <span className="text-[11px] text-primary font-medium flex items-center gap-0.5 group-hover:gap-1.5 transition-all mt-1">
+                                                Devamını Oku <ChevronRight className="w-3.5 h-3.5" />
                                             </span>
                                         </div>
                                     </div>
@@ -140,35 +140,35 @@ export default function HaberlerPage() {
                         </div>
                     </div>
 
-                    <div className="lg:col-span-2">
+                    <div className="lg:col-span-2 flex flex-col">
                         <div className="flex items-center gap-2 mb-4">
                             <Megaphone className="w-4 h-4 text-primary" />
                             <h2 className="font-display text-lg font-bold text-foreground">Duyurular</h2>
                         </div>
 
-                        <div className="bg-white rounded-lg border border-border overflow-hidden">
+                        <div className="bg-white rounded-lg border border-border overflow-hidden flex-1 flex flex-col">
                             <div className="bg-primary px-3 py-2">
                                 <span className="text-white text-[11px] font-semibold tracking-wide uppercase">Son Duyurular</span>
                             </div>
-                            <div className="divide-y divide-border">
+                            <div className="divide-y divide-border flex-1">
                                 {ANNOUNCEMENTS.map((announcement) => (
                                     <div
                                         key={announcement.id}
                                         data-testid={`announcement-list-${announcement.id}`}
-                                        className={`px-3 py-2 hover:bg-muted/40 transition-colors ${announcement.isImportant ? "bg-brand-orange/5" : ""}`}
+                                        className={`px-3 py-3 hover:bg-muted/40 transition-colors ${announcement.isImportant ? "bg-brand-orange/5" : ""}`}
                                     >
                                         <div className="flex items-center gap-2.5">
-                                            <div className="hidden sm:flex flex-col items-center min-w-[32px]">
+                                            <div className="hidden sm:flex flex-col items-center min-w-[36px]">
                                                 <span className="text-[9px] text-muted-foreground font-medium uppercase leading-none">
                                                     {monthMap[announcement.date.split(".")[1]] || ""}
                                                 </span>
-                                                <span className="text-sm font-bold text-primary leading-tight">
+                                                <span className="text-base font-bold text-primary leading-tight">
                                                     {announcement.date.split(".")[0]}
                                                 </span>
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-1.5 mb-0.5">
-                                                    <span className={`text-[9px] font-semibold px-1.5 py-0 rounded-full border ${categoryColors[announcement.category] || "bg-gray-100 text-gray-600 border-gray-200"}`}>
+                                                    <span className={`text-[10px] font-semibold px-1.5 py-0 rounded-full border ${categoryColors[announcement.category] || "bg-gray-100 text-gray-600 border-gray-200"}`}>
                                                         {announcement.category}
                                                     </span>
                                                     {announcement.isImportant && (
@@ -178,8 +178,8 @@ export default function HaberlerPage() {
                                                         <Clock className="w-2.5 h-2.5" />{announcement.date}
                                                     </span>
                                                 </div>
-                                                <h4 className="font-medium text-[12px] text-foreground leading-snug">{announcement.title}</h4>
-                                                <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{announcement.summary}</p>
+                                                <h4 className="font-medium text-[13px] text-foreground leading-snug">{announcement.title}</h4>
+                                                <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-2">{announcement.summary}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -117,6 +117,10 @@ export function ChatWidget() {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
+        @keyframes chat-pulse-ring {
+          0% { transform: scale(1); opacity: 0.4; }
+          100% { transform: scale(1.6); opacity: 0; }
+        }
       `}</style>
 
       <AnimatePresence>
@@ -307,17 +311,19 @@ export function ChatWidget() {
       <div className="fixed bottom-4 right-4 z-[9999]">
         {!isOpen && !hasInteracted && (
           <>
-            <motion.span
+            <span
               className="absolute inset-0 rounded-full"
-              style={{ background: BORDER_GRADIENT, opacity: 0.3 }}
-              animate={{ scale: [1, 1.5, 1.5], opacity: [0.4, 0, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
+              style={{
+                background: BORDER_GRADIENT,
+                animation: "chat-pulse-ring 2.5s ease-out infinite",
+              }}
             />
-            <motion.span
+            <span
               className="absolute inset-0 rounded-full"
-              style={{ background: BORDER_GRADIENT, opacity: 0.2 }}
-              animate={{ scale: [1, 1.8, 1.8], opacity: [0.3, 0, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
+              style={{
+                background: BORDER_GRADIENT,
+                animation: "chat-pulse-ring 2.5s ease-out infinite 0.8s",
+              }}
             />
           </>
         )}
