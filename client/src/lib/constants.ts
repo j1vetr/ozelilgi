@@ -58,6 +58,10 @@ export const NAVIGATION = [
     ],
   },
   {
+    title: "Haberler",
+    href: "/haberler",
+  },
+  {
     title: "İletişim",
     href: "/iletisim",
   },

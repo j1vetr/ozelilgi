@@ -49,8 +49,8 @@ export function AnnouncementsSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-3">
+        <div className="grid lg:grid-cols-5 gap-8 items-stretch">
+          <div className="lg:col-span-3 flex flex-col">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -61,7 +61,7 @@ export function AnnouncementsSection() {
               <h3 className="font-display text-xl font-bold text-foreground">Duyurular</h3>
             </motion.div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 flex-1 flex flex-col">
               {ANNOUNCEMENTS.map((item, index) => (
                 <motion.div
                   key={item.id}
@@ -118,7 +118,7 @@ export function AnnouncementsSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex flex-col">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -129,20 +129,21 @@ export function AnnouncementsSection() {
               <h3 className="font-display text-xl font-bold text-foreground">Son Haberler</h3>
             </motion.div>
 
-            <div className="space-y-4">
+            <div className="flex-1 flex flex-col gap-4">
               {NEWS_CONTENT.map((news, index) => (
                 <motion.div
                   key={news.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  className="flex-1 flex"
                 >
-                  <Link href={`/haberler/${news.slug}`}>
+                  <Link href={`/haberler/${news.slug}`} className="flex-1 flex">
                     <div
                       data-testid={`news-card-${news.id}`}
-                      className="group bg-white rounded-xl border border-border overflow-hidden hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                      className="group bg-white rounded-xl border border-border overflow-hidden hover:shadow-md hover:border-primary/20 transition-all duration-300 flex-1 flex flex-col"
                     >
-                      <div className="aspect-[16/9] overflow-hidden">
+                      <div className="aspect-[16/8] overflow-hidden">
                         <img
                           src={news.image}
                           alt={news.title}
@@ -151,7 +152,7 @@ export function AnnouncementsSection() {
                           decoding="async"
                         />
                       </div>
-                      <div className="p-4">
+                      <div className="p-4 flex-1 flex flex-col">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-[11px] font-semibold text-brand-blue bg-brand-blue/10 px-2 py-0.5 rounded-full">
                             {news.category}
@@ -163,7 +164,7 @@ export function AnnouncementsSection() {
                         <h4 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1.5">
                           {news.title}
                         </h4>
-                        <p className="text-xs text-muted-foreground line-clamp-2">{news.summary}</p>
+                        <p className="text-xs text-muted-foreground line-clamp-2 mt-auto">{news.summary}</p>
                       </div>
                     </div>
                   </Link>

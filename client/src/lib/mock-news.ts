@@ -1,33 +1,33 @@
 export const NEWS_CONTENT = [
   {
     id: 1,
-    slug: "2026-erken-kayit",
-    title: "2026-2027 Eğitim Öğretim Yılı Erken Kayıt Dönemi Başladı",
-    date: "15 Ocak 2026",
-    category: "Duyuru",
-    summary: "Gelecek eğitim yılı için avantajlı erken kayıt fırsatları başladı. Kontenjanlarımız sınırlıdır.",
-    image: "https://images.unsplash.com/photo-1427504743050-dad1fb61631e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    content: "<p>Yeni dönem kayıtlarımız başlamıştır...</p>"
+    slug: "fen-laboratuvari-yenilendi",
+    title: "Fen Laboratuvarımız Yenilendi",
+    date: "01 Şubat 2026",
+    category: "Gelişme",
+    summary: "Modern donanımlarla yenilenen fen laboratuvarımız, öğrencilerimize deneysel öğrenme için en iyi ortamı sunuyor.",
+    image: "/images/science-room-1.jpg",
+    content: "<p>Okulumuzun fen laboratuvarı, en son teknoloji deney ekipmanları ve interaktif öğrenme araçlarıyla yeniden düzenlendi. Öğrencilerimiz artık fizik, kimya ve biyoloji deneylerini daha güvenli ve verimli bir ortamda gerçekleştirebilecek.</p>"
   },
   {
     id: 2,
-    slug: "tubitak-basarisi",
-    title: "Öğrencilerimizden TÜBİTAK Proje Başarısı",
-    date: "10 Ocak 2026",
-    category: "Başarı",
-    summary: "Fen Lisesi öğrencilerimizin geliştirdiği 'Sürdürülebilir Tarım' projesi bölge birincisi oldu.",
-    image: "https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    content: "<p>TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması'nda...</p>"
+    slug: "sanat-atolyesi-sergisi",
+    title: "Sanat Atölyesi Öğrenci Sergisi Açıldı",
+    date: "25 Ocak 2026",
+    category: "Etkinlik",
+    summary: "Öğrencilerimizin dönem boyunca hazırladığı eserler, sanat atölyemizde sergileniyor.",
+    image: "/images/art-room-1.jpg",
+    content: "<p>Görsel Sanatlar derslerinde öğrencilerimizin ürettiği resim, heykel ve seramik çalışmaları sanat atölyemizde sergilenmektedir. Sergimiz, velilerimizin de ziyaretine açıktır.</p>"
   },
   {
     id: 3,
-    slug: "kis-okulu",
-    title: "Kış Okulu Spor ve Sanat Etkinlikleri",
-    date: "05 Ocak 2026",
-    category: "Etkinlik",
-    summary: "Sömestr tatilinde öğrencilerimiz hem eğlenecek hem öğrenecek. Kayıtlar devam ediyor.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    content: "<p>Kış okulu programımızda yüzme, basketbol, resim ve kodlama atölyeleri...</p>"
+    slug: "spor-salonu-etkinlikleri",
+    title: "Spor Salonumuzda Turnuva Heyecanı",
+    date: "18 Ocak 2026",
+    category: "Spor",
+    summary: "Okullar arası basketbol turnuvasında öğrencilerimiz büyük başarı gösterdi.",
+    image: "/images/sports-hall-1.jpg",
+    content: "<p>Kapalı spor salonumuzda düzenlenen okullar arası basketbol turnuvasında öğrencilerimiz mükemmel bir performans sergileyerek ilçe birinciliğini kazandı. Tebrikler!</p>"
   }
 ];
 
