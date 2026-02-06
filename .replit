@@ -42,3 +42,11 @@ waitForPort = 5000
 [agent]
 stack = "MOCKUP_JS"
 mockupState = "FULLSTACK"
+
+[userenv]
+
+[userenv.shared]
+SMTP_HOST = "mail.toov.com.tr"
+SMTP_USER = "no-reply@toov.com.tr"
+SMTP_PORT = "465"
+ADMIN_EMAIL = "info@ozelilgiokullari.k12.tr"
