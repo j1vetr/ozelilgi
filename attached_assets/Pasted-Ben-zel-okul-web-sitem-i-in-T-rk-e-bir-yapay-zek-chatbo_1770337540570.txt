@@ -1,0 +1,74 @@
+Ben özel okul web sitem için Türkçe bir yapay zekâ chatbot istiyorum.
+Mevcut siteyi otomatik olarak tarayıp içeriği kendisi anlayacak, ayrıca ben URL, doküman veya onay süreciyle uğraşmayacağım.
+Chatbot; kayıt adayları ve velilerin sorabileceği her şeyi site içeriğine dayanarak cevaplayacak.
+
+YAPAY ZEKA
+- ChatGPT (OpenAI API) kullanılacak
+- Token bazlı çalışacak (OpenAI API Key)
+- Aylık kullanım limiti ayarlanabilir olacak
+- Limit dolunca kullanıcıya nazik bilgilendirme mesajı versin
+- Tüm yanıtlar Türkçe olsun
+
+SİTEYİ OTOMATİK KULLANMA
+- Bot, kurulu olduğu mevcut web sitesini otomatik tarasın
+- Aynı domain içindeki tüm ilgili sayfaları okusun
+- Menü, footer, tekrar eden alanları ayıklasın
+- Site içeriğini temiz metne dönüştürüp dahili bilgi kaynağı olarak kullansın
+- Harici sitelere çıkmasın
+- Güncelleme gerektikçe siteyi yeniden tarayabilsin
+
+CHATBOT DAVRANIŞI
+- Kurumsal ama samimi bir okul asistanı gibi konuşsun
+- Aşağıdaki konularda soruları cevaplayabilsin:
+  - Kayıt ve kabul süreci
+  - Yaş grupları / sınıflar
+  - Ücret ve burs (sitede varsa)
+  - Servis
+  - Yemekhane
+  - Eğitim modeli
+  - Yabancı dil eğitimi
+  - Kulüpler ve sosyal etkinlikler
+  - Rehberlik hizmetleri
+  - Okul saatleri
+  - İletişim ve ulaşım
+
+EN ÖNEMLİ KURAL
+- Sitede açıkça yer almayan bir bilgi varsa ASLA uydurmasın
+- Bu durumda standart cevap kullansın:
+  “Bu konuda sitemizde doğrulanmış bir bilgi bulamadım. İsterseniz sizi kayıt danışmanımıza yönlendirebilirim.”
+
+KAYIT TALEBİ / LEAD TOPLAMA
+- Kullanıcı kayıt veya iletişim istediğinde:
+  - Ad Soyad
+  - Telefon
+  - E-posta (isteğe bağlı)
+  - Öğrencinin yaşı / sınıfı
+  - İlgilenilen kademe
+- Bilgileri kayıt altına alsın
+- Kullanıcıya talebinin iletildiğini net şekilde söylesin
+
+VELİ SORULARI
+- Genel veli sorularını (prosedür, servis, saatler vb.) site içeriğine göre cevaplasın
+- Öğrenciye özel bilgi gerektiren sorularda:
+  “Bu bilgi için veli girişi gerekmektedir” şeklinde yönlendirme yapsın
+- KVKK açısından hassas verileri paylaşmasın
+
+YÖNETİM TARAFI
+- Basit bir admin panel olsun:
+  - Sohbet kayıtlarını görüntüleme (kişisel bilgileri maskeleyerek)
+  - Toplanan kayıt taleplerini görme
+  - Token kullanımını görme
+  - Siteyi yeniden tarama butonu
+
+TESLİM
+- Replit üzerinde çalışır halde
+- Siteye kolayca entegre edilebilir (widget / embed)
+- Tüm kullanıcıya görünen metinler Türkçe
+- Benim yapmam gereken tek şey:
+  - OpenAI API Key girmek
+  - Botu aktif etmek
+
+NOT
+- Admin onayı, manuel doküman yükleme veya URL tanımlama istemiyorum
+- Hızlı, sade ve güvenilir olsun
+- Okul imajına zarar verecek cevaplar kesinlikle üretilmesin
