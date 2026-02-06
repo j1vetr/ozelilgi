@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertPreRegistrationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendPreRegistrationConfirmation, sendContactConfirmation } from "./email";
+import { chatWithBot } from "./chatbot";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -71,6 +72,22 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Get contact submissions error:", error);
       res.status(500).json({ success: false, error: "İç sunucu hatası" });
+    }
+  });
+
+  // Chatbot API
+  app.post("/api/chat", async (req, res) => {
+    try {
+      const { message, sessionId } = req.body;
+      if (!message || typeof message !== "string" || !sessionId || typeof sessionId !== "string") {
+        res.status(400).json({ success: false, error: "Mesaj ve oturum kimliği gereklidir" });
+        return;
+      }
+      const reply = await chatWithBot(sessionId, message.slice(0, 1000));
+      res.json({ success: true, reply });
+    } catch (error) {
+      console.error("Chat API error:", error);
+      res.status(500).json({ success: false, error: "Bir hata oluştu" });
     }
   });
 
