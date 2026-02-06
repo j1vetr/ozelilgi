@@ -114,20 +114,22 @@ export default function HaberlerPage() {
                             <CardContent className="p-0">
                                 <div className="divide-y divide-border">
                                     {ANNOUNCEMENTS.map((announcement) => (
-                                        <div key={announcement.id} className="p-4 hover:bg-muted/50 transition-colors">
-                                            <div className="text-xs text-muted-foreground mb-1 font-mono">{announcement.date}</div>
-                                            <h4 className="font-medium text-sm leading-snug">
-                                                <Link href="/duyurular"><a className="hover:text-primary hover:underline">{announcement.title}</a></Link>
+                                        <div key={announcement.id} className={`p-4 hover:bg-muted/50 transition-colors ${announcement.isImportant ? "bg-brand-orange/5" : ""}`}>
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <Badge variant="outline" className="text-[10px] px-1.5 py-0">{announcement.category}</Badge>
+                                                <span className="text-xs text-muted-foreground font-mono">{announcement.date}</span>
+                                                {announcement.isImportant && (
+                                                    <Badge className="bg-brand-orange text-white text-[10px] px-1.5 py-0">Yeni</Badge>
+                                                )}
+                                            </div>
+                                            <h4 className="font-medium text-sm leading-snug hover:text-primary transition-colors">
+                                                {announcement.title}
                                             </h4>
+                                            <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{announcement.summary}</p>
                                         </div>
                                     ))}
                                 </div>
                             </CardContent>
-                            <CardFooter className="bg-muted/30 p-4 border-t border-border">
-                                <Link href="/duyurular">
-                                    <Button variant="outline" className="w-full text-xs">Tüm Duyurular</Button>
-                                </Link>
-                            </CardFooter>
                         </Card>
                     </div>
                 </div>

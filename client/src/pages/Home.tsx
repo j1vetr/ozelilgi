@@ -2,6 +2,7 @@ import { HeroSlider } from "@/components/home/HeroSlider";
 import { SchoolLevels } from "@/components/home/SchoolLevels";
 import { VideoSlider } from "@/components/home/VideoSlider";
 import { FacilitiesSection } from "@/components/home/FacilitiesSection";
+import { AnnouncementsSection } from "@/components/home/AnnouncementsSection";
 import { StatsSection } from "@/components/home/StatsSection";
 import { TestimonialsScroll } from "@/components/home/TestimonialsScroll";
 import { CTASection } from "@/components/home/CTASection";
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSlider />
       <FacilitiesSection />
       <SchoolLevels />
+      <AnnouncementsSection />
       <VideoSlider />
       <StatsSection />
       <TestimonialsScroll />

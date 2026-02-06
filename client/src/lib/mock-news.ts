@@ -32,10 +32,54 @@ export const NEWS_CONTENT = [
 ];
 
 export const ANNOUNCEMENTS = [
-  { id: 1, title: "10 Kasım Atatürk'ü Anma Töreni Programı", date: "08.11.2025" },
-  { id: 2, title: "Veli Toplantısı Hakkında Bilgilendirme", date: "05.11.2025" },
-  { id: 3, title: "Okul Aile Birliği Seçimi Sonuçları", date: "01.11.2025" },
-  { id: 4, title: "Yemek Listesi (Kasım Ayı)", date: "30.10.2025" },
+  {
+    id: 1,
+    title: "2026-2027 Eğitim Öğretim Yılı Kayıt Dönemi Başladı",
+    date: "03.02.2026",
+    category: "Kayıt",
+    summary: "Yeni eğitim yılı kayıtlarımız başlamıştır. Erken kayıt avantajlarından yararlanmak için acele edin!",
+    isImportant: true,
+  },
+  {
+    id: 2,
+    title: "2. Dönem Veli Toplantısı",
+    date: "28.01.2026",
+    category: "Toplantı",
+    summary: "2. dönem veli toplantımız 10 Şubat Salı günü saat 14:00'te gerçekleşecektir.",
+    isImportant: false,
+  },
+  {
+    id: 3,
+    title: "Şubat Ayı Yemek Listesi",
+    date: "25.01.2026",
+    category: "Bilgilendirme",
+    summary: "Şubat ayı yemek listemiz yayınlanmıştır. Detaylı bilgi için tıklayınız.",
+    isImportant: false,
+  },
+  {
+    id: 4,
+    title: "Yarıyıl Tatili Etkinlik Programı",
+    date: "20.01.2026",
+    category: "Etkinlik",
+    summary: "Sömestr tatilinde öğrencilerimiz için spor, sanat ve bilim atölyeleri düzenlenecektir.",
+    isImportant: false,
+  },
+  {
+    id: 5,
+    title: "Karne Töreni Programı",
+    date: "17.01.2026",
+    category: "Program",
+    summary: "1. dönem karne törenimiz 24 Ocak Cuma günü saat 10:00'da gerçekleşecektir.",
+    isImportant: false,
+  },
+  {
+    id: 6,
+    title: "Okul Aile Birliği Toplantısı Sonuçları",
+    date: "10.01.2026",
+    category: "Toplantı",
+    summary: "Okul Aile Birliği toplantı kararları velilerimizle paylaşılmıştır.",
+    isImportant: false,
+  },
 ];
 
 export const PROGRAMS_CONTENT = {
