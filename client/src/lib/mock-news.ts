@@ -6,7 +6,7 @@ export const NEWS_CONTENT = [
     date: "01 Şubat 2026",
     category: "Gelişme",
     summary: "Modern donanımlarla yenilenen fen laboratuvarımız, öğrencilerimize deneysel öğrenme için en iyi ortamı sunuyor.",
-    image: "/images/science-room-1.jpg",
+    image: "/images/science-room-1.webp",
     content: "<p>Okulumuzun fen laboratuvarı, en son teknoloji deney ekipmanları ve interaktif öğrenme araçlarıyla yeniden düzenlendi. Öğrencilerimiz artık fizik, kimya ve biyoloji deneylerini daha güvenli ve verimli bir ortamda gerçekleştirebilecek.</p>"
   },
   {
@@ -16,7 +16,7 @@ export const NEWS_CONTENT = [
     date: "25 Ocak 2026",
     category: "Etkinlik",
     summary: "Öğrencilerimizin dönem boyunca hazırladığı eserler, sanat atölyemizde sergileniyor.",
-    image: "/images/art-room-1.jpg",
+    image: "/images/art-room-1.webp",
     content: "<p>Görsel Sanatlar derslerinde öğrencilerimizin ürettiği resim, heykel ve seramik çalışmaları sanat atölyemizde sergilenmektedir. Sergimiz, velilerimizin de ziyaretine açıktır.</p>"
   },
   {
@@ -26,7 +26,7 @@ export const NEWS_CONTENT = [
     date: "18 Ocak 2026",
     category: "Spor",
     summary: "Okullar arası basketbol turnuvasında öğrencilerimiz büyük başarı gösterdi.",
-    image: "/images/sports-hall-1.jpg",
+    image: "/images/sports-hall-1.webp",
     content: "<p>Kapalı spor salonumuzda düzenlenen okullar arası basketbol turnuvasında öğrencilerimiz mükemmel bir performans sergileyerek ilçe birinciliğini kazandı. Tebrikler!</p>"
   },
   {
@@ -36,7 +36,7 @@ export const NEWS_CONTENT = [
     date: "10 Ocak 2026",
     category: "Etkinlik",
     summary: "Piyano ve keman öğrencilerimiz dönem sonu konserinde ailelerine unutulmaz bir müzik ziyafeti sundu.",
-    image: "/images/music-room-1.jpg",
+    image: "/images/music-room-1.webp",
     content: "<p>Müzik odamızda düzenlenen dönem sonu konserinde piyano ve keman öğrencilerimiz birbirinden güzel eserler seslendirdi. Velilerimizin yoğun katılımıyla gerçekleşen konser büyük beğeni topladı.</p>"
   }
 ];

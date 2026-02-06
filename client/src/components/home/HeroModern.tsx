@@ -62,7 +62,7 @@ export function HeroModern() {
           
           {/* Main Image */}
           <img 
-            src="/images/school-exterior-1.jpg" 
+            src="/images/school-exterior-1.webp" 
             alt="Özel Boğaziçi İlgi Koleji Kampüsü" 
             className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[3s] ease-out"
           />

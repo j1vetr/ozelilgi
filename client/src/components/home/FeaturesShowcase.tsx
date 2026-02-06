@@ -7,7 +7,7 @@ const features = [
     icon: Music,
     title: "Müzik Eğitimi",
     description: "Piyano, davul, perküsyon ve daha fazlası ile müzik yeteneklerini geliştiriyoruz.",
-    image: "/images/music-room-1.jpg",
+    image: "/images/music-room-1.webp",
     color: "from-purple-500 to-violet-600",
     bgColor: "bg-purple-500"
   },
@@ -15,7 +15,7 @@ const features = [
     icon: Palette,
     title: "Sanat Atölyesi",
     description: "Resim, heykel ve el sanatları ile yaratıcılığı keşfediyoruz.",
-    image: "/images/art-room-1.jpg",
+    image: "/images/art-room-1.webp",
     color: "from-pink-500 to-rose-600",
     bgColor: "bg-pink-500"
   },
@@ -23,7 +23,7 @@ const features = [
     icon: Dumbbell,
     title: "Spor Salonu",
     description: "Basketbol, voleybol ve jimnastik için tam donanımlı spor alanı.",
-    image: "/images/sports-hall-1.jpg",
+    image: "/images/sports-hall-1.webp",
     color: "from-orange-500 to-amber-600",
     bgColor: "bg-orange-500"
   },
@@ -39,7 +39,7 @@ const features = [
     icon: Microscope,
     title: "Fen Laboratuvarı",
     description: "Deneylerle öğrenme ve bilimsel keşif imkanı.",
-    image: "/images/science-room-1.jpg",
+    image: "/images/science-room-1.webp",
     color: "from-emerald-500 to-teal-600",
     bgColor: "bg-emerald-500"
   },

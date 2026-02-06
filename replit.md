@@ -87,8 +87,15 @@ Preferred communication style: Simple, everyday language.
 - Home page remains eagerly loaded for fastest initial render
 - Suspense fallback provides a minimal spinner during lazy loads
 
-### Image Loading
-- Hero first slide: preloaded in index.html with `fetchpriority="high"`
+### Image Loading & Optimization
+- **WebP conversion**: All major images converted to WebP format (60-80% size reduction)
+  - Hero: `building-drone-1.webp` (128KB, was 648KB as JPG)
+  - Gallery/news images: WebP versions at 800px width
+  - Optimized JPEG fallback: `building-drone-1-opt.jpg` (159KB)
+- **Logo optimization**: 
+  - `logo-sm.png` (15KB, 344x112) used everywhere instead of `logo.png` (26KB, 520x169)
+  - `pre-logo-sm.png` (8KB, 76x80) for ChatWidget instead of full-size (27KB, 183x193)
+- Hero first slide: preloaded in index.html with `fetchpriority="high"` (WebP)
 - Hero subsequent slides: preloaded via JS after 2s idle
 - All other images: `loading="lazy"` and `decoding="async"`
 - Video thumbnails: Use `hqdefault.jpg` instead of `maxresdefault.jpg` for smaller size
@@ -96,12 +103,13 @@ Preferred communication style: Simple, everyday language.
 
 ### External Resources
 - DNS prefetch for youtube and google map domains
-- Google Fonts reduced to only used weights (was loading ALL 100-900)
+- Google Fonts: async non-render-blocking load via `rel="preload" as="style"` with `onload` handler
+- Google Fonts reduced to only used weights (600-800 Montserrat, 400-700 Poppins)
 - External texture pattern replaced with CSS gradient (PageHeader)
 - Google Maps iframe loaded via IntersectionObserver with 200px rootMargin
 
 ### Critical Resources
-- Logo and hero image preloaded in HTML head
+- Logo (`logo-sm.png`) and hero image (`building-drone-1.webp`) preloaded in HTML head
 - Navbar logo uses `loading="eager"` with `fetchPriority="high"`
 
 ## Email Notifications (SMTP)

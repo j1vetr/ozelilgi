@@ -17,18 +17,19 @@
     
     <link rel="icon" type="image/png" href="/favicon.png" />
     
-    <!-- Preload critical resources -->
-    <link rel="preload" as="image" href="/images/building-drone-1.jpg" fetchpriority="high" />
-    <link rel="preload" as="image" href="/images/logo.png" fetchpriority="high" />
+    <!-- Preload critical hero image (WebP) -->
+    <link rel="preload" as="image" href="/images/building-drone-1.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/logo-sm.png" fetchpriority="high" />
     
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://img.youtube.com" />
     <link rel="dns-prefetch" href="https://www.google.com" />
     
-    <!-- Fonts: only load used weights -->
+    <!-- Fonts: non-render-blocking async load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
   </head>
   <body>
     <div id="root"></div>

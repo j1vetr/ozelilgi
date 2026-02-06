@@ -94,13 +94,13 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
       subtitle: "Güçlü Akademik Temeller",
       ages: "1-4. Sınıf",
       color: "#3B82F6",
-      image: "/images/classroom-smartboard.jpg",
+      image: "/images/classroom-smartboard.webp",
       galleryImages: [
-        "/images/classroom-smartboard.jpg",
+        "/images/classroom-smartboard.webp",
         "/images/classroom-blue-1.jpg",
         "/images/classroom-orange-new-1.jpg",
         "/images/library-1.jpg",
-        "/images/art-room-1.jpg"
+        "/images/art-room-1.webp"
       ],
       content: `İlkokul kademesinde temel amacımız, öğrencilerimize okuma, yazma, matematik ve fen bilimleri gibi temel becerileri kazandırırken, aynı zamanda araştırma yapma ve problem çözme yeteneklerini geliştirmektir.`,
       features: [
@@ -117,12 +117,12 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
       subtitle: "Liselere Hazırlık ve Kariyer Planlama",
       ages: "5-8. Sınıf",
       color: "#10B981",
-      image: "/images/science-room-1.jpg",
+      image: "/images/science-room-1.webp",
       galleryImages: [
-        "/images/science-room-1.jpg",
-        "/images/science-room-2.jpg",
-        "/images/sports-hall-1.jpg",
-        "/images/music-room-1.jpg",
+        "/images/science-room-1.webp",
+        "/images/science-room-2.webp",
+        "/images/sports-hall-1.webp",
+        "/images/music-room-1.webp",
         "/images/library-2.jpg"
       ],
       content: `Ortaokul dönemi, akademik branşlaşmanın başladığı ve liselere geçiş sınavlarına hazırlığın yoğunlaştığı bir süreçtir. Deneyimli kadromuzla öğrencilerimizi LGS'ye en iyi şekilde hazırlıyoruz.`,
@@ -143,31 +143,31 @@ export const CAMPUS_FACILITIES = [
     id: "sanat",
     title: "Görsel Sanatlar Atölyesi", 
     desc: "Yaratıcılığı geliştiren sanat eğitimi",
-    image: "/images/art-room-1.jpg"
+    image: "/images/art-room-1.webp"
   },
   { 
     id: "muzik",
     title: "Müzik Atölyesi", 
     desc: "Enstrüman ve ses eğitimi",
-    image: "/images/music-room-1.jpg"
+    image: "/images/music-room-1.webp"
   },
   { 
     id: "kodlama",
     title: "Kodlama Atölyesi", 
     desc: "Yazılım ve robotik eğitimi",
-    image: "/images/classroom-smartboard.jpg"
+    image: "/images/classroom-smartboard.webp"
   },
   { 
     id: "fen",
     title: "Fen Bilgisi Laboratuvarı", 
     desc: "Deneysel öğrenme ortamı",
-    image: "/images/science-room-1.jpg"
+    image: "/images/science-room-1.webp"
   },
   { 
     id: "spor",
     title: "100m² Kapalı Spor Salonu", 
     desc: "Fiziksel gelişim aktiviteleri",
-    image: "/images/sports-hall-1.jpg"
+    image: "/images/sports-hall-1.webp"
   },
   { 
     id: "kutuphane",
@@ -185,22 +185,22 @@ export const CAMPUS_FACILITIES = [
     id: "rehberlik",
     title: "Rehberlik Odası", 
     desc: "Bireysel danışmanlık hizmeti",
-    image: "/images/entrance-lobby.jpg"
+    image: "/images/entrance-lobby.webp"
   }
 ];
 
 export const CAMPUS_GALLERY = [
-  "/images/building-drone-1.jpg",
-  "/images/building-drone-2.jpg",
+  "/images/building-drone-1.webp",
+  "/images/building-drone-2.webp",
   "/images/outdoor-entrance-ataturk.jpg",
-  "/images/sports-hall-1.jpg",
-  "/images/music-room-1.jpg",
-  "/images/art-room-1.jpg",
-  "/images/classroom-smartboard.jpg",
+  "/images/sports-hall-1.webp",
+  "/images/music-room-1.webp",
+  "/images/art-room-1.webp",
+  "/images/classroom-smartboard.webp",
   "/images/kindergarten-kitchen.jpg",
-  "/images/hallway-underwater.jpg",
+  "/images/hallway-underwater.webp",
   "/images/library-1.jpg",
-  "/images/science-room-1.jpg",
+  "/images/science-room-1.webp",
   "/images/cafeteria-1.jpg",
   "/images/playground-slide-1.jpg",
   "/images/entrance-stairs.jpg",

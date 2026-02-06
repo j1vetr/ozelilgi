@@ -4,42 +4,42 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 const facilities = [
   // Bina Dış Görünüm
-  { id: 1, image: "/images/building-drone-1.jpg", title: "Okul Binası Ön Cephe", category: "Bina" },
-  { id: 2, image: "/images/building-drone-2.jpg", title: "Okul Binası Yan Görünüm", category: "Bina" },
-  { id: 3, image: "/images/building-drone-3.jpg", title: "Modern Cam Cephe", category: "Bina" },
-  { id: 4, image: "/images/building-drone-4.jpg", title: "Okul Panoramik Görünüm", category: "Bina" },
-  { id: 5, image: "/images/building-playground.jpg", title: "Oyun Parkı ve Bina", category: "Bina" },
-  { id: 6, image: "/images/building-exterior.jpg", title: "Bina Dış Cephe", category: "Bina" },
-  { id: 7, image: "/images/school-exterior-1.jpg", title: "Okul Genel Görünüm", category: "Bina" },
-  { id: 8, image: "/images/school-exterior-2.jpg", title: "Okul Cadde Görünümü", category: "Bina" },
-  { id: 9, image: "/images/school-exterior-3.jpg", title: "Okul ve Çevresi", category: "Bina" },
+  { id: 1, image: "/images/building-drone-1.webp", title: "Okul Binası Ön Cephe", category: "Bina" },
+  { id: 2, image: "/images/building-drone-2.webp", title: "Okul Binası Yan Görünüm", category: "Bina" },
+  { id: 3, image: "/images/building-drone-3.webp", title: "Modern Cam Cephe", category: "Bina" },
+  { id: 4, image: "/images/building-drone-4.webp", title: "Okul Panoramik Görünüm", category: "Bina" },
+  { id: 5, image: "/images/building-playground.webp", title: "Oyun Parkı ve Bina", category: "Bina" },
+  { id: 6, image: "/images/building-exterior.webp", title: "Bina Dış Cephe", category: "Bina" },
+  { id: 7, image: "/images/school-exterior-1.webp", title: "Okul Genel Görünüm", category: "Bina" },
+  { id: 8, image: "/images/school-exterior-2.webp", title: "Okul Cadde Görünümü", category: "Bina" },
+  { id: 9, image: "/images/school-exterior-3.webp", title: "Okul ve Çevresi", category: "Bina" },
   
   // Giriş ve Dış Mekan
   { id: 10, image: "/images/outdoor-entrance-ataturk.jpg", title: "Atatürk Köşesi ve Okul Girişi", category: "Giriş" },
   { id: 11, image: "/images/outdoor-vr-billboard.jpg", title: "Teknoloji Eğitimi Panosu", category: "Giriş" },
   { id: 12, image: "/images/entrance-stairs.jpg", title: "Çok Dilli Hoş Geldiniz Merdiveni", category: "Giriş" },
-  { id: 13, image: "/images/entrance-lobby.jpg", title: "Ana Giriş Holü", category: "Giriş" },
+  { id: 13, image: "/images/entrance-lobby.webp", title: "Ana Giriş Holü", category: "Giriş" },
   { id: 14, image: "/images/welcome-stairs.jpg", title: "Renkli Karşılama Alanı", category: "Giriş" },
   
   // Spor Salonu
-  { id: 15, image: "/images/sports-hall-1.jpg", title: "Spor Salonu - Basketbol Sahası", category: "Spor" },
+  { id: 15, image: "/images/sports-hall-1.webp", title: "Spor Salonu - Basketbol Sahası", category: "Spor" },
   { id: 16, image: "/images/sports-hall-2.jpg", title: "Spor Salonu - Voleybol Sahası", category: "Spor" },
   { id: 17, image: "/images/sports-court.jpg", title: "Açık Hava Spor Alanı", category: "Spor" },
   
   // Müzik Odası
-  { id: 18, image: "/images/music-room-1.jpg", title: "Müzik Odası - Piyano ve Davullar", category: "Müzik" },
+  { id: 18, image: "/images/music-room-1.webp", title: "Müzik Odası - Piyano ve Davullar", category: "Müzik" },
   { id: 19, image: "/images/music-room-2.jpg", title: "Müzik Odası - Perküsyon Enstrümanları", category: "Müzik" },
   { id: 20, image: "/images/music-room-3.jpg", title: "Müzik Odası - Elektronik Davul Seti", category: "Müzik" },
   { id: 21, image: "/images/music-studio.jpg", title: "Müzik Stüdyosu - Kayıt Alanı", category: "Müzik" },
   { id: 22, image: "/images/music-mural.jpg", title: "Müzik Koridoru - Gitarist Duvar Resmi", category: "Müzik" },
   
   // Sanat Atölyesi
-  { id: 23, image: "/images/art-room-1.jpg", title: "Sanat Atölyesi - Resim Masaları", category: "Sanat" },
+  { id: 23, image: "/images/art-room-1.webp", title: "Sanat Atölyesi - Resim Masaları", category: "Sanat" },
   { id: 24, image: "/images/art-room-2.jpg", title: "Sanat Atölyesi - Palet Duvar Süsü", category: "Sanat" },
   { id: 25, image: "/images/hallway-art.jpg", title: "Sanat Sergisi Koridoru", category: "Sanat" },
   
   // Sınıflar
-  { id: 26, image: "/images/classroom-smartboard.jpg", title: "Akıllı Tahtalı Modern Sınıf", category: "Sınıf" },
+  { id: 26, image: "/images/classroom-smartboard.webp", title: "Akıllı Tahtalı Modern Sınıf", category: "Sınıf" },
   { id: 27, image: "/images/classroom-blue-1.jpg", title: "Mavi Temalı Sınıf", category: "Sınıf" },
   { id: 28, image: "/images/classroom-blue-2.jpg", title: "Mavi Sınıf - Öğrenci Sıraları", category: "Sınıf" },
   { id: 29, image: "/images/classroom-orange-new-1.jpg", title: "Turuncu Temalı Sınıf", category: "Sınıf" },
@@ -59,7 +59,7 @@ const facilities = [
   { id: 39, image: "/images/hopscotch.jpg", title: "Seksek Oyun Alanı", category: "Oyun Alanı" },
   
   // Koridorlar
-  { id: 40, image: "/images/hallway-underwater.jpg", title: "Sualtı Temalı Koridor - Balık ve Dalgıç", category: "Koridor" },
+  { id: 40, image: "/images/hallway-underwater.webp", title: "Sualtı Temalı Koridor - Balık ve Dalgıç", category: "Koridor" },
   { id: 41, image: "/images/hallway-classroom.jpg", title: "Sınıflar Arası Koridor", category: "Koridor" },
   
   // Kütüphane
@@ -67,8 +67,8 @@ const facilities = [
   { id: 43, image: "/images/library-2.jpg", title: "Kütüphane - Okuma Köşesi", category: "Kütüphane" },
   
   // Laboratuvar
-  { id: 44, image: "/images/science-room-1.jpg", title: "Fen Bilgisi Laboratuvarı", category: "Laboratuvar" },
-  { id: 45, image: "/images/science-room-2.jpg", title: "Deney Masaları", category: "Laboratuvar" },
+  { id: 44, image: "/images/science-room-1.webp", title: "Fen Bilgisi Laboratuvarı", category: "Laboratuvar" },
+  { id: 45, image: "/images/science-room-2.webp", title: "Deney Masaları", category: "Laboratuvar" },
   
   // Yemekhane
   { id: 46, image: "/images/cafeteria-1.jpg", title: "Yemekhane - Yemek Servisi", category: "Yemekhane" },

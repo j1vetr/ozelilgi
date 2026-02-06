@@ -5,18 +5,10 @@ import { Button } from "../ui/button";
 import { Link } from "wouter";
 
 const heroSlides = [
-  {
-    image: "/images/building-drone-1.jpg",
-  },
-  {
-    image: "/images/sports-hall-1.jpg",
-  },
-  {
-    image: "/images/music-room-1.jpg",
-  },
-  {
-    image: "/images/hallway-underwater.jpg",
-  },
+  { image: "/images/building-drone-1.webp" },
+  { image: "/images/sports-hall-1.webp" },
+  { image: "/images/music-room-1.webp" },
+  { image: "/images/hallway-underwater.webp" },
 ];
 
 function preloadImages() {

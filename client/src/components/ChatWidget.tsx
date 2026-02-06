@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { X, Send, Bot, User, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import chatbotLogo from "@assets/pre-logo_1770338611330.png";
+const chatbotLogo = "/images/pre-logo-sm.png";
 
 interface Message {
   role: "user" | "assistant";

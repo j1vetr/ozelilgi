@@ -53,7 +53,7 @@ export function Navbar() {
               "relative w-44 h-16 md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
               "bg-white"
             )}>
-              <img src="/images/logo.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" loading="eager" fetchPriority="high" />
+              <img src="/images/logo-sm.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" loading="eager" fetchPriority="high" />
             </div>
           </div>
         </Link>
@@ -168,7 +168,7 @@ export function Navbar() {
               <div className="flex items-center justify-between p-5 border-b border-gray-100 shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <img src="/images/logo.png" alt="Logo" className="w-7 h-7 object-contain" />
+                    <img src="/images/logo-sm.png" alt="Logo" className="w-7 h-7 object-contain" />
                   </div>
                   <span className="font-display font-bold text-primary text-base">Menü</span>
                 </div>
