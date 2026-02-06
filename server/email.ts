@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const FROM_NAME = "Özel Boğaziçi İlgi Koleji Çekmeköy";
+const FROM_NAME = "Çekmeköy Boğaziçi İlgi Okulu";
 const FROM_EMAIL = process.env.SMTP_USER || "no-reply@toov.com.tr";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "info@ozelilgiokullari.k12.tr";
 const SCHOOL_PHONE = "0216 642 8 642";
@@ -33,9 +33,9 @@ function baseTemplate(content: string): string {
           <tr>
             <td style="background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);padding:30px 40px;text-align:center;">
               <h1 style="color:#ffffff;margin:0;font-size:22px;font-weight:700;letter-spacing:0.5px;">
-                Özel Boğaziçi İlgi Koleji
+                Çekmeköy Boğaziçi İlgi Okulu
               </h1>
-              <p style="color:rgba(255,255,255,0.8);margin:6px 0 0;font-size:13px;">Çekmeköy Kampüsü</p>
+              <p style="color:rgba(255,255,255,0.8);margin:6px 0 0;font-size:13px;">Özel Boğaziçi İlgi Koleji Çekmeköy</p>
             </td>
           </tr>
           <!-- Content -->
@@ -190,7 +190,7 @@ export async function sendPreRegistrationConfirmation(data: PreRegistrationData)
     transporter.sendMail({
       from: `"${FROM_NAME}" <${FROM_EMAIL}>`,
       to: data.email,
-      subject: "Ön Kayıt Başvurunuz Alındı - Özel Boğaziçi İlgi Koleji",
+      subject: "Ön Kayıt Başvurunuz Alındı - Çekmeköy Boğaziçi İlgi Okulu",
       html: baseTemplate(customerContent),
     }),
     transporter.sendMail({
@@ -276,7 +276,7 @@ export async function sendContactConfirmation(data: ContactData): Promise<void> 
     transporter.sendMail({
       from: `"${FROM_NAME}" <${FROM_EMAIL}>`,
       to: data.email,
-      subject: "Mesajınız Alındı - Özel Boğaziçi İlgi Koleji",
+      subject: "Mesajınız Alındı - Çekmeköy Boğaziçi İlgi Okulu",
       html: baseTemplate(customerContent),
     }),
     transporter.sendMail({
