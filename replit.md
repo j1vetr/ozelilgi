@@ -119,3 +119,21 @@ Preferred communication style: Simple, everyday language.
 - Fire-and-forget pattern: emails sent asynchronously, don't block form response
 - Email failures logged but don't affect form submission success
 - Professional HTML email templates with school branding
+
+## AI Chatbot (İlgi Asistan)
+
+### Architecture
+- **Model**: OpenAI GPT-4o-mini
+- **Secret**: `OPENAI_API_KEY` (stored as Replit secret)
+- **Backend**: `server/chatbot.ts` - In-memory chat service (no database)
+- **Frontend**: `client/src/components/ChatWidget.tsx` - Floating chat bubble on all pages
+- **API**: `POST /api/chat` with `{ message, sessionId }` body
+
+### Behavior
+- Turkish-only responses, even if user writes in another language
+- Knowledge base hardcoded from site content (page-content.ts, constants.ts, mock-news.ts)
+- Session history stored in-memory with 30-minute TTL and max 20 messages
+- Quick question buttons on first interaction
+- Graceful error handling for API key issues, rate limits, network errors
+- Never fabricates information; refers users to phone (0216 642 8 642) for unknown topics
+- Personality: "İlgi Asistan" - warm, professional school assistant
