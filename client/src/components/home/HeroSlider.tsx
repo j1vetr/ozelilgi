@@ -26,7 +26,6 @@ const marqueeItems = [
   "Müzik Atölyesi",
   "Kodlama Atölyesi",
   "Fen Bilgisi Laboratuvarı",
-  "100m² Spor Salonu",
   "Kütüphane",
   "Yemekhane",
 ];

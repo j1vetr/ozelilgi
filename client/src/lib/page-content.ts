@@ -3,10 +3,8 @@ export const PAGE_CONTENT = {
     "hakkimizda": {
       title: "Hakkımızda",
       subtitle: "25 Yıllık Tecrübe ile Kaliteli Eğitim",
-      content: `Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. 2000m² kapalı alanı ve 600m² bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.`,
+      content: `Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.`,
       features: [
-        { label: "Kapalı Alan", value: "2000m²" },
-        { label: "Bahçe", value: "600m²" },
         { label: "Anaokulu Sınıfı", value: "4 Adet" },
         { label: "Kuruluş", value: "2013" }
       ],
@@ -15,7 +13,7 @@ export const PAGE_CONTENT = {
         "Müzik Atölyesi", 
         "Kodlama Atölyesi",
         "Fen Bilgisi Laboratuvarı",
-        "100m² Kapalı Spor Salonu",
+        "Kapalı Spor Salonu",
         "Kütüphane",
         "Yemekhane",
         "Rehberlik Odası"
@@ -165,7 +163,7 @@ export const CAMPUS_FACILITIES = [
   },
   { 
     id: "spor",
-    title: "100m² Kapalı Spor Salonu", 
+    title: "Kapalı Spor Salonu", 
     desc: "Fiziksel gelişim aktiviteleri",
     image: "/images/sports-hall-1.webp"
   },

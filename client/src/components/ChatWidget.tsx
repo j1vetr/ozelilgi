@@ -21,7 +21,7 @@ function getSessionId(): string {
 const WELCOME_MESSAGE: Message = {
   role: "assistant",
   content:
-    "Merhaba! Ben İlgi Asistan. Okulumuz hakkında merak ettiğiniz her şeyi sorabilirsiniz.",
+    "Merhaba! Ben Boğaziçi İlgi Asistanı. Okulumuz hakkında merak ettiğiniz her şeyi sorabilirsiniz.",
 };
 
 const quickQuestions = [
@@ -142,12 +142,12 @@ export function ChatWidget() {
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 40%)" }} />
               <div className="relative px-4 py-4 flex items-center gap-3">
                 <div className="relative w-11 h-11 rounded-full bg-white flex items-center justify-center shrink-0 shadow-md">
-                  <img src={chatbotLogo} alt="İlgi Asistan" className="w-8 h-8 object-contain" />
+                  <img src={chatbotLogo} alt="Boğaziçi İlgi Asistanı" className="w-8 h-8 object-contain" />
                   <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-[#1e40af]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <p className="text-white font-bold text-[15px] leading-tight">İlgi Asistan</p>
+                    <p className="text-white font-bold text-[15px] leading-tight">Boğaziçi İlgi Asistanı</p>
                     <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
                   </div>
                   <p className="text-blue-200 text-xs mt-0.5">Boğaziçi İlgi Koleji Çekmeköy</p>
@@ -296,7 +296,7 @@ export function ChatWidget() {
             <p className="text-sm text-gray-700 font-medium leading-snug">
               Merhaba! Size yardımcı olabilirim.
             </p>
-            <p className="text-xs text-gray-400 mt-1">İlgi Asistan</p>
+            <p className="text-xs text-gray-400 mt-1">Boğaziçi İlgi Asistanı</p>
             <button
               onClick={() => setShowTooltip(false)}
               className="absolute top-1 right-1 w-5 h-5 rounded-full text-gray-300 hover:text-gray-500 flex items-center justify-center text-xs"
@@ -368,7 +368,7 @@ export function ChatWidget() {
                 >
                   <img
                     src={chatbotLogo}
-                    alt="İlgi Asistan"
+                    alt="Boğaziçi İlgi Asistanı"
                     className="w-9 h-9 object-contain"
                   />
                 </motion.div>

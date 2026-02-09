@@ -66,11 +66,11 @@ const facilities = [
   {
     icon: Dumbbell,
     title: "Kapalı Spor Salonu",
-    desc: "100m² alanda basketbol, voleybol ve jimnastik imkanı",
+    desc: "Basketbol, voleybol ve jimnastik imkanı",
     gradient: "from-orange-500 to-red-500",
     lightBg: "bg-orange-50",
     accent: "text-orange-500",
-    features: ["100m² Alan", "Çok Amaçlı"]
+    features: ["Çok Amaçlı", "Modern Donanım"]
   },
   {
     icon: BookOpen,

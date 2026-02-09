@@ -15,7 +15,7 @@ const KNOWLEDGE_BASE = `
 
 ## Hakkımızda
 - Kampüs 2013 yılında inşa edilmiş modern bir yapıdır
-- 2000m² kapalı alan ve 600m² bahçe
+- Geniş kapalı alan ve bahçe
 - 4 adet anaokulu sınıfı
 - 25+ yıllık eğitim tecrübesi
 - 1500+ mezun
@@ -27,7 +27,7 @@ const KNOWLEDGE_BASE = `
 - Müzik Atölyesi: Enstrüman ve ses eğitimi
 - Kodlama Atölyesi: Yazılım ve robotik eğitimi
 - Fen Bilgisi Laboratuvarı: Deneysel öğrenme ortamı
-- 100m² Kapalı Spor Salonu: Fiziksel gelişim aktiviteleri
+- Kapalı Spor Salonu: Fiziksel gelişim aktiviteleri
 - Kütüphane: Okuma ve araştırma merkezi
 - Yemekhane: Sağlıklı ve hijyenik beslenme
 - Rehberlik Odası: Bireysel danışmanlık hizmeti
@@ -119,7 +119,7 @@ Ortaokul dönemi, akademik branşlaşmanın başladığı ve liselere geçiş s�
 - Kış Okulu Spor ve Sanat Etkinlikleri: Sömestr tatilinde öğrencilerimiz hem eğlenecek hem öğrenecek. Kayıtlar devam ediyor.
 `.trim();
 
-const SYSTEM_PROMPT = `Sen "Özel Boğaziçi İlgi Koleji Çekmeköy" okulunun resmi yapay zeka asistanısın. Adın "İlgi Asistan".
+const SYSTEM_PROMPT = `Sen "Özel Boğaziçi İlgi Koleji Çekmeköy" okulunun resmi yapay zeka asistanısın. Adın "Boğaziçi İlgi Asistanı".
 
 ## Kurallar
 1. SADECE Türkçe yanıt ver. Kullanıcı başka dilde yazsa bile Türkçe cevap ver.
