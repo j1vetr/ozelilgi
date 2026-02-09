@@ -53,7 +53,7 @@ export function Navbar() {
               "relative w-44 h-16 md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
               "bg-white"
             )}>
-              <img src="/images/logo-sm.png" alt="Boğaziçi İlgi Koleji Logo" className="w-full h-full object-contain" loading="eager" fetchPriority="high" />
+              <img src="/images/navbar-logo.png" alt="Özel Boğaziçi İlgi Okulları" className="w-full h-full object-contain" loading="eager" fetchPriority="high" />
             </div>
           </div>
         </Link>
