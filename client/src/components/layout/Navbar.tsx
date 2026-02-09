@@ -50,7 +50,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center group" data-testid="navbar-logo-link">
           <div className="relative p-[3px] rounded-xl logo-border-animation">
             <div className={cn(
-              "relative w-44 h-16 md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
+              "relative w-52 h-[72px] md:w-56 md:h-[72px] rounded-lg p-2 transition-all duration-300 group-hover:scale-[1.02]",
               "bg-white"
             )}>
               <img src="/images/navbar-logo.png" alt="Özel Boğaziçi İlgi Okulları" className="w-full h-full object-contain" loading="eager" fetchPriority="high" />
