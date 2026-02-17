@@ -71,7 +71,7 @@ export default function KayitPage() {
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
         title="Kayıt İşlemleri" 
-        subtitle="Çocuğunuzun Geleceğine Yatırım Yapın"
+        subtitle="Çocuğunuzun geleceğine yatırım yapın"
         breadcrumbs={[{ label: "Kayıt", href: "/kayit" }]}
       />
 

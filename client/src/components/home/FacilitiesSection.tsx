@@ -123,7 +123,7 @@ export function FacilitiesSection() {
             <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"> Olanaklarımız</span>
           </h2>
           <p className="text-sm md:text-base text-gray-500 max-w-lg mx-auto">
-            Öğrencilerimizin potansiyelini en üst düzeyde ortaya çıkaran modern eğitim ortamı
+            Öğrencilerimizin potansiyelini en üst düzeyde ortaya çıkaran modern eğitim ortamı.
           </p>
         </motion.div>
 

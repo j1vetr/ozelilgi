@@ -85,7 +85,7 @@ export default function OnKayitPage() {
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
         title="Ön Kayıt Formu" 
-        subtitle="2026-2027 Eğitim Öğretim Yılı Başvurusu"
+        subtitle="2026-2027 eğitim öğretim yılı başvurusu"
         breadcrumbs={[
           { label: "Kayıt", href: "/kayit" },
           { label: "Ön Kayıt Formu", href: "/kayit/on-kayit" }

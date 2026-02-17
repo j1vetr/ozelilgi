@@ -2,7 +2,7 @@ export const PAGE_CONTENT = {
   kurumsal: {
     "hakkimizda": {
       title: "Hakkımızda",
-      subtitle: "25 Yıllık Tecrübe ile Kaliteli Eğitim",
+      subtitle: "25 yıllık tecrübe ile kaliteli eğitim",
       content: `Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.`,
       features: [
         { label: "Anaokulu Sınıfı", value: "4 Adet" },
@@ -21,7 +21,7 @@ export const PAGE_CONTENT = {
     },
     "kurucu-mesaji": {
       title: "Kurucu Mesajı",
-      subtitle: "Değerlerimiz ve Vizyonumuz",
+      subtitle: "Değerlerimiz ve vizyonumuz",
       videoId: "pN3J4PxcR1I",
       content: `Değerli Velilerimiz ve Sevgili Öğrenciler,
 
@@ -31,7 +31,7 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
     },
     "vizyon-misyon": {
       title: "Vizyon & Misyon",
-      subtitle: "Geleceği Şekillendiriyoruz",
+      subtitle: "Geleceği şekillendiriyoruz",
       vision: "Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.",
       mission: "Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.",
       values: [
@@ -45,7 +45,7 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
     },
     "egitim-yaklasimimiz": {
       title: "Eğitim Yaklaşımımız",
-      subtitle: "Öğrenci Merkezli Modern Eğitim",
+      subtitle: "Öğrenci merkezli modern eğitim",
       content: `Öğrenci merkezli eğitim modelimiz, her çocuğun bireysel öğrenme hızına ve stiline saygı duyar. Yaparak ve yaşayarak öğrenme ilkesiyle, teorik bilgiyi pratiğe dönüştüren uygulamalar sunuyoruz.`,
       timeline: [
         { year: "2000", title: "Kuruluş", desc: "Boğaziçi İlgi Okulları eğitim hayatına başladı" },
@@ -66,7 +66,7 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
   akademik: {
     "anaokulu": {
       title: "Anaokulu",
-      subtitle: "Keşfeden, Sorgulayan Minik Zihinler",
+      subtitle: "Keşfeden, sorgulayan minik zihinler",
       ages: "3-6 Yaş",
       color: "#F97316",
       image: "/images/kindergarten-kitchen.jpg",
@@ -89,7 +89,7 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
     },
     "ilkokul": {
       title: "İlkokul",
-      subtitle: "Güçlü Akademik Temeller",
+      subtitle: "Güçlü akademik temeller",
       ages: "1-4. Sınıf",
       color: "#3B82F6",
       image: "/images/classroom-smartboard.webp",
@@ -112,7 +112,7 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
     },
     "ortaokul": {
       title: "Ortaokul",
-      subtitle: "Liselere Hazırlık ve Kariyer Planlama",
+      subtitle: "Liselere hazırlık ve kariyer planlama",
       ages: "5-8. Sınıf",
       color: "#10B981",
       image: "/images/science-room-1.webp",

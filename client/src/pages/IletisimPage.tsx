@@ -148,7 +148,7 @@ export default function IletisimPage() {
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
         title="İletişim" 
-        subtitle="Sorularınız İçin Her Zaman Yanınızdayız"
+        subtitle="Sorularınız için her zaman yanınızdayız"
         breadcrumbs={[{ label: "İletişim", href: "/iletisim" }]}
       />
 

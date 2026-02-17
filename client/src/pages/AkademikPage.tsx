@@ -32,7 +32,7 @@ function AkademikOverview() {
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
         title="Akademik" 
-        subtitle="Her Yaş Grubuna Özel Eğitim Programları"
+        subtitle="Her yaş grubuna özel eğitim programları"
         breadcrumbs={[{ label: "Akademik", href: "/akademik" }]} 
       />
 

@@ -7,7 +7,7 @@ const levels = [
   {
     id: "anaokulu",
     title: "Anaokulu",
-    subtitle: "Okul Öncesi Eğitim",
+    subtitle: "Okul öncesi eğitim",
     ages: "3-6 Yaş",
     description: "Oyun temelli öğrenme ile çocuklarımızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
     image: "/images/anaokulu-sinif.webp",
@@ -22,7 +22,7 @@ const levels = [
   {
     id: "ilkokul",
     title: "İlkokul",
-    subtitle: "Temel Eğitim",
+    subtitle: "Temel eğitim",
     ages: "1-4. Sınıf",
     description: "Akademik temelleri güçlendirirken, eleştirel düşünme ve problem çözme becerilerini geliştiriyoruz.",
     image: "/images/classroom-smartboard.webp",
@@ -37,7 +37,7 @@ const levels = [
   {
     id: "ortaokul",
     title: "Ortaokul",
-    subtitle: "Ortaöğretime Hazırlık",
+    subtitle: "Ortaöğretime hazırlık",
     ages: "5-8. Sınıf",
     description: "LGS hazırlığı ile öğrencilerimizi geleceğin liderleri olarak yetiştiriyor, akademik başarıyı en üst seviyeye taşıyoruz.",
     image: "/images/science-room-1.webp",

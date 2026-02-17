@@ -106,7 +106,7 @@ export default function KayitSureciPage() {
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
         title="Kayıt Süreci" 
-        subtitle="Basit, Şeffaf ve Güvenilir Kayıt Adımları"
+        subtitle="Basit, şeffaf ve güvenilir kayıt adımları"
         breadcrumbs={[
           { label: "Kayıt", href: "/kayit" },
           { label: "Kayıt Süreci", href: "/kayit/kayit-sureci" }

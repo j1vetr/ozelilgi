@@ -62,7 +62,7 @@ export default function KampusPage() {
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader
         title="Kampüsümüz"
-        subtitle="Modern ve Güvenli Eğitim Ortamı"
+        subtitle="Modern ve güvenli eğitim ortamı"
         breadcrumbs={[{ label: "Kampüs", href: "/kampus" }]}
       />
 
