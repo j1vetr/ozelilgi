@@ -29,68 +29,84 @@ export function Campus360() {
 
   return (
     <>
-      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container px-4">
+      <section className="py-14 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-blue-50 to-primary/5" />
+        <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl" />
+
+        <div className="container px-4 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-10"
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-3">
-              <RotateCcw className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 bg-primary text-white text-sm font-bold px-5 py-2 rounded-full mb-4 shadow-lg shadow-primary/25">
+              <RotateCcw className="w-4 h-4 tour-rotate-icon" />
               360° Sanal Tur
             </div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
-              Kampüsümüzü Keşfedin
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+              Kampüsümüzü keşfedin
             </h2>
-            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-              Sanal tur ile okulumuzun her köşesini yakından inceleyin.
+            <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">
+              Okulumuzun her köşesini 360 derece sanal tur ile yakından inceleyin.
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="max-w-4xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="max-w-5xl mx-auto"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200/50 aspect-video">
-              <div
-                className="absolute inset-0 cursor-pointer group"
-                onClick={handleOpen}
-                data-testid="button-play-360"
-              >
-                <img
-                  src="/images/building-drone-1.webp"
-                  alt="Özel Boğaziçi İlgi Koleji kampüsü"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10 group-hover:from-black/50 group-hover:via-black/15 transition-all duration-500" />
+            <div
+              className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 aspect-video cursor-pointer group"
+              onClick={handleOpen}
+              data-testid="button-play-360"
+            >
+              <img
+                src="/images/building-drone-1.webp"
+                alt="Özel Boğaziçi İlgi Koleji kampüsü"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 group-hover:from-black/60 group-hover:via-black/20 transition-all duration-500" />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-2xl mb-4 group-hover:bg-white transition-colors duration-300"
-                  >
-                    <Play className="w-8 h-8 md:w-10 md:h-10 text-primary ml-1" fill="currentColor" />
-                  </motion.div>
-                  <p className="text-white font-display font-bold text-lg md:text-xl drop-shadow-lg">
-                    360° Sanal Tur
-                  </p>
-                  <p className="text-white/80 text-sm mt-1 drop-shadow">
-                    Tıklayarak tam ekranda başlatın
-                  </p>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-2xl mb-5 group-hover:bg-white transition-colors duration-300 ring-4 ring-white/30 tour-play-pulse"
+                >
+                  <Play className="w-10 h-10 md:w-12 md:h-12 text-primary ml-1" fill="currentColor" />
+                </motion.div>
+                <h3 className="text-white font-display font-bold text-xl md:text-2xl drop-shadow-lg mb-2">
+                  360° Sanal Tur
+                </h3>
+                <p className="text-white/90 text-sm md:text-base drop-shadow font-medium">
+                  Tıklayarak tam ekranda başlatın
+                </p>
+              </div>
+
+              <div className="absolute top-4 left-4 bg-brand-orange text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                <RotateCcw className="w-3.5 h-3.5 tour-rotate-icon" />
+                360° Görüntü
+              </div>
+
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <div className="hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
+                  <MousePointer2 className="w-3.5 h-3.5" />
+                  Fareyi sürükleyerek etrafınıza bakın
                 </div>
-
-                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
-                  <RotateCcw className="w-3 h-3" />
-                  360°
+                <div className="md:hidden flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
+                  <Hand className="w-3.5 h-3.5" />
+                  Parmağınızla sürükleyin
+                </div>
+                <div className="bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
+                  Tam ekran açılır
                 </div>
               </div>
             </div>
@@ -192,6 +208,13 @@ export function Campus360() {
         @keyframes rotateSpin {
           from { transform: rotate(0deg); }
           to { transform: rotate(-360deg); }
+        }
+        .tour-play-pulse {
+          animation: playPulse 2.5s ease-in-out infinite;
+        }
+        @keyframes playPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+          50% { box-shadow: 0 0 0 16px rgba(255,255,255,0); }
         }
       `}</style>
     </>
