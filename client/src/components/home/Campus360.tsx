@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { RotateCcw, Play, X, Move, Smartphone, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } from "lucide-react";
+import { RotateCcw, Play, X, MousePointer2, Hand } from "lucide-react";
 
 export function Campus360() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -123,7 +123,7 @@ export function Campus360() {
 
             <iframe
               data-testid="iframe-360-tour"
-              src="https://www.youtube.com/embed/ls1m1Ot8DIM?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1"
+              src="https://www.youtube.com/embed/ls1m1Ot8DIM?autoplay=1&enablejsapi=1&loop=1&playlist=ls1m1Ot8DIM&rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1"
               title="Özel Boğaziçi İlgi Koleji 360° sanal tur"
               className="w-full flex-1"
               style={{ border: 0 }}
@@ -132,36 +132,37 @@ export function Campus360() {
             />
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-              className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none tour-hint"
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none tour-hint"
             >
-              <div className="bg-black/70 backdrop-blur-xl border border-white/15 rounded-xl px-5 py-3 text-center shadow-2xl">
-                <div className="flex items-center justify-center gap-2 mb-1.5">
-                  <div className="hidden md:flex items-center gap-1">
-                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
-                      <ArrowLeft className="w-3 h-3 text-white/80" />
-                    </div>
-                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
-                      <ArrowUp className="w-3 h-3 text-white/80" />
-                    </div>
-                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
-                      <ArrowDown className="w-3 h-3 text-white/80" />
-                    </div>
-                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
-                      <ArrowRight className="w-3 h-3 text-white/80" />
+              <div className="bg-white/95 backdrop-blur-xl rounded-2xl px-8 py-5 text-center shadow-2xl border border-gray-200 max-w-md">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <div className="hidden md:block">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <MousePointer2 className="w-6 h-6 text-primary tour-drag-icon" />
                     </div>
                   </div>
-                  <div className="md:hidden flex items-center gap-2">
-                    <Smartphone className="w-4 h-4 text-white/80" />
-                    <Move className="w-4 h-4 text-white/80" />
+                  <div className="md:hidden">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Hand className="w-6 h-6 text-primary tour-drag-icon" />
+                    </div>
+                  </div>
+                  <div className="w-px h-10 bg-gray-200 hidden md:block" />
+                  <div className="hidden md:flex items-center gap-1.5">
+                    <RotateCcw className="w-5 h-5 text-primary tour-rotate-icon" />
+                    <span className="text-primary font-bold text-lg">360°</span>
                   </div>
                 </div>
-                <p className="text-white/90 text-xs font-medium">
-                  <span className="hidden md:inline">Fareyi basılı tutup sürükleyerek etrafınıza bakın</span>
-                  <span className="md:hidden">Parmağınızla kaydırarak etrafınıza bakın</span>
+                <p className="text-gray-900 text-sm font-bold mb-1">
+                  <span className="hidden md:inline">Fareyi basılı tutup sürükleyin</span>
+                  <span className="md:hidden">Parmağınızla sürükleyin</span>
+                </p>
+                <p className="text-gray-500 text-xs">
+                  <span className="hidden md:inline">Sağa, sola, yukarı ve aşağı sürükleyerek okulun her köşesini keşfedin.</span>
+                  <span className="md:hidden">Sağa ve sola kaydırarak okulun her köşesini keşfedin.</span>
                 </p>
               </div>
             </motion.div>
@@ -171,11 +172,26 @@ export function Campus360() {
 
       <style>{`
         .tour-hint {
-          animation: hintFadeOut 8s ease-in-out forwards;
+          animation: hintFadeOut 10s ease-in-out forwards;
         }
         @keyframes hintFadeOut {
-          0%, 60% { opacity: 1; }
+          0%, 65% { opacity: 1; }
           100% { opacity: 0; }
+        }
+        .tour-drag-icon {
+          animation: dragSwing 2s ease-in-out infinite;
+        }
+        @keyframes dragSwing {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(6px); }
+          75% { transform: translateX(-6px); }
+        }
+        .tour-rotate-icon {
+          animation: rotateSpin 3s linear infinite;
+        }
+        @keyframes rotateSpin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(-360deg); }
         }
       `}</style>
     </>
