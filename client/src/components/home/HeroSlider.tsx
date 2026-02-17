@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Link } from "wouter";
 
 const heroSlides = [
+  { image: "/images/school-flag.webp" },
   { image: "/images/building-drone-1.webp" },
   { image: "/images/sports-hall-1.webp" },
   { image: "/images/music-room-1.webp" },
