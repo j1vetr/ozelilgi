@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { RotateCcw, Play, X, Move, Smartphone, Monitor, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } from "lucide-react";
+import { RotateCcw, Play, X, Move, Smartphone, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } from "lucide-react";
 
 export function Campus360() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -105,77 +105,76 @@ export function Campus360() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9999] bg-black"
+            className="fixed inset-0 z-[9999] bg-black flex flex-col"
           >
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 z-[10000] w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all duration-300 border border-white/20 hover:border-white/40 group"
-              data-testid="button-close-360"
-            >
-              <X className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
-            </button>
-
-            <div className="absolute top-4 left-4 z-[10000] flex items-center gap-2">
-              <div className="bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+            <div className="absolute top-0 left-0 right-0 z-[10000] flex items-center justify-between px-4 py-3 bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
+              <div className="pointer-events-auto bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
                 <RotateCcw className="w-3.5 h-3.5" />
                 360° Sanal Tur
               </div>
+              <button
+                onClick={handleClose}
+                className="pointer-events-auto w-10 h-10 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all duration-300 border border-white/20 hover:border-white/40"
+                data-testid="button-close-360"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 30 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none tour-hint"
-            >
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-4 max-w-sm text-center shadow-2xl">
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <div className="hidden md:flex items-center gap-1">
-                    <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center">
-                      <ArrowLeft className="w-3.5 h-3.5 text-white/90" />
-                    </div>
-                    <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center">
-                      <ArrowUp className="w-3.5 h-3.5 text-white/90" />
-                    </div>
-                    <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center">
-                      <ArrowDown className="w-3.5 h-3.5 text-white/90" />
-                    </div>
-                    <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center">
-                      <ArrowRight className="w-3.5 h-3.5 text-white/90" />
-                    </div>
-                  </div>
-                  <div className="md:hidden flex items-center gap-2">
-                    <Smartphone className="w-5 h-5 text-white/90" />
-                    <Move className="w-5 h-5 text-white/90" />
-                  </div>
-                </div>
-                <p className="text-white text-sm font-medium leading-snug">
-                  <span className="hidden md:inline">Fareyi sürükleyerek sağa, sola, yukarı ve aşağı bakın</span>
-                  <span className="md:hidden">Parmağınızla sağa-sola kaydırarak etrafı keşfedin</span>
-                </p>
-                <p className="text-white/50 text-xs mt-1">ESC ile kapatın</p>
-              </div>
-            </motion.div>
 
             <iframe
               data-testid="iframe-360-tour"
-              src="https://www.youtube.com/embed/ls1m1Ot8DIM?autoplay=1&rel=0&modestbranding=1&showinfo=0&controls=1"
+              src="https://www.youtube.com/embed/ls1m1Ot8DIM?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1"
               title="Özel Boğaziçi İlgi Koleji 360° sanal tur"
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen"
+              className="w-full flex-1"
+              style={{ border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; xr-spatial-tracking"
               allowFullScreen
             />
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none tour-hint"
+            >
+              <div className="bg-black/70 backdrop-blur-xl border border-white/15 rounded-xl px-5 py-3 text-center shadow-2xl">
+                <div className="flex items-center justify-center gap-2 mb-1.5">
+                  <div className="hidden md:flex items-center gap-1">
+                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
+                      <ArrowLeft className="w-3 h-3 text-white/80" />
+                    </div>
+                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
+                      <ArrowUp className="w-3 h-3 text-white/80" />
+                    </div>
+                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
+                      <ArrowDown className="w-3 h-3 text-white/80" />
+                    </div>
+                    <div className="w-6 h-6 rounded bg-white/15 flex items-center justify-center">
+                      <ArrowRight className="w-3 h-3 text-white/80" />
+                    </div>
+                  </div>
+                  <div className="md:hidden flex items-center gap-2">
+                    <Smartphone className="w-4 h-4 text-white/80" />
+                    <Move className="w-4 h-4 text-white/80" />
+                  </div>
+                </div>
+                <p className="text-white/90 text-xs font-medium">
+                  <span className="hidden md:inline">Fareyi basılı tutup sürükleyerek etrafınıza bakın</span>
+                  <span className="md:hidden">Parmağınızla kaydırarak etrafınıza bakın</span>
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <style>{`
         .tour-hint {
-          animation: hintFadeOut 6s ease-in-out forwards;
+          animation: hintFadeOut 8s ease-in-out forwards;
         }
         @keyframes hintFadeOut {
-          0%, 70% { opacity: 1; }
+          0%, 60% { opacity: 1; }
           100% { opacity: 0; }
         }
       `}</style>
