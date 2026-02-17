@@ -171,13 +171,13 @@ export const CAMPUS_FACILITIES = [
     id: "kutuphane",
     title: "Kütüphane", 
     desc: "Okuma ve araştırma merkezi",
-    image: "/images/library-1.jpg"
+    image: "/images/kutuphane-gercek.webp"
   },
   { 
     id: "yemekhane",
     title: "Yemekhane", 
     desc: "Sağlıklı ve hijyenik beslenme",
-    image: "/images/cafeteria-1.jpg"
+    image: "/images/yemekhane-gercek.webp"
   },
   { 
     id: "rehberlik",

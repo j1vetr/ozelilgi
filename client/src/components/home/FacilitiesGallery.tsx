@@ -48,7 +48,7 @@ const facilities = [
   { id: 32, image: "/images/classroom-bright.jpg", title: "Aydınlık ve Ferah Sınıf", category: "Sınıf" },
   
   // Anaokulu
-  { id: 33, image: "/images/kindergarten-kitchen.jpg", title: "Anaokulu Oyuncak Mutfak Köşesi", category: "Anaokulu" },
+  { id: 33, image: "/images/anaokulu-sinif.webp", title: "Anaokulu Sınıfı", category: "Anaokulu" },
   { id: 34, image: "/images/kindergarten-numbers-1.jpg", title: "Anaokulu Sayı Öğrenme Sınıfı", category: "Anaokulu" },
   { id: 35, image: "/images/kindergarten-numbers-2.jpg", title: "Anaokulu Renkli Öğrenme Alanı", category: "Anaokulu" },
   
@@ -63,7 +63,7 @@ const facilities = [
   { id: 41, image: "/images/hallway-classroom.jpg", title: "Sınıflar Arası Koridor", category: "Koridor" },
   
   // Kütüphane
-  { id: 42, image: "/images/library-1.jpg", title: "Kütüphane - Kitaplık Rafları", category: "Kütüphane" },
+  { id: 42, image: "/images/kutuphane-gercek.webp", title: "Kütüphane", category: "Kütüphane" },
   { id: 43, image: "/images/library-2.jpg", title: "Kütüphane - Okuma Köşesi", category: "Kütüphane" },
   
   // Laboratuvar
@@ -71,7 +71,7 @@ const facilities = [
   { id: 45, image: "/images/science-room-2.webp", title: "Deney Masaları", category: "Laboratuvar" },
   
   // Yemekhane
-  { id: 46, image: "/images/cafeteria-1.jpg", title: "Yemekhane - Yemek Servisi", category: "Yemekhane" },
+  { id: 46, image: "/images/yemekhane-gercek.webp", title: "Yemekhane", category: "Yemekhane" },
   { id: 47, image: "/images/cafeteria-2.jpg", title: "Yemekhane - Oturma Alanı", category: "Yemekhane" },
 ];
 

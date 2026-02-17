@@ -31,7 +31,7 @@ const features = [
     icon: BookOpen,
     title: "Kütüphane",
     description: "Zengin kitap koleksiyonu ve sessiz çalışma alanları.",
-    image: "/images/library-1.jpg",
+    image: "/images/kutuphane-gercek.webp",
     color: "from-blue-500 to-indigo-600",
     bgColor: "bg-blue-500"
   },
@@ -47,7 +47,7 @@ const features = [
     icon: Utensils,
     title: "Yemekhane",
     description: "Hijyenik ortamda hazırlanan sağlıklı ve lezzetli öğünler.",
-    image: "/images/cafeteria-1.jpg",
+    image: "/images/yemekhane-gercek.webp",
     color: "from-amber-500 to-yellow-600",
     bgColor: "bg-amber-500"
   }

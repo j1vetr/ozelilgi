@@ -10,7 +10,7 @@ const levels = [
     subtitle: "Okul Öncesi Eğitim",
     ages: "3-6 Yaş",
     description: "Oyun temelli öğrenme ile çocuklarımızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
-    image: "/images/kindergarten-kitchen.jpg",
+    image: "/images/anaokulu-sinif.webp",
     color: "#F97316",
     colorLight: "rgba(249, 115, 22, 0.12)",
     colorMid: "rgba(249, 115, 22, 0.25)",
