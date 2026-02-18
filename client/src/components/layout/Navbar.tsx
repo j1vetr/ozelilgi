@@ -8,6 +8,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { getNavigationTranslated, T } from "@/lib/translations";
 
+function FlagTR() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" className="w-5 h-3.5 rounded-[2px] shrink-0 shadow-sm">
+      <rect width="1200" height="800" fill="#E30A17"/>
+      <circle cx="425" cy="400" r="200" fill="#fff"/>
+      <circle cx="475" cy="400" r="160" fill="#E30A17"/>
+      <polygon fill="#fff" points="583,400 530,437 550,383 510,350 565,350"/>
+    </svg>
+  );
+}
+
+function FlagGB() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-3.5 rounded-[2px] shrink-0 shadow-sm">
+      <clipPath id="gb"><rect width="60" height="30"/></clipPath>
+      <g clipPath="url(#gb)">
+        <rect width="60" height="30" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" clipPath="url(#gb)"/>
+        <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10"/>
+        <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6"/>
+      </g>
+    </svg>
+  );
+}
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -113,13 +139,13 @@ export function Navbar() {
             onClick={() => setLang(lang === "tr" ? "en" : "tr")}
             data-testid="lang-switcher-desktop"
             className={cn(
-              "flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition-all duration-300 border",
+              "flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition-all duration-300 border cursor-pointer",
               scrolled
                 ? "bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-200"
                 : "bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md"
             )}
           >
-            <span className="text-base leading-none">{lang === "tr" ? "🇬🇧" : "🇹🇷"}</span>
+            {lang === "tr" ? <FlagGB /> : <FlagTR />}
             <span>{lang === "tr" ? "EN" : "TR"}</span>
           </button>
           <Link href="/iletisim">
@@ -147,13 +173,13 @@ export function Navbar() {
             onClick={() => setLang(lang === "tr" ? "en" : "tr")}
             data-testid="lang-switcher-mobile"
             className={cn(
-              "flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold transition-all",
+              "flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer",
               scrolled
                 ? "bg-gray-100 text-gray-700"
                 : "bg-white/10 text-white backdrop-blur-md"
             )}
           >
-            <span className="text-base leading-none">{lang === "tr" ? "🇬🇧" : "🇹🇷"}</span>
+            {lang === "tr" ? <FlagGB /> : <FlagTR />}
             <span>{lang === "tr" ? "EN" : "TR"}</span>
           </button>
           <button
