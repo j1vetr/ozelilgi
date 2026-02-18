@@ -1,7 +1,8 @@
 import { useRoute } from "wouter";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PAGE_CONTENT } from "@/lib/page-content";
+import { useLanguage } from "@/lib/i18n";
+import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Baby, BookOpen, GraduationCap, CheckCircle, ChevronRight, Star } from "lucide-react";
 import { Link } from "wouter";
@@ -14,6 +15,8 @@ const levelIcons: Record<string, any> = {
 };
 
 export default function AkademikPage() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const [match, params] = useRoute("/akademik/:slug");
   const slug = params?.slug as keyof typeof PAGE_CONTENT.akademik;
   const content = slug && PAGE_CONTENT.akademik[slug];
@@ -26,18 +29,19 @@ export default function AkademikPage() {
 }
 
 function AkademikOverview() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const levels = Object.entries(PAGE_CONTENT.akademik);
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
-        title="Akademik" 
-        subtitle="Her yaş grubuna özel eğitim programları"
-        breadcrumbs={[{ label: "Akademik", href: "/akademik" }]} 
+        title={T("nav.academic", lang)} 
+        subtitle={t("Her yaş grubuna özel eğitim programları", "Education programs for every age group")}
+        breadcrumbs={[{ label: T("nav.academic", lang), href: "/akademik" }]} 
       />
 
       <div className="container py-12 px-4">
-        {/* Hero Cards */}
         <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {levels.map(([key, item], index) => {
             const Icon = levelIcons[key] || GraduationCap;
@@ -56,33 +60,29 @@ function AkademikOverview() {
                 transition={{ delay: index * 0.15 }}
                 className="group relative"
               >
-                {/* Background Glow */}
                 <div 
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
                   style={{ backgroundColor: color.primary + "20" }}
                 />
                 
                 <div className="relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
-                  {/* Image Section */}
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src={item.image}
-                      alt={item.title}
+                      src={(item as any).image}
+                      alt={(item as any).title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
                       decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     
-                    {/* Age Badge */}
                     <div 
                       className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-white text-xs font-bold shadow-lg"
                       style={{ backgroundColor: color.primary }}
                     >
-                      {item.ages}
+                      {(item as any).ages}
                     </div>
 
-                    {/* Icon */}
                     <div className="absolute bottom-4 left-4">
                       <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color.gradient} flex items-center justify-center shadow-lg`}>
                         <Icon className="w-6 h-6 text-white" />
@@ -90,14 +90,12 @@ function AkademikOverview() {
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-2xl font-display font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-500 text-sm mb-4 flex-1">{item.subtitle}</p>
+                    <h3 className="text-2xl font-display font-bold text-gray-900 mb-2">{(item as any).title}</h3>
+                    <p className="text-gray-500 text-sm mb-4 flex-1">{(item as any).subtitle}</p>
 
-                    {/* Quick Features */}
                     <div className="space-y-2 mb-6">
-                      {item.features.slice(0, 3).map((feature: any, i: number) => (
+                      {(item as any).features.slice(0, 3).map((feature: any, i: number) => (
                         <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
                           <CheckCircle className="w-3.5 h-3.5" style={{ color: color.primary }} />
                           <span>{feature.title}</span>
@@ -105,13 +103,12 @@ function AkademikOverview() {
                       ))}
                     </div>
 
-                    {/* CTA */}
                     <Link href={`/akademik/${key}`}>
                       <Button 
                         className="w-full h-11 rounded-xl text-white font-semibold shadow-lg group/btn"
                         style={{ backgroundColor: color.primary }}
                       >
-                        Detaylı Bilgi
+                        {t("Detaylı Bilgi", "Learn More")}
                         <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -122,7 +119,6 @@ function AkademikOverview() {
           })}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -131,10 +127,10 @@ function AkademikOverview() {
         >
           <div className="inline-flex items-center gap-3 bg-primary/5 rounded-full px-6 py-3">
             <Star className="w-5 h-5 text-primary" />
-            <span className="text-gray-600 text-sm">2026-2027 Kayıtları Devam Ediyor</span>
+            <span className="text-gray-600 text-sm">{t("2026-2027 Kayıtları Devam Ediyor", "2026-2027 Enrollment is Open")}</span>
             <Link href="/kayit/on-kayit">
               <Button size="sm" className="rounded-full">
-                Başvur <ChevronRight className="w-4 h-4 ml-1" />
+                {t("Başvur", "Apply")} <ChevronRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
           </div>
@@ -145,6 +141,8 @@ function AkademikOverview() {
 }
 
 function AkademikDetail({ slug, content }: { slug: string; content: any }) {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const [selectedImage, setSelectedImage] = useState(0);
   const Icon = levelIcons[slug] || GraduationCap;
 
@@ -161,22 +159,19 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
         title={content.title} 
         subtitle={content.subtitle}
         breadcrumbs={[
-          { label: "Akademik", href: "/akademik" },
+          { label: T("nav.academic", lang), href: "/akademik" },
           { label: content.title, href: `/akademik/${slug}` }
         ]}
       />
 
       <div className="container py-12 px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="grid lg:grid-cols-2 gap-8 mb-12"
           >
-            {/* Image Gallery */}
             <div className="space-y-4">
-              {/* Main Image */}
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-xl">
                 <img 
                   src={content.galleryImages?.[selectedImage] || content.image}
@@ -187,7 +182,6 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 
-                {/* Badge */}
                 <div 
                   className="absolute top-4 left-4 px-4 py-2 rounded-full text-white font-bold shadow-lg flex items-center gap-2"
                   style={{ backgroundColor: color.primary }}
@@ -197,7 +191,6 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                 </div>
               </div>
 
-              {/* Thumbnail Grid */}
               {content.galleryImages && (
                 <div className="grid grid-cols-5 gap-2">
                   {content.galleryImages.slice(0, 5).map((img: string, i: number) => (
@@ -215,23 +208,21 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
               )}
             </div>
 
-            {/* Content */}
             <div className="flex flex-col justify-center">
               <div className={`inline-flex items-center gap-2 ${color.light} px-4 py-2 rounded-full text-sm font-medium mb-4 w-fit`} style={{ color: color.primary }}>
                 <Icon className="w-4 h-4" />
-                {content.ages} Eğitim Programı
+                {content.ages} {t("Eğitim Programı", "Education Program")}
               </div>
 
               <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">{content.title}</h1>
               
               <p className="text-gray-600 leading-relaxed mb-6">{content.content}</p>
 
-              {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
-                  { label: "Tecrübe", value: "25 Yıl" },
-                  { label: "Öğretmen", value: "+25" },
-                  { label: "Memnuniyet", value: "%100" }
+                  { label: t("Tecrübe", "Experience"), value: t("25 Yıl", "25 Years") },
+                  { label: t("Öğretmen", "Teachers"), value: "+25" },
+                  { label: t("Memnuniyet", "Satisfaction"), value: "%100" }
                 ].map((stat, i) => (
                   <div key={i} className={`${color.light} rounded-xl p-4 text-center`}>
                     <div className="text-xl font-bold" style={{ color: color.primary }}>{stat.value}</div>
@@ -240,20 +231,18 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                 ))}
               </div>
 
-              {/* CTA */}
               <Link href="/kayit/on-kayit">
                 <Button 
                   className="w-full md:w-auto h-12 px-8 rounded-xl text-white font-semibold shadow-lg"
                   style={{ backgroundColor: color.primary }}
                 >
-                  Ön Kayıt Başvurusu
+                  {t("Ön Kayıt Başvurusu", "Pre-Registration Application")}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
             </div>
           </motion.div>
 
-          {/* Features Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,8 +250,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
             className="mb-12"
           >
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-display font-bold text-gray-900">Eğitim Programımız</h2>
-              <p className="text-gray-500 text-sm mt-2">Öğrencilerimize sunduğumuz imkanlar</p>
+              <h2 className="text-2xl font-display font-bold text-gray-900">{t("Eğitim Programımız", "Our Education Program")}</h2>
+              <p className="text-gray-500 text-sm mt-2">{t("Öğrencilerimize sunduğumuz imkanlar", "Opportunities we offer our students")}</p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -291,7 +280,6 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
             </div>
           </motion.div>
 
-          {/* Photo Gallery Section */}
           {content.galleryImages && content.galleryImages.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -300,8 +288,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
               className="mb-12"
             >
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-display font-bold text-gray-900">Fotoğraf Galerisi</h2>
-                <p className="text-gray-500 text-sm mt-2">Kampüs ve sınıf ortamımızdan kareler</p>
+                <h2 className="text-2xl font-display font-bold text-gray-900">{t("Fotoğraf Galerisi", "Photo Gallery")}</h2>
+                <p className="text-gray-500 text-sm mt-2">{t("Kampüs ve sınıf ortamımızdan kareler", "Scenes from our campus and classrooms")}</p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -328,14 +316,13 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
             </motion.div>
           )}
 
-          {/* Other Levels */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <div className="text-center mb-6">
-              <h3 className="text-lg font-display font-bold text-gray-900">Diğer Kademeler</h3>
+              <h3 className="text-lg font-display font-bold text-gray-900">{t("Diğer Kademeler", "Other Levels")}</h3>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
@@ -351,8 +338,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
                         <OtherIcon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-gray-900">{item.title}</h4>
-                        <p className="text-gray-500 text-xs">{item.ages}</p>
+                        <h4 className="font-bold text-gray-900">{(item as any).title}</h4>
+                        <p className="text-gray-500 text-xs">{(item as any).ages}</p>
                       </div>
                       <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" />
                     </div>

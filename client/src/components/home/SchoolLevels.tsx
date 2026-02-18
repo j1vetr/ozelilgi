@@ -2,54 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Palette, BookOpen, GraduationCap, Star, Users, Award } from "lucide-react";
-
-const levels = [
-  {
-    id: "anaokulu",
-    title: "Anaokulu",
-    subtitle: "Okul öncesi eğitim",
-    ages: "3-6 Yaş",
-    description: "Oyun temelli öğrenme ile çocuklarımızın merak duygusunu besliyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
-    image: "/images/anaokulu-sinif.webp",
-    color: "#F97316",
-    colorLight: "rgba(249, 115, 22, 0.12)",
-    colorMid: "rgba(249, 115, 22, 0.25)",
-    gradient: "from-orange-500 to-amber-500",
-    icon: Palette,
-    features: ["Oyun Odaklı Eğitim", "Drama & Müzik", "Erken Okuma Yazma", "Sosyal Beceriler"],
-    stat: { icon: Star, label: "Mutlu Öğrenci", value: "150+" }
-  },
-  {
-    id: "ilkokul",
-    title: "İlkokul",
-    subtitle: "Temel eğitim",
-    ages: "1-4. Sınıf",
-    description: "Akademik temelleri güçlendirirken, eleştirel düşünme ve problem çözme becerilerini geliştiriyoruz.",
-    image: "/images/classroom-smartboard.webp",
-    color: "#3B82F6",
-    colorLight: "rgba(59, 130, 246, 0.12)",
-    colorMid: "rgba(59, 130, 246, 0.25)",
-    gradient: "from-blue-500 to-indigo-500",
-    icon: BookOpen,
-    features: ["Cambridge İngilizce", "Kodlama Eğitimi", "STEM Projeleri", "Matematik Atölyesi"],
-    stat: { icon: Users, label: "Uzman Öğretmen", value: "25+" }
-  },
-  {
-    id: "ortaokul",
-    title: "Ortaokul",
-    subtitle: "Ortaöğretime hazırlık",
-    ages: "5-8. Sınıf",
-    description: "LGS hazırlığı ile öğrencilerimizi geleceğin liderleri olarak yetiştiriyor, akademik başarıyı en üst seviyeye taşıyoruz.",
-    image: "/images/science-room-1.webp",
-    color: "#10B981",
-    colorLight: "rgba(16, 185, 129, 0.12)",
-    colorMid: "rgba(16, 185, 129, 0.25)",
-    gradient: "from-emerald-500 to-teal-500",
-    icon: GraduationCap,
-    features: ["LGS Hazırlık", "2. Yabancı Dil", "Proje Bazlı Öğrenme", "Kariyer Rehberliği"],
-    stat: { icon: Award, label: "Yıllık Tecrübe", value: "25+" }
-  }
-];
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 const containerVariants = {
   hidden: {},
@@ -69,6 +23,64 @@ const cardVariants = {
 
 export function SchoolLevels() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { lang, t } = useLanguage();
+
+  const levels = [
+    {
+      id: "anaokulu",
+      title: T("levels.preschool", lang),
+      subtitle: t("Okul öncesi eğitim", "Preschool education"),
+      ages: T("levels.preschool.ages", lang),
+      description: T("levels.preschool.desc", lang),
+      image: "/images/anaokulu-sinif.webp",
+      color: "#F97316",
+      colorLight: "rgba(249, 115, 22, 0.12)",
+      colorMid: "rgba(249, 115, 22, 0.25)",
+      gradient: "from-orange-500 to-amber-500",
+      icon: Palette,
+      features: t(
+        "Oyun Odaklı Eğitim,Drama & Müzik,Erken Okuma Yazma,Sosyal Beceriler",
+        "Play-Based Learning,Drama & Music,Early Literacy,Social Skills"
+      ).split(","),
+      stat: { icon: Star, label: t("Mutlu Öğrenci", "Happy Students"), value: "150+" }
+    },
+    {
+      id: "ilkokul",
+      title: T("levels.primary", lang),
+      subtitle: t("Temel eğitim", "Basic education"),
+      ages: T("levels.primary.ages", lang),
+      description: T("levels.primary.desc", lang),
+      image: "/images/classroom-smartboard.webp",
+      color: "#3B82F6",
+      colorLight: "rgba(59, 130, 246, 0.12)",
+      colorMid: "rgba(59, 130, 246, 0.25)",
+      gradient: "from-blue-500 to-indigo-500",
+      icon: BookOpen,
+      features: t(
+        "Cambridge İngilizce,Kodlama Eğitimi,STEM Projeleri,Matematik Atölyesi",
+        "Cambridge English,Coding Education,STEM Projects,Math Workshop"
+      ).split(","),
+      stat: { icon: Users, label: t("Uzman Öğretmen", "Expert Teachers"), value: "25+" }
+    },
+    {
+      id: "ortaokul",
+      title: T("levels.middle", lang),
+      subtitle: t("Ortaöğretime hazırlık", "High school preparation"),
+      ages: T("levels.middle.ages", lang),
+      description: T("levels.middle.desc", lang),
+      image: "/images/science-room-1.webp",
+      color: "#10B981",
+      colorLight: "rgba(16, 185, 129, 0.12)",
+      colorMid: "rgba(16, 185, 129, 0.25)",
+      gradient: "from-emerald-500 to-teal-500",
+      icon: GraduationCap,
+      features: t(
+        "LGS Hazırlık,2. Yabancı Dil,Proje Bazlı Öğrenme,Kariyer Rehberliği",
+        "Exam Preparation,2nd Foreign Language,Project-Based Learning,Career Counseling"
+      ).split(","),
+      stat: { icon: Award, label: t("Yıllık Tecrübe", "Years of Experience"), value: "25+" }
+    }
+  ];
 
   return (
     <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
@@ -91,13 +103,13 @@ export function SchoolLevels() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-4"
           >
-            Eğitim Programlarımız
+            {t("Eğitim Programlarımız", "Our Education Programs")}
           </motion.span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">
-            Eğitim Kademeleri
+            {T("levels.title", lang)}
           </h2>
           <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Her yaş grubuna özel tasarlanmış müfredatımızla, öğrencilerimizi geleceğe hazırlıyoruz
+            {T("levels.desc", lang)}
           </p>
         </motion.div>
 
@@ -207,7 +219,7 @@ export function SchoolLevels() {
                           whileTap={{ scale: 0.98 }}
                           data-testid={`link-detail-${level.id}`}
                         >
-                          Detaylı Bilgi
+                          {T("levels.details", lang)}
                           <motion.span
                             animate={{ x: isHovered ? 4 : 0 }}
                             transition={{ duration: 0.3 }}

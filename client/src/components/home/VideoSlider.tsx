@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 const videos = [
   { id: "SJeP83A84XQ", title: "Okul Tanıtım 1" },
@@ -54,6 +56,7 @@ function VideoCard({ video, index, onClick }: { video: typeof videos[0]; index: 
 
 export function VideoSlider() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const { lang } = useLanguage();
 
   const duplicatedVideos = [...videos, ...videos];
 
@@ -77,13 +80,13 @@ export function VideoSlider() {
             className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 text-white/80 font-medium rounded-full text-xs tracking-wider uppercase mb-4"
           >
             <Play className="w-3 h-3" />
-            Videolarımız
+            {lang === "tr" ? "Videolarımız" : "Our Videos"}
           </motion.span>
           <h2 data-testid="video-section-title" className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            Okulumuzdan Anlar
+            {T("video.title", lang)}
           </h2>
           <p data-testid="video-section-description" className="text-white/60 leading-relaxed">
-            Kampüsümüzde yaşanan eğlenceli ve öğretici anları keşfedin.
+            {T("video.desc", lang)}
           </p>
         </motion.div>
 

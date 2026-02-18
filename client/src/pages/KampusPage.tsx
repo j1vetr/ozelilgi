@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useRoute, useLocation } from "wouter";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { CAMPUS_FACILITIES, CAMPUS_GALLERY } from "@/lib/page-content";
+import { useLanguage } from "@/lib/i18n";
+import { T, getCampusFacilitiesTranslated } from "@/lib/translations";
+import { CAMPUS_GALLERY } from "@/lib/page-content";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Building2, ChevronLeft, ChevronRight, X,
@@ -10,28 +12,38 @@ import {
 } from "lucide-react";
 
 const facilityIcons: Record<string, any> = {
-  "sanat": Palette,
-  "muzik": Music,
-  "kodlama": Code,
-  "fen": FlaskConical,
-  "spor": Dumbbell,
-  "kutuphane": BookOpen,
-  "yemekhane": Utensils,
-  "rehberlik": HeartHandshake
+  "sanat": Palette, "art": Palette,
+  "muzik": Music, "music": Music,
+  "kodlama": Code, "coding": Code,
+  "fen": FlaskConical, "science": FlaskConical,
+  "spor": Dumbbell, "sports": Dumbbell,
+  "kutuphane": BookOpen, "library": BookOpen,
+  "yemekhane": Utensils, "cafeteria": Utensils,
+  "rehberlik": HeartHandshake, "counseling": HeartHandshake
 };
 
 const facilityColors: Record<string, { gradient: string; light: string; primary: string }> = {
   "sanat": { gradient: "from-rose-500 to-pink-500", light: "bg-rose-50", primary: "#F43F5E" },
+  "art": { gradient: "from-rose-500 to-pink-500", light: "bg-rose-50", primary: "#F43F5E" },
   "muzik": { gradient: "from-violet-500 to-purple-500", light: "bg-violet-50", primary: "#8B5CF6" },
+  "music": { gradient: "from-violet-500 to-purple-500", light: "bg-violet-50", primary: "#8B5CF6" },
   "kodlama": { gradient: "from-cyan-500 to-blue-500", light: "bg-cyan-50", primary: "#06B6D4" },
+  "coding": { gradient: "from-cyan-500 to-blue-500", light: "bg-cyan-50", primary: "#06B6D4" },
   "fen": { gradient: "from-emerald-500 to-teal-500", light: "bg-emerald-50", primary: "#10B981" },
+  "science": { gradient: "from-emerald-500 to-teal-500", light: "bg-emerald-50", primary: "#10B981" },
   "spor": { gradient: "from-orange-500 to-amber-500", light: "bg-orange-50", primary: "#F97316" },
+  "sports": { gradient: "from-orange-500 to-amber-500", light: "bg-orange-50", primary: "#F97316" },
   "kutuphane": { gradient: "from-blue-500 to-indigo-500", light: "bg-blue-50", primary: "#3B82F6" },
+  "library": { gradient: "from-blue-500 to-indigo-500", light: "bg-blue-50", primary: "#3B82F6" },
   "yemekhane": { gradient: "from-yellow-500 to-orange-500", light: "bg-yellow-50", primary: "#EAB308" },
-  "rehberlik": { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", primary: "#EC4899" }
+  "cafeteria": { gradient: "from-yellow-500 to-orange-500", light: "bg-yellow-50", primary: "#EAB308" },
+  "rehberlik": { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", primary: "#EC4899" },
+  "counseling": { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", primary: "#EC4899" }
 };
 
 export default function KampusPage() {
+  const { lang, t } = useLanguage();
+  const campusFacilities = getCampusFacilitiesTranslated(lang);
   const [match, params] = useRoute("/kampus/:tab?");
   const [, setLocation] = useLocation();
   const tabFromUrl = (params?.tab || "imkanlar") as "imkanlar" | "galeri";
@@ -61,13 +73,12 @@ export default function KampusPage() {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader
-        title="Kampüsümüz"
-        subtitle="Modern ve güvenli eğitim ortamı"
-        breadcrumbs={[{ label: "Kampüs", href: "/kampus" }]}
+        title={T("campus.title", lang)}
+        subtitle={T("campus.subtitle", lang)}
+        breadcrumbs={[{ label: T("nav.campus", lang), href: "/kampus" }]}
       />
 
       <div className="container py-12 px-4">
-        {/* Campus Overview */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,13 +86,12 @@ export default function KampusPage() {
           className="max-w-6xl mx-auto mb-16"
         >
 
-          {/* Feature Badges Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
             {[
-              { icon: Shield, title: "Güvenli Kampüs", desc: "24 saat güvenlik", gradient: "from-emerald-500 to-teal-600" },
-              { icon: Wifi, title: "Akıllı Kampüs", desc: "Tam dijital altyapı", gradient: "from-blue-500 to-cyan-600" },
-              { icon: Cctv, title: "Kamera Sistemi", desc: "Tüm alanlarda izleme", gradient: "from-orange-500 to-amber-600" },
-              { icon: Leaf, title: "Yeşil Kampüs", desc: "Çevre dostu tasarım", gradient: "from-green-500 to-emerald-600" }
+              { icon: Shield, title: t("Güvenli Kampüs", "Safe Campus"), desc: t("24 saat güvenlik", "24-hour security"), gradient: "from-emerald-500 to-teal-600" },
+              { icon: Wifi, title: t("Akıllı Kampüs", "Smart Campus"), desc: t("Tam dijital altyapı", "Full digital infrastructure"), gradient: "from-blue-500 to-cyan-600" },
+              { icon: Cctv, title: t("Kamera Sistemi", "Camera System"), desc: t("Tüm alanlarda izleme", "Monitoring in all areas"), gradient: "from-orange-500 to-amber-600" },
+              { icon: Leaf, title: t("Yeşil Kampüs", "Green Campus"), desc: t("Çevre dostu tasarım", "Eco-friendly design"), gradient: "from-green-500 to-emerald-600" }
             ].map((feature, i) => (
               <motion.div
                 key={i}
@@ -106,11 +116,10 @@ export default function KampusPage() {
           </div>
         </motion.div>
 
-        {/* Tab Buttons */}
         <div className="flex justify-center gap-2 mb-10">
           {[
-            { id: "imkanlar", label: "Fiziki İmkanlar" },
-            { id: "galeri", label: "Fotoğraf Galerisi" }
+            { id: "imkanlar", label: T("campus.tab.facilities", lang) },
+            { id: "galeri", label: T("campus.tab.gallery", lang) }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -126,7 +135,6 @@ export default function KampusPage() {
           ))}
         </div>
 
-        {/* Content */}
         <AnimatePresence mode="wait">
           {activeTab === "imkanlar" && (
             <motion.div
@@ -137,7 +145,7 @@ export default function KampusPage() {
               className="max-w-6xl mx-auto"
             >
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {CAMPUS_FACILITIES.map((facility, index) => {
+                {campusFacilities.map((facility, index) => {
                   const Icon = facilityIcons[facility.id] || Building2;
                   const color = facilityColors[facility.id] || facilityColors.sanat;
 
@@ -149,7 +157,6 @@ export default function KampusPage() {
                       transition={{ delay: index * 0.05 }}
                       className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
                     >
-                      {/* Image */}
                       <div className="relative h-40 overflow-hidden">
                         <img
                           src={facility.image}
@@ -160,19 +167,16 @@ export default function KampusPage() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                         
-                        {/* Icon Badge */}
                         <div className={`absolute top-3 right-3 w-10 h-10 rounded-xl bg-gradient-to-br ${color.gradient} flex items-center justify-center shadow-lg`}>
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
 
-                      {/* Content */}
                       <div className="p-4">
                         <h3 className="font-bold text-gray-900 mb-1 text-sm">{facility.title}</h3>
                         <p className="text-gray-500 text-xs">{facility.desc}</p>
                       </div>
 
-                      {/* Color Bar */}
                       <div 
                         className="h-1 w-full transition-all duration-300 group-hover:h-1.5"
                         style={{ backgroundColor: color.primary }}
@@ -192,7 +196,6 @@ export default function KampusPage() {
               exit={{ opacity: 0, y: -20 }}
               className="max-w-6xl mx-auto"
             >
-              {/* Masonry Grid */}
               <div className="columns-2 md:columns-3 lg:columns-4 gap-3">
                 {CAMPUS_GALLERY.map((img, i) => (
                   <motion.div
@@ -208,7 +211,7 @@ export default function KampusPage() {
                     >
                       <img 
                         src={img} 
-                        alt={`Kampüs - ${i + 1}`}
+                        alt={`${t("Kampüs", "Campus")} - ${i + 1}`}
                         className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                         decoding="async"
@@ -229,7 +232,6 @@ export default function KampusPage() {
         </AnimatePresence>
       </div>
 
-      {/* Lightbox */}
       <AnimatePresence>
         {lightboxOpen && (
           <motion.div
@@ -239,7 +241,6 @@ export default function KampusPage() {
             className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
             onClick={closeLightbox}
           >
-            {/* Close Button */}
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
@@ -247,7 +248,6 @@ export default function KampusPage() {
               <X className="w-6 h-6" />
             </button>
 
-            {/* Prev Button */}
             <button
               onClick={(e) => { e.stopPropagation(); prevImage(); }}
               className="absolute left-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
@@ -255,19 +255,17 @@ export default function KampusPage() {
               <ChevronLeft className="w-6 h-6" />
             </button>
 
-            {/* Image */}
             <motion.img
               key={lightboxIndex}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               src={CAMPUS_GALLERY[lightboxIndex]}
-              alt={`Kampüs - ${lightboxIndex + 1}`}
+              alt={`${t("Kampüs", "Campus")} - ${lightboxIndex + 1}`}
               className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
 
-            {/* Next Button */}
             <button
               onClick={(e) => { e.stopPropagation(); nextImage(); }}
               className="absolute right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
@@ -275,7 +273,6 @@ export default function KampusPage() {
               <ChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Counter */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 rounded-full px-4 py-2 text-white text-sm">
               {lightboxIndex + 1} / {CAMPUS_GALLERY.length}
             </div>

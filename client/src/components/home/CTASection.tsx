@@ -3,8 +3,12 @@ import { Link } from "wouter";
 import { Button } from "../ui/button";
 import { ArrowRight, Phone, MapPin, Mail, Calendar } from "lucide-react";
 import { SCHOOL_INFO } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 export function CTASection() {
+  const { lang } = useLanguage();
+
   return (
     <section className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90" />
@@ -27,16 +31,15 @@ export function CTASection() {
               className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-4"
             >
               <Calendar className="w-4 h-4 text-brand-yellow" />
-              <span className="text-white/90 text-sm font-medium">2025-2026 Kayıtları Açık</span>
+              <span className="text-white/90 text-sm font-medium">2025-2026 {lang === "tr" ? "Kayıtları Açık" : "Enrollment Open"}</span>
             </motion.div>
             
             <h2 data-testid="cta-section-title" className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-4 leading-tight">
-              Çocuğunuzun Geleceğine <br className="hidden sm:block" />
-              <span className="text-brand-yellow">Birlikte Başlayalım</span>
+              {T("cta.title", lang)}
             </h2>
             
             <p data-testid="cta-section-description" className="text-white/70 text-sm md:text-base leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0">
-              Kampüsümüzü ziyaret edin, eğitim programlarımızı inceleyin ve ailemize katılın.
+              {T("cta.desc", lang)}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -45,7 +48,7 @@ export function CTASection() {
                   data-testid="cta-preregister-button" 
                   className="h-11 px-6 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/30"
                 >
-                  Hemen Ön Kayıt Yap
+                  {T("cta.register", lang)}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
@@ -55,7 +58,7 @@ export function CTASection() {
                   data-testid="cta-contact-button" 
                   className="h-11 px-6 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm"
                 >
-                  Kampüsü Ziyaret Et
+                  {T("cta.contact", lang)}
                 </Button>
               </Link>
             </div>
@@ -68,7 +71,7 @@ export function CTASection() {
             className="lg:col-span-2"
           >
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
-              <h3 className="text-white font-semibold text-lg mb-5">İletişim Bilgileri</h3>
+              <h3 className="text-white font-semibold text-lg mb-5">{T("contact.info.title", lang)}</h3>
               
               <div className="space-y-4">
                 <a 
@@ -80,7 +83,7 @@ export function CTASection() {
                     <Phone className="w-5 h-5 text-brand-orange" />
                   </div>
                   <div>
-                    <div className="text-white/50 text-xs mb-0.5">Telefon</div>
+                    <div className="text-white/50 text-xs mb-0.5">{T("contact.info.phone", lang)}</div>
                     <div className="text-white font-semibold group-hover:text-brand-yellow transition-colors">{SCHOOL_INFO.phone}</div>
                   </div>
                 </a>
@@ -94,7 +97,7 @@ export function CTASection() {
                     <Mail className="w-5 h-5 text-brand-yellow" />
                   </div>
                   <div>
-                    <div className="text-white/50 text-xs mb-0.5">E-posta</div>
+                    <div className="text-white/50 text-xs mb-0.5">{T("contact.info.email", lang)}</div>
                     <div className="text-white font-semibold text-sm group-hover:text-brand-yellow transition-colors">{SCHOOL_INFO.email}</div>
                   </div>
                 </a>
@@ -107,7 +110,7 @@ export function CTASection() {
                     <MapPin className="w-5 h-5 text-brand-green" />
                   </div>
                   <div>
-                    <div className="text-white/50 text-xs mb-0.5">Adres</div>
+                    <div className="text-white/50 text-xs mb-0.5">{T("contact.info.address", lang)}</div>
                     <div className="text-white font-semibold text-sm leading-snug">{SCHOOL_INFO.address}</div>
                   </div>
                 </div>

@@ -6,87 +6,90 @@ import {
   ArrowRight, Palette, Music, Code, FlaskConical, Dumbbell, 
   BookOpen, UtensilsCrossed, Users
 } from "lucide-react";
-
-const facilityStrip = [
-  { icon: Palette, name: "Sanat Atölyesi" },
-  { icon: Music, name: "Müzik Atölyesi" },
-  { icon: Code, name: "Kodlama Lab." },
-  { icon: FlaskConical, name: "Fen Lab." },
-  { icon: Dumbbell, name: "Spor Salonu" },
-  { icon: BookOpen, name: "Kütüphane" },
-  { icon: UtensilsCrossed, name: "Yemekhane" },
-  { icon: Users, name: "Rehberlik" },
-  { icon: Palette, name: "Sanat Atölyesi" },
-  { icon: Music, name: "Müzik Atölyesi" },
-  { icon: Code, name: "Kodlama Lab." },
-  { icon: FlaskConical, name: "Fen Lab." },
-  { icon: Dumbbell, name: "Spor Salonu" },
-  { icon: BookOpen, name: "Kütüphane" },
-  { icon: UtensilsCrossed, name: "Yemekhane" },
-  { icon: Users, name: "Rehberlik" },
-];
-
-const facilities = [
-  {
-    icon: Palette,
-    title: "Görsel Sanatlar Atölyesi",
-    desc: "Resim, heykel ve seramik çalışmaları için profesyonel atölye",
-    gradient: "from-rose-500 to-pink-600",
-    lightBg: "bg-rose-50",
-    accent: "text-rose-500",
-    features: ["Profesyonel Malzemeler", "Sergi Alanı"]
-  },
-  {
-    icon: Music,
-    title: "Müzik Atölyesi",
-    desc: "Bireysel ve toplu müzik eğitimi için ses yalıtımlı stüdyo",
-    gradient: "from-violet-500 to-purple-600",
-    lightBg: "bg-violet-50",
-    accent: "text-violet-500",
-    features: ["Ses Yalıtımı", "Enstrüman Çeşitliliği"]
-  },
-  {
-    icon: Code,
-    title: "Kodlama & Robotik Lab.",
-    desc: "STEM eğitimi için donanımlı teknoloji laboratuvarı",
-    gradient: "from-blue-500 to-cyan-600",
-    lightBg: "bg-blue-50",
-    accent: "text-blue-500",
-    features: ["3D Yazıcı", "Robot Kitleri"]
-  },
-  {
-    icon: FlaskConical,
-    title: "Fen Bilimleri Lab.",
-    desc: "Deney ve gözlem için tam donanımlı bilim laboratuvarı",
-    gradient: "from-emerald-500 to-teal-600",
-    lightBg: "bg-emerald-50",
-    accent: "text-emerald-500",
-    features: ["Deney Setleri", "Güvenlik Ekipmanı"]
-  },
-  {
-    icon: Dumbbell,
-    title: "Kapalı Spor Salonu",
-    desc: "Basketbol, voleybol ve jimnastik imkanı",
-    gradient: "from-orange-500 to-red-500",
-    lightBg: "bg-orange-50",
-    accent: "text-orange-500",
-    features: ["Çok Amaçlı", "Modern Donanım"]
-  },
-  {
-    icon: BookOpen,
-    title: "Kütüphane & Okuma Salonu",
-    desc: "Binlerce kitap ve sessiz çalışma alanıyla donatılmış kütüphane",
-    gradient: "from-indigo-500 to-blue-600",
-    lightBg: "bg-indigo-50",
-    accent: "text-indigo-500",
-    features: ["Zengin Arşiv", "Sessiz Çalışma Alanı"]
-  },
-];
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 export function FacilitiesSection() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const { lang, t } = useLanguage();
+
+  const facilityStrip = [
+    { icon: Palette, name: t("Sanat Atölyesi", "Art Workshop") },
+    { icon: Music, name: t("Müzik Atölyesi", "Music Workshop") },
+    { icon: Code, name: t("Kodlama Lab.", "Coding Lab") },
+    { icon: FlaskConical, name: t("Fen Lab.", "Science Lab") },
+    { icon: Dumbbell, name: t("Spor Salonu", "Sports Hall") },
+    { icon: BookOpen, name: t("Kütüphane", "Library") },
+    { icon: UtensilsCrossed, name: t("Yemekhane", "Cafeteria") },
+    { icon: Users, name: t("Rehberlik", "Counseling") },
+    { icon: Palette, name: t("Sanat Atölyesi", "Art Workshop") },
+    { icon: Music, name: t("Müzik Atölyesi", "Music Workshop") },
+    { icon: Code, name: t("Kodlama Lab.", "Coding Lab") },
+    { icon: FlaskConical, name: t("Fen Lab.", "Science Lab") },
+    { icon: Dumbbell, name: t("Spor Salonu", "Sports Hall") },
+    { icon: BookOpen, name: t("Kütüphane", "Library") },
+    { icon: UtensilsCrossed, name: t("Yemekhane", "Cafeteria") },
+    { icon: Users, name: t("Rehberlik", "Counseling") },
+  ];
+
+  const facilities = [
+    {
+      icon: Palette,
+      title: t("Görsel Sanatlar Atölyesi", "Visual Arts Workshop"),
+      desc: t("Resim, heykel ve seramik çalışmaları için profesyonel atölye", "Professional workshop for painting, sculpture, and ceramics"),
+      gradient: "from-rose-500 to-pink-600",
+      lightBg: "bg-rose-50",
+      accent: "text-rose-500",
+      features: [t("Profesyonel Malzemeler", "Professional Materials"), t("Sergi Alanı", "Exhibition Area")]
+    },
+    {
+      icon: Music,
+      title: t("Müzik Atölyesi", "Music Workshop"),
+      desc: t("Bireysel ve toplu müzik eğitimi için ses yalıtımlı stüdyo", "Soundproof studio for individual and group music education"),
+      gradient: "from-violet-500 to-purple-600",
+      lightBg: "bg-violet-50",
+      accent: "text-violet-500",
+      features: [t("Ses Yalıtımı", "Sound Insulation"), t("Enstrüman Çeşitliliği", "Instrument Variety")]
+    },
+    {
+      icon: Code,
+      title: t("Kodlama & Robotik Lab.", "Coding & Robotics Lab"),
+      desc: t("STEM eğitimi için donanımlı teknoloji laboratuvarı", "Equipped technology laboratory for STEM education"),
+      gradient: "from-blue-500 to-cyan-600",
+      lightBg: "bg-blue-50",
+      accent: "text-blue-500",
+      features: [t("3D Yazıcı", "3D Printer"), t("Robot Kitleri", "Robot Kits")]
+    },
+    {
+      icon: FlaskConical,
+      title: t("Fen Bilimleri Lab.", "Science Laboratory"),
+      desc: t("Deney ve gözlem için tam donanımlı bilim laboratuvarı", "Fully equipped science laboratory for experiments and observation"),
+      gradient: "from-emerald-500 to-teal-600",
+      lightBg: "bg-emerald-50",
+      accent: "text-emerald-500",
+      features: [t("Deney Setleri", "Experiment Kits"), t("Güvenlik Ekipmanı", "Safety Equipment")]
+    },
+    {
+      icon: Dumbbell,
+      title: t("Kapalı Spor Salonu", "Indoor Sports Hall"),
+      desc: t("Basketbol, voleybol ve jimnastik imkanı", "Basketball, volleyball, and gymnastics facilities"),
+      gradient: "from-orange-500 to-red-500",
+      lightBg: "bg-orange-50",
+      accent: "text-orange-500",
+      features: [t("Çok Amaçlı", "Multi-Purpose"), t("Modern Donanım", "Modern Equipment")]
+    },
+    {
+      icon: BookOpen,
+      title: t("Kütüphane & Okuma Salonu", "Library & Reading Room"),
+      desc: t("Binlerce kitap ve sessiz çalışma alanıyla donatılmış kütüphane", "Library equipped with thousands of books and quiet study areas"),
+      gradient: "from-indigo-500 to-blue-600",
+      lightBg: "bg-indigo-50",
+      accent: "text-indigo-500",
+      features: [t("Zengin Arşiv", "Rich Archive"), t("Sessiz Çalışma Alanı", "Quiet Study Area")]
+    },
+  ];
 
   useEffect(() => {
     if (isPaused) return;
@@ -96,7 +99,7 @@ export function FacilitiesSection() {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPaused]);
+  }, [isPaused, facilities.length]);
 
   const handleMouseEnter = (i: number) => {
     setIsPaused(true);
@@ -119,11 +122,10 @@ export function FacilitiesSection() {
           className="text-center mb-10"
         >
           <h2 data-testid="facilities-section-title" className="text-2xl md:text-4xl font-display font-bold text-gray-900 mb-3">
-            Kampüs
-            <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"> Olanaklarımız</span>
+            {T("facilities.title", lang)}
           </h2>
           <p className="text-sm md:text-base text-gray-500 max-w-lg mx-auto">
-            Öğrencilerimizin potansiyelini en üst düzeyde ortaya çıkaran modern eğitim ortamı.
+            {T("facilities.desc", lang)}
           </p>
         </motion.div>
 
@@ -219,7 +221,7 @@ export function FacilitiesSection() {
         >
           <Link href="/kampus/galeri">
             <Button className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20 text-base">
-              Kampüsü Keşfet
+              {T("facilities.explore", lang)}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

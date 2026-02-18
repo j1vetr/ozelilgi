@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "wouter";
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 const heroSlides = [
   { image: "/images/school-flag.webp" },
@@ -33,6 +35,7 @@ const marqueeItems = [
 
 export function HeroSlider() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const { lang } = useLanguage();
 
   useEffect(() => {
     const idleTimeout = setTimeout(preloadImages, 2000);
@@ -80,11 +83,7 @@ export function HeroSlider() {
             data-testid="hero-title"
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-5"
           >
-            Her Çocuk{" "}
-            <span className="relative inline-block px-2 sm:px-3 py-1 bg-brand-orange text-white rounded-lg shadow-lg whitespace-nowrap">
-              Özel İlgiyi
-            </span>{" "}
-            <span className="block sm:inline">Hak Eder</span>
+            {T("hero.title", lang)}
           </motion.h1>
 
           {/* Static Subtitle */}
@@ -95,7 +94,7 @@ export function HeroSlider() {
             data-testid="hero-subtitle"
             className="text-sm sm:text-base lg:text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto"
           >
-            Anaokulu, İlkokul ve Ortaokul kademelerinde çocuğunuzun potansiyelini keşfediyoruz.
+            {T("hero.subtitle", lang)}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -112,7 +111,7 @@ export function HeroSlider() {
                   data-testid="hero-cta-button"
                   className="h-11 w-48 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25 justify-center"
                 >
-                  Ön Kayıt Yap
+                  {T("cta.register", lang)}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </motion.div>
@@ -125,7 +124,7 @@ export function HeroSlider() {
                   className="h-11 w-48 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm justify-center"
                 >
                   <Play className="mr-2 w-4 h-4" />
-                  Kampüsü Keşfet
+                  {T("hero.cta", lang)}
                 </Button>
               </motion.div>
             </Link>

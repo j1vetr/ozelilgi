@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { X, Send, Bot, User, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/i18n";
 const chatbotLogo = "/images/pre-logo-sm.png";
 
 interface Message {
@@ -18,24 +19,27 @@ function getSessionId(): string {
   return id;
 }
 
-const WELCOME_MESSAGE: Message = {
-  role: "assistant",
-  content:
-    "Merhaba! Ben Boğaziçi İlgi Asistanı. Okulumuz hakkında merak ettiğiniz her şeyi sorabilirsiniz.",
-};
-
-const quickQuestions = [
-  "Kayıt nasıl yapılır?",
-  "Hangi sınıflar var?",
-  "Kampüs imkanları neler?",
-  "Ücretler hakkında bilgi",
-];
-
 const BORDER_GRADIENT = "conic-gradient(from 0deg, #3B82F6, #F97316, #EAB308, #10B981, #3B82F6)";
 
+function getWelcomeMessage(lang: "tr" | "en"): Message {
+  return {
+    role: "assistant",
+    content: lang === "tr"
+      ? "Merhaba! Ben Boğaziçi İlgi Asistanı. Okulumuz hakkında merak ettiğiniz her şeyi sorabilirsiniz."
+      : "Hello! I'm Boğaziçi İlgi Assistant. Feel free to ask me anything about our school.",
+  };
+}
+
+function getQuickQuestions(lang: "tr" | "en") {
+  return lang === "tr"
+    ? ["Kayıt nasıl yapılır?", "Hangi sınıflar var?", "Kampüs imkanları neler?", "Ücretler hakkında bilgi"]
+    : ["How to enroll?", "What grades are available?", "Campus facilities?", "Tuition information"];
+}
+
 export function ChatWidget() {
+  const { lang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE]);
+  const [messages, setMessages] = useState<Message[]>([getWelcomeMessage(lang)]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -47,6 +51,12 @@ export function ChatWidget() {
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
+
+  useEffect(() => {
+    if (messages.length === 1 && messages[0].role === "assistant") {
+      setMessages([getWelcomeMessage(lang)]);
+    }
+  }, [lang]);
 
   useEffect(() => {
     scrollToBottom();
@@ -84,12 +94,12 @@ export function ChatWidget() {
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: data.success ? data.reply : "Bir hata oluştu, lütfen tekrar deneyin." },
+        { role: "assistant", content: data.success ? data.reply : (lang === "tr" ? "Bir hata oluştu, lütfen tekrar deneyin." : "An error occurred, please try again.") },
       ]);
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Bağlantı hatası. Lütfen tekrar deneyin veya bizi arayın: 0216 642 8 642" },
+        { role: "assistant", content: lang === "tr" ? "Bağlantı hatası. Lütfen tekrar deneyin veya bizi arayın: 0216 642 8 642" : "Connection error. Please try again or call us: 0216 642 8 642" },
       ]);
     } finally {
       setIsLoading(false);
@@ -147,7 +157,7 @@ export function ChatWidget() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <p className="text-white font-bold text-[15px] leading-tight">Boğaziçi İlgi Asistanı</p>
+                    <p className="text-white font-bold text-[15px] leading-tight">{lang === "tr" ? "Boğaziçi İlgi Asistanı" : "Boğaziçi İlgi Assistant"}</p>
                     <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
                   </div>
                   <p className="text-blue-200 text-xs mt-0.5">Boğaziçi İlgi Koleji Çekmeköy</p>
@@ -156,7 +166,7 @@ export function ChatWidget() {
                   data-testid="button-close-chat"
                   onClick={handleToggle}
                   className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                  aria-label="Sohbeti kapat"
+                  aria-label={lang === "tr" ? "Sohbeti kapat" : "Close chat"}
                 >
                   <X className="w-4 h-4 text-white" />
                 </button>
@@ -237,7 +247,7 @@ export function ChatWidget() {
                 transition={{ delay: 0.3 }}
                 className="px-4 py-2.5 flex flex-wrap gap-1.5 border-t border-blue-50 bg-white shrink-0"
               >
-                {quickQuestions.map((q, i) => (
+                {getQuickQuestions(lang).map((q, i) => (
                   <motion.button
                     key={q}
                     initial={{ opacity: 0, y: 5 }}
@@ -263,7 +273,7 @@ export function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Mesajınızı yazın..."
+                  placeholder={lang === "tr" ? "Mesajınızı yazın..." : "Type your message..."}
                   disabled={isLoading}
                   className="flex-1 px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50 placeholder:text-gray-400 transition-shadow"
                 />
@@ -273,7 +283,7 @@ export function ChatWidget() {
                   disabled={!input.trim() || isLoading}
                   whileTap={{ scale: 0.92 }}
                   className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1e40af] to-[#3b82f6] text-white flex items-center justify-center hover:shadow-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
-                  aria-label="Mesaj gönder"
+                  aria-label={lang === "tr" ? "Mesaj gönder" : "Send message"}
                 >
                   <Send className="w-4 h-4" />
                 </motion.button>
@@ -294,13 +304,13 @@ export function ChatWidget() {
           >
             <div className="absolute -bottom-2 right-7 w-4 h-4 bg-white border-r border-b border-gray-100 rotate-45" />
             <p className="text-sm text-gray-700 font-medium leading-snug">
-              Merhaba! Size yardımcı olabilirim.
+              {lang === "tr" ? "Merhaba! Size yardımcı olabilirim." : "Hello! I can help you."}
             </p>
-            <p className="text-xs text-gray-400 mt-1">Boğaziçi İlgi Asistanı</p>
+            <p className="text-xs text-gray-400 mt-1">{lang === "tr" ? "Boğaziçi İlgi Asistanı" : "Boğaziçi İlgi Assistant"}</p>
             <button
               onClick={() => setShowTooltip(false)}
               className="absolute top-1 right-1 w-5 h-5 rounded-full text-gray-300 hover:text-gray-500 flex items-center justify-center text-xs"
-              aria-label="Kapat"
+              aria-label={lang === "tr" ? "Kapat" : "Close"}
             >
               <X className="w-3 h-3" />
             </button>
@@ -335,7 +345,7 @@ export function ChatWidget() {
           whileTap={{ scale: 0.95 }}
           className="relative w-[64px] h-[64px] rounded-full flex items-center justify-center"
           style={{ background: "transparent" }}
-          aria-label={isOpen ? "Sohbeti kapat" : "Sohbeti aç"}
+          aria-label={isOpen ? (lang === "tr" ? "Sohbeti kapat" : "Close chat") : (lang === "tr" ? "Sohbeti aç" : "Open chat")}
         >
           <div
             className="absolute inset-0 rounded-full"

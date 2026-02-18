@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PAGE_CONTENT } from "@/lib/page-content";
+import { useLanguage } from "@/lib/i18n";
+import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, Target, Eye, Lightbulb, BookOpen, Building2, Users, 
@@ -10,17 +11,19 @@ import {
   CheckCircle
 } from "lucide-react";
 
-const tabs = [
-  { id: "hakkimizda", label: "Hakkımızda", icon: Building2 },
-  { id: "kurucu-mesaji", label: "Kurucu Mesajı", icon: Users },
-  { id: "vizyon-misyon", label: "Vizyon & Misyon", icon: Target },
-  { id: "egitim-yaklasimimiz", label: "Eğitim Yaklaşımımız", icon: Lightbulb },
-];
-
 export default function KurumsalPage() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const [match, params] = useRoute("/kurumsal/:slug");
   const slug = (params?.slug || "hakkimizda") as keyof typeof PAGE_CONTENT.kurumsal;
   const [activeTab, setActiveTab] = useState(slug);
+
+  const tabs = [
+    { id: "hakkimizda", label: T("nav.about.about", lang), icon: Building2 },
+    { id: "kurucu-mesaji", label: T("nav.about.founder", lang), icon: Users },
+    { id: "vizyon-misyon", label: T("nav.about.vision", lang), icon: Target },
+    { id: "egitim-yaklasimimiz", label: T("nav.about.approach", lang), icon: Lightbulb },
+  ];
 
   useEffect(() => {
     setActiveTab(slug);
@@ -33,13 +36,12 @@ export default function KurumsalPage() {
   return (
     <div className="bg-background min-h-screen">
       <PageHeader 
-        title="Kurumsal" 
-        subtitle="Özel Boğaziçi İlgi Koleji Çekmeköy"
-        breadcrumbs={[{ label: "Kurumsal", href: "/kurumsal/hakkimizda" }]}
+        title={T("nav.about", lang)} 
+        subtitle={t("Özel Boğaziçi İlgi Koleji Çekmeköy", "Özel Boğaziçi İlgi College Çekmeköy")}
+        breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/hakkimizda" }]}
       />
 
       <div className="container py-10 px-4">
-        {/* Tab Navigation */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -64,7 +66,6 @@ export default function KurumsalPage() {
           })}
         </div>
 
-        {/* Content Area */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -85,6 +86,8 @@ export default function KurumsalPage() {
 }
 
 function HakkimizdaContent() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const content = PAGE_CONTENT.kurumsal["hakkimizda"] as any;
   
   return (
@@ -94,7 +97,6 @@ function HakkimizdaContent() {
         <p className="text-muted-foreground">{content.subtitle}</p>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
         {content.features.map((feature: any, i: number) => (
           <motion.div
@@ -110,14 +112,12 @@ function HakkimizdaContent() {
         ))}
       </div>
 
-      {/* Description */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
         <p className="text-gray-600 leading-relaxed text-sm md:text-base">{content.content}</p>
       </div>
 
-      {/* Facilities Grid */}
       <div>
-        <h3 className="text-lg font-semibold text-primary mb-4 text-center">Kampüs İmkanları</h3>
+        <h3 className="text-lg font-semibold text-primary mb-4 text-center">{t("Kampüs İmkanları", "Campus Facilities")}</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {content.facilities.map((facility: string, i: number) => (
             <motion.div
@@ -137,6 +137,8 @@ function HakkimizdaContent() {
 }
 
 function KurucuMesajiContent() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const content = PAGE_CONTENT.kurumsal["kurucu-mesaji"] as any;
   
   return (
@@ -146,13 +148,12 @@ function KurucuMesajiContent() {
         <p className="text-muted-foreground text-sm">{content.subtitle}</p>
       </div>
 
-      {/* Video Embed */}
       <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-gray-900">
         <div className="aspect-[9/16] max-w-xs mx-auto relative">
           <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${content.videoId}?autoplay=0&modestbranding=1&rel=0&showinfo=0&controls=1&iv_load_policy=3&playsinline=1`}
-            title="Kurucu Mesajı"
+            title={content.title}
             className="w-full h-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -160,7 +161,6 @@ function KurucuMesajiContent() {
         </div>
       </div>
 
-      {/* Message Text */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
         <div className="prose prose-sm max-w-none">
           {content.content.split('\n\n').map((paragraph: string, i: number) => (
@@ -173,20 +173,27 @@ function KurucuMesajiContent() {
 }
 
 function VizyonMisyonContent() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const content = PAGE_CONTENT.kurumsal["vizyon-misyon"] as any;
   
   const valueIcons: Record<string, any> = {
     "Saygı": Heart,
+    "Respect": Heart,
     "Dürüstlük": Shield,
+    "Honesty": Shield,
     "Yenilikçilik": Sparkles,
+    "Innovation": Sparkles,
     "İşbirliği": HandshakeIcon,
+    "Collaboration": HandshakeIcon,
     "Mükemmellik": Star,
-    "Sorumluluk": CheckCircle
+    "Excellence": Star,
+    "Sorumluluk": CheckCircle,
+    "Responsibility": CheckCircle
   };
   
   return (
     <div className="max-w-5xl mx-auto">
-      {/* Header */}
       <div className="text-center mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -194,15 +201,13 @@ function VizyonMisyonContent() {
           className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4"
         >
           <Target className="w-4 h-4" />
-          Kurumsal Değerlerimiz
+          {t("Kurumsal Değerlerimiz", "Our Corporate Values")}
         </motion.div>
         <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-900 mb-3">{content.title}</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">{content.subtitle}</p>
       </div>
 
-      {/* Vision & Mission Cards */}
       <div className="grid lg:grid-cols-2 gap-6 mb-12">
-        {/* Vision */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -216,16 +221,14 @@ function VizyonMisyonContent() {
                 <Eye className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">Vizyonumuz</h3>
+                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">{t("Vizyonumuz", "Our Vision")}</h3>
                 <p className="text-gray-600 leading-relaxed">{content.vision}</p>
               </div>
             </div>
-            {/* Decorative */}
             <div className="absolute top-4 right-4 w-20 h-20 bg-blue-100 rounded-full opacity-50 blur-2xl" />
           </div>
         </motion.div>
 
-        {/* Mission */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -239,19 +242,17 @@ function VizyonMisyonContent() {
                 <Target className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">Misyonumuz</h3>
+                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">{t("Misyonumuz", "Our Mission")}</h3>
                 <p className="text-gray-600 leading-relaxed">{content.mission}</p>
               </div>
             </div>
-            {/* Decorative */}
             <div className="absolute top-4 right-4 w-20 h-20 bg-green-100 rounded-full opacity-50 blur-2xl" />
           </div>
         </motion.div>
       </div>
 
-      {/* Core Values */}
       <div className="text-center mb-6">
-        <h3 className="text-xl font-display font-bold text-gray-900">Temel Değerlerimiz</h3>
+        <h3 className="text-xl font-display font-bold text-gray-900">{t("Temel Değerlerimiz", "Our Core Values")}</h3>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -289,6 +290,8 @@ function VizyonMisyonContent() {
 }
 
 function EgitimYaklasimiContent() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
   const content = PAGE_CONTENT.kurumsal["egitim-yaklasimimiz"] as any;
 
   const principleIcons: Record<string, any> = {
@@ -300,7 +303,6 @@ function EgitimYaklasimiContent() {
   
   return (
     <div className="max-w-5xl mx-auto">
-      {/* Header */}
       <div className="text-center mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -308,13 +310,12 @@ function EgitimYaklasimiContent() {
           className="inline-flex items-center gap-2 bg-brand-orange/10 text-brand-orange px-4 py-2 rounded-full text-sm font-medium mb-4"
         >
           <Lightbulb className="w-4 h-4" />
-          Pedagojik Yaklaşım
+          {t("Pedagojik Yaklaşım", "Pedagogical Approach")}
         </motion.div>
         <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-900 mb-3">{content.title}</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">{content.subtitle}</p>
       </div>
 
-      {/* Description */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -323,14 +324,12 @@ function EgitimYaklasimiContent() {
         <p className="text-gray-600 leading-relaxed text-base md:text-lg">{content.content}</p>
       </motion.div>
 
-      {/* Timeline Section */}
       <div className="mb-12">
         <div className="text-center mb-8">
-          <h3 className="text-xl font-display font-bold text-gray-900">Gelişim Tarihçemiz</h3>
+          <h3 className="text-xl font-display font-bold text-gray-900">{t("Gelişim Tarihçemiz", "Our Development History")}</h3>
         </div>
 
         <div className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-brand-green to-brand-orange" />
           
           {content.timeline?.map((item: any, i: number) => {
@@ -356,7 +355,6 @@ function EgitimYaklasimiContent() {
                   isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
-                {/* Content Card */}
                 <div className={`flex-1 ml-12 md:ml-0 ${isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
                   <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                     <div className={`inline-block ${color.bg} text-white text-xs font-bold px-3 py-1 rounded-full mb-2`}>
@@ -367,10 +365,8 @@ function EgitimYaklasimiContent() {
                   </div>
                 </div>
 
-                {/* Timeline Dot */}
                 <div className={`absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 ${color.bg} rounded-full ring-4 ${color.ring} z-10`} />
 
-                {/* Spacer for desktop */}
                 <div className="hidden md:block flex-1" />
               </motion.div>
             );
@@ -378,9 +374,8 @@ function EgitimYaklasimiContent() {
         </div>
       </div>
 
-      {/* Principles Section */}
       <div className="text-center mb-6">
-        <h3 className="text-xl font-display font-bold text-gray-900">Temel İlkelerimiz</h3>
+        <h3 className="text-xl font-display font-bold text-gray-900">{t("Temel İlkelerimiz", "Our Core Principles")}</h3>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">

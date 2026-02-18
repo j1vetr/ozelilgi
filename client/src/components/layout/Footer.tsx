@@ -1,41 +1,23 @@
 import { SCHOOL_INFO } from "@/lib/constants";
 import { Link } from "wouter";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
-
-const footerLinks = {
-  kurumsal: [
-    { title: "Hakkımızda", href: "/kurumsal/hakkimizda" },
-    { title: "Kurucu Mesajı", href: "/kurumsal/kurucu-mesaji" },
-    { title: "Vizyon & Misyon", href: "/kurumsal/vizyon-misyon" },
-    { title: "Eğitim Yaklaşımımız", href: "/kurumsal/egitim-yaklasimimiz" },
-  ],
-  akademik: [
-    { title: "Anaokulu", href: "/akademik/anaokulu" },
-    { title: "İlkokul", href: "/akademik/ilkokul" },
-    { title: "Ortaokul", href: "/akademik/ortaokul" },
-    { title: "Kampüs İmkanları", href: "/kampus/imkanlar" },
-    { title: "Galeri", href: "/kampus/galeri" },
-  ],
-  kayit: [
-    { title: "Kayıt İşlemleri", href: "/kayit" },
-    { title: "Kayıt Süreci", href: "/kayit/kayit-sureci" },
-    { title: "Ön Kayıt Formu", href: "/kayit/on-kayit" },
-    { title: "İletişim", href: "/iletisim" },
-  ],
-};
+import { useLanguage } from "@/lib/i18n";
+import { getFooterLinksTranslated, T } from "@/lib/translations";
 
 export function Footer() {
+  const { lang } = useLanguage();
+  const footerLinks = getFooterLinksTranslated(lang);
+
   return (
     <footer className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
-          {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center">
               <img src="/images/footer-logo.png" alt="Özel Boğaziçi İlgi Okulları" className="object-contain" style={{ width: "280px", height: "auto" }} />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-              {SCHOOL_INFO.slogan}. Anaokulu, İlkokul ve Ortaokul kademelerinde kaliteli eğitim.
+              {T("school.slogan", lang)}. {T("school.description", lang)}
             </p>
             <div className="space-y-3">
               <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-white transition-colors">
@@ -58,9 +40,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Kurumsal */}
           <div>
-            <h3 className="font-display text-base font-semibold mb-5 text-accent">Kurumsal</h3>
+            <h3 className="font-display text-base font-semibold mb-5 text-accent">{T("footer.corporate", lang)}</h3>
             <ul className="space-y-2.5">
               {footerLinks.kurumsal.map((link, idx) => (
                 <li key={idx}>
@@ -77,9 +58,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Akademik & Kampüs */}
           <div>
-            <h3 className="font-display text-base font-semibold mb-5 text-accent">Akademik</h3>
+            <h3 className="font-display text-base font-semibold mb-5 text-accent">{T("footer.academic", lang)}</h3>
             <ul className="space-y-2.5">
               {footerLinks.akademik.map((link, idx) => (
                 <li key={idx}>
@@ -96,9 +76,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Kayıt & İletişim */}
           <div>
-            <h3 className="font-display text-base font-semibold mb-5 text-accent">Kayıt & İletişim</h3>
+            <h3 className="font-display text-base font-semibold mb-5 text-accent">{T("footer.enrollment_contact", lang)}</h3>
             <ul className="space-y-2.5">
               {footerLinks.kayit.map((link, idx) => (
                 <li key={idx}>
@@ -117,8 +96,8 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/50">
-          <p>&copy; {new Date().getFullYear()} {SCHOOL_INFO.name} | Tüm Hakları Saklıdır.</p>
-          <p>Geliştirici &amp; Tasarım : <a href="https://toov.com.tr" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-white transition-colors font-medium">TOOV</a></p>
+          <p>&copy; {new Date().getFullYear()} {SCHOOL_INFO.name} | {T("footer.rights", lang)}</p>
+          <p>{T("footer.developer", lang)} : <a href="https://toov.com.tr" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-white transition-colors font-medium">TOOV</a></p>
         </div>
       </div>
     </footer>

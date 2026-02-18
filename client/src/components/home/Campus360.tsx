@@ -1,9 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RotateCcw, Play, X, MousePointer2, Hand } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 export function Campus360() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const { lang } = useLanguage();
 
   const handleClose = useCallback(() => {
     setIsPlaying(false);
@@ -44,13 +47,13 @@ export function Campus360() {
           >
             <div className="inline-flex items-center gap-2 bg-primary text-white text-sm font-bold px-5 py-2 rounded-full mb-4 shadow-lg shadow-primary/25">
               <RotateCcw className="w-4 h-4 tour-rotate-icon" />
-              360° sanal tur
+              {T("campus360.badge", lang)}
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Kampüsümüzü keşfedin
+              {T("campus360.title", lang)}
             </h2>
             <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">
-              Okulumuzun her köşesini 360 derece sanal tur ile yakından inceleyin.
+              {T("campus360.desc", lang)}
             </p>
           </motion.div>
 
@@ -84,29 +87,29 @@ export function Campus360() {
                   <Play className="w-10 h-10 md:w-12 md:h-12 text-primary ml-1" fill="currentColor" />
                 </motion.div>
                 <h3 className="text-white font-display font-bold text-xl md:text-2xl drop-shadow-lg mb-2">
-                  360° sanal tur
+                  {T("campus360.badge", lang)}
                 </h3>
                 <p className="text-white/90 text-sm md:text-base drop-shadow font-medium">
-                  Tıklayarak tam ekranda başlatın
+                  {T("campus360.play", lang)}
                 </p>
               </div>
 
               <div className="absolute top-4 left-4 bg-brand-orange text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
                 <RotateCcw className="w-3.5 h-3.5 tour-rotate-icon" />
-                360° görüntü
+                {T("campus360.view", lang)}
               </div>
 
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                 <div className="hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
                   <MousePointer2 className="w-3.5 h-3.5" />
-                  Fareyi sürükleyerek etrafınıza bakın.
+                  {T("campus360.mouse_hint", lang)}
                 </div>
                 <div className="md:hidden flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
                   <Hand className="w-3.5 h-3.5" />
-                  Parmağınızla sürükleyin.
+                  {T("campus360.touch_hint", lang)}
                 </div>
                 <div className="bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
-                  Tam ekran açılır.
+                  {T("campus360.fullscreen", lang)}
                 </div>
               </div>
             </div>
@@ -126,7 +129,7 @@ export function Campus360() {
             <div className="absolute top-0 left-0 right-0 z-[10000] flex items-center justify-between px-4 py-3 bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
               <div className="pointer-events-auto bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
                 <RotateCcw className="w-3.5 h-3.5" />
-                360° sanal tur
+                {T("campus360.badge", lang)}
               </div>
               <button
                 onClick={handleClose}
@@ -173,12 +176,12 @@ export function Campus360() {
                   </div>
                 </div>
                 <p className="text-gray-900 text-sm font-bold mb-1">
-                  <span className="hidden md:inline">Fareyi basılı tutup sürükleyin</span>
-                  <span className="md:hidden">Parmağınızla sürükleyin</span>
+                  <span className="hidden md:inline">{T("campus360.drag_desktop", lang)}</span>
+                  <span className="md:hidden">{T("campus360.drag_mobile", lang)}</span>
                 </p>
                 <p className="text-gray-500 text-xs">
-                  <span className="hidden md:inline">Sağa, sola, yukarı ve aşağı sürükleyerek okulun her köşesini keşfedin.</span>
-                  <span className="md:hidden">Sağa ve sola kaydırarak okulun her köşesini keşfedin.</span>
+                  <span className="hidden md:inline">{T("campus360.drag_desktop_detail", lang)}</span>
+                  <span className="md:hidden">{T("campus360.drag_mobile_detail", lang)}</span>
                 </p>
               </div>
             </motion.div>

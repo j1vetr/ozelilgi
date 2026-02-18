@@ -1,12 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-
-const stats = [
-  { value: 15, suffix: "+", label: "Yıllık Tecrübe" },
-  { value: 500, suffix: "+", label: "Mutlu Öğrenci" },
-  { value: 50, suffix: "+", label: "Uzman Öğretmen" },
-  { value: 98, suffix: "%", label: "Veli Memnuniyeti" },
-];
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -40,6 +35,15 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function StatsSection() {
+  const { lang } = useLanguage();
+
+  const stats = [
+    { value: 15, suffix: "+", label: T("stats.experience", lang) },
+    { value: 500, suffix: "+", label: T("stats.graduates", lang) },
+    { value: 50, suffix: "+", label: T("stats.placement", lang) },
+    { value: 98, suffix: "%", label: T("stats.ratio", lang) },
+  ];
+
   return (
     <section className="py-20 bg-gradient-to-r from-brand-blue via-brand-green to-brand-orange relative overflow-hidden">
       {/* Animated Background */}

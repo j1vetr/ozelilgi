@@ -3,6 +3,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -24,15 +26,16 @@ const formSchema = z.object({
   notes: z.string().optional(),
 });
 
-const trustBadges = [
-  { icon: Shield, text: "KVKK Uyumlu" },
-  { icon: Clock, text: "24 Saat İçinde Dönüş" },
-  { icon: CheckCircle, text: "Ücretsiz Danışmanlık" }
-];
-
 export default function OnKayitPage() {
+  const { lang, t } = useLanguage();
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const trustBadges = [
+    { icon: Shield, text: t("KVKK Uyumlu", "KVKK Compliant") },
+    { icon: Clock, text: t("24 Saat İçinde Dönüş", "Response Within 24 Hours") },
+    { icon: CheckCircle, text: t("Ücretsiz Danışmanlık", "Free Consultation") }
+  ];
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -63,15 +66,15 @@ export default function OnKayitPage() {
     onSuccess: () => {
       setIsSubmitted(true);
       toast({
-        title: "Ön Kayıt Talebi Alındı",
-        description: "Eğitim danışmanlarımız en kısa sürede sizinle iletişime geçecektir.",
+        title: T("preregister.success", lang),
+        description: T("preregister.success_desc", lang),
       });
       form.reset();
     },
     onError: () => {
       toast({
-        title: "Hata",
-        description: "Başvurunuz gönderilemedi. Lütfen tekrar deneyiniz.",
+        title: t("Hata", "Error"),
+        description: t("Başvurunuz gönderilemedi. Lütfen tekrar deneyiniz.", "Your application could not be sent. Please try again."),
         variant: "destructive",
       });
     },
@@ -84,16 +87,15 @@ export default function OnKayitPage() {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <PageHeader 
-        title="Ön Kayıt Formu" 
-        subtitle="2026-2027 eğitim öğretim yılı başvurusu"
+        title={T("preregister.title", lang)} 
+        subtitle={T("preregister.subtitle", lang)}
         breadcrumbs={[
-          { label: "Kayıt", href: "/kayit" },
-          { label: "Ön Kayıt Formu", href: "/kayit/on-kayit" }
+          { label: T("nav.enrollment", lang), href: "/kayit" },
+          { label: T("preregister.title", lang), href: "/kayit/on-kayit" }
         ]}
       />
 
       <div className="container py-12 px-4">
-        {/* Trust Badges */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,9 +124,9 @@ export default function OnKayitPage() {
               >
                 <CheckCircle className="w-12 h-12 text-white" />
               </motion.div>
-              <h2 className="text-3xl font-display font-bold mb-4">Başvurunuz Alındı!</h2>
+              <h2 className="text-3xl font-display font-bold mb-4">{T("preregister.success", lang)}</h2>
               <p className="text-white/90 mb-8">
-                Ön kayıt talebiniz başarıyla sistemimize ulaştı. Eğitim danışmanlarımız <strong>24 saat içinde</strong> sizinle iletişime geçecektir.
+                {T("preregister.success_desc", lang)}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button 
@@ -133,7 +135,7 @@ export default function OnKayitPage() {
                   className="rounded-xl font-bold"
                   onClick={() => setIsSubmitted(false)}
                 >
-                  Yeni Başvuru Yap
+                  {t("Yeni Başvuru Yap", "Make New Application")}
                 </Button>
                 <Link href="/">
                   <Button 
@@ -141,7 +143,7 @@ export default function OnKayitPage() {
                     size="lg" 
                     className="rounded-xl font-bold border-white/30 text-white hover:bg-white/10"
                   >
-                    Ana Sayfaya Dön
+                    {t("Ana Sayfaya Dön", "Return to Home")}
                   </Button>
                 </Link>
               </div>
@@ -150,17 +152,15 @@ export default function OnKayitPage() {
         ) : (
           <div className="max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-12 gap-8">
-              {/* Sidebar Info */}
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="lg:col-span-4 space-y-6"
               >
-                {/* Process Steps */}
                 <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-lg">
                   <h3 className="font-bold text-lg text-gray-900 mb-5 flex items-center gap-2">
                     <BookOpen className="w-5 h-5 text-primary" />
-                    Kayıt Süreci
+                    {T("enrollment_process.title", lang)}
                   </h3>
                   <ol className="space-y-4 relative">
                     <li className="flex gap-4">
@@ -169,8 +169,8 @@ export default function OnKayitPage() {
                         <div className="w-0.5 h-full bg-gray-200 mt-2" />
                       </div>
                       <div className="pb-4">
-                        <h4 className="font-semibold text-gray-900">Ön Başvuru</h4>
-                        <p className="text-xs text-gray-500">Bu formu doldurun</p>
+                        <h4 className="font-semibold text-gray-900">{t("Ön Başvuru", "Pre-Application")}</h4>
+                        <p className="text-xs text-gray-500">{t("Bu formu doldurun", "Fill out this form")}</p>
                       </div>
                     </li>
                     <li className="flex gap-4">
@@ -179,8 +179,8 @@ export default function OnKayitPage() {
                         <div className="w-0.5 h-full bg-gray-200 mt-2" />
                       </div>
                       <div className="pb-4">
-                        <h4 className="font-semibold text-gray-900">Görüşme</h4>
-                        <p className="text-xs text-gray-500">Sizi arayacağız</p>
+                        <h4 className="font-semibold text-gray-900">{t("Görüşme", "Interview")}</h4>
+                        <p className="text-xs text-gray-500">{t("Sizi arayacağız", "We will call you")}</p>
                       </div>
                     </li>
                     <li className="flex gap-4">
@@ -188,17 +188,16 @@ export default function OnKayitPage() {
                         <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-sm shadow-lg">3</div>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900">Kesin Kayıt</h4>
-                        <p className="text-xs text-gray-500">Kampüs ziyareti ve kayıt</p>
+                        <h4 className="font-semibold text-gray-900">{t("Kesin Kayıt", "Final Registration")}</h4>
+                        <p className="text-xs text-gray-500">{t("Kampüs ziyareti ve kayıt", "Campus visit and enrollment")}</p>
                       </div>
                     </li>
                   </ol>
                 </div>
 
-                {/* Contact Box */}
                 <div className="bg-gradient-to-br from-primary to-blue-700 rounded-2xl p-6 text-white shadow-lg">
-                  <h3 className="font-bold mb-3">Sorularınız mı Var?</h3>
-                  <p className="text-white/80 text-sm mb-4">Hemen bizi arayın, yardımcı olalım.</p>
+                  <h3 className="font-bold mb-3">{t("Sorularınız mı Var?", "Have Questions?")}</h3>
+                  <p className="text-white/80 text-sm mb-4">{t("Hemen bizi arayın, yardımcı olalım.", "Call us now, let us help you.")}</p>
                   <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, '')}`}>
                     <Button size="sm" className="w-full bg-white text-primary hover:bg-white/90 rounded-lg font-bold">
                       <Phone className="w-4 h-4 mr-2" />
@@ -208,7 +207,6 @@ export default function OnKayitPage() {
                 </div>
               </motion.div>
 
-              {/* Form */}
               <motion.div 
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -217,13 +215,12 @@ export default function OnKayitPage() {
                 <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl">
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      {/* Student Section */}
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
                             <User className="w-4 h-4 text-orange-600" />
                           </div>
-                          <h3 className="font-bold text-gray-900">Öğrenci Bilgileri</h3>
+                          <h3 className="font-bold text-gray-900">{t("Öğrenci Bilgileri", "Student Information")}</h3>
                         </div>
                         <div className="grid md:grid-cols-2 gap-4">
                           <FormField
@@ -231,9 +228,9 @@ export default function OnKayitPage() {
                             name="studentName"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Öğrenci Adı Soyadı</FormLabel>
+                                <FormLabel>{T("preregister.student_name", lang)}</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Öğrencinin adı ve soyadı" className="h-11 rounded-xl" {...field} />
+                                  <Input placeholder={t("Öğrencinin adı ve soyadı", "Student's full name")} className="h-11 rounded-xl" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -244,26 +241,26 @@ export default function OnKayitPage() {
                             name="grade"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Aday Sınıf</FormLabel>
+                                <FormLabel>{T("preregister.grade", lang)}</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                   <FormControl>
                                     <SelectTrigger className="h-11 rounded-xl">
-                                      <SelectValue placeholder="Sınıf Seçiniz" />
+                                      <SelectValue placeholder={T("preregister.select_grade", lang)} />
                                     </SelectTrigger>
                                   </FormControl>
                                   <SelectContent>
-                                    <SelectItem value="anaokulu-3">Anaokulu (3 Yaş)</SelectItem>
-                                    <SelectItem value="anaokulu-4">Anaokulu (4 Yaş)</SelectItem>
-                                    <SelectItem value="anaokulu-5">Anaokulu (5 Yaş)</SelectItem>
-                                    <SelectItem value="anaokulu-6">Anaokulu (6 Yaş)</SelectItem>
-                                    <SelectItem value="1">1. Sınıf</SelectItem>
-                                    <SelectItem value="2">2. Sınıf</SelectItem>
-                                    <SelectItem value="3">3. Sınıf</SelectItem>
-                                    <SelectItem value="4">4. Sınıf</SelectItem>
-                                    <SelectItem value="5">5. Sınıf</SelectItem>
-                                    <SelectItem value="6">6. Sınıf</SelectItem>
-                                    <SelectItem value="7">7. Sınıf</SelectItem>
-                                    <SelectItem value="8">8. Sınıf</SelectItem>
+                                    <SelectItem value="anaokulu-3">{t("Anaokulu (3 Yaş)", "Preschool (Age 3)")}</SelectItem>
+                                    <SelectItem value="anaokulu-4">{t("Anaokulu (4 Yaş)", "Preschool (Age 4)")}</SelectItem>
+                                    <SelectItem value="anaokulu-5">{t("Anaokulu (5 Yaş)", "Preschool (Age 5)")}</SelectItem>
+                                    <SelectItem value="anaokulu-6">{t("Anaokulu (6 Yaş)", "Preschool (Age 6)")}</SelectItem>
+                                    <SelectItem value="1">{t("1. Sınıf", "Grade 1")}</SelectItem>
+                                    <SelectItem value="2">{t("2. Sınıf", "Grade 2")}</SelectItem>
+                                    <SelectItem value="3">{t("3. Sınıf", "Grade 3")}</SelectItem>
+                                    <SelectItem value="4">{t("4. Sınıf", "Grade 4")}</SelectItem>
+                                    <SelectItem value="5">{t("5. Sınıf", "Grade 5")}</SelectItem>
+                                    <SelectItem value="6">{t("6. Sınıf", "Grade 6")}</SelectItem>
+                                    <SelectItem value="7">{t("7. Sınıf", "Grade 7")}</SelectItem>
+                                    <SelectItem value="8">{t("8. Sınıf", "Grade 8")}</SelectItem>
                                   </SelectContent>
                                 </Select>
                                 <FormMessage />
@@ -273,13 +270,12 @@ export default function OnKayitPage() {
                         </div>
                       </div>
 
-                      {/* Parent Section */}
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
                             <Phone className="w-4 h-4 text-blue-600" />
                           </div>
-                          <h3 className="font-bold text-gray-900">Veli İletişim Bilgileri</h3>
+                          <h3 className="font-bold text-gray-900">{t("Veli İletişim Bilgileri", "Parent Contact Information")}</h3>
                         </div>
                         <div className="space-y-4">
                           <FormField
@@ -287,9 +283,9 @@ export default function OnKayitPage() {
                             name="parentName"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Veli Adı Soyadı</FormLabel>
+                                <FormLabel>{T("preregister.parent_name", lang)}</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Velinin adı ve soyadı" className="h-11 rounded-xl" {...field} />
+                                  <Input placeholder={t("Velinin adı ve soyadı", "Parent's full name")} className="h-11 rounded-xl" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -301,7 +297,7 @@ export default function OnKayitPage() {
                               name="phone"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel>Cep Telefonu</FormLabel>
+                                  <FormLabel>{T("preregister.parent_phone", lang)}</FormLabel>
                                   <FormControl>
                                     <Input placeholder="05XX XXX XX XX" className="h-11 rounded-xl" {...field} />
                                   </FormControl>
@@ -314,7 +310,7 @@ export default function OnKayitPage() {
                               name="email"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel>E-posta Adresi</FormLabel>
+                                  <FormLabel>{T("preregister.parent_email", lang)}</FormLabel>
                                   <FormControl>
                                     <Input placeholder="ornek@email.com" className="h-11 rounded-xl" {...field} />
                                   </FormControl>
@@ -326,13 +322,12 @@ export default function OnKayitPage() {
                         </div>
                       </div>
 
-                      {/* Notes Section */}
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
                             <MessageSquare className="w-4 h-4 text-green-600" />
                           </div>
-                          <h3 className="font-bold text-gray-900">Ek Bilgiler <span className="font-normal text-gray-400">(Opsiyonel)</span></h3>
+                          <h3 className="font-bold text-gray-900">{t("Ek Bilgiler", "Additional Information")} <span className="font-normal text-gray-400">({t("Opsiyonel", "Optional")})</span></h3>
                         </div>
                         <FormField
                           control={form.control}
@@ -341,7 +336,7 @@ export default function OnKayitPage() {
                             <FormItem>
                               <FormControl>
                                 <Textarea 
-                                  placeholder="Belirtmek istediğiniz özel durumlar, sorular veya talepler..." 
+                                  placeholder={t("Belirtmek istediğiniz özel durumlar, sorular veya talepler...", "Special situations, questions, or requests you'd like to mention...")} 
                                   className="min-h-[100px] rounded-xl resize-none"
                                   {...field} 
                                 />
@@ -352,7 +347,6 @@ export default function OnKayitPage() {
                         />
                       </div>
 
-                      {/* Submit Button */}
                       <div className="pt-4">
                         <Button 
                           type="submit" 
@@ -362,18 +356,18 @@ export default function OnKayitPage() {
                           {mutation.isPending ? (
                             <>
                               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                              Gönderiliyor...
+                              {T("preregister.sending", lang)}
                             </>
                           ) : (
                             <>
-                              Ön Kayıt Başvurusu Gönder
+                              {T("preregister.submit", lang)}
                               <ArrowRight className="w-5 h-5 ml-2" />
                             </>
                           )}
                         </Button>
                         <p className="text-xs text-gray-400 text-center mt-4 flex items-center justify-center gap-2">
                           <Shield className="w-3 h-3" />
-                          Kişisel verileriniz KVKK kapsamında korunmaktadır.
+                          {t("Kişisel verileriniz KVKK kapsamında korunmaktadır.", "Your personal data is protected under KVKK.")}
                         </p>
                       </div>
                     </form>

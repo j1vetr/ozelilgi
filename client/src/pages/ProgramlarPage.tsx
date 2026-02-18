@@ -1,5 +1,6 @@
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PROGRAMS_CONTENT } from "@/lib/mock-news";
+import { useLanguage } from "@/lib/i18n";
+import { T, getProgramsTranslated } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, Cpu, Code, Palette, Activity, Heart, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,8 @@ const icons = {
 };
 
 export default function ProgramlarPage() {
+    const { lang, t } = useLanguage();
+    const PROGRAMS_CONTENT = getProgramsTranslated(lang);
     const [match, params] = useRoute("/programlar/:slug");
     const slug = params?.slug;
     const program = slug ? PROGRAMS_CONTENT[slug as keyof typeof PROGRAMS_CONTENT] : null;
@@ -22,7 +25,7 @@ export default function ProgramlarPage() {
                 <PageHeader
                     title={program.title}
                     breadcrumbs={[
-                        { label: "Programlar", href: "/programlar" },
+                        { label: T("programs.title", lang), href: "/programlar" },
                         { label: program.title, href: `/programlar/${slug}` }
                     ]}
                 />
@@ -33,23 +36,24 @@ export default function ProgramlarPage() {
                                 <div className="p-4 bg-primary/10 rounded-2xl text-primary">
                                     <Icon className="w-10 h-10" />
                                 </div>
-                                <h2 className="text-3xl font-bold text-primary">Program Detayı</h2>
+                                <h2 className="text-3xl font-bold text-primary">{t("Program Detayı", "Program Details")}</h2>
                              </div>
                              <p className="text-lg text-muted-foreground leading-relaxed">
                                  {program.description}
-                                 {/* Mock extended content */}
                                  <br/><br/>
-                                 Bu program kapsamında öğrencilerimiz, alanında uzman eğitmenler eşliğinde teorik bilgileri pratiğe dökme fırsatı bulurlar. 
-                                 Modern atölyelerimizde ve laboratuvarlarımızda gerçekleştirilen çalışmalar, öğrencilerimizin 21. yüzyıl becerilerini geliştirmeyi hedefler.
+                                 {t(
+                                   "Bu program kapsamında öğrencilerimiz, alanında uzman eğitmenler eşliğinde teorik bilgileri pratiğe dökme fırsatı bulurlar. Modern atölyelerimizde ve laboratuvarlarımızda gerçekleştirilen çalışmalar, öğrencilerimizin 21. yüzyıl becerilerini geliştirmeyi hedefler.",
+                                   "Within this program, our students have the opportunity to put theoretical knowledge into practice with expert instructors. The work carried out in our modern workshops and laboratories aims to develop our students' 21st century skills."
+                                 )}
                              </p>
                              
                              <div className="bg-muted/30 p-6 rounded-xl border border-border">
-                                <h3 className="font-bold text-xl mb-4">Kazanımlar</h3>
+                                <h3 className="font-bold text-xl mb-4">{t("Kazanımlar", "Outcomes")}</h3>
                                 <ul className="space-y-3">
                                     {[1, 2, 3, 4].map(i => (
                                         <li key={i} className="flex items-center gap-3">
                                             <CheckCircle className="w-5 h-5 text-accent" />
-                                            <span>Öğrencinin ilgili alanda yetkinlik kazanması.</span>
+                                            <span>{t("Öğrencinin ilgili alanda yetkinlik kazanması.", "Student gaining competence in the relevant field.")}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -59,7 +63,7 @@ export default function ProgramlarPage() {
                         <div>
                              <Card className="sticky top-24">
                                 <CardHeader>
-                                    <CardTitle>Tüm Programlar</CardTitle>
+                                    <CardTitle>{t("Tüm Programlar", "All Programs")}</CardTitle>
                                 </CardHeader>
                                 <CardContent className="grid gap-2">
                                     {Object.entries(PROGRAMS_CONTENT).map(([key, p]) => (
@@ -84,9 +88,9 @@ export default function ProgramlarPage() {
     return (
         <div className="bg-background min-h-screen">
             <PageHeader
-                title="Eğitim Programları"
-                subtitle="Akademik başarıyı destekleyen, yetenekleri geliştiren zengin program içeriği."
-                breadcrumbs={[{ label: "Programlar", href: "/programlar" }]}
+                title={T("programs.title", lang)}
+                subtitle={T("programs.subtitle", lang)}
+                breadcrumbs={[{ label: T("programs.title", lang), href: "/programlar" }]}
             />
 
             <div className="container py-16 px-4">
@@ -108,7 +112,7 @@ export default function ProgramlarPage() {
                                     </p>
                                     <Link href={`/programlar/${key}`}>
                                         <Button variant="ghost" className="p-0 hover:bg-transparent text-primary font-medium">
-                                            Detaylı Bilgi <ArrowRight className="ml-2 w-4 h-4" />
+                                            {t("Detaylı Bilgi", "Learn More")} <ArrowRight className="ml-2 w-4 h-4" />
                                         </Button>
                                     </Link>
                                 </CardContent>

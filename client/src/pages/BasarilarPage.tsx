@@ -1,61 +1,81 @@
 import { PageHeader } from "@/components/ui/PageHeader";
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trophy, Award, Star } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const ACHIEVEMENTS = [
-  {
-    title: "TÜBİTAK 2204 Bölge Birinciliği",
-    category: "Akademik",
-    year: "2025",
-    description: "Fen Lisesi öğrencilerimiz Biyoloji alanında geliştirdikleri projeyle Marmara bölge birincisi oldular.",
-    icon: Trophy
-  },
-  {
-    title: "İstanbul Liseler Arası Basketbol Şampiyonluğu",
-    category: "Spor",
-    year: "2025",
-    description: "Erkek Basketbol takımımız il genelinde şampiyon olarak Türkiye şampiyonasına katılmaya hak kazandı.",
-    icon: Award
-  },
-  {
-    title: "Uluslararası Robotik Yarışması Bronz Madalya",
-    category: "Teknoloji",
-    year: "2024",
-    description: "Robotik takımımız Japonya'da düzenlenen yarışmada ülkemizi başarıyla temsil etti.",
-    icon: Star
-  },
-  {
-    title: "YKS Türkiye 56.sı",
-    category: "Akademik",
-    year: "2024",
-    description: "Öğrencimiz Ahmet Yılmaz, YKS sayısal alanda Türkiye 56.sı olarak Tıp Fakültesine yerleşti.",
-    icon: Trophy
-  }
-];
-
 export default function BasarilarPage() {
+  const { lang, t } = useLanguage();
+
+  const ACHIEVEMENTS = [
+    {
+      title: t("TÜBİTAK 2204 Bölge Birinciliği", "TÜBİTAK 2204 Regional Championship"),
+      category: t("Akademik", "Academic"),
+      categoryKey: "academic",
+      year: "2025",
+      description: t(
+        "Fen Lisesi öğrencilerimiz Biyoloji alanında geliştirdikleri projeyle Marmara bölge birincisi oldular.",
+        "Our Science High School students became Marmara regional champions with their project in Biology."
+      ),
+      icon: Trophy
+    },
+    {
+      title: t("İstanbul Liseler Arası Basketbol Şampiyonluğu", "Istanbul Inter-High School Basketball Championship"),
+      category: t("Spor", "Sports"),
+      categoryKey: "sports",
+      year: "2025",
+      description: t(
+        "Erkek Basketbol takımımız il genelinde şampiyon olarak Türkiye şampiyonasına katılmaya hak kazandı.",
+        "Our Men's Basketball team won the provincial championship and qualified for the Turkey championship."
+      ),
+      icon: Award
+    },
+    {
+      title: t("Uluslararası Robotik Yarışması Bronz Madalya", "International Robotics Competition Bronze Medal"),
+      category: t("Teknoloji", "Technology"),
+      categoryKey: "academic",
+      year: "2024",
+      description: t(
+        "Robotik takımımız Japonya'da düzenlenen yarışmada ülkemizi başarıyla temsil etti.",
+        "Our robotics team successfully represented our country in the competition held in Japan."
+      ),
+      icon: Star
+    },
+    {
+      title: t("YKS Türkiye 56.sı", "YKS Turkey 56th Place"),
+      category: t("Akademik", "Academic"),
+      categoryKey: "academic",
+      year: "2024",
+      description: t(
+        "Öğrencimiz Ahmet Yılmaz, YKS sayısal alanda Türkiye 56.sı olarak Tıp Fakültesine yerleşti.",
+        "Our student Ahmet Yılmaz placed 56th in Turkey in the YKS quantitative field and was admitted to Medical School."
+      ),
+      icon: Trophy
+    }
+  ];
+
   return (
     <div className="bg-background min-h-screen">
       <PageHeader 
-        title="Başarılarımız" 
-        subtitle="Azim, disiplin ve çalışmanın getirdiği gurur tablolarımız."
-        breadcrumbs={[{ label: "Başarılar", href: "/basarilar" }]}
+        title={T("achievements.title", lang)} 
+        subtitle={T("achievements.subtitle", lang)}
+        breadcrumbs={[{ label: T("achievements.title", lang), href: "/basarilar" }]}
       />
 
       <div className="container py-16 px-4">
         <Tabs defaultValue="akademik" className="w-full">
             <div className="flex justify-center mb-8">
                 <TabsList>
-                    <TabsTrigger value="akademik">Akademik</TabsTrigger>
-                    <TabsTrigger value="spor">Spor & Sanat</TabsTrigger>
-                    <TabsTrigger value="mezunlar">Mezunlarımız</TabsTrigger>
+                    <TabsTrigger value="akademik">{t("Akademik", "Academic")}</TabsTrigger>
+                    <TabsTrigger value="spor">{t("Spor & Sanat", "Sports & Arts")}</TabsTrigger>
+                    <TabsTrigger value="mezunlar">{t("Mezunlarımız", "Our Graduates")}</TabsTrigger>
                 </TabsList>
             </div>
 
             <TabsContent value="akademik" className="mt-0">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {ACHIEVEMENTS.filter(a => a.category === "Akademik" || a.category === "Teknoloji").map((item, i) => (
+                    {ACHIEVEMENTS.filter(a => a.categoryKey === "academic").map((item, i) => (
                         <AchievementCard key={i} item={item} />
                     ))}
                 </div>
@@ -63,7 +83,7 @@ export default function BasarilarPage() {
 
             <TabsContent value="spor" className="mt-0">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {ACHIEVEMENTS.filter(a => a.category === "Spor").map((item, i) => (
+                    {ACHIEVEMENTS.filter(a => a.categoryKey === "sports").map((item, i) => (
                         <AchievementCard key={i} item={item} />
                     ))}
                 </div>
@@ -71,7 +91,7 @@ export default function BasarilarPage() {
 
             <TabsContent value="mezunlar" className="mt-0">
                 <div className="text-center py-12">
-                    <p className="text-muted-foreground">Mezun listemiz güncellenmektedir.</p>
+                    <p className="text-muted-foreground">{t("Mezun listemiz güncellenmektedir.", "Our alumni list is being updated.")}</p>
                 </div>
             </TabsContent>
         </Tabs>

@@ -1,40 +1,44 @@
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
-
-const TESTIMONIALS = [
-  {
-    text: "Kızımız anaokulu'ndan beri burada. Öğretmenlerin sevgisi ve ilgisi gerçekten farklı.",
-    author: "Zeynep K.",
-    role: "Anaokulu Velisi",
-    rating: 5
-  },
-  {
-    text: "Cambridge İngilizce programı sayesinde oğlum İngilizceyi çok sevdi.",
-    author: "Ahmet Y.",
-    role: "İlkokul Velisi",
-    rating: 5
-  },
-  {
-    text: "STEM projeleri çocuğumun teknolojiye olan ilgisini artırdı.",
-    author: "Selin D.",
-    role: "Ortaokul Velisi",
-    rating: 5
-  },
-  {
-    text: "Yemekhane çok hijyenik ve yemekler lezzetli. Beslenme konusunda güvendeyiz.",
-    author: "Murat Ö.",
-    role: "İlkokul Velisi",
-    rating: 5
-  },
-  {
-    text: "Okuma saatleri çocuğumun kitap sevgisini geliştirdi. Artık sürekli okuyor.",
-    author: "Elif A.",
-    role: "İlkokul Velisi",
-    rating: 5
-  }
-];
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 export function TestimonialsScroll() {
+  const { lang, t } = useLanguage();
+
+  const TESTIMONIALS = [
+    {
+      text: t("Kızımız anaokulu'ndan beri burada. Öğretmenlerin sevgisi ve ilgisi gerçekten farklı.", "Our daughter has been here since preschool. The love and attention of the teachers is truly special."),
+      author: "Zeynep K.",
+      role: t("Anaokulu Velisi", "Preschool Parent"),
+      rating: 5
+    },
+    {
+      text: t("Cambridge İngilizce programı sayesinde oğlum İngilizceyi çok sevdi.", "Thanks to the Cambridge English program, my son has grown to love English."),
+      author: "Ahmet Y.",
+      role: t("İlkokul Velisi", "Primary School Parent"),
+      rating: 5
+    },
+    {
+      text: t("STEM projeleri çocuğumun teknolojiye olan ilgisini artırdı.", "STEM projects have increased my child's interest in technology."),
+      author: "Selin D.",
+      role: t("Ortaokul Velisi", "Middle School Parent"),
+      rating: 5
+    },
+    {
+      text: t("Yemekhane çok hijyenik ve yemekler lezzetli. Beslenme konusunda güvendeyiz.", "The cafeteria is very hygienic and the food is delicious. We feel safe about nutrition."),
+      author: "Murat Ö.",
+      role: t("İlkokul Velisi", "Primary School Parent"),
+      rating: 5
+    },
+    {
+      text: t("Okuma saatleri çocuğumun kitap sevgisini geliştirdi. Artık sürekli okuyor.", "Reading hours have developed my child's love of books. Now they read constantly."),
+      author: "Elif A.",
+      role: t("İlkokul Velisi", "Primary School Parent"),
+      rating: 5
+    }
+  ];
+
   return (
     <section className="py-14 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container mb-8">
@@ -45,10 +49,10 @@ export function TestimonialsScroll() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 data-testid="testimonials-section-title" className="text-2xl md:text-3xl font-display font-bold text-primary mb-2">
-            Velilerimiz Ne Diyor?
+            {T("testimonials.title", lang)}
           </h2>
           <p data-testid="testimonials-section-description" className="text-sm text-muted-foreground">
-            Ailemizin bir parçası olan velilerimizin deneyimleri.
+            {T("testimonials.desc", lang)}
           </p>
         </motion.div>
       </div>

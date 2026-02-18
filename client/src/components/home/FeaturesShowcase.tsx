@@ -1,60 +1,63 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Music, Palette, Dumbbell, BookOpen, Utensils, Microscope, ArrowRight } from "lucide-react";
-
-const features = [
-  {
-    icon: Music,
-    title: "Müzik Eğitimi",
-    description: "Piyano, davul, perküsyon ve daha fazlası ile müzik yeteneklerini geliştiriyoruz.",
-    image: "/images/music-room-1.webp",
-    color: "from-purple-500 to-violet-600",
-    bgColor: "bg-purple-500"
-  },
-  {
-    icon: Palette,
-    title: "Sanat Atölyesi",
-    description: "Resim, heykel ve el sanatları ile yaratıcılığı keşfediyoruz.",
-    image: "/images/art-room-1.webp",
-    color: "from-pink-500 to-rose-600",
-    bgColor: "bg-pink-500"
-  },
-  {
-    icon: Dumbbell,
-    title: "Spor Salonu",
-    description: "Basketbol, voleybol ve jimnastik için tam donanımlı spor alanı.",
-    image: "/images/sports-hall-1.webp",
-    color: "from-orange-500 to-amber-600",
-    bgColor: "bg-orange-500"
-  },
-  {
-    icon: BookOpen,
-    title: "Kütüphane",
-    description: "Zengin kitap koleksiyonu ve sessiz çalışma alanları.",
-    image: "/images/kutuphane-gercek.webp",
-    color: "from-blue-500 to-indigo-600",
-    bgColor: "bg-blue-500"
-  },
-  {
-    icon: Microscope,
-    title: "Fen Laboratuvarı",
-    description: "Deneylerle öğrenme ve bilimsel keşif imkanı.",
-    image: "/images/science-room-1.webp",
-    color: "from-emerald-500 to-teal-600",
-    bgColor: "bg-emerald-500"
-  },
-  {
-    icon: Utensils,
-    title: "Yemekhane",
-    description: "Hijyenik ortamda hazırlanan sağlıklı ve lezzetli öğünler.",
-    image: "/images/yemekhane-gercek.webp",
-    color: "from-amber-500 to-yellow-600",
-    bgColor: "bg-amber-500"
-  }
-];
+import { useLanguage } from "@/lib/i18n";
+import { T } from "@/lib/translations";
 
 export function FeaturesShowcase() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { lang, t } = useLanguage();
+
+  const features = [
+    {
+      icon: Music,
+      title: t("Müzik Eğitimi", "Music Education"),
+      description: t("Piyano, davul, perküsyon ve daha fazlası ile müzik yeteneklerini geliştiriyoruz.", "We develop musical talents with piano, drums, percussion and more."),
+      image: "/images/music-room-1.webp",
+      color: "from-purple-500 to-violet-600",
+      bgColor: "bg-purple-500"
+    },
+    {
+      icon: Palette,
+      title: t("Sanat Atölyesi", "Art Workshop"),
+      description: t("Resim, heykel ve el sanatları ile yaratıcılığı keşfediyoruz.", "We discover creativity through painting, sculpture, and crafts."),
+      image: "/images/art-room-1.webp",
+      color: "from-pink-500 to-rose-600",
+      bgColor: "bg-pink-500"
+    },
+    {
+      icon: Dumbbell,
+      title: t("Spor Salonu", "Sports Hall"),
+      description: t("Basketbol, voleybol ve jimnastik için tam donanımlı spor alanı.", "Fully equipped sports area for basketball, volleyball, and gymnastics."),
+      image: "/images/sports-hall-1.webp",
+      color: "from-orange-500 to-amber-600",
+      bgColor: "bg-orange-500"
+    },
+    {
+      icon: BookOpen,
+      title: t("Kütüphane", "Library"),
+      description: t("Zengin kitap koleksiyonu ve sessiz çalışma alanları.", "Rich book collection and quiet study areas."),
+      image: "/images/kutuphane-gercek.webp",
+      color: "from-blue-500 to-indigo-600",
+      bgColor: "bg-blue-500"
+    },
+    {
+      icon: Microscope,
+      title: t("Fen Laboratuvarı", "Science Laboratory"),
+      description: t("Deneylerle öğrenme ve bilimsel keşif imkanı.", "Learning through experiments and scientific discovery."),
+      image: "/images/science-room-1.webp",
+      color: "from-emerald-500 to-teal-600",
+      bgColor: "bg-emerald-500"
+    },
+    {
+      icon: Utensils,
+      title: t("Yemekhane", "Cafeteria"),
+      description: t("Hijyenik ortamda hazırlanan sağlıklı ve lezzetli öğünler.", "Healthy and delicious meals prepared in a hygienic environment."),
+      image: "/images/yemekhane-gercek.webp",
+      color: "from-amber-500 to-yellow-600",
+      bgColor: "bg-amber-500"
+    }
+  ];
 
   return (
     <section className="py-20 relative overflow-hidden bg-primary">
@@ -78,13 +81,13 @@ export function FeaturesShowcase() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1.5 bg-white/10 text-white/80 font-medium rounded-full text-xs tracking-wider uppercase mb-4"
           >
-            Olanaklarımız
+            {t("Olanaklarımız", "Our Facilities")}
           </motion.span>
           <h2 data-testid="features-section-title" className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            En İyisini Sunuyoruz
+            {T("features_showcase.title", lang)}
           </h2>
           <p data-testid="features-section-description" className="text-white/60 leading-relaxed">
-            Öğrencilerimizin çok yönlü gelişimi için özel tasarlanmış modern alanlar.
+            {T("features_showcase.desc", lang)}
           </p>
         </motion.div>
 
@@ -156,7 +159,7 @@ export function FeaturesShowcase() {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span>Keşfet</span>
+                  <span>{t("Keşfet", "Explore")}</span>
                   <ArrowRight className="w-3 h-3" />
                 </motion.div>
               </div>

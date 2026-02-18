@@ -2,7 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "wouter";
 import { Button } from "../ui/button";
-import { ANNOUNCEMENTS, NEWS_CONTENT } from "@/lib/mock-news";
+import { useLanguage } from "@/lib/i18n";
+import { T, getNewsTranslated } from "@/lib/translations";
 import {
   Calendar,
   ArrowRight,
@@ -19,6 +20,10 @@ const categoryColors: Record<string, string> = {
   "Bilgilendirme": "bg-brand-green/15 text-brand-green border-brand-green/30",
   "Etkinlik": "bg-brand-yellow/15 text-yellow-700 border-brand-yellow/30",
   "Program": "bg-purple-100 text-purple-700 border-purple-200",
+  "Enrollment": "bg-brand-orange/15 text-brand-orange border-brand-orange/30",
+  "Meeting": "bg-brand-blue/15 text-brand-blue border-brand-blue/30",
+  "Information": "bg-brand-green/15 text-brand-green border-brand-green/30",
+  "Event": "bg-brand-yellow/15 text-yellow-700 border-brand-yellow/30",
 };
 
 const monthMap: Record<string, string> = {
@@ -27,9 +32,17 @@ const monthMap: Record<string, string> = {
   "09": "Eyl", "10": "Eki", "11": "Kas", "12": "Ara",
 };
 
+const monthMapEn: Record<string, string> = {
+  "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr",
+  "05": "May", "06": "Jun", "07": "Jul", "08": "Aug",
+  "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec",
+};
+
 export function AnnouncementsSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const { lang, t } = useLanguage();
+  const newsData = getNewsTranslated(lang);
 
   return (
     <section ref={sectionRef} className="py-14 bg-muted/30 relative overflow-hidden">
@@ -45,13 +58,13 @@ export function AnnouncementsSection() {
         >
           <div className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange px-3 py-1 rounded-full text-xs font-semibold mb-3">
             <Bell className="w-3.5 h-3.5" />
-            Güncel Bilgiler
+            {t("Güncel Bilgiler", "Latest Updates")}
           </div>
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-            Duyurular & Haberler
+            {T("announcements.title", lang)} & {T("announcements.news", lang)}
           </h2>
           <p className="text-muted-foreground mt-2 max-w-md mx-auto text-sm">
-            Okulumuzla ilgili en son gelişmeleri ve duyuruları takip edin.
+            {t("Okulumuzla ilgili en son gelişmeleri ve duyuruları takip edin.", "Follow the latest developments and announcements about our school.")}
           </p>
         </motion.div>
 
@@ -64,11 +77,11 @@ export function AnnouncementsSection() {
               className="flex items-center gap-2 mb-3"
             >
               <Megaphone className="w-4 h-4 text-primary" />
-              <h3 className="font-display text-base font-bold text-foreground">Duyurular</h3>
+              <h3 className="font-display text-base font-bold text-foreground">{T("announcements.title", lang)}</h3>
             </motion.div>
 
             <div className="space-y-2 flex-1 flex flex-col">
-              {ANNOUNCEMENTS.map((item, index) => (
+              {newsData.announcements.map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 12 }}
@@ -81,16 +94,18 @@ export function AnnouncementsSection() {
                 >
                   {item.isImportant && (
                     <div className="absolute -top-1.5 right-3 bg-brand-orange text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                      Yeni
+                      {t("Yeni", "New")}
                     </div>
                   )}
                   <div className="px-3 py-2.5 flex items-center gap-3">
                     <div className="hidden sm:flex flex-col items-center min-w-[40px]">
                       <span className="text-[10px] text-muted-foreground font-medium uppercase leading-none">
-                        {monthMap[item.date.split(".")[1]] || ""}
+                        {lang === "tr"
+                          ? (monthMap[item.date.split(".")[1]] || "")
+                          : (monthMapEn[item.date.split("/")[0]] || "")}
                       </span>
                       <span className="text-lg font-bold text-primary leading-tight">
-                        {item.date.split(".")[0]}
+                        {lang === "tr" ? item.date.split(".")[0] : item.date.split("/")[1]}
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -121,11 +136,11 @@ export function AnnouncementsSection() {
               className="flex items-center gap-2 mb-3"
             >
               <Newspaper className="w-4 h-4 text-primary" />
-              <h3 className="font-display text-base font-bold text-foreground">Son Haberler</h3>
+              <h3 className="font-display text-base font-bold text-foreground">{t("Son Haberler", "Latest News")}</h3>
             </motion.div>
 
             <div className="flex-1 flex flex-col gap-2.5">
-              {NEWS_CONTENT.map((news, index) => (
+              {newsData.news.map((news, index) => (
                 <motion.div
                   key={news.id}
                   initial={{ opacity: 0, y: 12 }}
@@ -181,7 +196,7 @@ export function AnnouncementsSection() {
               size="sm"
               className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 px-6 text-xs"
             >
-              Tüm Duyurular & Haberler <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+              {T("announcements.all_announcements", lang)} & {T("announcements.news", lang)} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
             </Button>
           </Link>
         </motion.div>
