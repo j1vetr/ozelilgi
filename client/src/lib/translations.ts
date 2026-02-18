@@ -41,7 +41,7 @@ const ui: TranslationMap = {
   "features.arts.title": { tr: "Sanat ve Spor", en: "Arts & Sports" },
   "features.arts.desc": { tr: "Her öğrencinin yeteneğini keşfeden bütünsel gelişim.", en: "Holistic development that discovers every student's talent." },
 
-  "school.slogan": { tr: "Geleceğe Güvenle", en: "Confidence in the Future" },
+  "school.slogan": { tr: "Her öğrenci özel ilgi hak eder", en: "Every student deserves special attention" },
   "school.description": { tr: "Anaokulu, İlkokul ve Ortaokul kademelerinde kaliteli eğitim.", en: "Quality education at Preschool, Primary, and Middle School levels." },
 
   "footer.corporate": { tr: "Kurumsal", en: "Corporate" },
@@ -116,7 +116,7 @@ const ui: TranslationMap = {
   "contact.info.email": { tr: "E-posta", en: "Email" },
   "contact.info.address": { tr: "Adres", en: "Address" },
   "contact.info.hours": { tr: "Çalışma Saatleri", en: "Working Hours" },
-  "contact.info.hours_detail": { tr: "Pazartesi - Cuma: 08:00 - 17:00", en: "Monday - Friday: 08:00 AM - 5:00 PM" },
+  "contact.info.hours_detail": { tr: "Pazartesi - Cuma: 07:00 - 18:30", en: "Monday - Friday: 07:00 AM - 6:30 PM" },
   "contact.map.title": { tr: "Bizi Ziyaret Edin", en: "Visit Us" },
 
   "enrollment.title": { tr: "Kayıt İşlemleri", en: "Enrollment" },

@@ -7,7 +7,8 @@ const KNOWLEDGE_BASE = `
 
 ## Okul Genel Bilgileri
 - Okul Adı: Özel Boğaziçi İlgi Koleji Çekmeköy
-- Slogan: Geleceğe Güvenle
+- Slogan: Her öğrenci özel ilgi hak eder
+- Çalışma Saatleri: Pazartesi - Cuma: 07:00 - 18:30
 - Telefon: 0216 642 8 642
 - E-posta: info@ozelilgiokullari.k12.tr
 - Adres: Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48, 34782 Çekmeköy/İstanbul
