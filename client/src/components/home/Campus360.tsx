@@ -78,7 +78,7 @@ export function Campus360() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 group-hover:from-black/60 group-hover:via-black/20 transition-all duration-500" />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <div className="absolute inset-0 flex flex-col items-center justify-center pb-10 sm:pb-12">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -99,16 +99,16 @@ export function Campus360() {
                 {T("campus360.view", lang)}
               </div>
 
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex flex-col xs:flex-row items-start xs:items-center gap-2 sm:flex-row sm:justify-between">
-                <div className="hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex flex-row items-center justify-between gap-2">
+                <div className="hidden md:flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full min-w-0">
                   <MousePointer2 className="w-3.5 h-3.5 shrink-0" />
                   <span className="truncate">{T("campus360.mouse_hint", lang)}</span>
                 </div>
-                <div className="md:hidden flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full">
+                <div className="md:hidden flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full min-w-0">
                   <Hand className="w-3.5 h-3.5 shrink-0" />
                   <span className="truncate">{T("campus360.touch_hint", lang)}</span>
                 </div>
-                <div className="bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+                <div className="bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full shrink-0">
                   {T("campus360.fullscreen", lang)}
                 </div>
               </div>
