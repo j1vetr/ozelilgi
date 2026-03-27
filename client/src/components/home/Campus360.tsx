@@ -82,33 +82,33 @@ export function Campus360() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-2xl mb-5 group-hover:bg-white transition-colors duration-300 ring-4 ring-white/30 tour-play-pulse"
+                  className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-2xl mb-3 sm:mb-5 group-hover:bg-white transition-colors duration-300 ring-4 ring-white/30 tour-play-pulse"
                 >
-                  <Play className="w-10 h-10 md:w-12 md:h-12 text-primary ml-1" fill="currentColor" />
+                  <Play className="w-7 h-7 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary ml-1" fill="currentColor" />
                 </motion.div>
-                <h3 className="text-white font-display font-bold text-xl md:text-2xl drop-shadow-lg mb-2">
+                <h3 className="text-white font-display font-bold text-base sm:text-xl md:text-2xl drop-shadow-lg mb-1 sm:mb-2 px-4 text-center">
                   {T("campus360.badge", lang)}
                 </h3>
-                <p className="text-white/90 text-sm md:text-base drop-shadow font-medium">
+                <p className="text-white/90 text-xs sm:text-sm md:text-base drop-shadow font-medium px-4 text-center">
                   {T("campus360.play", lang)}
                 </p>
               </div>
 
-              <div className="absolute top-4 left-4 bg-brand-orange text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-                <RotateCcw className="w-3.5 h-3.5 tour-rotate-icon" />
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-brand-orange text-white text-xs font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg flex items-center gap-1.5">
+                <RotateCcw className="w-3 h-3 sm:w-3.5 sm:h-3.5 tour-rotate-icon" />
                 {T("campus360.view", lang)}
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                <div className="hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
-                  <MousePointer2 className="w-3.5 h-3.5" />
-                  {T("campus360.mouse_hint", lang)}
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex flex-col xs:flex-row items-start xs:items-center gap-2 sm:flex-row sm:justify-between">
+                <div className="hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full">
+                  <MousePointer2 className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">{T("campus360.mouse_hint", lang)}</span>
                 </div>
-                <div className="md:hidden flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
-                  <Hand className="w-3.5 h-3.5" />
-                  {T("campus360.touch_hint", lang)}
+                <div className="md:hidden flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full">
+                  <Hand className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">{T("campus360.touch_hint", lang)}</span>
                 </div>
-                <div className="bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-4 py-2 rounded-full">
+                <div className="bg-black/50 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                   {T("campus360.fullscreen", lang)}
                 </div>
               </div>
@@ -155,9 +155,9 @@ export function Campus360() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none tour-hint"
+              className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none tour-hint w-[calc(100vw-2rem)] sm:w-auto"
             >
-              <div className="bg-white/95 backdrop-blur-xl rounded-2xl px-8 py-5 text-center shadow-2xl border border-gray-200 max-w-md">
+              <div className="bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-4 sm:px-8 sm:py-5 text-center shadow-2xl border border-gray-200 max-w-xs sm:max-w-md">
                 <div className="flex items-center justify-center gap-3 mb-3">
                   <div className="hidden md:block">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
