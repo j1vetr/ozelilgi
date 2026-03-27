@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bogazici.toov.com.tr/sitemap.xml
+Sitemap: https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/sitemap.xml

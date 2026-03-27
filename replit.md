@@ -148,6 +148,10 @@ Preferred communication style: Simple, everyday language.
 
 ## SEO Infrastructure
 
+### Domain
+- **Production URL**: `https://cekmekoy.ozelbogaziciilgiokullari.k12.tr`
+- All canonical URLs, OG tags, sitemap, robots.txt, JSON-LD and chatbot knowledge base reference this domain
+
 ### Package & Components
 - **Package**: `react-helmet-async` (HelmetProvider wraps app in App.tsx)
 - **Component**: `client/src/components/SEOHead.tsx` — accepts `titleTR`, `titleEN`, `descriptionTR`, `descriptionEN`, `canonical`, optional `jsonLd`

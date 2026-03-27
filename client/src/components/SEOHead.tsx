@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/lib/i18n";
 
-const SITE_URL = "https://bogazici.toov.com.tr";
+const SITE_URL = "https://cekmekoy.ozelbogaziciilgiokullari.k12.tr";
 const OG_IMAGE = `${SITE_URL}/images/og-share.png`;
 const SCHOOL_NAME = "Özel Boğaziçi İlgi Koleji Çekmeköy";
 

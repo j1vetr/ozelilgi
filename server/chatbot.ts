@@ -12,7 +12,7 @@ const KNOWLEDGE_BASE = `
 - Telefon: 0216 642 8 642
 - E-posta: info@ozelilgiokullari.k12.tr
 - Adres: Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48, 34782 Çekmeköy/İstanbul
-- Web Sitesi: bogazici.toov.com.tr
+- Web Sitesi: cekmekoy.ozelbogaziciilgiokullari.k12.tr
 
 ## Hakkımızda
 - Kampüs 2013 yılında inşa edilmiş modern bir yapıdır
