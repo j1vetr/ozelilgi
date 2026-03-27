@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
+import { SEOHead } from "@/components/SEOHead";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -86,6 +87,13 @@ export default function OnKayitPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR="Ön Kayıt Formu | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji"
+        titleEN="Pre-Registration Form | Çekmeköy Private School | Boğaziçi İlgi Koleji"
+        descriptionTR="2026-2027 eğitim yılı için ön kayıt formunu doldurun. Çekmeköy'ün seçkin özel okulu Boğaziçi İlgi Koleji'nde yerinizi şimdiden ayırtın."
+        descriptionEN="Fill out the pre-registration form for the 2026-2027 academic year. Reserve your place now at Boğaziçi İlgi Koleji, the distinguished private school of Çekmeköy."
+        canonical="/kayit/on-kayit"
+      />
       <PageHeader 
         title={T("preregister.title", lang)} 
         subtitle={T("preregister.subtitle", lang)}

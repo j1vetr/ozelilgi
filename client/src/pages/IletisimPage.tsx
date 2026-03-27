@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { Link } from "wouter";
+import { SEOHead } from "@/components/SEOHead";
 
 function LazyMap({ src, title }: { src: string; title: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -149,6 +150,13 @@ export default function IletisimPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR="İletişim | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji"
+        titleEN="Contact | Çekmeköy Private School | Boğaziçi İlgi Koleji"
+        descriptionTR="Özel Boğaziçi İlgi Koleji Çekmeköy iletişim bilgileri. Adres: Mimar Sinan, Yeşil Kayalar Cd. No: 46-48, Çekmeköy/İstanbul. Tel: 0216 642 8 642"
+        descriptionEN="Contact Özel Boğaziçi İlgi Koleji Çekmeköy. Address: Mimar Sinan, Yeşil Kayalar Cd. No: 46-48, Çekmeköy/İstanbul. Tel: +90 216 642 8 642"
+        canonical="/iletisim"
+      />
       <PageHeader 
         title={T("contact.title", lang)} 
         subtitle={T("contact.subtitle", lang)}

@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T, getNewsTranslated } from "@/lib/translations";
+import { SEOHead } from "@/components/SEOHead";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ChevronRight, ArrowLeft, Megaphone, Clock, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -109,6 +110,13 @@ export default function HaberlerPage() {
 
     return (
         <div className="bg-background min-h-screen">
+            <SEOHead
+                titleTR="Haberler & Duyurular | Özel Boğaziçi İlgi Koleji Çekmeköy"
+                titleEN="News & Announcements | Özel Boğaziçi İlgi Koleji Çekmeköy"
+                descriptionTR="Özel Boğaziçi İlgi Koleji Çekmeköy'den son haberler, etkinlikler ve duyurular. Okul hayatından güncel gelişmeleri takip edin."
+                descriptionEN="Latest news, events and announcements from Özel Boğaziçi İlgi Koleji Çekmeköy. Follow current developments from school life."
+                canonical="/haberler"
+            />
             <PageHeader
                 title={T("news.title", lang)}
                 breadcrumbs={[{ label: T("news.title", lang), href: "/haberler" }]}

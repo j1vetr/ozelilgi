@@ -5,11 +5,43 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
+import { SEOHead } from "@/components/SEOHead";
 import { 
   ArrowRight, Target, Eye, Lightbulb, BookOpen, Building2, Users, 
   Heart, Zap, Layers, Cpu, Star, Shield, Sparkles, HandshakeIcon,
   CheckCircle
 } from "lucide-react";
+
+const KURUMSAL_SEO: Record<string, { titleTR: string; titleEN: string; descTR: string; descEN: string; path: string }> = {
+  "hakkimizda": {
+    titleTR: "Hakkımızda | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    titleEN: "About Us | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    descTR: "2013 yılında kurulan Özel Boğaziçi İlgi Koleji Çekmeköy, modern kampüsü ve deneyimli kadrosuyla Çekmeköy'ün seçkin özel okuludur. Anaokulu, ilkokul ve ortaokul kademeleri.",
+    descEN: "Founded in 2013, Özel Boğaziçi İlgi Koleji Çekmeköy is a distinguished private school offering preschool, primary and middle school education with a modern campus.",
+    path: "/kurumsal/hakkimizda",
+  },
+  "kurucu-mesaji": {
+    titleTR: "Kurucu Mesajı | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    titleEN: "Founder's Message | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    descTR: "Özel Boğaziçi İlgi Koleji kurucusunun eğitim vizyonu ve mesajını okuyun. Her öğrenciye özel ilgi gösteren, kaliteli eğitim sunan Çekmeköy'ün köklü özel okulu.",
+    descEN: "Read the message and educational vision of the founder of Özel Boğaziçi İlgi Koleji Çekmeköy. A distinguished private school offering personalized education.",
+    path: "/kurumsal/kurucu-mesaji",
+  },
+  "vizyon-misyon": {
+    titleTR: "Vizyon & Misyon | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    titleEN: "Vision & Mission | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    descTR: "Boğaziçi İlgi Koleji'nin vizyonu; ulusal ve uluslararası platformlarda tanınan, öncü bir eğitim kurumu olmak ve lider bireyler yetiştirmektir.",
+    descEN: "The vision of Boğaziçi İlgi College is to be a pioneering educational institution recognized nationally and internationally, raising leader individuals.",
+    path: "/kurumsal/vizyon-misyon",
+  },
+  "egitim-yaklasimimiz": {
+    titleTR: "Eğitim Yaklaşımımız | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    titleEN: "Our Approach | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    descTR: "Öğrenci merkezli eğitim, STEM projeleri, Cambridge İngilizce ve aktif öğrenme yöntemleriyle Boğaziçi İlgi Koleji'nin modern eğitim yaklaşımını keşfedin.",
+    descEN: "Discover the modern educational approach of Boğaziçi İlgi College: student-centered education, STEM projects, Cambridge English and active learning methods.",
+    path: "/kurumsal/egitim-yaklasimimiz",
+  },
+};
 
 export default function KurumsalPage() {
   const { lang, t } = useLanguage();
@@ -33,8 +65,17 @@ export default function KurumsalPage() {
     setActiveTab(tabId as keyof typeof PAGE_CONTENT.kurumsal);
   };
 
+  const seo = KURUMSAL_SEO[activeTab] || KURUMSAL_SEO["hakkimizda"];
+
   return (
     <div className="bg-background min-h-screen">
+      <SEOHead
+        titleTR={seo.titleTR}
+        titleEN={seo.titleEN}
+        descriptionTR={seo.descTR}
+        descriptionEN={seo.descEN}
+        canonical={seo.path}
+      />
       <PageHeader 
         title={T("nav.about", lang)} 
         subtitle={t("Özel Boğaziçi İlgi Koleji Çekmeköy", "Özel Boğaziçi İlgi College Çekmeköy")}

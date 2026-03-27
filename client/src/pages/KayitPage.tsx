@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { 
   ClipboardList, FileCheck, Users, Phone, Calendar, ArrowRight, 
@@ -73,6 +74,13 @@ export default function KayitPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR="Kayıt Bilgileri | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji"
+        titleEN="Enrollment | Çekmeköy Private School | Boğaziçi İlgi Koleji"
+        descriptionTR="2026-2027 eğitim yılı kayıtları başladı! Çekmeköy'deki özel okulumuzda yerinizi ayırtın. Anaokulu, ilkokul ve ortaokul kayıtları için ön kayıt yapın."
+        descriptionEN="2026-2027 enrollment is open! Reserve your place at our private school in Çekmeköy. Pre-register for preschool, primary school and middle school."
+        canonical="/kayit"
+      />
       <PageHeader 
         title={T("enrollment.title", lang)} 
         subtitle={t("Çocuğunuzun geleceğine yatırım yapın", "Invest in your child's future")}

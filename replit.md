@@ -145,3 +145,32 @@ Preferred communication style: Simple, everyday language.
 - Graceful error handling for API key issues, rate limits, network errors
 - Never fabricates information; refers users to phone (0216 642 8 642) for unknown topics
 - Personality: "İlgi Asistan" - warm, professional school assistant
+
+## SEO Infrastructure
+
+### Package & Components
+- **Package**: `react-helmet-async` (HelmetProvider wraps app in App.tsx)
+- **Component**: `client/src/components/SEOHead.tsx` — accepts `titleTR`, `titleEN`, `descriptionTR`, `descriptionEN`, `canonical`, optional `jsonLd`
+- **JSON-LD**: `SCHOOL_SCHEMA` exported from SEOHead.tsx — full Schema.org `School` type with address, geo, hours, educational levels
+- Language-aware: title and description switch based on current language (TR/EN)
+
+### Target Keywords
+- "Çekmeköy anaokulu", "Çekmeköy ilkokulu", "Çekmeköy ortaokul" (primary local SEO targets)
+- "Çekmeköy özel okul", "Boğaziçi İlgi Koleji", "İstanbul özel okul"
+
+### Pages with SEO
+- `/` — Home: Full School JSON-LD schema + bilingual meta
+- `/akademik/anaokulu` — "Çekmeköy Anaokulu" targeted title/desc
+- `/akademik/ilkokul` — "Çekmeköy İlkokulu" targeted title/desc
+- `/akademik/ortaokul` — "Çekmeköy Ortaokulu" targeted title/desc
+- `/akademik` — Academic overview
+- `/kurumsal/*` — Dynamic SEO per tab (hakkimizda, kurucu-mesaji, vizyon-misyon, egitim-yaklasimimiz)
+- `/kampus/*` — Dynamic SEO per tab (imkanlar, galeri)
+- `/kayit`, `/kayit/on-kayit`, `/kayit/kayit-sureci` — Enrollment pages
+- `/haberler` — News & announcements
+- `/iletisim` — Contact page with address in description
+
+### Static SEO Files
+- `client/public/sitemap.xml` — 19 URLs with priorities and changefreq
+- `client/public/robots.txt` — Allow all + sitemap reference
+- `client/index.html` — Updated `<title>`, `<meta name="description">`, `<meta name="keywords">`, og:locale, og:site_name

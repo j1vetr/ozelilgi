@@ -4,9 +4,31 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
+import { SEOHead } from "@/components/SEOHead";
 import { ArrowRight, Baby, BookOpen, GraduationCap, CheckCircle, ChevronRight, Star } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
+
+const AKADEMIK_SEO: Record<string, { titleTR: string; titleEN: string; descTR: string; descEN: string }> = {
+  anaokulu: {
+    titleTR: "Çekmeköy Anaokulu | Özel Boğaziçi İlgi Koleji",
+    titleEN: "Preschool in Çekmeköy | Özel Boğaziçi İlgi Koleji",
+    descTR: "Çekmeköy anaokulu arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde 3-6 yaş için oyun temelli öğrenme, İngilizce eğitim, müzik ve yaratıcı atölyeler.",
+    descEN: "Looking for a preschool in Çekmeköy? Boğaziçi İlgi Koleji offers play-based learning, English education, music and creative workshops for ages 3-6.",
+  },
+  ilkokul: {
+    titleTR: "Çekmeköy İlkokulu | Özel Boğaziçi İlgi Koleji",
+    titleEN: "Primary School in Çekmeköy | Özel Boğaziçi İlgi Koleji",
+    descTR: "Çekmeköy ilkokulu arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde 1-4. sınıf için Cambridge İngilizce, STEM projeleri ve güçlü akademik temeller.",
+    descEN: "Looking for a primary school in Çekmeköy? Boğaziçi İlgi Koleji offers Cambridge English, STEM projects and strong academic foundations for grades 1-4.",
+  },
+  ortaokul: {
+    titleTR: "Çekmeköy Ortaokulu | Özel Boğaziçi İlgi Koleji",
+    titleEN: "Middle School in Çekmeköy | Özel Boğaziçi İlgi Koleji",
+    descTR: "Çekmeköy ortaokulu arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde 5-8. sınıf için LGS hazırlık, 2. yabancı dil, robotik ve kariyer rehberliği.",
+    descEN: "Looking for a middle school in Çekmeköy? Boğaziçi İlgi Koleji offers LGS exam prep, second foreign language, robotics and career guidance for grades 5-8.",
+  },
+};
 
 const levelIcons: Record<string, any> = {
   "anaokulu": Baby,
@@ -35,6 +57,13 @@ function AkademikOverview() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR="Akademik Programlar | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji"
+        titleEN="Academic Programs | Çekmeköy Private School | Boğaziçi İlgi Koleji"
+        descriptionTR="Boğaziçi İlgi Koleji Çekmeköy'de anaokulu (3-6 yaş), ilkokul (1-4. sınıf) ve ortaokul (5-8. sınıf) kademelerinde kaliteli akademik programlar. Çekmeköy'ün seçkin özel okulu."
+        descriptionEN="Quality academic programs at Boğaziçi İlgi Koleji Çekmeköy for preschool (ages 3-6), primary (grades 1-4) and middle school (grades 5-8). The distinguished private school of Çekmeköy."
+        canonical="/akademik"
+      />
       <PageHeader 
         title={T("nav.academic", lang)} 
         subtitle={t("Her Yaş Grubuna Özel Eğitim Programları", "Education Programs for Every Age Group")}
@@ -152,9 +181,17 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
     ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-500", light: "bg-emerald-50" }
   };
   const color = colors[slug] || colors.ilkokul;
+  const seo = AKADEMIK_SEO[slug] || AKADEMIK_SEO["ilkokul"];
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR={seo.titleTR}
+        titleEN={seo.titleEN}
+        descriptionTR={seo.descTR}
+        descriptionEN={seo.descEN}
+        canonical={`/akademik/${slug}`}
+      />
       <PageHeader 
         title={content.title} 
         subtitle={content.subtitle}

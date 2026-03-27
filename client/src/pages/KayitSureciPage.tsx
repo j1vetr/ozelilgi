@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { 
   ClipboardList, Phone, Calendar, FileCheck, CheckCircle, 
@@ -108,6 +109,13 @@ export default function KayitSureciPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR="Kayıt Süreci | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji"
+        titleEN="Enrollment Process | Çekmeköy Private School | Boğaziçi İlgi Koleji"
+        descriptionTR="Özel Boğaziçi İlgi Koleji'ne kayıt yaptırma adımları, gerekli belgeler ve süreç hakkında detaylı bilgi. Çekmeköy'ün seçkin özel okuluna kolayca kayıt olun."
+        descriptionEN="Detailed information about enrollment steps, required documents and process at Özel Boğaziçi İlgi Koleji. Easily enroll at the distinguished private school of Çekmeköy."
+        canonical="/kayit/kayit-sureci"
+      />
       <PageHeader 
         title={T("enrollment_process.title", lang)} 
         subtitle={T("enrollment_process.subtitle", lang)}

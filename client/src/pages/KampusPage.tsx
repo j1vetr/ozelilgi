@@ -3,6 +3,7 @@ import { useRoute, useLocation } from "wouter";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T, getCampusFacilitiesTranslated } from "@/lib/translations";
+import { SEOHead } from "@/components/SEOHead";
 import { CAMPUS_GALLERY } from "@/lib/page-content";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
@@ -72,6 +73,13 @@ export default function KampusPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEOHead
+        titleTR={activeTab === "galeri" ? "Kampüs Fotoğrafları | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji" : "Kampüsümüz | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji"}
+        titleEN={activeTab === "galeri" ? "Campus Gallery | Çekmeköy Private School | Boğaziçi İlgi Koleji" : "Our Campus | Çekmeköy Private School | Boğaziçi İlgi Koleji"}
+        descriptionTR={activeTab === "galeri" ? "Özel Boğaziçi İlgi Koleji Çekmeköy kampüsünden fotoğraflar. Fen laboratuvarı, spor salonu, müzik ve sanat atölyelerimizi görsel olarak keşfedin." : "Boğaziçi İlgi Koleji Çekmeköy kampüsü: Fen laboratuvarı, kapalı spor salonu, müzik atölyesi, sanat atölyesi, kodlama laboratuvarı ve kütüphane."}
+        descriptionEN={activeTab === "galeri" ? "Photos from Özel Boğaziçi İlgi Koleji Çekmeköy campus. Explore our science lab, gym, music and art studios visually." : "Boğaziçi İlgi Koleji Çekmeköy campus: Science lab, indoor gym, music studio, art studio, coding lab and library."}
+        canonical={`/kampus/${activeTab}`}
+      />
       <PageHeader
         title={T("campus.title", lang)}
         subtitle={T("campus.subtitle", lang)}

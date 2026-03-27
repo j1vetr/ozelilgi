@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/ChatWidget";
 import { LanguageProvider } from "@/lib/i18n";
+import { HelmetProvider } from "react-helmet-async";
 import Home from "@/pages/Home";
 import { useLocation } from "wouter";
 import { useEffect, lazy, Suspense } from "react";
@@ -90,15 +91,17 @@ function Router() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <ChatWidget />
-        </TooltipProvider>
-      </QueryClientProvider>
-    </LanguageProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+            <ChatWidget />
+          </TooltipProvider>
+        </QueryClientProvider>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 }
 
