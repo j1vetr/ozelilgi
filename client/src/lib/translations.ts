@@ -50,8 +50,8 @@ const ui: TranslationMap = {
   "footer.rights": { tr: "Tüm Hakları Saklıdır.", en: "All Rights Reserved." },
   "footer.developer": { tr: "Geliştirici & Tasarım", en: "Developer & Design" },
 
-  "campus360.badge": { tr: "360° sanal tur", en: "360° virtual tour" },
-  "campus360.title": { tr: "Kampüsümüzü keşfedin", en: "Explore our campus" },
+  "campus360.badge": { tr: "360° Sanal Tur", en: "360° Virtual Tour" },
+  "campus360.title": { tr: "Kampüsümüzü Keşfedin", en: "Explore Our Campus" },
   "campus360.desc": { tr: "Okulumuzun her köşesini 360 derece sanal tur ile yakından inceleyin.", en: "Take a closer look at every corner of our school with a 360-degree virtual tour." },
   "campus360.play": { tr: "Tıklayarak tam ekranda başlatın", en: "Click to start in full screen" },
   "campus360.view": { tr: "360° görüntü", en: "360° view" },
@@ -68,7 +68,7 @@ const ui: TranslationMap = {
   "cta.register": { tr: "Ön Kayıt Yap", en: "Pre-Register" },
   "cta.contact": { tr: "Bizi Arayın", en: "Call Us" },
 
-  "levels.title": { tr: "Eğitim kademeleri", en: "Education levels" },
+  "levels.title": { tr: "Eğitim Kademeleri", en: "Education Levels" },
   "levels.desc": { tr: "Her yaş grubuna özel hazırlanmış eğitim programlarımız", en: "Our education programs specially designed for each age group" },
   "levels.preschool": { tr: "Anaokulu", en: "Preschool" },
   "levels.preschool.ages": { tr: "3-6 Yaş", en: "Ages 3-6" },
@@ -90,18 +90,18 @@ const ui: TranslationMap = {
   "announcements.all_announcements": { tr: "Tüm duyurular", en: "All announcements" },
   "announcements.read_more": { tr: "Devamını oku", en: "Read more" },
 
-  "facilities.title": { tr: "Kampüs imkanları", en: "Campus facilities" },
+  "facilities.title": { tr: "Kampüs İmkanları", en: "Campus Facilities" },
   "facilities.desc": { tr: "Modern ve donanımlı eğitim alanlarımız", en: "Our modern and well-equipped educational spaces" },
   "facilities.explore": { tr: "Tüm imkanları keşfet", en: "Explore all facilities" },
 
   "features_showcase.title": { tr: "Neden biz?", en: "Why us?" },
   "features_showcase.desc": { tr: "Öğrencilerimize sunduğumuz eğitim farkı", en: "The educational difference we offer our students" },
 
-  "video.title": { tr: "Okulumuzdan kareler", en: "Scenes from our school" },
+  "video.title": { tr: "Okulumuzdan Kareler", en: "Scenes from Our School" },
   "video.desc": { tr: "Kampüsümüzden ve etkinliklerimizden görüntüler", en: "Videos from our campus and activities" },
 
   "contact.title": { tr: "İletişim", en: "Contact" },
-  "contact.subtitle": { tr: "Bizimle iletişime geçin", en: "Get in touch with us" },
+  "contact.subtitle": { tr: "Bizimle İletişime Geçin", en: "Get in Touch with Us" },
   "contact.form.name": { tr: "Adınız Soyadınız", en: "Full Name" },
   "contact.form.email": { tr: "E-posta Adresiniz", en: "Your Email" },
   "contact.form.phone": { tr: "Telefon Numaranız", en: "Your Phone Number" },
@@ -120,16 +120,16 @@ const ui: TranslationMap = {
   "contact.map.title": { tr: "Bizi Ziyaret Edin", en: "Visit Us" },
 
   "enrollment.title": { tr: "Kayıt İşlemleri", en: "Enrollment" },
-  "enrollment.subtitle": { tr: "2026-2027 eğitim öğretim yılı kayıtları", en: "2026-2027 academic year enrollment" },
+  "enrollment.subtitle": { tr: "2026-2027 Eğitim Öğretim Yılı Kayıtları", en: "2026-2027 Academic Year Enrollment" },
   "enrollment.process": { tr: "Kayıt Süreci", en: "Enrollment Process" },
   "enrollment.preregister": { tr: "Ön Kayıt Formu", en: "Pre-Registration Form" },
   "enrollment.info": { tr: "Kayıt için gerekli belgeler ve süreç hakkında bilgi alın.", en: "Get information about required documents and the enrollment process." },
 
   "enrollment_process.title": { tr: "Kayıt Süreci", en: "Enrollment Process" },
-  "enrollment_process.subtitle": { tr: "Adım adım kayıt işlemleri", en: "Step-by-step enrollment procedures" },
+  "enrollment_process.subtitle": { tr: "Adım Adım Kayıt İşlemleri", en: "Step-by-Step Enrollment Procedures" },
 
   "preregister.title": { tr: "Ön Kayıt Formu", en: "Pre-Registration Form" },
-  "preregister.subtitle": { tr: "Çocuğunuzun geleceği için ilk adım", en: "The first step for your child's future" },
+  "preregister.subtitle": { tr: "Çocuğunuzun Geleceği İçin İlk Adım", en: "The First Step for Your Child's Future" },
   "preregister.student_name": { tr: "Öğrenci Adı Soyadı", en: "Student Full Name" },
   "preregister.birth_date": { tr: "Doğum Tarihi", en: "Date of Birth" },
   "preregister.grade": { tr: "Başvurulan Kademe", en: "Applying Grade" },
@@ -148,43 +148,43 @@ const ui: TranslationMap = {
   "preregister.grade.middle": { tr: "Ortaokul", en: "Middle School" },
 
   "about.title": { tr: "Hakkımızda", en: "About Us" },
-  "about.subtitle": { tr: "25 yıllık tecrübe ile kaliteli eğitim", en: "Quality education with 25 years of experience" },
+  "about.subtitle": { tr: "25 Yıllık Tecrübe ile Kaliteli Eğitim", en: "Quality Education with 25 Years of Experience" },
   "about.content": { tr: "Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.", en: "Our campus, located in the center of Çekmeköy, is a modern building constructed in 2013. With its large indoor area and garden, we offer students a spacious learning environment." },
   "about.preschool_class": { tr: "Anaokulu Sınıfı", en: "Preschool Classrooms" },
   "about.founded": { tr: "Kuruluş", en: "Founded" },
 
   "founder.title": { tr: "Kurucu Mesajı", en: "Founder's Message" },
-  "founder.subtitle": { tr: "Değerlerimiz ve vizyonumuz", en: "Our values and vision" },
+  "founder.subtitle": { tr: "Değerlerimiz ve Vizyonumuz", en: "Our Values and Vision" },
   "founder.content": { tr: "Değerli Velilerimiz ve Sevgili Öğrenciler,\n\nGeleceğimizin teminatı olan çocuklarımızı en iyi şekilde yetiştirmek, onlara güvenli ve nitelikli bir eğitim ortamı sunmak en büyük sorumluluğumuzdur.\n\nBoğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının yanı sıra, milli ve manevi değerlerine bağlı, evrensel düşünebilen, sorgulayan ve üreten bireyler olmalarını önemsiyoruz.", en: "Dear Parents and Students,\n\nRaising our children, who are the guarantee of our future, in the best possible way and providing them with a safe and quality educational environment is our greatest responsibility.\n\nAs Boğaziçi İlgi College, we care not only about our students' academic success but also about raising individuals who are committed to their national and moral values, who think universally, question, and create." },
 
   "vision.title": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
-  "vision.subtitle": { tr: "Geleceği şekillendiriyoruz", en: "Shaping the future" },
+  "vision.subtitle": { tr: "Geleceği Şekillendiriyoruz", en: "Shaping the Future" },
   "vision.vision": { tr: "Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.", en: "To be a pioneering and exemplary institution recognized for its achievements on national and international platforms; to raise leaders who will shape the future." },
   "vision.mission": { tr: "Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.", en: "To raise individuals who adhere to Atatürk's principles and reforms, who are modern, democratic, capable of critical thinking, socially responsible, creative, and productive." },
 
   "approach.title": { tr: "Eğitim Yaklaşımımız", en: "Our Approach" },
-  "approach.subtitle": { tr: "Öğrenci merkezli modern eğitim", en: "Student-centered modern education" },
+  "approach.subtitle": { tr: "Öğrenci Merkezli Modern Eğitim", en: "Student-Centered Modern Education" },
   "approach.content": { tr: "Öğrenci merkezli eğitim modelimiz, her çocuğun bireysel öğrenme hızına ve stiline saygı duyar. Yaparak ve yaşayarak öğrenme ilkesiyle, teorik bilgiyi pratiğe dönüştüren uygulamalar sunuyoruz.", en: "Our student-centered education model respects each child's individual learning pace and style. With the principle of learning by doing, we offer applications that transform theoretical knowledge into practice." },
 
   "news.title": { tr: "Haberler & Duyurular", en: "News & Announcements" },
-  "news.subtitle": { tr: "Okulumuzdan son gelişmeler", en: "Latest updates from our school" },
+  "news.subtitle": { tr: "Okulumuzdan Son Gelişmeler", en: "Latest Updates from Our School" },
   "news.tab.news": { tr: "Haberler", en: "News" },
   "news.tab.announcements": { tr: "Duyurular", en: "Announcements" },
   "news.back": { tr: "Geri dön", en: "Go back" },
 
   "campus.title": { tr: "Kampüsümüz", en: "Our Campus" },
-  "campus.subtitle": { tr: "Modern eğitim ortamımız", en: "Our modern educational environment" },
+  "campus.subtitle": { tr: "Modern Eğitim Ortamımız", en: "Our Modern Educational Environment" },
   "campus.tab.facilities": { tr: "İmkanlar", en: "Facilities" },
   "campus.tab.gallery": { tr: "Galeri", en: "Gallery" },
 
   "programs.title": { tr: "Programlarımız", en: "Our Programs" },
-  "programs.subtitle": { tr: "Zengin eğitim programlarımız", en: "Our rich educational programs" },
+  "programs.subtitle": { tr: "Zengin Eğitim Programlarımız", en: "Our Rich Educational Programs" },
 
   "achievements.title": { tr: "Başarılarımız", en: "Our Achievements" },
-  "achievements.subtitle": { tr: "Gurur duyduğumuz başarılar", en: "Achievements we are proud of" },
+  "achievements.subtitle": { tr: "Gurur Duyduğumuz Başarılar", en: "Achievements We Are Proud Of" },
 
   "parent_student.title": { tr: "Veli & Öğrenci", en: "Parents & Students" },
-  "parent_student.subtitle": { tr: "Bilgilendirme ve kaynaklar", en: "Information and resources" },
+  "parent_student.subtitle": { tr: "Bilgilendirme ve Kaynaklar", en: "Information and Resources" },
 
   "notfound.title": { tr: "Sayfa bulunamadı", en: "Page not found" },
   "notfound.desc": { tr: "Aradığınız sayfa mevcut değil veya taşınmış olabilir.", en: "The page you are looking for does not exist or may have been moved." },
@@ -347,17 +347,17 @@ export function getPageContentTranslated(lang: Language) {
     return {
       kurumsal: {
         "hakkimizda": {
-          title: "Hakkımızda", subtitle: "25 yıllık tecrübe ile kaliteli eğitim",
+          title: "Hakkımızda", subtitle: "25 Yıllık Tecrübe ile Kaliteli Eğitim",
           content: "Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.",
           features: [{ label: "Anaokulu Sınıfı", value: "4 Adet" }, { label: "Kuruluş", value: "2013" }],
           facilities: ["Görsel Sanatlar Atölyesi", "Müzik Atölyesi", "Kodlama Atölyesi", "Fen Bilgisi Laboratuvarı", "Kapalı Spor Salonu", "Kütüphane", "Yemekhane", "Rehberlik Odası"]
         },
         "kurucu-mesaji": {
-          title: "Kurucu Mesajı", subtitle: "Değerlerimiz ve vizyonumuz", videoId: "pN3J4PxcR1I",
+          title: "Kurucu Mesajı", subtitle: "Değerlerimiz ve Vizyonumuz", videoId: "pN3J4PxcR1I",
           content: "Değerli Velilerimiz ve Sevgili Öğrenciler,\n\nGeleceğimizin teminatı olan çocuklarımızı en iyi şekilde yetiştirmek, onlara güvenli ve nitelikli bir eğitim ortamı sunmak en büyük sorumluluğumuzdur.\n\nBoğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının yanı sıra, milli ve manevi değerlerine bağlı, evrensel düşünebilen, sorgulayan ve üreten bireyler olmalarını önemsiyoruz."
         },
         "vizyon-misyon": {
-          title: "Vizyon & Misyon", subtitle: "Geleceği şekillendiriyoruz",
+          title: "Vizyon & Misyon", subtitle: "Geleceği Şekillendiriyoruz",
           vision: "Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.",
           mission: "Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.",
           values: [
@@ -370,7 +370,7 @@ export function getPageContentTranslated(lang: Language) {
           ]
         },
         "egitim-yaklasimimiz": {
-          title: "Eğitim Yaklaşımımız", subtitle: "Öğrenci merkezli modern eğitim",
+          title: "Eğitim Yaklaşımımız", subtitle: "Öğrenci Merkezli Modern Eğitim",
           content: "Öğrenci merkezli eğitim modelimiz, her çocuğun bireysel öğrenme hızına ve stiline saygı duyar. Yaparak ve yaşayarak öğrenme ilkesiyle, teorik bilgiyi pratiğe dönüştüren uygulamalar sunuyoruz.",
           timeline: [
             { year: "2000", title: "Kuruluş", desc: "Boğaziçi İlgi Okulları eğitim hayatına başladı" },
@@ -390,7 +390,7 @@ export function getPageContentTranslated(lang: Language) {
       },
       akademik: {
         "anaokulu": {
-          title: "Anaokulu", subtitle: "Keşfeden, sorgulayan minik zihinler", ages: "3-6 Yaş", color: "#F97316",
+          title: "Anaokulu", subtitle: "Keşfeden, Sorgulayan Minik Zihinler", ages: "3-6 Yaş", color: "#F97316",
           image: "/images/kindergarten-kitchen.jpg",
           galleryImages: ["/images/kindergarten-kitchen.jpg", "/images/kindergarten-numbers-1.jpg", "/images/kindergarten-numbers-2.jpg", "/images/playground-slide-1.jpg", "/images/playground-mural.jpg"],
           content: "Okul öncesi eğitim, çocuğun gelişiminin en hızlı olduğu ve karakterinin şekillendiği kritik bir dönemdir. Anaokulumuzda, oyun temelli öğrenme yaklaşımıyla çocuklarımızın merak duygusunu canlı tutuyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
@@ -404,7 +404,7 @@ export function getPageContentTranslated(lang: Language) {
           ]
         },
         "ilkokul": {
-          title: "İlkokul", subtitle: "Güçlü akademik temeller", ages: "1-4. Sınıf", color: "#3B82F6",
+          title: "İlkokul", subtitle: "Güçlü Akademik Temeller", ages: "1-4. Sınıf", color: "#3B82F6",
           image: "/images/classroom-smartboard.webp",
           galleryImages: ["/images/classroom-smartboard.webp", "/images/classroom-blue-1.jpg", "/images/classroom-orange-new-1.jpg", "/images/library-1.jpg", "/images/art-room-1.webp"],
           content: "İlkokul kademesinde temel amacımız, öğrencilerimize okuma, yazma, matematik ve fen bilimleri gibi temel becerileri kazandırırken, aynı zamanda araştırma yapma ve problem çözme yeteneklerini geliştirmektir.",
@@ -418,7 +418,7 @@ export function getPageContentTranslated(lang: Language) {
           ]
         },
         "ortaokul": {
-          title: "Ortaokul", subtitle: "Liselere hazırlık ve kariyer planlama", ages: "5-8. Sınıf", color: "#10B981",
+          title: "Ortaokul", subtitle: "Liselere Hazırlık ve Kariyer Planlama", ages: "5-8. Sınıf", color: "#10B981",
           image: "/images/science-room-1.webp",
           galleryImages: ["/images/science-room-1.webp", "/images/science-room-2.webp", "/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
           content: "Ortaokul dönemi, akademik branşlaşmanın başladığı ve liselere geçiş sınavlarına hazırlığın yoğunlaştığı bir süreçtir. Deneyimli kadromuzla öğrencilerimizi LGS'ye en iyi şekilde hazırlıyoruz.",
@@ -437,17 +437,17 @@ export function getPageContentTranslated(lang: Language) {
   return {
     kurumsal: {
       "hakkimizda": {
-        title: "About Us", subtitle: "Quality education with 25 years of experience",
+        title: "About Us", subtitle: "Quality Education with 25 Years of Experience",
         content: "Our campus, located in the center of Çekmeköy, is a modern building constructed in 2013. With its large indoor area and garden, we offer students a spacious learning environment.",
         features: [{ label: "Preschool Classrooms", value: "4" }, { label: "Founded", value: "2013" }],
         facilities: ["Visual Arts Workshop", "Music Workshop", "Coding Workshop", "Science Laboratory", "Indoor Sports Hall", "Library", "Cafeteria", "Counseling Office"]
       },
       "kurucu-mesaji": {
-        title: "Founder's Message", subtitle: "Our values and vision", videoId: "pN3J4PxcR1I",
+        title: "Founder's Message", subtitle: "Our Values and Vision", videoId: "pN3J4PxcR1I",
         content: "Dear Parents and Students,\n\nRaising our children, who are the guarantee of our future, in the best possible way and providing them with a safe and quality educational environment is our greatest responsibility.\n\nAs Boğaziçi İlgi College, we care not only about our students' academic success but also about raising individuals who are committed to their national and moral values, who think universally, question, and create."
       },
       "vizyon-misyon": {
-        title: "Vision & Mission", subtitle: "Shaping the future",
+        title: "Vision & Mission", subtitle: "Shaping the Future",
         vision: "To be a pioneering and exemplary institution recognized for its achievements on national and international platforms; to raise leaders who will shape the future.",
         mission: "To raise individuals who adhere to Atatürk's principles and reforms, who are modern, democratic, capable of critical thinking, socially responsible, creative, and productive.",
         values: [
@@ -460,7 +460,7 @@ export function getPageContentTranslated(lang: Language) {
         ]
       },
       "egitim-yaklasimimiz": {
-        title: "Our Approach", subtitle: "Student-centered modern education",
+        title: "Our Approach", subtitle: "Student-Centered Modern Education",
         content: "Our student-centered education model respects each child's individual learning pace and style. With the principle of learning by doing, we offer applications that transform theoretical knowledge into practice.",
         timeline: [
           { year: "2000", title: "Founded", desc: "Boğaziçi İlgi Schools began its educational journey" },
@@ -480,7 +480,7 @@ export function getPageContentTranslated(lang: Language) {
     },
     akademik: {
       "anaokulu": {
-        title: "Preschool", subtitle: "Curious, questioning little minds", ages: "Ages 3-6", color: "#F97316",
+        title: "Preschool", subtitle: "Curious, Questioning Little Minds", ages: "Ages 3-6", color: "#F97316",
         image: "/images/kindergarten-kitchen.jpg",
         galleryImages: ["/images/kindergarten-kitchen.jpg", "/images/kindergarten-numbers-1.jpg", "/images/kindergarten-numbers-2.jpg", "/images/playground-slide-1.jpg", "/images/playground-mural.jpg"],
         content: "Preschool education is a critical period when a child's development is at its fastest and their character is being shaped. In our preschool, we keep children's curiosity alive through play-based learning and support their social and emotional development.",
@@ -494,7 +494,7 @@ export function getPageContentTranslated(lang: Language) {
         ]
       },
       "ilkokul": {
-        title: "Primary School", subtitle: "Strong academic foundations", ages: "Grades 1-4", color: "#3B82F6",
+        title: "Primary School", subtitle: "Strong Academic Foundations", ages: "Grades 1-4", color: "#3B82F6",
         image: "/images/classroom-smartboard.webp",
         galleryImages: ["/images/classroom-smartboard.webp", "/images/classroom-blue-1.jpg", "/images/classroom-orange-new-1.jpg", "/images/library-1.jpg", "/images/art-room-1.webp"],
         content: "Our main goal at the primary school level is to equip students with fundamental skills such as reading, writing, mathematics, and science, while also developing their research and problem-solving abilities.",
@@ -508,7 +508,7 @@ export function getPageContentTranslated(lang: Language) {
         ]
       },
       "ortaokul": {
-        title: "Middle School", subtitle: "High school preparation and career planning", ages: "Grades 5-8", color: "#10B981",
+        title: "Middle School", subtitle: "High School Preparation and Career Planning", ages: "Grades 5-8", color: "#10B981",
         image: "/images/science-room-1.webp",
         galleryImages: ["/images/science-room-1.webp", "/images/science-room-2.webp", "/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
         content: "Middle school is a period when academic specialization begins and preparation for high school entrance exams intensifies. With our experienced staff, we prepare our students for the LGS exam in the best possible way.",
