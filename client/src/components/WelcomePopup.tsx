@@ -50,7 +50,7 @@ export function WelcomePopup() {
           >
             {/* Outer frame — navy border */}
             <div
-              className="relative w-full max-w-[780px] rounded-[24px] shadow-2xl overflow-hidden"
+              className="relative w-full max-w-[780px] max-h-[calc(100dvh-24px)] rounded-[24px] shadow-2xl overflow-hidden flex flex-col"
               style={{ background: "#0B2755" }}
             >
               {/* Close button */}
@@ -64,7 +64,7 @@ export function WelcomePopup() {
 
               {/* Inner card */}
               <div
-                className="m-[3px] rounded-[21px] overflow-hidden flex flex-col sm:flex-row"
+                className="m-[3px] rounded-[21px] overflow-hidden overflow-y-auto flex flex-col sm:flex-row min-h-0"
                 style={{ background: "linear-gradient(160deg,#eff6ff 0%,#dbeafe 100%)" }}
               >
 
@@ -231,7 +231,7 @@ export function WelcomePopup() {
               </div>
 
               {/* Mobile-only student section */}
-              <div className="sm:hidden flex items-end justify-center overflow-hidden" style={{ height: "220px" }}>
+              <div className="sm:hidden [@media(max-height:700px)]:hidden shrink-0 flex items-end justify-center overflow-hidden" style={{ height: "220px" }}>
                 <img
                   src="/images/popup-student.webp"
                   alt="Öğrenci"

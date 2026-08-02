@@ -65,7 +65,7 @@ export function HeroSlider() {
           <img
             src={heroSlides[activeSlide].image}
             alt="Hero"
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover ${activeSlide === 0 ? "object-[72%_center] md:object-center" : ""}`}
             loading={activeSlide === 0 ? "eager" : "lazy"}
             fetchPriority={activeSlide === 0 ? "high" : "auto"}
             decoding={activeSlide === 0 ? "sync" : "async"}
