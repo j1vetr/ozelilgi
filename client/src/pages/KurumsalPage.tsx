@@ -7,7 +7,7 @@ import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
 import { 
-  ArrowRight, Target, Eye, Lightbulb, BookOpen, Building2, Users, 
+  ArrowRight, Target, Eye, Lightbulb, BookOpen, BookOpenCheck, Building2, Users, 
   Heart, Zap, Layers, Cpu, Star, Shield, Sparkles, HandshakeIcon,
   CheckCircle
 } from "lucide-react";
@@ -41,12 +41,17 @@ const KURUMSAL_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
     descEN: "Discover the modern educational approach of Boğaziçi İlgi College: student-centered education, STEM projects, Cambridge English and active learning methods.",
     path: "/kurumsal/egitim-yaklasimimiz",
   },
+  "egitim-politikamiz": {
+    titleTR: "Eğitim Politikamız | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    titleEN: "Our Education Policy | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    descTR: "Öğrenci odaklı, ticari kaygılardan uzak, koşulsuz sevgi ve sarsılmaz güvene dayalı eğitim politikamızla her çocuğu geleceğe hazırlıyoruz.",
+    descEN: "We prepare every child for the future with our student-centered education policy based on unconditional love and unwavering trust, free from commercial concerns.",
+    path: "/kurumsal/egitim-politikamiz",
+  },
 };
 
-const VALID_SLUGS = ["hakkimizda", "kurucu-mesaji", "vizyon-misyon", "egitim-yaklasimimiz"] as const;
-const SLUG_ALIASES: Record<string, string> = {
-  "egitim-politikamiz": "egitim-yaklasimimiz",
-};
+const VALID_SLUGS = ["hakkimizda", "kurucu-mesaji", "vizyon-misyon", "egitim-yaklasimimiz", "egitim-politikamiz"] as const;
+const SLUG_ALIASES: Record<string, string> = {};
 
 function normalizeSlug(raw: string | undefined): typeof VALID_SLUGS[number] {
   if (!raw) return "hakkimizda";
@@ -67,6 +72,7 @@ export default function KurumsalPage() {
     { id: "kurucu-mesaji", label: T("nav.about.founder", lang), icon: Users },
     { id: "vizyon-misyon", label: T("nav.about.vision", lang), icon: Target },
     { id: "egitim-yaklasimimiz", label: T("nav.about.approach", lang), icon: Lightbulb },
+    { id: "egitim-politikamiz", label: T("nav.about.policy", lang), icon: BookOpenCheck },
   ];
 
   useEffect(() => {
@@ -131,6 +137,7 @@ export default function KurumsalPage() {
             {activeTab === "kurucu-mesaji" && <KurucuMesajiContent />}
             {activeTab === "vizyon-misyon" && <VizyonMisyonContent />}
             {activeTab === "egitim-yaklasimimiz" && <EgitimYaklasimiContent />}
+            {activeTab === "egitim-politikamiz" && <EgitimPolitikasiContent />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -166,8 +173,30 @@ function HakkimizdaContent() {
       </div>
 
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
-        <p className="text-gray-600 leading-relaxed text-sm md:text-base">{content.content}</p>
+        {content.content.split('\n\n').map((para: string, i: number) => (
+          <p key={i} className="text-gray-600 leading-relaxed text-sm md:text-base mb-3 last:mb-0">{para}</p>
+        ))}
       </div>
+
+      {content.principles && (
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-primary mb-4">{t("Eğitim Prensiplerimiz", "Our Educational Principles")}</h3>
+          <div className="space-y-2">
+            {content.principles.map((principle: string, i: number) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 + i * 0.08 }}
+                className="flex items-center gap-3 bg-primary/5 rounded-xl px-4 py-3"
+              >
+                <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                <span className="text-sm text-gray-700">{principle}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div>
         <h3 className="text-lg font-semibold text-primary mb-4 text-center">{t("Kampüs İmkanları", "Campus Facilities")}</h3>
@@ -231,18 +260,18 @@ function VizyonMisyonContent() {
   const content = PAGE_CONTENT.kurumsal["vizyon-misyon"] as any;
   
   const valueIcons: Record<string, any> = {
-    "Saygı": Heart,
-    "Respect": Heart,
-    "Dürüstlük": Shield,
-    "Honesty": Shield,
-    "Yenilikçilik": Sparkles,
-    "Innovation": Sparkles,
-    "İşbirliği": HandshakeIcon,
-    "Collaboration": HandshakeIcon,
-    "Mükemmellik": Star,
-    "Excellence": Star,
-    "Sorumluluk": CheckCircle,
-    "Responsibility": CheckCircle
+    "Saygı": Heart, "Respect": Heart,
+    "Dürüstlük": Shield, "Honesty": Shield,
+    "Yenilikçilik": Sparkles, "Innovation": Sparkles,
+    "İşbirliği": HandshakeIcon, "Collaboration": HandshakeIcon,
+    "Mükemmellik": Star, "Excellence": Star,
+    "Sorumluluk": CheckCircle, "Responsibility": CheckCircle,
+    "Vatanseverlik": Shield, "Patriotism": Shield,
+    "Bilimsel Düşünce": Sparkles, "Scientific Thinking": Sparkles,
+    "Özgüven & Yaratıcılık": Star, "Confidence & Creativity": Star,
+    "Evrensel Değerler": Star, "Universal Values": Star,
+    "Doğa & Toplum Bilinci": Heart, "Nature & Social Awareness": Heart,
+    "Yaşam Boyu Öğrenme": CheckCircle, "Lifelong Learning": CheckCircle,
   };
   
   return (
@@ -442,6 +471,84 @@ function EgitimYaklasimiContent() {
           ];
           const color = colors[i % colors.length];
 
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`${color.bg} ${color.border} rounded-2xl p-6 border hover:shadow-lg transition-all group`}
+            >
+              <div className="flex items-start gap-4">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color.gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">{principle.title}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{principle.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function EgitimPolitikasiContent() {
+  const { lang, t } = useLanguage();
+  const PAGE_CONTENT = getPageContentTranslated(lang);
+  const content = PAGE_CONTENT.kurumsal["egitim-politikamiz"] as any;
+
+  const principleIcons: Record<string, any> = {
+    heart: Heart,
+    zap: Zap,
+    shield: Shield,
+    sparkles: Sparkles,
+  };
+
+  const colors = [
+    { gradient: "from-rose-500 to-pink-500", bg: "bg-rose-50", border: "border-rose-100" },
+    { gradient: "from-amber-500 to-orange-500", bg: "bg-amber-50", border: "border-amber-100" },
+    { gradient: "from-violet-500 to-purple-500", bg: "bg-violet-50", border: "border-violet-100" },
+    { gradient: "from-cyan-500 to-blue-500", bg: "bg-cyan-50", border: "border-cyan-100" },
+  ];
+
+  return (
+    <div className="max-w-5xl mx-auto">
+      <div className="text-center mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 px-4 py-2 rounded-full text-sm font-medium mb-4"
+        >
+          <BookOpenCheck className="w-4 h-4" />
+          {t("Eğitim Felsefemiz", "Our Educational Philosophy")}
+        </motion.div>
+        <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-900 mb-3">{content?.title}</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">{content?.subtitle}</p>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-sm mb-12"
+      >
+        {content?.content?.split('\n\n').map((paragraph: string, i: number) => (
+          <p key={i} className="text-gray-600 leading-relaxed text-base md:text-lg mb-4 last:mb-0">{paragraph}</p>
+        ))}
+      </motion.div>
+
+      <div className="text-center mb-6">
+        <h3 className="text-xl font-display font-bold text-gray-900">{t("Temel İlkelerimiz", "Our Core Principles")}</h3>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        {content?.principles?.map((principle: any, i: number) => {
+          const Icon = principleIcons[principle.icon] || Heart;
+          const color = colors[i % colors.length];
           return (
             <motion.div
               key={i}

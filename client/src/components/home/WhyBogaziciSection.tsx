@@ -5,7 +5,7 @@ import { ArrowRight, Info, Target, MessageSquare, BookOpenCheck } from "lucide-r
 const cards = [
   {
     title: "Hakkımızda",
-    desc: "25 yıllık köklü geçmişimiz, modern kampüsümüz ve öğrenci odaklı yaklaşımımız hakkında bilgi edinin.",
+    desc: "26+ yıllık köklü geçmişimiz, modern kampüsümüz ve öğrenci odaklı yaklaşımımız hakkında bilgi edinin.",
     href: "/kurumsal/hakkimizda",
     icon: Info,
     color: "#3B82F6",
@@ -69,7 +69,7 @@ export function WhyBogaziciSection() {
             Neden Boğaziçi İlgi Okulları?
           </h2>
           <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Değerlerimiz, vizyonumuz ve eğitim anlayışımızla çocuğunuzun geleceğine yatırım yapıyoruz.
+            26 yıllık öğretmenlik deneyimine sahip kurucularımızın vizyonuyla; ticari kaygılardan uzak, sadece ve sadece öğrencilerin ihtiyaçlarını ve gelişimini odağına alan bir eğitim anlayışını benimsiyoruz.
           </p>
         </motion.div>
 

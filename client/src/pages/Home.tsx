@@ -18,8 +18,8 @@ export default function Home() {
       <SEOHead
         titleTR="Özel Boğaziçi İlgi Koleji Çekmeköy | Anaokulu, İlkokul ve Ortaokul"
         titleEN="Özel Boğaziçi İlgi Koleji Çekmeköy | Preschool, Primary & Middle School"
-        descriptionTR="Çekmeköy'de özel okul arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde anaokulu, ilkokul ve ortaokul kademelerinde 25 yıllık deneyimle kaliteli eğitim. Hemen ön kayıt yaptırın."
-        descriptionEN="Looking for a private school in Çekmeköy? Boğaziçi İlgi Koleji offers quality education at preschool, primary and middle school levels with 25 years of experience. Pre-register now."
+        descriptionTR="Çekmeköy'de özel okul arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde anaokulu, ilkokul ve ortaokul kademelerinde 26+ yıllık deneyimle kaliteli eğitim. Hemen ön kayıt yaptırın."
+        descriptionEN="Looking for a private school in Çekmeköy? Boğaziçi İlgi Koleji offers quality education at preschool, primary and middle school levels with 26+ years of experience. Pre-register now."
         canonical="/"
         jsonLd={SCHOOL_SCHEMA}
       />

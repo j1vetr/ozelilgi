@@ -2,7 +2,7 @@ export const PAGE_CONTENT = {
   kurumsal: {
     "hakkimizda": {
       title: "Hakkımızda",
-      subtitle: "25 Yıllık Tecrübe ile Kaliteli Eğitim",
+      subtitle: "26+ Yıllık Tecrübe ile Kaliteli Eğitim",
       content: `Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.`,
       features: [
         { label: "Anaokulu Sınıfı", value: "4 Adet" },

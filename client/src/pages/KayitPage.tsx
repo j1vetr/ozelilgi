@@ -35,7 +35,7 @@ export default function KayitPage() {
     },
     {
       icon: Award,
-      title: t("25 Yıllık Tecrübe", "25 Years of Experience"),
+      title: t("26+ Yıllık Tecrübe", "26+ Years of Experience"),
       desc: t("Binlerce mutlu aile ve öğrenci", "Thousands of happy families and students"),
       color: "from-amber-500 to-orange-500"
     }

@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/i18n";
 import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
-import { ArrowRight, Baby, BookOpen, GraduationCap, CheckCircle, ChevronRight, Star } from "lucide-react";
+import { ArrowRight, Baby, BookOpen, GraduationCap, CheckCircle, ChevronRight, Star, Palette } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -28,12 +28,19 @@ const AKADEMIK_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
     descTR: "Çekmeköy ortaokulu arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde 5-8. sınıf için LGS hazırlık, 2. yabancı dil, robotik ve kariyer rehberliği.",
     descEN: "Looking for a middle school in Çekmeköy? Boğaziçi İlgi Koleji offers LGS exam prep, second foreign language, robotics and career guidance for grades 5-8.",
   },
+  "yaratici-tasarim": {
+    titleTR: "Yaratıcı Tasarım Atölyesi | Özel Boğaziçi İlgi Koleji",
+    titleEN: "Creative Design Workshop | Özel Boğaziçi İlgi Koleji",
+    descTR: "Boğaziçi İlgi Koleji Yaratıcı Tasarım Atölyesi'nde resim, seramik, dijital grafik ve illüstrasyon eğitimleriyle yaratıcılığınızı keşfedin.",
+    descEN: "Discover your creativity at Boğaziçi İlgi Koleji Creative Design Workshop with painting, ceramics, digital graphics and illustration training.",
+  },
 };
 
 const levelIcons: Record<string, any> = {
   "anaokulu": Baby,
   "ilkokul": BookOpen,
-  "ortaokul": GraduationCap
+  "ortaokul": GraduationCap,
+  "yaratici-tasarim": Palette,
 };
 
 export default function AkademikPage() {
@@ -71,15 +78,16 @@ function AkademikOverview() {
       />
 
       <div className="container py-12 px-4">
-        <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {levels.map(([key, item], index) => {
             const Icon = levelIcons[key] || GraduationCap;
             const colors = {
               anaokulu: { primary: "#F97316", gradient: "from-orange-500 to-amber-500", bg: "bg-orange-50", ring: "ring-orange-200" },
               ilkokul: { primary: "#3B82F6", gradient: "from-blue-500 to-indigo-500", bg: "bg-blue-50", ring: "ring-blue-200" },
-              ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-50", ring: "ring-emerald-200" }
+              ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-50", ring: "ring-emerald-200" },
+              "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-600", bg: "bg-violet-50", ring: "ring-violet-200" },
             };
-            const color = colors[key as keyof typeof colors];
+            const color = colors[key as keyof typeof colors] || colors.ortaokul;
 
             return (
               <motion.div
@@ -178,7 +186,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
   const colors: Record<string, { primary: string; gradient: string; bg: string; light: string }> = {
     anaokulu: { primary: "#F97316", gradient: "from-orange-500 to-amber-500", bg: "bg-orange-500", light: "bg-orange-50" },
     ilkokul: { primary: "#3B82F6", gradient: "from-blue-500 to-indigo-500", bg: "bg-blue-500", light: "bg-blue-50" },
-    ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-500", light: "bg-emerald-50" }
+    ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-500", light: "bg-emerald-50" },
+    "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-600", bg: "bg-violet-500", light: "bg-violet-50" },
   };
   const color = colors[slug] || colors.ilkokul;
   const seo = AKADEMIK_SEO[slug] || AKADEMIK_SEO["ilkokul"];
@@ -257,8 +266,8 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
 
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
-                  { label: t("Tecrübe", "Experience"), value: t("25 Yıl", "25 Years") },
-                  { label: t("Öğretmen", "Teachers"), value: "+25" },
+                  { label: t("Yıllık Tecrübe", "Years Experience"), value: "26+" },
+                  { label: t("Mezun", "Graduates"), value: "250+" },
                   { label: t("Memnuniyet", "Satisfaction"), value: "%100" }
                 ].map((stat, i) => (
                   <div key={i} className={`${color.light} rounded-xl p-4 text-center`}>

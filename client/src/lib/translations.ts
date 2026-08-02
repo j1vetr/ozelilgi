@@ -14,9 +14,11 @@ const ui: TranslationMap = {
   "nav.about.founder": { tr: "Kurucu Mesajı", en: "Founder's Message" },
   "nav.about.vision": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
   "nav.about.approach": { tr: "Eğitim Yaklaşımımız", en: "Our Approach" },
+  "nav.about.policy": { tr: "Eğitim Politikamız", en: "Our Education Policy" },
   "nav.academic.preschool": { tr: "Anaokulu", en: "Preschool" },
   "nav.academic.primary": { tr: "İlkokul", en: "Primary School" },
   "nav.academic.middle": { tr: "Ortaokul", en: "Middle School" },
+  "nav.academic.design": { tr: "Yaratıcı Tasarım Atölyesi", en: "Creative Design Workshop" },
   "nav.campus.facilities": { tr: "İmkanlar", en: "Facilities" },
   "nav.campus.gallery": { tr: "Galeri", en: "Gallery" },
   "nav.enrollment.process": { tr: "Kayıt Süreci", en: "Enrollment Process" },
@@ -148,7 +150,7 @@ const ui: TranslationMap = {
   "preregister.grade.middle": { tr: "Ortaokul", en: "Middle School" },
 
   "about.title": { tr: "Hakkımızda", en: "About Us" },
-  "about.subtitle": { tr: "25 Yıllık Tecrübe ile Kaliteli Eğitim", en: "Quality Education with 25 Years of Experience" },
+  "about.subtitle": { tr: "26+ Yıllık Tecrübe ile Kaliteli Eğitim", en: "Quality Education with 26+ Years of Experience" },
   "about.content": { tr: "Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.", en: "Our campus, located in the center of Çekmeköy, is a modern building constructed in 2013. With its large indoor area and garden, we offer students a spacious learning environment." },
   "about.preschool_class": { tr: "Anaokulu Sınıfı", en: "Preschool Classrooms" },
   "about.founded": { tr: "Kuruluş", en: "Founded" },
@@ -218,6 +220,7 @@ export function getNavigationTranslated(lang: Language) {
         { title: getTranslation("nav.about.founder", lang), href: "/kurumsal/kurucu-mesaji" },
         { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
         { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
+        { title: getTranslation("nav.about.policy", lang), href: "/kurumsal/egitim-politikamiz" },
       ],
     },
     {
@@ -227,6 +230,7 @@ export function getNavigationTranslated(lang: Language) {
         { title: getTranslation("nav.academic.preschool", lang), href: "/akademik/anaokulu" },
         { title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
         { title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
+        { title: getTranslation("nav.academic.design", lang), href: "/akademik/yaratici-tasarim" },
       ],
     },
     {
@@ -263,6 +267,7 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.about.founder", lang), href: "/kurumsal/kurucu-mesaji" },
       { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
       { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
+      { title: getTranslation("nav.about.policy", lang), href: "/kurumsal/egitim-politikamiz" },
     ],
     akademik: [
       { title: getTranslation("nav.academic.preschool", lang), href: "/akademik/anaokulu" },
@@ -347,9 +352,21 @@ export function getPageContentTranslated(lang: Language) {
     return {
       kurumsal: {
         "hakkimizda": {
-          title: "Hakkımızda", subtitle: "25 Yıllık Tecrübe ile Kaliteli Eğitim",
-          content: "Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.",
-          features: [{ label: "Anaokulu Sınıfı", value: "4 Adet" }, { label: "Kuruluş", value: "2013" }],
+          title: "Hakkımızda", subtitle: "Geleceği Sevgi, Deneyim ve Keşifle İnşa Ediyoruz",
+          content: "Çekmeköy Boğaziçi Özel İlgi Okulları olarak, 26+ yıla dayanan öğretmenlik deneyimine sahip kurucularımızın vizyonuyla, kendimizi tamamen geleceğin teminatı olan çocuklarımıza adıyoruz. Eğitimin içinden gelen bir kadronun tecrübesiyle; ticari kaygılardan uzak, sadece ve sadece öğrencilerin ihtiyaçlarını ve gelişimini odağına alan bir eğitim anlayışını benimsiyoruz.\n\nAnaokulundan başlayarak her kademede; her çocuğun eşsiz yeteneklerle donatıldığına ve her birinin kendine özgü bir potansiyele sahip olduğuna inanıyoruz. Asıl amacımız; bu üstün özellikleri keşfetmek, doğru ve planlı bir rehberlikle geliştirmek ve bireysel üretkenliğe dönüştürmektir.",
+          features: [
+            { label: "Öğretmenlik Tecrübesi", value: "26+ Yıl" },
+            { label: "Kampüs Kuruluşu", value: "2013" },
+            { label: "Eğitim Kademesi", value: "3" },
+            { label: "Memnuniyet", value: "%100" }
+          ],
+          principles: [
+            "Dünyadaki ve ülkemizdeki yenilikleri yakından takip eden",
+            "Kendi öğrenme ve gelişme hızına göre şekillendirilen programlarla ilerleyen",
+            "Becerilerini ve ilgi alanlarını en üst düzeyde geliştiren",
+            "Özgüveni yüksek, yaratıcı ve liderlik vasıfları gelişmiş",
+            "Toplum bilincine sahip, doğaya ve tüm canlılara saygılı bireyler"
+          ],
           facilities: ["Görsel Sanatlar Atölyesi", "Müzik Atölyesi", "Kodlama Atölyesi", "Fen Bilgisi Laboratuvarı", "Kapalı Spor Salonu", "Kütüphane", "Yemekhane", "Rehberlik Odası"]
         },
         "kurucu-mesaji": {
@@ -358,15 +375,15 @@ export function getPageContentTranslated(lang: Language) {
         },
         "vizyon-misyon": {
           title: "Vizyon & Misyon", subtitle: "Geleceği Şekillendiriyoruz",
-          vision: "Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.",
-          mission: "Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.",
+          vision: "Ulusal ve uluslararası platformlarda başarılarıyla örnek gösterilen, 26+ yıllık öğretmenlik tecrübesi ve özgün eğitim yaklaşımıyla geleceğe yön veren öncü bir kurum olmak; Atatürk ilke ve inkılaplarının ışığında, evrensel değerlerle donatılmış lider bireyler yetiştirmektir.",
+          mission: "Çekmeköy Özel Boğaziçi İlgi Okulları olarak; \"Her çocuk özel ilgiyi hak eder\" ve \"Daha iyi bir eğitim mümkün\" anlayışıyla hareket ederiz. Çeyrek asırlık öğretmenlik tecrübemiz, bilimin rehberliği ve koşulsuz sevgiyle harmanladığımız eğitim-öğretim programlarımız sayesinde öğrencilerimizi hayata hazırlarız.",
           values: [
-            { title: "Saygı", desc: "Bireysel farklılıklara ve değerlere saygı" },
-            { title: "Dürüstlük", desc: "Şeffaf ve güvenilir iletişim" },
-            { title: "Yenilikçilik", desc: "Sürekli gelişim ve değişime açıklık" },
-            { title: "İşbirliği", desc: "Aile-okul-öğrenci üçgeninde güçlü bağlar" },
-            { title: "Mükemmellik", desc: "Her alanda en iyiyi hedefleme" },
-            { title: "Sorumluluk", desc: "Topluma ve çevreye karşı bilinçli yaklaşım" }
+            { title: "Vatanseverlik", desc: "Aklı hür, vicdanı hür, Atatürk ilke ve devrimlerini benimsemiş bireyler" },
+            { title: "Bilimsel Düşünce", desc: "Bilimi ve akılcı düşünmeyi hayat felsefesi edinmiş" },
+            { title: "Özgüven & Yaratıcılık", desc: "Kendi yeteneklerini keşfetmiş, özgüveni ve yaratıcılığı yüksek" },
+            { title: "Evrensel Değerler", desc: "Değişen dünyada milli ve evrensel değerlerinden ödün vermeyen" },
+            { title: "Doğa & Toplum Bilinci", desc: "Toplum bilincine sahip, doğaya, çevresine ve tüm canlılara duyarlı" },
+            { title: "Yaşam Boyu Öğrenme", desc: "Yaşam boyu öğrenmeyi ilke edinmiş, vizyon sahibi ve üretken" }
           ]
         },
         "egitim-yaklasimimiz": {
@@ -386,6 +403,16 @@ export function getPageContentTranslated(lang: Language) {
             { title: "Disiplinlerarası Çalışma", desc: "Farklı disiplinleri birleştiren projeler geliştiriyoruz.", icon: "layers" },
             { title: "Teknoloji Entegrasyonu", desc: "Modern teknolojileri eğitim sürecine dahil ediyoruz.", icon: "cpu" }
           ]
+        },
+        "egitim-politikamiz": {
+          title: "Eğitim Politikamız", subtitle: "Öğrenci Odaklı, Değer Temelli Eğitim Anlayışı",
+          content: "Çekmeköy Özel Boğaziçi İlgi Okulları, kuruluşundan bu yana öğretmen vizyonunu ve öğrenci odaklı yaklaşımını merkezine alarak yenilikçi ve kararlı bir şekilde yoluna devam etmektedir.\n\nZamanın gereklerini ve öğrencilerimizin üstün faydasını gözeterek hazırlanan özgün eğitim programlarımız; yetkin ve tutkuyla çalışan akademik kadromuzun emeği, sevgi ve saygıya dayalı kurum kültürümüzle bütünleşmektedir.\n\nAmacımız; ticari kaygılardan uzak, kendisini tamamen öğrenci yetiştirmeye adamış uzman kadromuzla, her bir çocuğumuzun gelişim hızına ve ilgisine özel çözümler sunarak mutlu, başarılı ve geleceğe güvenle bakan nesiller inşa etmektir.",
+          principles: [
+            { title: "Öğrenci Odaklı Yaklaşım", desc: "Her bir çocuğun gelişim hızına ve ilgisine özel çözümler sunarak mutlu ve başarılı nesiller inşa ediyoruz.", icon: "heart" },
+            { title: "Özgün Eğitim Programları", desc: "Zamanın gereklerini ve öğrencilerimizin üstün faydasını gözeterek hazırlanan, yetkin akademik kadromuzun uyguladığı programlar.", icon: "zap" },
+            { title: "Ticari Kaygılardan Uzak", desc: "Kendimizi tamamen öğrenci yetiştirmeye adamış uzman kadromuzla eğitimde kaliteyi her şeyin üstünde tutuyoruz.", icon: "shield" },
+            { title: "Koşulsuz Sevgi ve Güven", desc: "Eğitimin olmazsa olmazının koşulsuz sevgi ve sarsılmaz bir güven olduğuna inanıyor; tüm çalışmalarımızı bu temele inşa ediyoruz.", icon: "sparkles" }
+          ]
         }
       },
       akademik: {
@@ -393,42 +420,56 @@ export function getPageContentTranslated(lang: Language) {
           title: "Anaokulu", subtitle: "Keşfeden, Sorgulayan Minik Zihinler", ages: "3-6 Yaş", color: "#F97316",
           image: "/images/kindergarten-kitchen.jpg",
           galleryImages: ["/images/kindergarten-kitchen.jpg", "/images/kindergarten-numbers-1.jpg", "/images/kindergarten-numbers-2.jpg", "/images/playground-slide-1.jpg", "/images/playground-mural.jpg"],
-          content: "Okul öncesi eğitim, çocuğun gelişiminin en hızlı olduğu ve karakterinin şekillendiği kritik bir dönemdir. Anaokulumuzda, oyun temelli öğrenme yaklaşımıyla çocuklarımızın merak duygusunu canlı tutuyor, sosyal ve duygusal gelişimlerini destekliyoruz.",
+          content: "Okul öncesi eğitim; özgüvenin ve öğrenme merakının perçinlendiği, dil ve düşünme becerilerinin geliştiği, toplumsal değerlerin kazandırıldığı ve insanın hayatı boyunca izlerini taşıdığı hazine değerindeki yılları kapsar.\n\n26+ yıllık öğretmenlik tecrübemizle biliyoruz ki; hayatta her büyük başarı, doğru zamanda gösterilen özel bir ilgi ve sevgiyle başlar. Boğaziçi İlgi Okulları'nda her çocuk, içindeki potansiyelin ortaya çıkması için gerekli zamanı, sabrı, planlı çabayı ve en önemlisi koşulsuz sevgiyi hak eder.",
           features: [
-            { title: "Oyun Temelli Öğrenme", desc: "Eğlenerek öğrenme metodolojisi" },
-            { title: "Drama ve Müzik", desc: "Sanatsal yeteneklerin keşfi" },
-            { title: "Erken Okuma Yazma", desc: "Fonetik yöntemle okuma hazırlığı" },
-            { title: "İngilizce Eğitimi", desc: "Yabancı dile erken başlangıç" },
-            { title: "Psikomotor Gelişim", desc: "Motor beceri aktiviteleri" },
-            { title: "Sosyal Beceriler", desc: "Paylaşma ve iletişim becerileri" }
+            { title: "Bireysel Gelişim", desc: "Her çocuğun özel ve tek olduğunu kabul eder; bireysel gelişim hızını gözetir" },
+            { title: "Keşfeden Zihinler", desc: "Merak duygusunu ve keşfetme arzusunu tetikler; yaparak yaşayarak öğrenme" },
+            { title: "Oyun Temelli Öğrenme", desc: "Ezberden uzak, eğlenerek öğrenmeyi esas alan yapılandırılmış etkinlikler" },
+            { title: "İlkokula Hazırlık", desc: "Motor, sosyal, duygusal, dil ve bilişsel becerileri en üst seviyeye taşır" },
+            { title: "Bütünleşik İngilizce", desc: "Anaokulundan itibaren dili doğal bir yaşam aracı olarak edindiren program" },
+            { title: "Değerler & Doğa Sevgisi", desc: "Doğaya ve canlılara saygılı, Atatürk ilkelerine bağlı bireyler" }
           ]
         },
         "ilkokul": {
           title: "İlkokul", subtitle: "Güçlü Akademik Temeller", ages: "1-4. Sınıf", color: "#3B82F6",
           image: "/images/classroom-smartboard.webp",
           galleryImages: ["/images/classroom-smartboard.webp", "/images/classroom-blue-1.jpg", "/images/classroom-orange-new-1.jpg", "/images/library-1.jpg", "/images/art-room-1.webp"],
-          content: "İlkokul kademesinde temel amacımız, öğrencilerimize okuma, yazma, matematik ve fen bilimleri gibi temel becerileri kazandırırken, aynı zamanda araştırma yapma ve problem çözme yeteneklerini geliştirmektir.",
+          content: "Hayatta her büyük başarı, doğru zamanda gösterilen özel bir ilgi ve sevgiyle başlar. Çekmeköy Boğaziçi İlgi Okulları olarak; her bir çocuğumuzun içindeki potansiyeli ortaya çıkarmak için gerekli zamanı, sabrı, planlı çabayı ve en önemlisi koşulsuz sevgiyi hak ettiğine inanıyoruz.\n\nİlkokul kademesinde temel amacımız; öğrencilerimize temel disiplinleri eksiksiz kazandırırken, aynı zamanda araştıran, sorgulayan, analiz eden ve problem çözme yeteneği gelişmiş bireyler yetiştirmektir.",
           features: [
-            { title: "Cambridge İngilizce", desc: "Uluslararası standartlarda dil eğitimi" },
-            { title: "Kodlama Eğitimi", desc: "Algoritmik düşünme becerileri" },
-            { title: "STEM Projeleri", desc: "Bilim, teknoloji, mühendislik, matematik" },
-            { title: "Matematik Atölyesi", desc: "Somut materyallerle öğrenme" },
-            { title: "Okuma Saatleri", desc: "Kitap sevgisi ve alışkanlığı" },
-            { title: "Değerler Eğitimi", desc: "Karakter ve ahlak gelişimi" }
+            { title: "Doğa, Canlı Sevgisi ve Bilim", desc: "Sorgulamayı doğa sevgisiyle buluşturan özgün program" },
+            { title: "Rehberlik ve PDR", desc: "Duygusal, sosyal ve akademik gelişimi birebir takip eden güçlü PDR birimi" },
+            { title: "Yabancı Dil Eğitimi", desc: "CLT, TPR ve Montessori yöntemleriyle yaşayan iletişim aracı olarak İngilizce" },
+            { title: "Her Çocuk Bir Yetenek", desc: "Müzik, spor, görsel sanatlar, bilişim ve drama atölyeleri" },
+            { title: "Robotik ve Kodlama", desc: "Algoritmik düşünme, mantıksal yürütme ve teknolojik okuryazarlık" },
+            { title: "Veli-Okul Dayanışması", desc: "Şeffaf iletişim ve Ebeveyn Akademisi ile ailelerle el ele" }
           ]
         },
         "ortaokul": {
-          title: "Ortaokul", subtitle: "Liselere Hazırlık ve Kariyer Planlama", ages: "5-8. Sınıf", color: "#10B981",
+          title: "Ortaokul", subtitle: "LGS'ye Hazırlık ve Geleceğe Yön Verme", ages: "5-8. Sınıf", color: "#10B981",
           image: "/images/science-room-1.webp",
           galleryImages: ["/images/science-room-1.webp", "/images/science-room-2.webp", "/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
-          content: "Ortaokul dönemi, akademik branşlaşmanın başladığı ve liselere geçiş sınavlarına hazırlığın yoğunlaştığı bir süreçtir. Deneyimli kadromuzla öğrencilerimizi LGS'ye en iyi şekilde hazırlıyoruz.",
+          content: "Ortaokul dönemi; akademik branşlaşmanın başladığı, soyut düşünme becerilerinin geliştiği ve liselere geçiş sınavlarına (LGS) hazırlığın yoğunlaştığı kritik bir süreçtir. Çekmeköy Boğaziçi İlgi Koleji olarak, 26+ yıllık öğretmenlik tecrübemizle öğrencilerimizi hem LGS'ye en üst düzeyde hazırlıyor hem de onları geleceğe yön veren, özgüvenli bireyler olarak yetiştiriyoruz.",
           features: [
-            { title: "LGS Hazırlık", desc: "Sınava yönelik yoğun çalışma programı" },
-            { title: "2. Yabancı Dil", desc: "Almanca veya İspanyolca seçenekleri" },
-            { title: "Proje Bazlı Öğrenme", desc: "Araştırma ve sunum becerileri" },
-            { title: "Kariyer Rehberliği", desc: "Meslek tanıtımı ve yönlendirme" },
-            { title: "Kulüp Çalışmaları", desc: "Sosyal ve sportif aktiviteler" },
-            { title: "Deneme Sınavları", desc: "Düzenli ölçme ve değerlendirme" }
+            { title: "LGS ve Beceri Temelli", desc: "Analiz etme, yorumlama ve hayatın içinde kullanma yetkinliği kazandıran yaklaşım" },
+            { title: "Rehberlik ve PDR", desc: "Ergenlik döneminde bireysel görüşmeler, sınav kaygısı ve hedef yönetimi" },
+            { title: "Yabancı Dil Eğitimi", desc: "İngilizce CLT+TBL yaklaşımı, Almanca ikinci yabancı dil" },
+            { title: "Teknoloji ve Gelecek Becerileri", desc: "İleri robotik, kodlama ve dijital okuryazarlık uygulamaları" },
+            { title: "Aydın Okur ve Yazarlık", desc: "Analitik okuma, disiplinlerarası bağlar ve yaratıcı yazarlık" },
+            { title: "Sanat, Spor ve Kulüpler", desc: "STEM, sanat, basketbol, müzik, satranç ve daha fazlası" }
+          ]
+        },
+        "yaratici-tasarim": {
+          title: "Yaratıcı Tasarım Atölyesi", subtitle: "Hayal Gücünü Sanata Dönüştür", ages: "Tüm Kademeler", color: "#8B5CF6",
+          image: "/images/art-room-1.webp",
+          galleryImages: ["/images/art-room-1.webp", "/images/art-room-2.jpg", "/images/art-room-1.jpg", "/images/classroom-bright.jpg", "/images/hallway-art.jpg"],
+          content: "Yaratıcı Tasarım Atölyemiz, öğrencilerimizin hayal güçlerini görsel sanata, dijital tasarıma ve üç boyutlu üretim becerilerine dönüştürdüğü özgün bir öğrenme ortamıdır. Resim, seramik, illüstrasyon ve dijital grafik gibi farklı alanlarda özgün eserler üretiyoruz.",
+          features: [
+            { title: "Resim & Çizim", desc: "Karakalem, suluboya ve akrilik teknikler" },
+            { title: "Seramik & Heykel", desc: "El işçiliği ve üç boyutlu ifade" },
+            { title: "Dijital Grafik", desc: "Tablet ve yazılım destekli tasarım" },
+            { title: "İllüstrasyon", desc: "Hikâye anlatımı ve görsel dil" },
+            { title: "Kolaj & Miks Medya", desc: "Farklı malzemeleri birleştirme" },
+            { title: "Sergi & Sunum", desc: "Dönem sonu eser sergileri" }
           ]
         }
       }
@@ -437,9 +478,21 @@ export function getPageContentTranslated(lang: Language) {
   return {
     kurumsal: {
       "hakkimizda": {
-        title: "About Us", subtitle: "Quality Education with 25 Years of Experience",
-        content: "Our campus, located in the center of Çekmeköy, is a modern building constructed in 2013. With its large indoor area and garden, we offer students a spacious learning environment.",
-        features: [{ label: "Preschool Classrooms", value: "4" }, { label: "Founded", value: "2013" }],
+        title: "About Us", subtitle: "Building the Future with Love, Experience and Discovery",
+        content: "As Çekmeköy Boğaziçi Özel İlgi Okulları, with the vision of our founders who have 26+ years of teaching experience, we devote ourselves entirely to our children who are the guarantee of the future. With the experience of a staff that comes from within education, we adopt an educational approach that is far from commercial concerns and focused solely on the needs and development of students.\n\nAt every stage of education from preschool onwards, we believe that every child is endowed with unique talents and each has their own unique potential. Our main goal is to discover these superior qualities, develop them with correct and planned guidance, and transform them into individual productivity.",
+        features: [
+          { label: "Teaching Experience", value: "26+ Years" },
+          { label: "Campus Founded", value: "2013" },
+          { label: "Education Levels", value: "3" },
+          { label: "Satisfaction", value: "100%" }
+        ],
+        principles: [
+          "Closely following innovations in our country and around the world",
+          "Advancing with programs shaped according to each child's individual learning pace",
+          "Developing skills and areas of interest to the highest level",
+          "High self-confidence, creativity, and developed leadership qualities",
+          "Individuals with social awareness, respectful of nature and all living beings"
+        ],
         facilities: ["Visual Arts Workshop", "Music Workshop", "Coding Workshop", "Science Laboratory", "Indoor Sports Hall", "Library", "Cafeteria", "Counseling Office"]
       },
       "kurucu-mesaji": {
@@ -448,15 +501,15 @@ export function getPageContentTranslated(lang: Language) {
       },
       "vizyon-misyon": {
         title: "Vision & Mission", subtitle: "Shaping the Future",
-        vision: "To be a pioneering and exemplary institution recognized for its achievements on national and international platforms; to raise leaders who will shape the future.",
-        mission: "To raise individuals who adhere to Atatürk's principles and reforms, who are modern, democratic, capable of critical thinking, socially responsible, creative, and productive.",
+        vision: "To be a pioneering institution that sets an example with its achievements on national and international platforms, guiding the future with 26+ years of teaching experience and an original educational approach; to raise leader individuals endowed with universal values in the light of Atatürk's principles and reforms.",
+        mission: "As Çekmeköy Özel Boğaziçi İlgi Okulları, we act with the understanding that \"Every child deserves special attention\" and \"Better education is possible.\" With our 26+ years of teaching experience and educational programs blended with the guidance of science and unconditional love, we prepare our students for life.",
         values: [
-          { title: "Respect", desc: "Respect for individual differences and values" },
-          { title: "Honesty", desc: "Transparent and trustworthy communication" },
-          { title: "Innovation", desc: "Openness to continuous improvement and change" },
-          { title: "Collaboration", desc: "Strong bonds in the family-school-student triangle" },
-          { title: "Excellence", desc: "Striving for the best in every field" },
-          { title: "Responsibility", desc: "Conscious approach to society and environment" }
+          { title: "Patriotism", desc: "Free-minded, free-conscient individuals who embrace Atatürk's principles and reforms" },
+          { title: "Scientific Thinking", desc: "Adopting science and rational thinking as a life philosophy" },
+          { title: "Confidence & Creativity", desc: "Discovering own talents and potential, high self-confidence and creativity" },
+          { title: "Universal Values", desc: "Not compromising national and universal values while going beyond the changing world and technology" },
+          { title: "Nature & Social Awareness", desc: "Sensitive to society, nature, environment, and all living beings" },
+          { title: "Lifelong Learning", desc: "Adopting lifelong learning as a principle, visionary and productive individuals" }
         ]
       },
       "egitim-yaklasimimiz": {
@@ -476,6 +529,16 @@ export function getPageContentTranslated(lang: Language) {
           { title: "Interdisciplinary Work", desc: "We develop projects that combine different disciplines.", icon: "layers" },
           { title: "Technology Integration", desc: "We integrate modern technologies into the educational process.", icon: "cpu" }
         ]
+      },
+      "egitim-politikamiz": {
+        title: "Our Education Policy", subtitle: "Student-Centered, Value-Based Educational Approach",
+        content: "Çekmeköy Özel Boğaziçi İlgi Okulları has continued its journey innovatively and resolutely, placing the teacher's vision and student-centered approach at its core since its establishment.\n\nOur original educational programs, prepared by taking into account the requirements of the times and the superior benefit of our students, are integrated with the effort of our competent and passionate academic staff and our institutional culture based on love and respect.\n\nOur goal is to build happy, successful generations who look to the future with confidence by offering special solutions for each child's development pace and interest, with an expert staff completely dedicated to raising students, free from commercial concerns.",
+        principles: [
+          { title: "Student-Centered Approach", desc: "Building happy and successful generations by offering special solutions for each child's development pace and interest.", icon: "heart" },
+          { title: "Original Education Programs", desc: "Programs prepared taking into account the requirements of the times and implemented by our competent academic staff.", icon: "zap" },
+          { title: "Free from Commercial Concerns", desc: "With our expert staff completely dedicated to raising students, we place quality in education above everything.", icon: "shield" },
+          { title: "Unconditional Love and Trust", desc: "We believe unconditional love and unwavering trust are the indispensables of education; we build all our work on this foundation.", icon: "sparkles" }
+        ]
       }
     },
     akademik: {
@@ -483,42 +546,56 @@ export function getPageContentTranslated(lang: Language) {
         title: "Preschool", subtitle: "Curious, Questioning Little Minds", ages: "Ages 3-6", color: "#F97316",
         image: "/images/kindergarten-kitchen.jpg",
         galleryImages: ["/images/kindergarten-kitchen.jpg", "/images/kindergarten-numbers-1.jpg", "/images/kindergarten-numbers-2.jpg", "/images/playground-slide-1.jpg", "/images/playground-mural.jpg"],
-        content: "Preschool education is a critical period when a child's development is at its fastest and their character is being shaped. In our preschool, we keep children's curiosity alive through play-based learning and support their social and emotional development.",
+        content: "Preschool education encompasses precious years during which self-confidence and the curiosity to learn are established, language and thinking skills develop, social values are acquired, and whose traces a person carries throughout their life.\n\nWith our 26+ years of teaching experience, we know that every great success in life begins with special attention and love shown at the right time. At Boğaziçi İlgi Okulları, every child deserves the time, patience, planned effort, and most importantly unconditional love needed to bring out their inner potential.",
         features: [
-          { title: "Play-Based Learning", desc: "Learning through fun methodology" },
-          { title: "Drama & Music", desc: "Discovery of artistic talents" },
-          { title: "Early Literacy", desc: "Reading preparation with phonics" },
-          { title: "English Education", desc: "Early start to foreign language" },
-          { title: "Psychomotor Development", desc: "Motor skill activities" },
-          { title: "Social Skills", desc: "Sharing and communication skills" }
+          { title: "Individual Development", desc: "Acknowledges that every child is unique; respects individual developmental pace" },
+          { title: "Curious Minds", desc: "Triggers curiosity and the desire to explore; learning by doing and experiencing" },
+          { title: "Play-Based Learning", desc: "Structured activities centered on learning through fun, far from rote memorization" },
+          { title: "Primary School Readiness", desc: "Brings motor, social, emotional, language, and cognitive skills to the highest level" },
+          { title: "Integrated English", desc: "A program that acquires language as a natural tool of life from preschool" },
+          { title: "Values & Love of Nature", desc: "Individuals respectful of nature and living beings, committed to Atatürk's principles" }
         ]
       },
       "ilkokul": {
         title: "Primary School", subtitle: "Strong Academic Foundations", ages: "Grades 1-4", color: "#3B82F6",
         image: "/images/classroom-smartboard.webp",
         galleryImages: ["/images/classroom-smartboard.webp", "/images/classroom-blue-1.jpg", "/images/classroom-orange-new-1.jpg", "/images/library-1.jpg", "/images/art-room-1.webp"],
-        content: "Our main goal at the primary school level is to equip students with fundamental skills such as reading, writing, mathematics, and science, while also developing their research and problem-solving abilities.",
+        content: "Every great success in life begins with special attention and love shown at the right time. As Çekmeköy Boğaziçi İlgi Okulları, we believe that every child deserves the time, patience, planned effort, and most importantly unconditional love needed to bring out their inner potential.\n\nOur main goal at the primary school level is to equip students with core disciplines while developing individuals who research, question, analyze, and have strong problem-solving abilities.",
         features: [
-          { title: "Cambridge English", desc: "International standard language education" },
-          { title: "Coding Education", desc: "Algorithmic thinking skills" },
-          { title: "STEM Projects", desc: "Science, technology, engineering, math" },
-          { title: "Math Workshop", desc: "Learning with concrete materials" },
-          { title: "Reading Hours", desc: "Love of books and reading habits" },
-          { title: "Values Education", desc: "Character and moral development" }
+          { title: "Nature, Science & Living", desc: "An original program combining inquiry with love of nature" },
+          { title: "Guidance & Counseling", desc: "A strong counseling unit closely monitoring emotional, social, and academic development" },
+          { title: "Foreign Language Education", desc: "English as a living communication tool using CLT, TPR and Montessori methods" },
+          { title: "Every Child Has a Talent", desc: "Music, sports, visual arts, IT, and drama workshops" },
+          { title: "Robotics & Coding", desc: "Algorithmic thinking, logical reasoning, and technological literacy" },
+          { title: "Parent-School Partnership", desc: "Hand in hand with families through transparent communication and the Parent Academy" }
         ]
       },
       "ortaokul": {
-        title: "Middle School", subtitle: "High School Preparation and Career Planning", ages: "Grades 5-8", color: "#10B981",
+        title: "Middle School", subtitle: "LGS Preparation and Shaping the Future", ages: "Grades 5-8", color: "#10B981",
         image: "/images/science-room-1.webp",
         galleryImages: ["/images/science-room-1.webp", "/images/science-room-2.webp", "/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
-        content: "Middle school is a period when academic specialization begins and preparation for high school entrance exams intensifies. With our experienced staff, we prepare our students for the LGS exam in the best possible way.",
+        content: "Middle school is a critical period when academic specialization begins, abstract thinking skills develop, and preparation for high school entrance exams (LGS) intensifies. As Çekmeköy Boğaziçi İlgi Koleji, with our 26+ years of teaching experience, we both prepare our students for LGS at the highest level and raise them as confident individuals who give direction to the future.",
         features: [
-          { title: "LGS Preparation", desc: "Intensive exam preparation program" },
-          { title: "Second Foreign Language", desc: "German or Spanish options" },
-          { title: "Project-Based Learning", desc: "Research and presentation skills" },
-          { title: "Career Guidance", desc: "Career introduction and counseling" },
-          { title: "Club Activities", desc: "Social and sports activities" },
-          { title: "Practice Exams", desc: "Regular assessment and evaluation" }
+          { title: "LGS & Skills-Based", desc: "An approach that develops competency in analyzing, interpreting, and applying knowledge in real life" },
+          { title: "Guidance & Counseling", desc: "Individual sessions during adolescence, exam anxiety and goal management" },
+          { title: "Foreign Language Education", desc: "English CLT+TBL approach, German as a second foreign language" },
+          { title: "Technology & Future Skills", desc: "Advanced robotics, coding, and digital literacy applications" },
+          { title: "Critical Reading & Writing", desc: "Analytical reading, interdisciplinary connections, and creative writing" },
+          { title: "Arts, Sports & Clubs", desc: "STEM, arts, basketball, music, chess, and much more" }
+        ]
+      },
+      "yaratici-tasarim": {
+        title: "Creative Design Workshop", subtitle: "Turn Your Imagination into Art", ages: "All Levels", color: "#8B5CF6",
+        image: "/images/art-room-1.webp",
+        galleryImages: ["/images/art-room-1.webp", "/images/art-room-2.jpg", "/images/art-room-1.jpg", "/images/classroom-bright.jpg", "/images/hallway-art.jpg"],
+        content: "Our Creative Design Workshop is a unique learning environment where students transform their imagination into visual arts, digital design, and three-dimensional production skills. We create original works in different areas such as painting, ceramics, illustration, and digital graphics.",
+        features: [
+          { title: "Painting & Drawing", desc: "Pencil, watercolor and acrylic techniques" },
+          { title: "Ceramics & Sculpture", desc: "Handcraft and three-dimensional expression" },
+          { title: "Digital Graphics", desc: "Tablet and software-supported design" },
+          { title: "Illustration", desc: "Storytelling and visual language" },
+          { title: "Collage & Mixed Media", desc: "Combining different materials" },
+          { title: "Exhibition & Presentation", desc: "End-of-term artwork exhibitions" }
         ]
       }
     }
