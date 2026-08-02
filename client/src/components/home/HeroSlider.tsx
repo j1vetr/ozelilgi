@@ -141,7 +141,7 @@ export function HeroSlider() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
-              className="hidden sm:inline-block text-xs font-semibold tracking-wide text-brand-orange/90 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-orange/30"
+              className="inline-block text-xs font-semibold tracking-wide text-white bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-orange"
             >
               #geleceğinliderleri
             </motion.span>
