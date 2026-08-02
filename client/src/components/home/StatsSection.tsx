@@ -38,7 +38,7 @@ export function StatsSection() {
   const { lang } = useLanguage();
 
   const stats = [
-    { value: 15, suffix: "+", label: T("stats.experience", lang) },
+    { value: 26, suffix: "+", label: T("stats.experience", lang) },
     { value: 500, suffix: "+", label: T("stats.graduates", lang) },
     { value: 50, suffix: "+", label: T("stats.placement", lang) },
     { value: 98, suffix: "%", label: T("stats.ratio", lang) },

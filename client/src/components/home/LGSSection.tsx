@@ -158,7 +158,7 @@ export function LGSSection() {
                   {s.name}
                 </p>
                 <p className="text-[11px] text-gray-400 mt-0.5">
-                  {t("2024-2025 Mezunu", "Class of 2024-2025")}
+                  {t("2025-2026 Mezunu", "Class of 2025-2026")}
                 </p>
               </div>
             </motion.div>
