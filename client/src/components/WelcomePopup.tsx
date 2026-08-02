@@ -159,68 +159,67 @@ export function WelcomePopup() {
 
                 {/* ── RIGHT PANEL ── */}
                 <div
-                  className="hidden sm:flex sm:w-[46%] relative overflow-hidden items-end justify-center"
+                  className="hidden sm:flex sm:w-[46%] relative overflow-hidden items-center justify-center"
                   style={{
-                    background: "linear-gradient(145deg, #0d3270 0%, #0B2755 45%, #081e44 100%)",
+                    background: "linear-gradient(160deg, #ffffff 0%, #eff6ff 40%, #dbeafe 100%)",
                     minHeight: "420px",
                   }}
                 >
-                  {/* Blue paper plane — top right */}
-                  <div className="absolute top-6 right-6 pointer-events-none">
-                    <svg width="56" height="50" viewBox="0 0 56 50" fill="none">
-                      {/* dashed curve path */}
-                      <path
-                        d="M48 4 C36 4 10 20 10 36"
-                        stroke="#60A5FA"
-                        strokeWidth="1.5"
-                        strokeDasharray="5 4"
-                        fill="none"
-                        opacity="0.7"
-                      />
-                      {/* plane */}
-                      <path d="M50 2 L34 28 L28 20 L50 2Z" fill="#3B82F6" opacity="0.9"/>
-                      <path d="M50 2 L38 34 L34 28 L50 2Z" fill="#2563EB" opacity="0.8"/>
-                      <line x1="34" y1="28" x2="36" y2="36" stroke="#93C5FD" strokeWidth="1.2" strokeLinecap="round"/>
+                  {/* Soft circle blob behind student */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: "radial-gradient(ellipse 80% 70% at 60% 55%, #bfdbfe55 0%, transparent 70%)",
+                    }}
+                  />
+
+                  {/* Paper plane — top right */}
+                  <div className="absolute top-5 right-5 pointer-events-none">
+                    <svg width="54" height="48" viewBox="0 0 54 48" fill="none">
+                      <path d="M46 3 C34 2 8 18 8 34" stroke="#93C5FD" strokeWidth="1.6" strokeDasharray="5 4" fill="none" opacity="0.8"/>
+                      <path d="M48 1 L32 26 L26 18 L48 1Z" fill="#3B82F6" opacity="0.85"/>
+                      <path d="M48 1 L36 32 L32 26 L48 1Z" fill="#1D4ED8" opacity="0.75"/>
+                      <line x1="32" y1="26" x2="34" y2="34" stroke="#60A5FA" strokeWidth="1.2" strokeLinecap="round"/>
                     </svg>
                   </div>
 
-                  {/* Yellow sparkle — left mid */}
-                  <div className="absolute left-5 top-[38%] pointer-events-none">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                      <path d="M11 1 L12.4 9 L20 11 L12.4 13 L11 21 L9.6 13 L2 11 L9.6 9 Z" fill="#FBBF24"/>
+                  {/* Yellow sparkle */}
+                  <div className="absolute left-6 top-[28%] pointer-events-none">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 1 L13.5 9.5 L22 12 L13.5 14.5 L12 23 L10.5 14.5 L2 12 L10.5 9.5 Z" fill="#FBBF24"/>
                     </svg>
                   </div>
 
-                  {/* Small dots — bottom left corner */}
-                  <div className="absolute bottom-5 left-5 grid grid-cols-3 gap-[5px] opacity-25 pointer-events-none">
+                  {/* Small orange dots — bottom right */}
+                  <div className="absolute bottom-5 right-5 grid grid-cols-3 gap-[5px] opacity-40 pointer-events-none">
                     {Array.from({ length: 9 }).map((_, i) => (
-                      <div key={i} className="w-[5px] h-[5px] rounded-full bg-white" />
+                      <div key={i} className="w-[5px] h-[5px] rounded-full bg-[#F59E0B]" />
                     ))}
                   </div>
 
-                  {/* Student PNG — full height, bottom-aligned, no crop */}
+                  {/* Student PNG — vertically centered, full visible */}
                   <img
                     src="/images/popup-student.png"
                     alt="Öğrenci"
-                    className="relative z-10 w-full max-w-[95%] object-contain object-bottom drop-shadow-2xl"
-                    style={{ maxHeight: "420px" }}
+                    className="relative z-10 w-[90%] object-contain"
+                    style={{ maxHeight: "400px" }}
                     draggable={false}
                   />
                 </div>
               </div>
 
-              {/* Mobile-only student strip (xs screens) */}
+              {/* Mobile-only student section */}
               <div
                 className="sm:hidden flex items-end justify-center overflow-hidden"
                 style={{
-                  background: "linear-gradient(180deg, #0B2755 0%, #0d3270 100%)",
-                  height: "120px",
+                  background: "linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%)",
+                  height: "220px",
                 }}
               >
                 <img
                   src="/images/popup-student.png"
                   alt="Öğrenci"
-                  className="h-full w-auto object-contain object-bottom"
+                  className="h-[210px] w-auto object-contain object-bottom"
                   draggable={false}
                 />
               </div>
