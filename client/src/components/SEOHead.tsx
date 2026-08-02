@@ -85,7 +85,6 @@ export const SCHOOL_SCHEMA = {
   "educationalLevel": ["Preschool", "Primary School", "Middle School"],
   "teaches": ["Türkçe", "Matematik", "İngilizce", "Fen Bilimleri", "Sosyal Bilgiler", "STEM", "Robotik", "Müzik", "Görsel Sanatlar"],
   "sameAs": [
-    "https://www.instagram.com",
-    "https://www.facebook.com"
+    "https://www.instagram.com/bogaziciilgikoleji/"
   ]
 };

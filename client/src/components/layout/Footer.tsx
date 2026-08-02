@@ -35,8 +35,12 @@ export function Footer() {
             </div>
             <div className="flex gap-3 pt-2">
               <a href={SCHOOL_INFO.social.instagram} target="_blank" rel="noopener noreferrer" data-testid="footer-social-instagram" className="p-2.5 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Instagram className="w-4 h-4" /></a>
-              <a href={SCHOOL_INFO.social.facebook} target="_blank" rel="noopener noreferrer" data-testid="footer-social-facebook" className="p-2.5 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Facebook className="w-4 h-4" /></a>
-              <a href={SCHOOL_INFO.social.linkedin} target="_blank" rel="noopener noreferrer" data-testid="footer-social-linkedin" className="p-2.5 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Linkedin className="w-4 h-4" /></a>
+              {SCHOOL_INFO.social.facebook && (
+                <a href={SCHOOL_INFO.social.facebook} target="_blank" rel="noopener noreferrer" data-testid="footer-social-facebook" className="p-2.5 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Facebook className="w-4 h-4" /></a>
+              )}
+              {SCHOOL_INFO.social.linkedin && (
+                <a href={SCHOOL_INFO.social.linkedin} target="_blank" rel="noopener noreferrer" data-testid="footer-social-linkedin" className="p-2.5 bg-white/5 rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"><Linkedin className="w-4 h-4" /></a>
+              )}
             </div>
           </div>
 
