@@ -5,6 +5,7 @@ import { SchoolLevels } from "@/components/home/SchoolLevels";
 import { StatsSection } from "@/components/home/StatsSection";
 import { WhyBogaziciSection } from "@/components/home/WhyBogaziciSection";
 import { AnnouncementsSection } from "@/components/home/AnnouncementsSection";
+import { GuidesSection } from "@/components/home/GuidesSection";
 import { VideoSlider } from "@/components/home/VideoSlider";
 import { TestimonialsScroll } from "@/components/home/TestimonialsScroll";
 import { PhotoGallery } from "@/components/home/PhotoGallery";
@@ -30,6 +31,7 @@ export default function Home() {
       <StatsSection />
       <WhyBogaziciSection />
       <AnnouncementsSection />
+      <GuidesSection />
       <VideoSlider />
       <TestimonialsScroll />
       <PhotoGallery />
