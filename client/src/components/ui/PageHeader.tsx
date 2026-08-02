@@ -1,8 +1,6 @@
 import { Link } from "wouter";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
-import { SCHOOL_INFO } from "@/lib/constants";
 
 interface PageHeaderProps {
   title: string;
@@ -11,12 +9,8 @@ interface PageHeaderProps {
   backgroundImage?: string;
 }
 
+// NOT: document.title burada AYARLANMAZ — SEO başlıkları SEOHead (react-helmet) yönetir.
 export function PageHeader({ title, subtitle, breadcrumbs, backgroundImage }: PageHeaderProps) {
-  
-  useEffect(() => {
-    document.title = `${title} | ${SCHOOL_INFO.name}`;
-  }, [title]);
-
   return (
     <div className="relative bg-primary pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       {/* Background Overlay */}
@@ -32,12 +26,12 @@ export function PageHeader({ title, subtitle, breadcrumbs, backgroundImage }: Pa
       <div className="container relative z-10 px-4 text-center">
         {breadcrumbs && (
           <nav className="flex justify-center items-center text-sm text-white/60 mb-6 space-x-2">
-            <Link href="/"><a className="hover:text-white transition-colors">Anasayfa</a></Link>
+            <Link href="/" className="hover:text-white transition-colors">Anasayfa</Link>
             {breadcrumbs.map((crumb, index) => (
               <div key={index} className="flex items-center">
                 <ChevronRight className="w-4 h-4 mx-1" />
                 {crumb.href ? (
-                  <Link href={crumb.href}><a className="hover:text-white transition-colors">{crumb.label}</a></Link>
+                  <Link href={crumb.href} className="hover:text-white transition-colors">{crumb.label}</Link>
                 ) : (
                   <span className="text-accent">{crumb.label}</span>
                 )}

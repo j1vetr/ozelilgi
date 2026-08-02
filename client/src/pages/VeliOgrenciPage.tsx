@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/ui/PageHeader";
+import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,6 +11,13 @@ export default function VeliOgrenciPage() {
 
   return (
     <div className="bg-background min-h-screen">
+      <SEOHead
+        titleTR="Veli & Öğrenci | Yemek Listesi, Servis, Dokümanlar | Boğaziçi İlgi Koleji Çekmeköy"
+        titleEN="Parents & Students | Menu, Transport, Documents | Boğaziçi İlgi Koleji Çekmeköy"
+        descriptionTR="Boğaziçi İlgi Koleji Çekmeköy veli ve öğrenci bilgilendirme sayfası: yemek listesi, servis bilgileri, okul dokümanları ve sık sorulan sorular."
+        descriptionEN="Parent and student information page of Boğaziçi İlgi Koleji Çekmeköy: menu, transport, school documents and FAQ."
+        canonical="/veli-ogrenci"
+      />
       <PageHeader 
         title={T("parent_student.title", lang)} 
         breadcrumbs={[{ label: T("parent_student.title", lang), href: "/veli-ogrenci" }]}

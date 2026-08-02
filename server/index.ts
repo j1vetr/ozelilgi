@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 // SEO: 301 redirect — cekmekoy subdomain → ana domain (tek kanonik adres)
 const CANONICAL_HOST = "ozelbogaziciilgiokullari.k12.tr";
 app.use((req, res, next) => {
-  const host = req.headers.host?.toLowerCase() ?? "";
+  const host = (req.headers.host?.toLowerCase() ?? "").split(":")[0];
   if (host === `cekmekoy.${CANONICAL_HOST}` || host === `www.${CANONICAL_HOST}`) {
     return res.redirect(301, `https://${CANONICAL_HOST}${req.originalUrl}`);
   }

@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/ui/PageHeader";
+import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -57,6 +58,13 @@ export default function BasarilarPage() {
 
   return (
     <div className="bg-background min-h-screen">
+      <SEOHead
+        titleTR="Başarılarımız | LGS ve Akademik Başarılar | Boğaziçi İlgi Koleji Çekmeköy"
+        titleEN="Our Achievements | LGS & Academic Success | Boğaziçi İlgi Koleji Çekmeköy"
+        descriptionTR="Boğaziçi İlgi Koleji Çekmeköy öğrencilerinin LGS dereceleri, TÜBİTAK proje ödülleri ve sportif başarıları. Çekmeköy'ün başarı odaklı özel okulu."
+        descriptionEN="LGS rankings, TÜBİTAK project awards and sports achievements of Boğaziçi İlgi Koleji Çekmeköy students."
+        canonical="/basarilar"
+      />
       <PageHeader 
         title={T("achievements.title", lang)} 
         subtitle={T("achievements.subtitle", lang)}

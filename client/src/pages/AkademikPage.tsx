@@ -192,6 +192,55 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
   const color = colors[slug] || colors.ilkokul;
   const seo = AKADEMIK_SEO[slug] || AKADEMIK_SEO["ilkokul"];
 
+  // SEO: H1'de hedef anahtar kelime ("Çekmeköy Anaokulu" vb.)
+  const H1_TITLES: Record<string, { tr: string; en: string }> = {
+    anaokulu: { tr: "Çekmeköy Anaokulu", en: "Preschool in Çekmeköy" },
+    ilkokul: { tr: "Çekmeköy İlkokulu", en: "Primary School in Çekmeköy" },
+    ortaokul: { tr: "Çekmeköy Ortaokulu", en: "Middle School in Çekmeköy" },
+  };
+  const h1Title = H1_TITLES[slug] ? (lang === "tr" ? H1_TITLES[slug].tr : H1_TITLES[slug].en) : content.title;
+
+  // SEO: Eğitim kademesine özel schema.org yapısal verisi
+  const SCHEMA_TYPES: Record<string, string> = {
+    anaokulu: "Preschool",
+    ilkokul: "ElementarySchool",
+    ortaokul: "MiddleSchool",
+  };
+  const levelJsonLd = SCHEMA_TYPES[slug]
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": SCHEMA_TYPES[slug],
+          name: `Özel Boğaziçi İlgi Koleji Çekmeköy — ${h1Title}`,
+          description: seo.descTR,
+          url: `https://ozelbogaziciilgiokullari.k12.tr/akademik/${slug}`,
+          telephone: "+902166428642",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48",
+            addressLocality: "Çekmeköy",
+            addressRegion: "İstanbul",
+            postalCode: "34782",
+            addressCountry: "TR",
+          },
+          parentOrganization: {
+            "@type": "School",
+            name: "Özel Boğaziçi İlgi Koleji Çekmeköy",
+            url: "https://ozelbogaziciilgiokullari.k12.tr",
+          },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Anasayfa", item: "https://ozelbogaziciilgiokullari.k12.tr/" },
+            { "@type": "ListItem", position: 2, name: "Akademik", item: "https://ozelbogaziciilgiokullari.k12.tr/akademik" },
+            { "@type": "ListItem", position: 3, name: h1Title, item: `https://ozelbogaziciilgiokullari.k12.tr/akademik/${slug}` },
+          ],
+        },
+      ]
+    : undefined;
+
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <SEOHead
@@ -200,9 +249,10 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
         descriptionTR={seo.descTR}
         descriptionEN={seo.descEN}
         canonical={`/akademik/${slug}`}
+        jsonLd={levelJsonLd}
       />
       <PageHeader 
-        title={content.title} 
+        title={h1Title} 
         subtitle={content.subtitle}
         breadcrumbs={[
           { label: T("nav.academic", lang), href: "/akademik" },

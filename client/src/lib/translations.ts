@@ -270,9 +270,9 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.about.policy", lang), href: "/kurumsal/egitim-politikamiz" },
     ],
     akademik: [
-      { title: getTranslation("nav.academic.preschool", lang), href: "/akademik/anaokulu" },
-      { title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
-      { title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
+      { title: lang === "tr" ? "Çekmeköy Anaokulu" : "Preschool in Çekmeköy", href: "/akademik/anaokulu" },
+      { title: lang === "tr" ? "Çekmeköy İlkokulu" : "Primary School in Çekmeköy", href: "/akademik/ilkokul" },
+      { title: lang === "tr" ? "Çekmeköy Ortaokulu" : "Middle School in Çekmeköy", href: "/akademik/ortaokul" },
       { title: getTranslation("nav.academic.design", lang), href: "/akademik/yaratici-tasarim" },
       { title: lang === "tr" ? "Kampüs İmkanları" : "Campus Facilities", href: "/kampus/imkanlar" },
       { title: getTranslation("nav.campus.gallery", lang), href: "/kampus/galeri" },

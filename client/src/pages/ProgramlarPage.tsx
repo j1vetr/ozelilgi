@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/ui/PageHeader";
+import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 import { T, getProgramsTranslated } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,6 +23,13 @@ export default function ProgramlarPage() {
         const Icon = icons[program.icon as keyof typeof icons] || Activity;
         return (
             <div className="bg-background min-h-screen">
+                <SEOHead
+                    titleTR={`${program.title} | Boğaziçi İlgi Koleji Çekmeköy`}
+                    titleEN={`${program.title} | Boğaziçi İlgi Koleji Çekmeköy`}
+                    descriptionTR={program.description}
+                    descriptionEN={program.description}
+                    canonical={`/programlar/${slug}`}
+                />
                 <PageHeader
                     title={program.title}
                     breadcrumbs={[
@@ -87,6 +95,13 @@ export default function ProgramlarPage() {
 
     return (
         <div className="bg-background min-h-screen">
+            <SEOHead
+                titleTR="Eğitim Programları | Yabancı Dil, STEM, Sanat | Boğaziçi İlgi Koleji Çekmeköy"
+                titleEN="Education Programs | Language, STEM, Arts | Boğaziçi İlgi Koleji Çekmeköy"
+                descriptionTR="Boğaziçi İlgi Koleji Çekmeköy'de Cambridge İngilizce, STEM & robotik, kodlama, sanat, müzik ve spor programları. Çekmeköy'de zengin eğitim programları."
+                descriptionEN="Cambridge English, STEM & robotics, coding, arts, music and sports programs at Boğaziçi İlgi Koleji Çekmeköy."
+                canonical="/programlar"
+            />
             <PageHeader
                 title={T("programs.title", lang)}
                 subtitle={T("programs.subtitle", lang)}
