@@ -11,11 +11,12 @@ const heroSlides = [
     image: "/images/hero-slide1.jpg",
     titleTR: "Her Çocuk Özel İlgiyi Hak Eder",
     titleEN: "Every Child Deserves Special Attention",
+    duration: 7500,
   },
-  { image: "/images/building-drone-1.webp" },
-  { image: "/images/sports-hall-1.webp" },
-  { image: "/images/music-room-1.webp" },
-  { image: "/images/hallway-underwater.webp" },
+  { image: "/images/building-drone-1.webp", duration: 5000 },
+  { image: "/images/sports-hall-1.webp", duration: 5000 },
+  { image: "/images/music-room-1.webp", duration: 5000 },
+  { image: "/images/hallway-underwater.webp", duration: 5000 },
 ];
 
 function preloadImages() {
@@ -43,11 +44,11 @@ export function HeroSlider() {
 
   useEffect(() => {
     const idleTimeout = setTimeout(preloadImages, 2000);
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => { clearInterval(timer); clearTimeout(idleTimeout); };
-  }, []);
+    }, heroSlides[activeSlide].duration);
+    return () => { clearTimeout(timer); clearTimeout(idleTimeout); };
+  }, [activeSlide]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
