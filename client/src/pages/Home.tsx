@@ -1,4 +1,5 @@
 import { HeroSlider } from "@/components/home/HeroSlider";
+import { LGSSection } from "@/components/home/LGSSection";
 import { Campus360 } from "@/components/home/Campus360";
 import { SchoolLevels } from "@/components/home/SchoolLevels";
 import { VideoSlider } from "@/components/home/VideoSlider";
@@ -21,6 +22,7 @@ export default function Home() {
         jsonLd={SCHOOL_SCHEMA}
       />
       <HeroSlider />
+      <LGSSection />
       <Campus360 />
       <FacilitiesSection />
       <SchoolLevels />
