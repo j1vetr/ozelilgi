@@ -273,6 +273,7 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.academic.preschool", lang), href: "/akademik/anaokulu" },
       { title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
       { title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
+      { title: getTranslation("nav.academic.design", lang), href: "/akademik/yaratici-tasarim" },
       { title: lang === "tr" ? "Kampüs İmkanları" : "Campus Facilities", href: "/kampus/imkanlar" },
       { title: getTranslation("nav.campus.gallery", lang), href: "/kampus/galeri" },
     ],
@@ -471,6 +472,20 @@ export function getPageContentTranslated(lang: Language) {
             { title: "Kolaj & Miks Medya", desc: "Farklı malzemeleri birleştirme" },
             { title: "Sergi & Sunum", desc: "Dönem sonu eser sergileri" }
           ]
+        },
+        "yaratici-tasarim": {
+          title: "Yaratıcı Tasarım Atölyesi", subtitle: "Hayal Et, Tasarla, Üret", ages: "Tüm Kademeler", color: "#8B5CF6",
+          image: "/images/art-room-1.webp",
+          galleryImages: ["/images/art-room-1.webp", "/images/classroom-smartboard.webp", "/images/science-room-1.webp", "/images/music-room-1.webp", "/images/library-1.jpg"],
+          content: "Yaratıcı Tasarım Atölyemiz; grafik tasarım, illüstrasyon, dijital sanat ve 3D modelleme alanlarında öğrencilerin yaratıcı potansiyellerini keşfetmeleri ve geliştirmeleri için tasarlanmış özel bir programdır. Hem sanatsal hem de teknolojik becerilerin bir arada kazandırıldığı bu atölye, geleceğin tasarımcılarını ve yaratıcı düşünürlerini yetiştirir.",
+          features: [
+            { title: "Grafik Tasarım", desc: "Dijital araçlarla görsel iletişim tasarımı" },
+            { title: "İllüstrasyon", desc: "El çizimi ve dijital illüstrasyon teknikleri" },
+            { title: "3D Modelleme", desc: "Üç boyutlu tasarım ve prototip üretimi" },
+            { title: "Dijital Sanat", desc: "Tablet ve yazılım destekli yaratıcı üretim" },
+            { title: "Tasarım Düşüncesi", desc: "Problem çözme ve yaratıcı süreç yönetimi" },
+            { title: "Portfolyo Geliştirme", desc: "Kişisel sanat portfolyosu oluşturma" }
+          ]
         }
       }
     };
@@ -596,6 +611,20 @@ export function getPageContentTranslated(lang: Language) {
           { title: "Illustration", desc: "Storytelling and visual language" },
           { title: "Collage & Mixed Media", desc: "Combining different materials" },
           { title: "Exhibition & Presentation", desc: "End-of-term artwork exhibitions" }
+        ]
+      },
+      "yaratici-tasarim": {
+        title: "Creative Design Workshop", subtitle: "Imagine, Design, Create", ages: "All Levels", color: "#8B5CF6",
+        image: "/images/art-room-1.webp",
+        galleryImages: ["/images/art-room-1.webp", "/images/classroom-smartboard.webp", "/images/science-room-1.webp", "/images/music-room-1.webp", "/images/library-1.jpg"],
+        content: "Our Creative Design Workshop is a specialized program designed for students to discover and develop their creative potential in the fields of graphic design, illustration, digital art, and 3D modeling. This workshop, where both artistic and technological skills are cultivated together, nurtures the designers and creative thinkers of the future.",
+        features: [
+          { title: "Graphic Design", desc: "Visual communication design with digital tools" },
+          { title: "Illustration", desc: "Hand-drawn and digital illustration techniques" },
+          { title: "3D Modeling", desc: "Three-dimensional design and prototype production" },
+          { title: "Digital Art", desc: "Creative production with tablet and software" },
+          { title: "Design Thinking", desc: "Problem solving and creative process management" },
+          { title: "Portfolio Development", desc: "Building a personal art portfolio" }
         ]
       }
     }

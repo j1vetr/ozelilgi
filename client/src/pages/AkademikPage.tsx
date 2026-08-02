@@ -31,8 +31,8 @@ const AKADEMIK_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
   "yaratici-tasarim": {
     titleTR: "Yaratıcı Tasarım Atölyesi | Özel Boğaziçi İlgi Koleji",
     titleEN: "Creative Design Workshop | Özel Boğaziçi İlgi Koleji",
-    descTR: "Boğaziçi İlgi Koleji Yaratıcı Tasarım Atölyesi'nde resim, seramik, dijital grafik ve illüstrasyon eğitimleriyle yaratıcılığınızı keşfedin.",
-    descEN: "Discover your creativity at Boğaziçi İlgi Koleji Creative Design Workshop with painting, ceramics, digital graphics and illustration training.",
+    descTR: "Boğaziçi İlgi Koleji Yaratıcı Tasarım Atölyesi'nde grafik tasarım, illüstrasyon, dijital sanat ve 3D modelleme ile öğrencilerin yaratıcı potansiyellerini keşfediyoruz.",
+    descEN: "At Boğaziçi İlgi Koleji Creative Design Workshop, we discover students' creative potential through graphic design, illustration, digital art and 3D modeling.",
   },
 };
 
@@ -40,7 +40,7 @@ const levelIcons: Record<string, any> = {
   "anaokulu": Baby,
   "ilkokul": BookOpen,
   "ortaokul": GraduationCap,
-  "yaratici-tasarim": Palette,
+  "yaratici-tasarim": Palette
 };
 
 export default function AkademikPage() {
@@ -78,16 +78,16 @@ function AkademikOverview() {
       />
 
       <div className="container py-12 px-4">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {levels.map(([key, item], index) => {
             const Icon = levelIcons[key] || GraduationCap;
             const colors = {
               anaokulu: { primary: "#F97316", gradient: "from-orange-500 to-amber-500", bg: "bg-orange-50", ring: "ring-orange-200" },
               ilkokul: { primary: "#3B82F6", gradient: "from-blue-500 to-indigo-500", bg: "bg-blue-50", ring: "ring-blue-200" },
               ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-50", ring: "ring-emerald-200" },
-              "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-600", bg: "bg-violet-50", ring: "ring-violet-200" },
+              "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-500", bg: "bg-violet-50", ring: "ring-violet-200" }
             };
-            const color = colors[key as keyof typeof colors] || colors.ortaokul;
+            const color = colors[key as keyof typeof colors];
 
             return (
               <motion.div
@@ -187,7 +187,7 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
     anaokulu: { primary: "#F97316", gradient: "from-orange-500 to-amber-500", bg: "bg-orange-500", light: "bg-orange-50" },
     ilkokul: { primary: "#3B82F6", gradient: "from-blue-500 to-indigo-500", bg: "bg-blue-500", light: "bg-blue-50" },
     ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-500", light: "bg-emerald-50" },
-    "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-600", bg: "bg-violet-500", light: "bg-violet-50" },
+    "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-500", bg: "bg-violet-500", light: "bg-violet-50" }
   };
   const color = colors[slug] || colors.ilkokul;
   const seo = AKADEMIK_SEO[slug] || AKADEMIK_SEO["ilkokul"];
@@ -371,7 +371,7 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
               <h3 className="text-lg font-display font-bold text-gray-900">{t("Diğer Kademeler", "Other Levels")}</h3>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {Object.entries(PAGE_CONTENT.akademik).filter(([key]) => key !== slug).map(([key, item]) => {
                 const OtherIcon = levelIcons[key] || GraduationCap;
                 const otherColor = colors[key] || colors.ilkokul;
