@@ -71,7 +71,7 @@ const ui: TranslationMap = {
   "cta.contact": { tr: "Bizi Arayın", en: "Call Us" },
 
   "levels.title": { tr: "Eğitim Birimleri", en: "Education Levels" },
-  "levels.desc": { tr: "Her yaş grubuna özel hazırlanmış eğitim programlarımız", en: "Our education programs specially designed for each age group" },
+  "levels.desc": { tr: "Her yaş grubuna özel hazırlanmış eğitim programlarımız.", en: "Our education programs specially designed for each age group." },
   "levels.preschool": { tr: "Anaokulu", en: "Preschool" },
   "levels.preschool.ages": { tr: "3-6 Yaş", en: "Ages 3-6" },
   "levels.preschool.desc": { tr: "Oyun ve keşif temelli öğrenme ile merak duygusunu geliştiriyoruz.", en: "We foster curiosity through play-based and discovery learning." },
