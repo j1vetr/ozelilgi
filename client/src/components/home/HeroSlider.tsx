@@ -123,18 +123,28 @@ export function HeroSlider() {
                 </Button>
               </motion.div>
             </Link>
-            <Link href="/kampus">
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  size="default"
-                  variant="outline"
-                  className="h-11 w-48 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm justify-center"
-                >
-                  <Play className="mr-2 w-4 h-4" />
-                  {T("hero.cta", lang)}
-                </Button>
-              </motion.div>
-            </Link>
+            <div className="flex flex-col items-center gap-2">
+              <motion.span
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="text-xs font-semibold tracking-wide text-brand-orange/90 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-orange/30"
+              >
+                #geleceğinliderleri
+              </motion.span>
+              <Link href="/kampus">
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Button
+                    size="default"
+                    variant="outline"
+                    className="h-11 w-48 rounded-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold backdrop-blur-sm justify-center"
+                  >
+                    <Play className="mr-2 w-4 h-4" />
+                    {T("hero.cta", lang)}
+                  </Button>
+                </motion.div>
+              </Link>
+            </div>
           </motion.div>
         </div>
 

@@ -43,11 +43,23 @@ const KURUMSAL_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
   },
 };
 
+const VALID_SLUGS = ["hakkimizda", "kurucu-mesaji", "vizyon-misyon", "egitim-yaklasimimiz"] as const;
+const SLUG_ALIASES: Record<string, string> = {
+  "egitim-politikamiz": "egitim-yaklasimimiz",
+};
+
+function normalizeSlug(raw: string | undefined): typeof VALID_SLUGS[number] {
+  if (!raw) return "hakkimizda";
+  if (SLUG_ALIASES[raw]) return SLUG_ALIASES[raw] as typeof VALID_SLUGS[number];
+  if ((VALID_SLUGS as readonly string[]).includes(raw)) return raw as typeof VALID_SLUGS[number];
+  return "hakkimizda";
+}
+
 export default function KurumsalPage() {
   const { lang, t } = useLanguage();
   const PAGE_CONTENT = getPageContentTranslated(lang);
   const [match, params] = useRoute("/kurumsal/:slug");
-  const slug = (params?.slug || "hakkimizda") as keyof typeof PAGE_CONTENT.kurumsal;
+  const slug = normalizeSlug(params?.slug) as keyof typeof PAGE_CONTENT.kurumsal;
   const [activeTab, setActiveTab] = useState(slug);
 
   const tabs = [

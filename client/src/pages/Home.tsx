@@ -2,11 +2,13 @@ import { HeroSlider } from "@/components/home/HeroSlider";
 import { LGSSection } from "@/components/home/LGSSection";
 import { Campus360 } from "@/components/home/Campus360";
 import { SchoolLevels } from "@/components/home/SchoolLevels";
-import { VideoSlider } from "@/components/home/VideoSlider";
-import { FacilitiesSection } from "@/components/home/FacilitiesSection";
-import { AnnouncementsSection } from "@/components/home/AnnouncementsSection";
 import { StatsSection } from "@/components/home/StatsSection";
+import { WhyBogaziciSection } from "@/components/home/WhyBogaziciSection";
+import { AnnouncementsSection } from "@/components/home/AnnouncementsSection";
+import { VideoSlider } from "@/components/home/VideoSlider";
 import { TestimonialsScroll } from "@/components/home/TestimonialsScroll";
+import { PhotoGallery } from "@/components/home/PhotoGallery";
+import { HashtagStrip } from "@/components/home/HashtagStrip";
 import { CTASection } from "@/components/home/CTASection";
 import { SEOHead, SCHOOL_SCHEMA } from "@/components/SEOHead";
 
@@ -24,12 +26,14 @@ export default function Home() {
       <HeroSlider />
       <LGSSection />
       <Campus360 />
-      <FacilitiesSection />
       <SchoolLevels />
+      <StatsSection />
+      <WhyBogaziciSection />
       <AnnouncementsSection />
       <VideoSlider />
-      <StatsSection />
       <TestimonialsScroll />
+      <PhotoGallery />
+      <HashtagStrip />
       <CTASection />
     </div>
   );

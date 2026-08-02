@@ -68,7 +68,7 @@ const ui: TranslationMap = {
   "cta.register": { tr: "Ön Kayıt Yap", en: "Pre-Register" },
   "cta.contact": { tr: "Bizi Arayın", en: "Call Us" },
 
-  "levels.title": { tr: "Eğitim Kademeleri", en: "Education Levels" },
+  "levels.title": { tr: "Eğitim Birimleri", en: "Education Levels" },
   "levels.desc": { tr: "Her yaş grubuna özel hazırlanmış eğitim programlarımız", en: "Our education programs specially designed for each age group" },
   "levels.preschool": { tr: "Anaokulu", en: "Preschool" },
   "levels.preschool.ages": { tr: "3-6 Yaş", en: "Ages 3-6" },
