@@ -23,6 +23,7 @@ const ui: TranslationMap = {
   "nav.campus.gallery": { tr: "Galeri", en: "Gallery" },
   "nav.enrollment.process": { tr: "Kayıt Süreci", en: "Enrollment Process" },
   "nav.enrollment.form": { tr: "Ön Kayıt Formu", en: "Pre-Registration Form" },
+  "nav.guides": { tr: "Veli Rehberi", en: "Parent Guides" },
   "nav.menu": { tr: "Menü", en: "Menu" },
   "nav.overview": { tr: "Genel Bakış", en: "Overview" },
   "nav.preregister": { tr: "Ön Kayıt Yap", en: "Pre-Register" },
@@ -247,6 +248,7 @@ export function getNavigationTranslated(lang: Language) {
       items: [
         { title: getTranslation("nav.enrollment.process", lang), href: "/kayit/kayit-sureci" },
         { title: getTranslation("nav.enrollment.form", lang), href: "/kayit/on-kayit" },
+        { title: getTranslation("nav.guides", lang), href: "/rehber" },
       ],
     },
     {
@@ -281,6 +283,7 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: lang === "tr" ? "Kayıt İşlemleri" : "Enrollment", href: "/kayit" },
       { title: getTranslation("nav.enrollment.process", lang), href: "/kayit/kayit-sureci" },
       { title: getTranslation("nav.enrollment.form", lang), href: "/kayit/on-kayit" },
+      { title: getTranslation("nav.guides", lang), href: "/rehber" },
       { title: getTranslation("nav.contact", lang), href: "/iletisim" },
     ],
   };

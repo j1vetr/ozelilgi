@@ -24,6 +24,7 @@ const ProgramlarPage = lazy(() => import("@/pages/ProgramlarPage"));
 const HaberlerPage = lazy(() => import("@/pages/HaberlerPage"));
 const BasarilarPage = lazy(() => import("@/pages/BasarilarPage"));
 const VeliOgrenciPage = lazy(() => import("@/pages/VeliOgrenciPage"));
+const RehberPage = lazy(() => import("@/pages/RehberPage"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -69,6 +70,9 @@ function Router() {
             <Route path="/haberler" component={HaberlerPage} />
             <Route path="/haberler/:slug" component={HaberlerPage} />
             <Route path="/duyurular" component={HaberlerPage} />
+
+            <Route path="/rehber" component={RehberPage} />
+            <Route path="/rehber/:slug" component={RehberPage} />
 
             <Route path="/basarilar" component={BasarilarPage} />
             <Route path="/basarilar/:category" component={BasarilarPage} />
