@@ -460,20 +460,6 @@ export function getPageContentTranslated(lang: Language) {
           ]
         },
         "yaratici-tasarim": {
-          title: "Yaratıcı Tasarım Atölyesi", subtitle: "Hayal Gücünü Sanata Dönüştür", ages: "Tüm Kademeler", color: "#8B5CF6",
-          image: "/images/art-room-1.webp",
-          galleryImages: ["/images/art-room-1.webp", "/images/art-room-2.jpg", "/images/art-room-1.jpg", "/images/classroom-bright.jpg", "/images/hallway-art.jpg"],
-          content: "Yaratıcı Tasarım Atölyemiz, öğrencilerimizin hayal güçlerini görsel sanata, dijital tasarıma ve üç boyutlu üretim becerilerine dönüştürdüğü özgün bir öğrenme ortamıdır. Resim, seramik, illüstrasyon ve dijital grafik gibi farklı alanlarda özgün eserler üretiyoruz.",
-          features: [
-            { title: "Resim & Çizim", desc: "Karakalem, suluboya ve akrilik teknikler" },
-            { title: "Seramik & Heykel", desc: "El işçiliği ve üç boyutlu ifade" },
-            { title: "Dijital Grafik", desc: "Tablet ve yazılım destekli tasarım" },
-            { title: "İllüstrasyon", desc: "Hikâye anlatımı ve görsel dil" },
-            { title: "Kolaj & Miks Medya", desc: "Farklı malzemeleri birleştirme" },
-            { title: "Sergi & Sunum", desc: "Dönem sonu eser sergileri" }
-          ]
-        },
-        "yaratici-tasarim": {
           title: "Yaratıcı Tasarım Atölyesi", subtitle: "Hayal Et, Tasarla, Üret", ages: "Tüm Kademeler", color: "#8B5CF6",
           image: "/images/art-room-1.webp",
           galleryImages: ["/images/art-room-1.webp", "/images/classroom-smartboard.webp", "/images/science-room-1.webp", "/images/music-room-1.webp", "/images/library-1.jpg"],
@@ -597,20 +583,6 @@ export function getPageContentTranslated(lang: Language) {
           { title: "Technology & Future Skills", desc: "Advanced robotics, coding, and digital literacy applications" },
           { title: "Critical Reading & Writing", desc: "Analytical reading, interdisciplinary connections, and creative writing" },
           { title: "Arts, Sports & Clubs", desc: "STEM, arts, basketball, music, chess, and much more" }
-        ]
-      },
-      "yaratici-tasarim": {
-        title: "Creative Design Workshop", subtitle: "Turn Your Imagination into Art", ages: "All Levels", color: "#8B5CF6",
-        image: "/images/art-room-1.webp",
-        galleryImages: ["/images/art-room-1.webp", "/images/art-room-2.jpg", "/images/art-room-1.jpg", "/images/classroom-bright.jpg", "/images/hallway-art.jpg"],
-        content: "Our Creative Design Workshop is a unique learning environment where students transform their imagination into visual arts, digital design, and three-dimensional production skills. We create original works in different areas such as painting, ceramics, illustration, and digital graphics.",
-        features: [
-          { title: "Painting & Drawing", desc: "Pencil, watercolor and acrylic techniques" },
-          { title: "Ceramics & Sculpture", desc: "Handcraft and three-dimensional expression" },
-          { title: "Digital Graphics", desc: "Tablet and software-supported design" },
-          { title: "Illustration", desc: "Storytelling and visual language" },
-          { title: "Collage & Mixed Media", desc: "Combining different materials" },
-          { title: "Exhibition & Presentation", desc: "End-of-term artwork exhibitions" }
         ]
       },
       "yaratici-tasarim": {

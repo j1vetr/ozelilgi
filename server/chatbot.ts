@@ -2,135 +2,125 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+const CONTACT = {
+  phone: "0216 642 8 642",
+  email: "info@ozelbogaziciilgiokullari.k12.tr",
+  web: "cekmekoy.ozelbogaziciilgiokullari.k12.tr",
+  address: "Mimar Sinan, Yeşil Kayalar Cd. No: 46-48, 34782 Çekmeköy/İstanbul",
+};
+
 const KNOWLEDGE_BASE = `
-# Özel Boğaziçi İlgi Koleji Çekmeköy - Bilgi Tabanı
+# Özel Boğaziçi İlgi Koleji Çekmeköy — Bilgi Tabanı
 
-## Okul Genel Bilgileri
+## Genel Bilgiler
 - Okul Adı: Özel Boğaziçi İlgi Koleji Çekmeköy
-- Slogan: Her öğrenci özel ilgi hak eder
-- Çalışma Saatleri: Pazartesi - Cuma: 07:00 - 18:30
-- Telefon: 0216 642 8 642
-- E-posta: info@ozelilgiokullari.k12.tr
-- Adres: Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48, 34782 Çekmeköy/İstanbul
-- Web Sitesi: cekmekoy.ozelbogaziciilgiokullari.k12.tr
-
-## Hakkımızda
-- Kampüs 2013 yılında inşa edilmiş modern bir yapıdır
-- Geniş kapalı alan ve bahçe
-- 4 adet anaokulu sınıfı
-- 25+ yıllık eğitim tecrübesi
+- Slogan: "Her öğrenci özel ilgi hak eder"
+- Telefon: ${CONTACT.phone}
+- E-posta: ${CONTACT.email}
+- Adres: ${CONTACT.address}
+- Web: ${CONTACT.web}
+- Çalışma Saatleri: Pazartesi–Cuma 07:00–18:30
+- Kademeler: Anaokulu (3-6 yaş) · İlkokul (1-4. sınıf) · Ortaokul (5-8. sınıf)
+- 26+ yıllık öğretmenlik tecrübesi
+- Kampüs 2013 yılında hizmete açılmıştır
 - 1500+ mezun
-- Öğrenci / Öğretmen Oranı: 12
-- Eğitim kademeleri: Anaokulu (3-6 yaş), İlkokul (1-4. sınıf), Ortaokul (5-8. sınıf)
+- %100 veli memnuniyeti
 
-## Kampüs İmkanları
-- Görsel Sanatlar Atölyesi: Yaratıcılığı geliştiren sanat eğitimi
-- Müzik Atölyesi: Enstrüman ve ses eğitimi
-- Kodlama Atölyesi: Yazılım ve robotik eğitimi
-- Fen Bilgisi Laboratuvarı: Deneysel öğrenme ortamı
-- Kapalı Spor Salonu: Fiziksel gelişim aktiviteleri
-- Kütüphane: Okuma ve araştırma merkezi
-- Yemekhane: Sağlıklı ve hijyenik beslenme
-- Rehberlik Odası: Bireysel danışmanlık hizmeti
-
-## Kurucu Mesajı
-Geleceğimizin teminatı olan çocuklarımızı en iyi şekilde yetiştirmek, onlara güvenli ve nitelikli bir eğitim ortamı sunmak en büyük sorumluluğumuzdur. Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının yanı sıra, milli ve manevi değerlerine bağlı, evrensel düşünebilen, sorgulayan ve üreten bireyler olmalarını önemsiyoruz.
+## Neden Boğaziçi İlgi Koleji?
+Kurucularımız 26+ yıllık öğretmenlik tecrübesiyle ticari kaygılardan uzak, tamamen öğrenci odaklı bir eğitim anlayışı benimsemiştir. "Her çocuk özel ilgiyi hak eder" ve "Daha iyi bir eğitim mümkün" ilkeleriyle her öğrencinin bireysel gelişim hızına ve ilgisine göre özel çözümler sunuyoruz.
 
 ## Vizyon
-Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.
+Ulusal ve uluslararası platformlarda başarılarıyla örnek gösterilen, 26+ yıllık öğretmenlik tecrübesi ve özgün eğitim yaklaşımıyla geleceğe yön veren öncü bir kurum olmak; Atatürk ilke ve inkılaplarının ışığında, evrensel değerlerle donatılmış lider bireyler yetiştirmektir.
 
 ## Misyon
-Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.
+Her bir çocuğun içindeki potansiyeli ortaya çıkarmak için gerekli zamanı, sabrı, planlı çabayı ve koşulsuz sevgiyi sunan; bilimin rehberliği ile harmanlanmış eğitim programlarımızla öğrencilerimizi hayata hazırlamak.
 
 ## Değerlerimiz
-- Saygı: Bireysel farklılıklara ve değerlere saygı
-- Dürüstlük: Şeffaf ve güvenilir iletişim
-- Yenilikçilik: Sürekli gelişim ve değişime açıklık
-- İşbirliği: Aile-okul-öğrenci üçgeninde güçlü bağlar
-- Mükemmellik: Her alanda en iyiyi hedefleme
-- Sorumluluk: Topluma ve çevreye karşı bilinçli yaklaşım
+- Vatanseverlik: Atatürk ilke ve devrimlerini benimsemiş, aklı ve vicdanı özgür bireyler
+- Bilimsel Düşünce: Bilimi ve akılcı düşünmeyi hayat felsefesi edinen bireyler
+- Özgüven & Yaratıcılık: Kendi yeteneklerini keşfetmiş, özgüveni yüksek bireyler
+- Evrensel Değerler: Milli ve evrensel değerlerinden ödün vermeyen bireyler
+- Doğa & Toplum Bilinci: Doğaya, çevresine ve tüm canlılara duyarlı bireyler
+- Yaşam Boyu Öğrenme: Yaşam boyu öğrenmeyi ilke edinmiş, vizyon sahibi bireyler
 
-## Eğitim Yaklaşımı
-Öğrenci merkezli eğitim modelimiz, her çocuğun bireysel öğrenme hızına ve stiline saygı duyar. Yaparak ve yaşayarak öğrenme ilkesiyle, teorik bilgiyi pratiğe dönüştüren uygulamalar sunuyoruz.
+## Eğitim Politikası
+Öğrenci odaklı yaklaşımımız, özgün eğitim programlarımız ve ticari kaygılardan uzak yapımızla her çocuğun gelişim hızına özel çözümler sunarak mutlu, başarılı nesiller yetiştiriyoruz. Eğitimin temelinin koşulsuz sevgi ve güven olduğuna inanıyoruz.
 
-### Eğitim İlkeleri
-- Bütünsel Gelişim: Akademik, sosyal ve duygusal gelişimi birlikte destekliyoruz
-- Aktif Öğrenme: Yaparak ve yaşayarak öğrenme metodlarını uyguluyoruz
-- Disiplinlerarası Çalışma: Farklı disiplinleri birleştiren projeler geliştiriyoruz
-- Teknoloji Entegrasyonu: Modern teknolojileri eğitim sürecine dahil ediyoruz
+## Kampüs İmkanları
+- Görsel Sanatlar Atölyesi
+- Müzik Atölyesi (Piyano, keman, gitar vb.)
+- Kodlama & Robotik Atölyesi
+- Fen Bilgisi Laboratuvarı
+- Kapalı Spor Salonu
+- Kütüphane
+- Yemekhane (sağlıklı ve hijyenik beslenme)
+- Rehberlik & PDR Birimi
 
-### Tarihçe
-- 2000: Boğaziçi İlgi Okulları eğitim hayatına başladı
-- 2010: Uluslararası Cambridge İngilizce programı başlatıldı
-- 2013: Modern Çekmeköy kampüsü hizmete açıldı
-- 2015: Kodlama ve robotik eğitimleri müfredata eklendi
-- 2020: Akıllı tahta ve tablet destekli eğitime geçildi
-- 2024: AI destekli kişiselleştirilmiş öğrenme sistemleri
+## Anaokulu Programı (3-6 Yaş)
+Okul öncesi eğitim; özgüvenin, dil ve düşünme becerilerinin geliştiği, toplumsal değerlerin kazandırıldığı kritik dönemdir.
+- Bireysel Gelişim: Her çocuğun gelişim hızına saygı gösteren yaklaşım
+- Keşfeden Zihinler: Merak ve keşfetme arzusunu tetikleyen yaparak-yaşayarak öğrenme
+- Oyun Temelli Öğrenme: Ezberden uzak, eğlenceli yapılandırılmış etkinlikler
+- İlkokula Hazırlık: Motor, sosyal, duygusal, dil ve bilişsel becerilerin gelişimi
+- Bütünleşik İngilizce: Dilin doğal yaşam aracı olarak anaokulundan kazandırılması
+- Değerler & Doğa Sevgisi: Atatürk ilkelerine bağlı, doğaya duyarlı bireyler
 
-## Anaokulu (3-6 Yaş)
-Okul öncesi eğitim, çocuğun gelişiminin en hızlı olduğu ve karakterinin şekillendiği kritik bir dönemdir. Anaokulumuzda, oyun temelli öğrenme yaklaşımıyla çocuklarımızın merak duygusunu canlı tutuyor, sosyal ve duygusal gelişimlerini destekliyoruz.
+## İlkokul Programı (1-4. Sınıf)
+Her büyük başarı doğru zamanda gösterilen ilgi ve sevgiyle başlar. Temel disiplinleri kazandırırken araştıran, sorgulayan bireyler yetiştiriyoruz.
+- Doğa, Canlı Sevgisi ve Bilim programı
+- Güçlü Rehberlik & PDR birimi
+- CLT, TPR ve Montessori yöntemleriyle İngilizce eğitimi
+- Müzik, spor, görsel sanatlar, bilişim, drama atölyeleri
+- Robotik ve Kodlama: algoritmik düşünme ve teknolojik okuryazarlık
+- Ebeveyn Akademisi ile şeffaf veli-okul iletişimi
 
-### Anaokulu Özellikleri
-- Oyun Temelli Öğrenme: Eğlenerek öğrenme metodolojisi
-- Drama ve Müzik: Sanatsal yeteneklerin keşfi
-- Erken Okuma Yazma: Fonetik yöntemle okuma hazırlığı
-- İngilizce Eğitimi: Yabancı dile erken başlangıç
-- Psikomotor Gelişim: Motor beceri aktiviteleri
-- Sosyal Beceriler: Paylaşma ve iletişim becerileri
+## Ortaokul Programı (5-8. Sınıf)
+26+ yıllık tecrübemizle LGS'ye en üst düzeyde hazırlıyor, geleceğe yön veren özgüvenli bireyler yetiştiriyoruz.
+- LGS ve Beceri Temelli hazırlık
+- Bireysel PDR görüşmeleri ve sınav kaygısı yönetimi
+- İngilizce (CLT+TBL) + Almanca ikinci yabancı dil
+- İleri robotik, kodlama ve dijital okuryazarlık
+- Analitik okuma, yaratıcı yazarlık
+- Sanat, basketbol, müzik, satranç kulüpleri
 
-## İlkokul (1-4. Sınıf)
-İlkokul kademesinde temel amacımız, öğrencilerimize okuma, yazma, matematik ve fen bilimleri gibi temel becerileri kazandırırken, aynı zamanda araştırma yapma ve problem çözme yeteneklerini geliştirmektir.
+## Yaratıcı Tasarım Atölyesi (Tüm Kademeler)
+Grafik tasarım, illüstrasyon, dijital sanat ve 3D modelleme alanlarında öğrencilerin yaratıcı potansiyellerini geliştiren özel program. Hem sanatsal hem teknolojik becerilerin bir arada kazandırıldığı bu atölye, geleceğin yaratıcı düşünürlerini yetiştirir.
 
-### İlkokul Özellikleri
-- Cambridge İngilizce: Uluslararası standartlarda dil eğitimi
-- Kodlama Eğitimi: Algoritmik düşünme becerileri
-- STEM Projeleri: Bilim, teknoloji, mühendislik, matematik
-- Matematik Atölyesi: Somut materyallerle öğrenme
-- Okuma Saatleri: Kitap sevgisi ve alışkanlığı
-- Değerler Eğitimi: Karakter ve ahlak gelişimi
+## Kayıt ve Ön Kayıt
+- 2026-2027 eğitim yılı kayıtları açık, kontenjanlar sınırlıdır
+- Ön kayıt için: telefon, e-posta veya web sitesindeki form
+- Okul ziyareti için randevu alınabilir
+- Gerekli belgeler: Nüfus cüzdanı fotokopisi, son sınıf karnesi, 2 adet fotoğraf, sağlık sigortası/aşı kartı (anaokulu için)
+- Telefon: ${CONTACT.phone}
+- E-posta: ${CONTACT.email}
 
-## Ortaokul (5-8. Sınıf)
-Ortaokul dönemi, akademik branşlaşmanın başladığı ve liselere geçiş sınavlarına hazırlığın yoğunlaştığı bir süreçtir. Deneyimli kadromuzla öğrencilerimizi LGS'ye en iyi şekilde hazırlıyoruz.
+## Servis Hizmetleri
+Okul servislerimiz Gürsel Turizm güvencesiyle hizmet vermektedir. Güzergah ve kayıt için ulaşım ofisiyle iletişime geçilmelidir.
 
-### Ortaokul Özellikleri
-- LGS Hazırlık: Sınava yönelik yoğun çalışma programı
-- 2. Yabancı Dil: Almanca veya İspanyolca seçenekleri
-- Proje Bazlı Öğrenme: Araştırma ve sunum becerileri
-- Kariyer Rehberliği: Meslek tanıtımı ve yönlendirme
-- Kulüp Çalışmaları: Sosyal ve sportif aktiviteler
-- Deneme Sınavları: Düzenli ölçme ve değerlendirme
+## Başarılar
+- TÜBİTAK proje yarışmalarında bölge birincilikler
+- Okullar arası spor turnuvalarında ilçe birincilikler
+- 2025-2026 LGS'de yüksek puan ortalaması
+- 2026'da 8. sınıf öğrencilerimizden Fen Lisesi yerleşimleri
 
-## Eğitim Programları
-- Yabancı Dil Eğitimi: Cambridge standartlarında İngilizce ve ikinci yabancı dil olarak Almanca/İspanyolca eğitimi
-- STEM & Robotik: Kodlama, 3D tasarım ve robotik atölyeleri ile geleceğin mühendislerini yetiştiriyoruz
-- Kodlama & Yazılım: Algoritmik düşünme becerisi ve programlama dilleri eğitimi
-- Sanat & Müzik: Piyano, keman, gitar eğitimleri ve görsel sanatlar atölyeleri
-- Spor Faaliyetleri: Yüzme, basketbol, voleybol ve jimnastik branşlarında profesyonel eğitim
-- Değerler Eğitimi: Evrensel ve toplumsal değerlerin kazandırılmasına yönelik çalışmalar
-
-## Kayıt Bilgileri
-- Kayıt süreci hakkında bilgi almak için okulu arayabilirsiniz: 0216 642 8 642
-- E-posta ile iletişim: info@ozelilgiokullari.k12.tr
-- Web sitesindeki ön kayıt formunu doldurabilirsiniz
-- Okul ziyareti için randevu alabilirsiniz
-
-## Haberler ve Duyurular
-- 2026-2027 Eğitim Öğretim Yılı Erken Kayıt Dönemi Başladı: Gelecek eğitim yılı için avantajlı erken kayıt fırsatları başladı. Kontenjanlar sınırlıdır.
-- Öğrencilerimizden TÜBİTAK Proje Başarısı: Fen Lisesi öğrencilerimizin geliştirdiği 'Sürdürülebilir Tarım' projesi bölge birincisi oldu.
-- Kış Okulu Spor ve Sanat Etkinlikleri: Sömestr tatilinde öğrencilerimiz hem eğlenecek hem öğrenecek. Kayıtlar devam ediyor.
+## Haberler / Duyurular
+- 2026-2027 kayıtları başladı, erken kayıt avantajları için hemen iletişime geçin
+- Kış dönemi spor ve sanat etkinlikleri devam ediyor
+- Robotik kulübü İstanbul finallerinde temsil hakkı kazandı
 `.trim();
 
-const SYSTEM_PROMPT = `Sen "Özel Boğaziçi İlgi Koleji Çekmeköy" okulunun resmi yapay zeka asistanısın. Adın "Boğaziçi İlgi Asistanı".
+const SYSTEM_PROMPT = `Sen "Özel Boğaziçi İlgi Koleji Çekmeköy" okulunun yapay zeka asistanısın. Adın "Boğaziçi İlgi Asistanı".
 
-## Kurallar
-1. SADECE Türkçe yanıt ver. Kullanıcı başka dilde yazsa bile Türkçe cevap ver.
-2. SADECE aşağıdaki bilgi tabanındaki bilgileri kullan. Bilgi tabanında olmayan konularda "Bu konuda bilgim bulunmuyor, detaylı bilgi için okulumuzla iletişime geçebilirsiniz: 0216 642 8 642" de.
-3. Samimi, sıcak ve profesyonel bir dil kullan. Velilere ve öğrencilere yardımcı ol.
-4. Yanıtları kısa ve öz tut. Gereksiz uzun cevaplar verme. Markdown formatı kullanma, düz metin yaz.
-5. Kayıt veya ön kayıt ile ilgilenen velileri teşvik et ve iletişim bilgilerini paylaş.
-6. Fiyat, ücret veya maliyet sorularına "Güncel ücret bilgisi için lütfen okulumuzla iletişime geçin: 0216 642 8 642 veya info@ozelilgiokullari.k12.tr" şeklinde yönlendir.
-7. Okulu her zaman olumlu ve profesyonel şekilde tanıt.
-8. Asla uydurma bilgi verme.
+## Temel Kurallar
+1. Kullanıcı Türkçe yazıyorsa Türkçe, İngilizce yazıyorsa İngilizce yanıt ver.
+2. YALNIZCA bilgi tabanındaki bilgileri kullan. Bilgi tabanında olmayan konularda okulumuzla iletişimi öneri: "${CONTACT.phone}".
+3. Samimi, sıcak, profesyonel ve özlü yanıtlar ver. Gereksiz yere uzun cevaplar yazma.
+4. Kayıt veya ön kayıt isteyen velileri aktif olarak yönlendir ve iletişim bilgilerini paylaş.
+5. Ücret/fiyat sorularına: "Güncel ücret bilgisi için lütfen bizi arayın: ${CONTACT.phone} veya ${CONTACT.email}" de.
+6. Okulu her zaman olumlu, güvenilir ve profesyonel şekilde tanıt.
+7. Asla uydurma bilgi üretme.
+8. Yanıtlarda madde işareti veya kısa listeler kullanabilirsin; çok uzun paragraflardan kaçın.
+9. Ziyaret randevusu, okul turu veya tanışma toplantısı için velileri teşvik et.
 
 ## Bilgi Tabanı
 ${KNOWLEDGE_BASE}`;
@@ -141,7 +131,6 @@ interface ChatMessageParam {
 }
 
 const sessionHistories = new Map<string, ChatMessageParam[]>();
-
 const MAX_HISTORY = 20;
 const SESSION_TTL = 30 * 60 * 1000;
 const sessionTimers = new Map<string, NodeJS.Timeout>();
@@ -158,10 +147,16 @@ function cleanupSession(sessionId: string) {
 function refreshSessionTimer(sessionId: string) {
   const existing = sessionTimers.get(sessionId);
   if (existing) clearTimeout(existing);
-  sessionTimers.set(sessionId, setTimeout(() => cleanupSession(sessionId), SESSION_TTL));
+  sessionTimers.set(
+    sessionId,
+    setTimeout(() => cleanupSession(sessionId), SESSION_TTL)
+  );
 }
 
-export async function chatWithBot(sessionId: string, userMessage: string): Promise<string> {
+export async function chatWithBot(
+  sessionId: string,
+  userMessage: string
+): Promise<string> {
   if (!process.env.OPENAI_API_KEY) {
     return "Chatbot şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.";
   }
@@ -187,28 +182,29 @@ export async function chatWithBot(sessionId: string, userMessage: string): Promi
     ];
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4o",
       messages,
-      max_tokens: 500,
-      temperature: 0.7,
+      max_tokens: 600,
+      temperature: 0.65,
     });
 
-    const assistantMessage = response.choices[0]?.message?.content || "Üzgünüm, şu anda yanıt veremiyorum. Lütfen tekrar deneyin.";
+    const assistantMessage =
+      response.choices[0]?.message?.content ||
+      "Üzgünüm, şu anda yanıt veremiyorum. Lütfen tekrar deneyin.";
 
     history.push({ role: "assistant", content: assistantMessage });
 
     return assistantMessage;
   } catch (error: any) {
     console.error("Chatbot error:", error?.message || error);
-    
     history.pop();
 
     if (error?.status === 429) {
       return "Şu anda çok fazla istek var, lütfen birkaç saniye sonra tekrar deneyin.";
     }
     if (error?.status === 401) {
-      return "Chatbot yapılandırma hatası. Lütfen okulla iletişime geçin: 0216 642 8 642";
+      return `Chatbot yapılandırma hatası. Lütfen okulla iletişime geçin: ${CONTACT.phone}`;
     }
-    return "Bir hata oluştu, lütfen tekrar deneyin veya bizi arayın: 0216 642 8 642";
+    return `Bir hata oluştu, lütfen tekrar deneyin veya bizi arayın: ${CONTACT.phone}`;
   }
 }

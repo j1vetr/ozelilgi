@@ -154,6 +154,28 @@ export function WelcomePopup() {
                         <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#F97316] group-hover:translate-x-0.5 transition-all shrink-0" />
                       </div>
                     </Link>
+
+                    {/* Bize Ulaşın */}
+                    <Link href="/iletisim" onClick={dismiss}>
+                      <div className="group flex items-center gap-3.5 bg-white border border-gray-200 rounded-2xl px-4 py-3.5 shadow-sm hover:shadow-md hover:border-[#10B981]/25 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                        <div className="w-11 h-11 rounded-xl bg-[#10B981] flex items-center justify-center shrink-0 shadow-sm">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 5.46 5.46l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[13.5px] font-bold text-[#0B2755] leading-tight">
+                            {lang === "tr" ? "Bize Ulaşın" : "Contact Us"}
+                          </p>
+                          <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
+                            {lang === "tr"
+                              ? "Sorularınız için bizi arayın veya mesaj gönderin."
+                              : "Call or message us for any questions."}
+                          </p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#10B981] group-hover:translate-x-0.5 transition-all shrink-0" />
+                      </div>
+                    </Link>
                   </div>
                 </div>
 

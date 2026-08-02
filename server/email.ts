@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 const FROM_NAME = "Çekmeköy Boğaziçi İlgi Koleji";
 const FROM_EMAIL = process.env.SMTP_USER || "no-reply@toov.com.tr";
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "info@ozelilgiokullari.k12.tr";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "info@ozelbogaziciilgiokullari.k12.tr";
 const SCHOOL_PHONE = "0216 642 8 642";
 const SCHOOL_ADDRESS = "Mimar Sinan, Yeşil Kayalar Cd. No: 46-48, Çekmeköy/İstanbul";
 

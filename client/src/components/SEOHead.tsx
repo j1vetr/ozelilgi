@@ -57,7 +57,7 @@ export const SCHOOL_SCHEMA = {
   "description": "Çekmeköy'de anaokulu (3-6 yaş), ilkokul (1-4. sınıf) ve ortaokul (5-8. sınıf) kademelerinde kaliteli özel eğitim.",
   "url": SITE_URL,
   "telephone": "+902166428642",
-  "email": "info@ozelilgiokullari.k12.tr",
+  "email": "info@ozelbogaziciilgiokullari.k12.tr",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48",

@@ -3,66 +3,78 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { SCHOOL_INFO } from "@/lib/constants";
-import { Menu, X, ChevronDown, Phone, Home } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { getNavigationTranslated, T } from "@/lib/translations";
 
-function FlagTR() {
+/* ── Bayraklar ─────────────────────────────────────────────── */
+function FlagTR({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const dims = size === "lg" ? "w-9 h-6" : size === "sm" ? "w-6 h-4" : "w-8 h-5";
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" className="w-5 h-3.5 rounded-[2px] shrink-0 shadow-sm">
-      <rect width="1200" height="800" fill="#E30A17"/>
-      <circle cx="425" cy="400" r="200" fill="#fff"/>
-      <circle cx="475" cy="400" r="160" fill="#E30A17"/>
-      <polygon fill="#fff" points="583,400 530,437 550,383 510,350 565,350"/>
+    <svg viewBox="0 0 30 20" className={cn(dims, "rounded-[3px] shadow-sm shrink-0")} xmlns="http://www.w3.org/2000/svg">
+      <rect width="30" height="20" fill="#E30A17"/>
+      <circle cx="10.5" cy="10" r="5.5" fill="#fff"/>
+      <circle cx="11.8" cy="10" r="4.4" fill="#E30A17"/>
+      <polygon points="18.5,10 16.5,11.4 17.2,9.1 15.4,7.8 17.7,7.8" fill="#fff"/>
     </svg>
   );
 }
 
-function FlagGB() {
+function FlagGB({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const dims = size === "lg" ? "w-9 h-6" : size === "sm" ? "w-6 h-4" : "w-8 h-5";
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-3.5 rounded-[2px] shrink-0 shadow-sm">
-      <clipPath id="gb"><rect width="60" height="30"/></clipPath>
-      <g clipPath="url(#gb)">
-        <rect width="60" height="30" fill="#012169"/>
-        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
-        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" clipPath="url(#gb)"/>
-        <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10"/>
-        <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6"/>
-      </g>
+    <svg viewBox="0 0 60 30" className={cn(dims, "rounded-[3px] shadow-sm shrink-0")} xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="30" fill="#012169"/>
+      {/* diagonals white */}
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="8"/>
+      {/* cross white */}
+      <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10"/>
+      {/* diagonals red — clipped to quadrants manually */}
+      <path d="M0,0 L24,12 M36,18 L60,30 M60,0 L36,12 M24,18 L0,30" stroke="#C8102E" strokeWidth="5"/>
+      {/* cross red */}
+      <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6"/>
     </svg>
   );
 }
 
+/* ── Dil butonu — sadece bayrak ────────────────────────────── */
+function LangFlag({ scrolled }: { scrolled: boolean }) {
+  const { lang, setLang } = useLanguage();
+  return (
+    <button
+      onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+      data-testid="lang-switcher-desktop"
+      title={lang === "tr" ? "Switch to English" : "Türkçe'ye geç"}
+      className="cursor-pointer hover:scale-110 hover:opacity-90 transition-all duration-200 focus:outline-none"
+    >
+      {lang === "tr" ? <FlagGB /> : <FlagTR />}
+    </button>
+  );
+}
+
+/* ── Ana bileşen ───────────────────────────────────────────── */
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
   const [location] = useLocation();
   const { lang, setLang } = useLanguage();
-
   const NAVIGATION = getNavigationTranslated(lang);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  const toggleSection = (title: string) => {
+  const toggleSection = (title: string) =>
     setOpenSections(prev => ({ ...prev, [title]: !prev[title] }));
-  };
 
   return (
     <motion.header
@@ -77,6 +89,7 @@ export function Navbar() {
       )}
     >
       <div className="container flex items-center justify-between">
+        {/* Logo */}
         <Link href="/" className="flex items-center group" data-testid="navbar-logo-link">
           <div className="relative p-[3px] rounded-xl logo-border-animation">
             <div className={cn(
@@ -88,38 +101,32 @@ export function Navbar() {
           </div>
         </Link>
 
+        {/* Desktop nav */}
         <nav className={cn(
           "hidden lg:flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300",
-          scrolled 
-            ? "bg-gray-50/80" 
-            : "bg-white/10 backdrop-blur-md border border-white/20"
+          scrolled ? "bg-gray-50/80" : "bg-white/10 backdrop-blur-md border border-white/20"
         )}>
           {NAVIGATION.map((item, idx) => (
             <div key={idx} className="relative group">
-              <Link 
+              <Link
                 href={item.href}
                 data-testid={`navbar-nav-link-${idx}`}
                 className={cn(
                   "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-1.5",
                   (item.href === "/" ? location === "/" : location.startsWith(item.href))
-                    ? scrolled 
-                      ? "bg-primary text-white shadow-md" 
-                      : "bg-white text-primary shadow-md"
-                    : scrolled 
-                      ? "text-gray-700 hover:bg-gray-100 hover:text-primary" 
-                      : "text-white hover:bg-white/20"
+                    ? scrolled ? "bg-primary text-white shadow-md" : "bg-white text-primary shadow-md"
+                    : scrolled ? "text-gray-700 hover:bg-gray-100 hover:text-primary" : "text-white hover:bg-white/20"
                 )}
               >
                 {item.title}
                 {item.items && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
               </Link>
-              
               {item.items && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                   <div className="bg-white rounded-2xl shadow-2xl p-2 min-w-[220px] border border-gray-100/80">
                     {item.items.map((subItem, subIdx) => (
-                      <Link 
-                        key={subIdx} 
+                      <Link
+                        key={subIdx}
                         href={subItem.href}
                         data-testid={`navbar-dropdown-link-${idx}-${subIdx}`}
                         className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-xl transition-all"
@@ -134,28 +141,17 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <button
-            onClick={() => setLang(lang === "tr" ? "en" : "tr")}
-            data-testid="lang-switcher-desktop"
-            className={cn(
-              "flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition-all duration-300 border cursor-pointer",
-              scrolled
-                ? "bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-200"
-                : "bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md"
-            )}
-          >
-            {lang === "tr" ? <FlagGB /> : <FlagTR />}
-            <span>{lang === "tr" ? "EN" : "TR"}</span>
-          </button>
+        {/* Desktop sağ — bayrak + iletişim */}
+        <div className="hidden lg:flex items-center gap-4">
+          <LangFlag scrolled={scrolled} />
           <Link href="/iletisim">
-            <Button 
+            <Button
               size="lg"
               data-testid="navbar-contact-button"
               className={cn(
                 "rounded-full px-6 font-semibold transition-all duration-300 gap-2",
-                scrolled 
-                  ? "bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg shadow-brand-orange/25" 
+                scrolled
+                  ? "bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg shadow-brand-orange/25"
                   : "bg-white text-primary hover:bg-white/90 shadow-xl"
               )}
               asChild
@@ -168,26 +164,22 @@ export function Navbar() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Mobil sağ — bayrak + hamburger */}
+        <div className="flex items-center gap-3 lg:hidden">
           <button
             onClick={() => setLang(lang === "tr" ? "en" : "tr")}
             data-testid="lang-switcher-mobile"
-            className={cn(
-              "flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer",
-              scrolled
-                ? "bg-gray-100 text-gray-700"
-                : "bg-white/10 text-white backdrop-blur-md"
-            )}
+            title={lang === "tr" ? "Switch to English" : "Türkçe'ye geç"}
+            className="cursor-pointer hover:scale-110 hover:opacity-90 transition-all duration-200 focus:outline-none"
           >
             {lang === "tr" ? <FlagGB /> : <FlagTR />}
-            <span>{lang === "tr" ? "EN" : "TR"}</span>
           </button>
           <button
             data-testid="navbar-mobile-toggle"
             className={cn(
-              "p-3 rounded-xl transition-all",
-              scrolled 
-                ? "text-primary bg-gray-100 hover:bg-gray-200" 
+              "p-2.5 rounded-xl transition-all",
+              scrolled
+                ? "text-primary bg-gray-100 hover:bg-gray-200"
                 : "text-white bg-white/10 hover:bg-white/20 backdrop-blur-md"
             )}
             onClick={() => setIsOpen(!isOpen)}
@@ -197,40 +189,45 @@ export function Navbar() {
         </div>
       </div>
 
+      {/* ── Mobil Drawer ─────────────────────────────────────── */}
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-30"
+              className="lg:hidden fixed inset-0 bg-black/40 z-30"
               onClick={() => setIsOpen(false)}
             />
-            
+
             <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="lg:hidden fixed right-0 top-0 bottom-0 w-full max-w-[360px] bg-white z-40 shadow-2xl flex flex-col h-screen"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 300 }}
+              className="lg:hidden fixed right-0 top-0 bottom-0 w-[85vw] max-w-[340px] bg-white z-40 flex flex-col h-screen overflow-hidden"
             >
-              <div className="flex items-center justify-between p-5 border-b border-gray-100 shrink-0">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <img src="/images/logo-sm.png" alt="Logo" className="w-7 h-7 object-contain" />
-                  </div>
-                  <span className="font-display font-bold text-primary text-base">{T("nav.menu", lang)}</span>
-                </div>
+              {/* Header — logo net, arka plan yok */}
+              <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100 shrink-0">
+                <Link href="/" onClick={() => setIsOpen(false)}>
+                  <img
+                    src="/images/navbar-logo.png"
+                    alt="Özel Boğaziçi İlgi Okulları"
+                    className="h-12 w-auto object-contain"
+                  />
+                </Link>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2.5 rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                  className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-4 space-y-1">
+              {/* Navigasyon */}
+              <div className="flex-1 overflow-y-auto py-3 px-3">
                 {NAVIGATION.map((item, i) => (
                   <div key={i}>
                     {item.items ? (
@@ -238,19 +235,16 @@ export function Navbar() {
                         <button
                           data-testid={`mobile-nav-toggle-${i}`}
                           className={cn(
-                            "flex items-center justify-between w-full py-3.5 px-4 rounded-xl font-semibold text-base transition-colors",
+                            "flex items-center justify-between w-full py-3 px-4 rounded-xl font-semibold text-[15px] transition-colors",
                             location.startsWith(item.href)
-                              ? "bg-primary/10 text-primary"
+                              ? "text-primary bg-primary/8"
                               : "text-gray-800 hover:bg-gray-50"
                           )}
                           onClick={() => toggleSection(item.title)}
                         >
                           <span>{item.title}</span>
-                          <motion.div
-                            animate={{ rotate: openSections[item.title] ? 180 : 0 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <ChevronDown className="w-5 h-5 text-gray-400" />
+                          <motion.div animate={{ rotate: openSections[item.title] ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                            <ChevronDown className="w-4 h-4 text-gray-400" />
                           </motion.div>
                         </button>
 
@@ -260,33 +254,29 @@ export function Navbar() {
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.25, ease: "easeInOut" }}
+                              transition={{ duration: 0.22 }}
                               className="overflow-hidden"
                             >
-                              <div className="ml-4 pl-4 border-l-2 border-primary/20 py-1 space-y-0.5">
-                                <Link 
+                              <div className="ml-4 pl-3 border-l-2 border-primary/20 py-1 space-y-0.5 mb-1">
+                                <Link
                                   href={item.href}
                                   data-testid={`mobile-nav-link-${i}`}
                                   className={cn(
-                                    "block py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
-                                    location === item.href
-                                      ? "text-primary bg-primary/5"
-                                      : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                                    "block py-2 px-3 rounded-lg text-sm font-medium transition-colors",
+                                    location === item.href ? "text-primary" : "text-gray-500 hover:text-primary"
                                   )}
                                   onClick={() => setIsOpen(false)}
                                 >
                                   {T("nav.overview", lang)}
                                 </Link>
                                 {item.items.map((subItem, subIdx) => (
-                                  <Link 
-                                    key={subIdx} 
+                                  <Link
+                                    key={subIdx}
                                     href={subItem.href}
                                     data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
                                     className={cn(
-                                      "block py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
-                                      location === subItem.href
-                                        ? "text-primary bg-primary/5"
-                                        : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                                      "block py-2 px-3 rounded-lg text-sm font-medium transition-colors",
+                                      location === subItem.href ? "text-primary" : "text-gray-500 hover:text-primary"
                                     )}
                                     onClick={() => setIsOpen(false)}
                                   >
@@ -299,44 +289,57 @@ export function Navbar() {
                         </AnimatePresence>
                       </>
                     ) : (
-                      <Link 
+                      <Link
                         href={item.href}
                         data-testid={`mobile-nav-link-${i}`}
                         className={cn(
-                          "flex items-center gap-3 py-3.5 px-4 rounded-xl font-semibold text-base transition-colors",
+                          "flex items-center justify-between py-3 px-4 rounded-xl font-semibold text-[15px] transition-colors",
                           location === item.href
-                            ? "bg-primary/10 text-primary"
+                            ? "text-primary bg-primary/8"
                             : "text-gray-800 hover:bg-gray-50"
                         )}
                         onClick={() => setIsOpen(false)}
                       >
-                        {item.title}
+                        <span>{item.title}</span>
+                        <ArrowRight className="w-4 h-4 text-gray-300" />
                       </Link>
                     )}
                   </div>
                 ))}
               </div>
 
-              <div className="p-4 border-t border-gray-100 shrink-0 space-y-3 bg-gray-50/50">
-                <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)}>
-                  <Button 
-                    data-testid="mobile-preregister-button" 
-                    className="w-full bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 rounded-xl h-12 font-bold text-base shadow-lg"
+              {/* Alt — butonlar + dil seçimi */}
+              <div className="shrink-0 px-4 pb-6 pt-4 border-t border-gray-100 space-y-3">
+                <Link href="/kayit/on-kayit" onClick={() => setIsOpen(false)} className="block">
+                  <Button
+                    data-testid="mobile-preregister-button"
+                    className="w-full bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 rounded-xl h-12 font-bold text-base shadow-md"
                   >
                     {T("nav.preregister", lang)}
-                    <ChevronDown className="w-4 h-4 ml-1 -rotate-90" />
+                    <ArrowRight className="w-4 h-4 ml-1.5" />
                   </Button>
                 </Link>
-                <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, '')}`} className="block">
-                  <Button 
-                    variant="outline" 
-                    data-testid="mobile-contact-button" 
-                    className="w-full rounded-xl h-12 font-semibold text-base border-gray-200"
+                <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, "")}`} className="block">
+                  <Button
+                    variant="outline"
+                    data-testid="mobile-contact-button"
+                    className="w-full rounded-xl h-12 font-semibold text-base border-gray-200 text-gray-700"
                   >
-                    <Phone className="w-4 h-4 mr-2" />
+                    <Phone className="w-4 h-4 mr-2 text-primary" />
                     {SCHOOL_INFO.phone}
                   </Button>
                 </a>
+
+                {/* Dil seçimi — bayrak + etiket */}
+                <button
+                  onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+                  className="w-full flex items-center justify-center gap-2.5 py-2.5 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
+                >
+                  {lang === "tr" ? <FlagGB size="lg" /> : <FlagTR size="lg" />}
+                  <span className="text-sm font-semibold text-gray-600">
+                    {lang === "tr" ? "Switch to English" : "Türkçe'ye geç"}
+                  </span>
+                </button>
               </div>
             </motion.div>
           </>
