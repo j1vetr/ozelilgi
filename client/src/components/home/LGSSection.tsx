@@ -114,20 +114,6 @@ export function LGSSection() {
                 s.highlight ? "ring-2 ring-yellow-400/50 ring-offset-2" : ""
               } group hover:-translate-y-1 transition-transform duration-300`}
             >
-              {/* Rank badge — top left */}
-              <div className="absolute top-3 left-3 z-20">
-                <div
-                  className={`bg-gradient-to-br ${s.badgeColor} text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md leading-none`}
-                >
-                  {s.rank}
-                </div>
-              </div>
-
-              {/* Emoji badge — top right */}
-              <div className="absolute top-2.5 right-2.5 z-20 text-xl sm:text-2xl drop-shadow-md select-none">
-                {s.badge}
-              </div>
-
               {/* Photo */}
               <div className="relative overflow-hidden aspect-[3/4] sm:aspect-[4/5]">
                 <img
