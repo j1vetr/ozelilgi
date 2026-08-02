@@ -109,29 +109,21 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3"
+            className="flex flex-col items-center justify-center gap-3"
           >
-            <Link href="/kayit/on-kayit">
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  size="default"
-                  data-testid="hero-cta-button"
-                  className="h-11 w-48 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25 justify-center"
-                >
-                  {T("cta.register", lang)}
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </motion.div>
-            </Link>
-            <div className="flex flex-col items-center gap-2">
-              <motion.span
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="text-xs font-semibold tracking-wide text-brand-orange/90 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-orange/30"
-              >
-                #geleceğinliderleri
-              </motion.span>
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <Link href="/kayit/on-kayit">
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Button
+                    size="default"
+                    data-testid="hero-cta-button"
+                    className="h-11 w-48 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold shadow-lg shadow-brand-orange/25 justify-center"
+                  >
+                    {T("cta.register", lang)}
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </motion.div>
+              </Link>
               <Link href="/kampus">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                   <Button
@@ -145,6 +137,14 @@ export function HeroSlider() {
                 </motion.div>
               </Link>
             </div>
+            <motion.span
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="hidden sm:inline-block text-xs font-semibold tracking-wide text-brand-orange/90 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-orange/30"
+            >
+              #geleceğinliderleri
+            </motion.span>
           </motion.div>
         </div>
 

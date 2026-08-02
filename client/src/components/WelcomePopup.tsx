@@ -221,7 +221,7 @@ export function WelcomePopup() {
 
                   {/* Student PNG — vertically centered, full visible */}
                   <img
-                    src="/images/popup-student.png"
+                    src="/images/popup-student.webp"
                     alt="Öğrenci"
                     className="relative z-10 w-[90%] object-contain"
                     style={{ maxHeight: "400px" }}
@@ -233,7 +233,7 @@ export function WelcomePopup() {
               {/* Mobile-only student section */}
               <div className="sm:hidden flex items-end justify-center overflow-hidden" style={{ height: "220px" }}>
                 <img
-                  src="/images/popup-student.png"
+                  src="/images/popup-student.webp"
                   alt="Öğrenci"
                   className="h-[210px] w-auto object-contain object-bottom"
                   draggable={false}
