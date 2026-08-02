@@ -63,10 +63,13 @@ export function WelcomePopup() {
               </button>
 
               {/* Inner card */}
-              <div className="m-[3px] rounded-[21px] overflow-hidden flex flex-col sm:flex-row">
+              <div
+                className="m-[3px] rounded-[21px] overflow-hidden flex flex-col sm:flex-row"
+                style={{ background: "linear-gradient(160deg,#eff6ff 0%,#dbeafe 100%)" }}
+              >
 
                 {/* ── LEFT PANEL ── */}
-                <div className="relative bg-white flex flex-col justify-between px-7 py-8 sm:py-10 sm:w-[54%] z-10 overflow-hidden">
+                <div className="relative bg-transparent sm:bg-white flex flex-col justify-between px-7 py-8 sm:py-10 sm:w-[54%] z-10 overflow-hidden">
 
                   {/* Orange dot grid — top left */}
                   <div className="absolute top-5 left-5 grid grid-cols-5 gap-[5px] opacity-60 pointer-events-none">
@@ -81,15 +84,12 @@ export function WelcomePopup() {
                   </svg>
 
                   {/* Logo */}
-                  <div className="relative mt-2">
+                  <div className="relative mt-2 flex justify-center sm:justify-start">
                     <img
                       src="/images/navbar-logo.png"
                       alt="Özel Boğaziçi İlgi Okulları"
                       className="h-[52px] w-auto object-contain"
                     />
-                    <p className="text-[11px] text-gray-400 mt-1.5 font-medium italic">
-                      "Her öğrenci özeldir, ilgi iyilik eder."
-                    </p>
                   </div>
 
                   {/* Heading */}
@@ -121,8 +121,8 @@ export function WelcomePopup() {
                           </p>
                           <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
                             {lang === "tr"
-                              ? "Okul öncesi, ilkokul, ortaokul ve lise kademelerimiz"
-                              : "Preschool, primary, middle and high school levels"}
+                              ? "Okul öncesi, ilkokul, ortaokul ve lise kademelerimiz."
+                              : "Preschool, primary, middle and high school levels."}
                           </p>
                         </div>
                         <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#0B2755] group-hover:translate-x-0.5 transition-all shrink-0" />
@@ -147,8 +147,8 @@ export function WelcomePopup() {
                           </p>
                           <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
                             {lang === "tr"
-                              ? "Erken kayıt fırsatları ve size özel ayrıcalıklar"
-                              : "Early registration and exclusive privileges"}
+                              ? "Erken kayıt fırsatları ve size özel ayrıcalıklar."
+                              : "Early registration and exclusive privileges."}
                           </p>
                         </div>
                         <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#F97316] group-hover:translate-x-0.5 transition-all shrink-0" />
@@ -209,13 +209,7 @@ export function WelcomePopup() {
               </div>
 
               {/* Mobile-only student section */}
-              <div
-                className="sm:hidden flex items-end justify-center overflow-hidden"
-                style={{
-                  background: "linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%)",
-                  height: "220px",
-                }}
-              >
+              <div className="sm:hidden flex items-end justify-center overflow-hidden" style={{ height: "220px" }}>
                 <img
                   src="/images/popup-student.png"
                   alt="Öğrenci"
