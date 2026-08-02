@@ -7,7 +7,11 @@ import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 
 const heroSlides = [
-  { image: "/images/school-flag.webp" },
+  {
+    image: "/images/hero-slide1.jpg",
+    titleTR: "Her Çocuk Özel İlgiyi Hak Eder",
+    titleEN: "Every Child Deserves Special Attention",
+  },
   { image: "/images/building-drone-1.webp" },
   { image: "/images/sports-hall-1.webp" },
   { image: "/images/music-room-1.webp" },
@@ -83,7 +87,9 @@ export function HeroSlider() {
             data-testid="hero-title"
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-5"
           >
-            {T("hero.title", lang)}
+            {lang === "tr"
+              ? (heroSlides[activeSlide].titleTR ?? T("hero.title", lang))
+              : (heroSlides[activeSlide].titleEN ?? T("hero.title", lang))}
           </motion.h1>
 
           {/* Static Subtitle */}
