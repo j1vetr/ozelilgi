@@ -11,7 +11,7 @@ const heroSlides = [
     image: "/images/hero-slide1.jpg",
     titleTR: "Her Çocuk Özel İlgiyi Hak Eder",
     titleEN: "Every Child Deserves Special Attention",
-    duration: 7500,
+    duration: 12000,
   },
   { image: "/images/building-drone-1.webp", duration: 5000 },
   { image: "/images/sports-hall-1.webp", duration: 5000 },
