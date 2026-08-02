@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/ChatWidget";
+import { WelcomePopup } from "@/components/WelcomePopup";
 import { LanguageProvider } from "@/lib/i18n";
 import { HelmetProvider } from "react-helmet-async";
 import Home from "@/pages/Home";
@@ -98,6 +99,7 @@ function App() {
             <Toaster />
             <Router />
             <ChatWidget />
+            <WelcomePopup />
           </TooltipProvider>
         </QueryClientProvider>
       </LanguageProvider>
