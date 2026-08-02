@@ -2,111 +2,150 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/akademik/anaokulu</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kayit</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/akademik/ilkokul</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kayit/on-kayit</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/akademik/ortaokul</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/iletisim</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kayit/kayit-sureci</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kayit/on-kayit</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/akademik/anaokulu</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/akademik/ilkokul</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/akademik/ortaokul</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/akademik</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kayit</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/iletisim</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kayit/kayit-sureci</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kampus</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kampus/imkanlar</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kampus/imkanlar</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kampus/galeri</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kampus/galeri</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/akademik</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kurumsal/hakkimizda</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kurumsal/hakkimizda</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kurumsal/vizyon-misyon</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kurumsal/vizyon-misyon</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kurumsal/kurucu-mesaji</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kurumsal/kurucu-mesaji</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kurumsal/egitim-yaklasimimiz</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kurumsal/egitim-yaklasimimiz</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/haberler</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/kurumsal/egitim-politikamiz</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/programlar</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/basarilar</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/haberler</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/kampus</loc>
+    <loc>https://ozelbogaziciilgiokullari.k12.tr/veli-ogrenci</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/programlar</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cekmekoy.ozelbogaziciilgiokullari.k12.tr/sitemap.xml
+Sitemap: https://ozelbogaziciilgiokullari.k12.tr/sitemap.xml
