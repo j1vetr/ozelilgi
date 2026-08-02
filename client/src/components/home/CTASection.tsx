@@ -31,7 +31,7 @@ export function CTASection() {
               className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-4"
             >
               <Calendar className="w-4 h-4 text-brand-yellow" />
-              <span className="text-white/90 text-sm font-medium">2025-2026 {lang === "tr" ? "Kayıtları Açık" : "Enrollment Open"}</span>
+              <span className="text-white/90 text-sm font-medium">2026-2027 {lang === "tr" ? "Kayıtları Açık" : "Enrollment Open"}</span>
             </motion.div>
             
             <h2 data-testid="cta-section-title" className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-4 leading-tight">
