@@ -118,7 +118,7 @@ function LGSSlideContent({ student, lang }: { student: LGSStudent; lang: string 
             className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white px-3 py-1.5 rounded-full text-xs font-bold mb-3 shadow-sm"
           >
             <Trophy className="w-3 h-3 text-brand-orange shrink-0" />
-            Boğaziçi İlgi Koleji · {label}
+            Özel Boğaziçi İlgi Koleji · {label}
           </motion.div>
 
           {/* Student name */}
@@ -133,16 +133,26 @@ function LGSSlideContent({ student, lang }: { student: LGSStudent; lang: string 
           </motion.h2>
 
           {/* Stars */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.28 }}
-            className="flex gap-1 mb-3 md:mb-5"
-          >
+          <div className="flex items-center gap-1.5 mb-3 md:mb-5">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-brand-orange text-brand-orange" />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0, rotate: -20 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ delay: 0.28 + i * 0.07, type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <Star className="w-5 h-5 md:w-6 md:h-6 fill-amber-400 text-amber-400 drop-shadow-[0_1px_4px_rgba(251,191,36,0.7)]" />
+              </motion.div>
             ))}
-          </motion.div>
+            <motion.span
+              initial={{ opacity: 0, x: -6 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.65 }}
+              className="ml-1 text-xs md:text-sm font-bold text-white/80 tracking-wide"
+            >
+              LGS
+            </motion.span>
+          </div>
 
           {/* Description — desktop only */}
           <motion.p
