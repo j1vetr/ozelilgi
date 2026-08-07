@@ -232,6 +232,7 @@ export function getNavigationTranslated(lang: Language) {
         { title: lang === "tr" ? "Oyun Grubu (2-3 Yaş)" : "Play Group (Ages 2-3)", href: "/akademik/oyun-grubu" },
         { title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
         { title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
+        { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
       ],
     },
     {
@@ -254,10 +255,6 @@ export function getNavigationTranslated(lang: Language) {
     {
       title: getTranslation("nav.news", lang),
       href: "/haberler",
-    },
-    {
-      title: lang === "tr" ? "Başarılarımız" : "Achievements",
-      href: "/basarilar",
     },
     {
       title: getTranslation("nav.contact", lang),
