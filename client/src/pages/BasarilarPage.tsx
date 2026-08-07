@@ -3,8 +3,9 @@ import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Trophy, Award, Star } from "lucide-react";
+import { Trophy, Award, Star, Quote } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
 
 export default function BasarilarPage() {
   const { lang, t } = useLanguage();
@@ -98,11 +99,83 @@ export default function BasarilarPage() {
             </TabsContent>
 
             <TabsContent value="mezunlar" className="mt-0">
-                <div className="text-center py-12">
-                    <p className="text-muted-foreground">{t("Mezun listemiz güncellenmektedir.", "Our alumni list is being updated.")}</p>
-                </div>
+                <LGSGraduates />
             </TabsContent>
         </Tabs>
+      </div>
+    </div>
+  );
+}
+
+function LGSGraduates() {
+  const { lang, t } = useLanguage();
+  const graduates = [
+    {
+      name: "Burcu Beril Kaya",
+      image: "/images/lgs-burcu-beril-kaya.webp",
+      labelTR: "LGS Başarı Öğrencisi",
+      labelEN: "LGS Success Graduate",
+      descTR: "Ortaokul yıllarında aldığı güçlü akademik temel ve bireysel koçluk desteğiyle hayallerini gerçeğe dönüştürdü.",
+      descEN: "With the strong academic foundation and individual coaching she received in middle school, she turned her dreams into reality.",
+      quoteTR: "\"Öğretmenlerim her zaman yanımdaydı. Başarım onların emeğiyle mümkün oldu.\"",
+      quoteEN: "\"My teachers were always by my side. My success was possible thanks to their dedication.\"",
+    },
+    {
+      name: "Kaan Ege Alp",
+      image: "/images/lgs-kaan-ege-alp.webp",
+      labelTR: "LGS Başarı Öğrencisi",
+      labelEN: "LGS Success Graduate",
+      descTR: "Kodlama, robotik ve güçlü akademik programla donandı; LGS'de harika bir başarı elde etti.",
+      descEN: "Equipped with coding, robotics and a strong academic program, he achieved great success in LGS.",
+      quoteTR: "\"Boğaziçi İlgi'de sadece ders değil, düşünmeyi öğrendim.\"",
+      quoteEN: "\"At Boğaziçi İlgi, I didn't just learn lessons — I learned to think.\"",
+    },
+  ];
+
+  return (
+    <div className="py-4">
+      <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto text-sm md:text-base">
+        {t(
+          "Boğaziçi İlgi Koleji'nden mezun olan başarılı öğrencilerimizle gurur duyuyoruz.",
+          "We are proud of our successful graduates from Boğaziçi İlgi Koleji."
+        )}
+      </p>
+      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {graduates.map((g, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15 }}
+            className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-xl transition-all"
+          >
+            <div className="relative h-56 overflow-hidden">
+              <img
+                src={g.image}
+                alt={g.name}
+                className="w-full h-full object-cover object-right"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-primary/80 to-transparent">
+                <span className="text-xs font-bold text-white/90 uppercase tracking-wide block mb-1">
+                  {lang === "tr" ? g.labelTR : g.labelEN}
+                </span>
+                <h3 className="text-xl font-display font-black text-white">{g.name}</h3>
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                {lang === "tr" ? g.descTR : g.descEN}
+              </p>
+              <div className="flex gap-2 items-start bg-primary/5 rounded-xl p-4">
+                <Quote className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                <p className="text-gray-700 text-sm italic leading-relaxed">
+                  {lang === "tr" ? g.quoteTR : g.quoteEN}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

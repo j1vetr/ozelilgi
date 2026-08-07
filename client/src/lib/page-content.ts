@@ -147,7 +147,7 @@ export const CAMPUS_FACILITIES = [
     id: "sanat",
     title: "Görsel Sanatlar Atölyesi", 
     desc: "Yaratıcılığı geliştiren sanat eğitimi",
-    image: "/images/art-room-1.webp"
+    image: "/images/art-room-new-1.webp"
   },
   { 
     id: "muzik",
