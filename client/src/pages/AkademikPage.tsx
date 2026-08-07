@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/i18n";
 import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
-import { ArrowRight, Baby, BookOpen, GraduationCap, CheckCircle, ChevronRight, Star, Palette } from "lucide-react";
+import { ArrowRight, Baby, BookOpen, GraduationCap, CheckCircle, ChevronRight, Star, Palette, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -177,6 +177,69 @@ function AkademikOverview() {
   );
 }
 
+function RichContent({ sections, color }: { sections: any[]; color: { primary: string; light: string } }) {
+  return (
+    <div className="space-y-4 mb-6 text-gray-600 text-sm leading-relaxed">
+      {sections.map((s: any, i: number) => {
+        if (s.highlight) {
+          return (
+            <div key={i} className="rounded-xl p-4 border-l-4 font-semibold text-gray-800" style={{ borderColor: color.primary, backgroundColor: color.primary + "10" }}>
+              {s.highlight}
+            </div>
+          );
+        }
+        if (s.programs) {
+          return (
+            <div key={i}>
+              {s.heading && (
+                <h3 className="text-base font-display font-bold text-gray-800 mt-4 mb-3">{s.heading}</h3>
+              )}
+              <div className="space-y-3">
+                {s.programs.map((p: any, j: number) => (
+                  <div key={j} className="rounded-xl p-4 border border-gray-100 bg-gray-50">
+                    <div className="flex items-start gap-3">
+                      <span
+                        className="w-7 h-7 rounded-full text-white text-xs font-black flex items-center justify-center shrink-0 mt-0.5"
+                        style={{ backgroundColor: color.primary }}
+                      >
+                        {p.num}
+                      </span>
+                      <div>
+                        <h4 className="font-bold text-gray-800 text-sm mb-1">{p.title}</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed">{p.body}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        return (
+          <div key={i}>
+            {s.heading && (
+              <h3 className="text-base font-display font-bold text-gray-800 mt-4 mb-1">{s.heading}</h3>
+            )}
+            {s.body && s.body.split("\n\n").map((para: string, pi: number) => (
+              <p key={pi} className={pi > 0 ? "mt-2" : ""}>{para}</p>
+            ))}
+            {s.bullets && (
+              <ul className="mt-2 space-y-1.5 pl-1">
+                {s.bullets.map((b: string, j: number) => (
+                  <li key={j} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: color.primary }} />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function AkademikDetail({ slug, content }: { slug: string; content: any }) {
   const { lang, t } = useLanguage();
   const PAGE_CONTENT = getPageContentTranslated(lang);
@@ -312,7 +375,11 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
 
               <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">{content.title}</h1>
               
-              <p className="text-gray-600 leading-relaxed mb-6">{content.content}</p>
+              {content.richSections ? (
+                <RichContent sections={content.richSections} color={color} />
+              ) : (
+                <p className="text-gray-600 leading-relaxed mb-6">{content.content}</p>
+              )}
 
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
