@@ -106,13 +106,13 @@ export function Navbar() {
           "hidden lg:flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300",
           scrolled ? "bg-gray-50/80" : "bg-white/10 backdrop-blur-md border border-white/20"
         )}>
-          {NAVIGATION.map((item, idx) => (
+          {NAVIGATION.filter(item => item.href !== "/iletisim").map((item, idx) => (
             <div key={idx} className="relative group">
               <Link
                 href={item.href}
                 data-testid={`navbar-nav-link-${idx}`}
                 className={cn(
-                  "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-1.5",
+                  "px-3.5 xl:px-4 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-1.5",
                   (item.href === "/" ? location === "/" : location.startsWith(item.href))
                     ? scrolled ? "bg-primary text-white shadow-md" : "bg-white text-primary shadow-md"
                     : scrolled ? "text-gray-700 hover:bg-gray-100 hover:text-primary" : "text-white hover:bg-white/20"

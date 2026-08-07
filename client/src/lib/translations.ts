@@ -256,6 +256,10 @@ export function getNavigationTranslated(lang: Language) {
       href: "/haberler",
     },
     {
+      title: lang === "tr" ? "Başarılarımız" : "Achievements",
+      href: "/basarilar",
+    },
+    {
       title: getTranslation("nav.contact", lang),
       href: "/iletisim",
     },
@@ -270,6 +274,7 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
       { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
       { title: getTranslation("nav.about.policy", lang), href: "/kurumsal/egitim-politikamiz" },
+      { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
     ],
     akademik: [
       { title: lang === "tr" ? "Çekmeköy Anaokulu" : "Preschool in Çekmeköy", href: "/akademik/anaokulu" },
