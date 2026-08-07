@@ -49,10 +49,8 @@ export default function BasarilarPage() {
       />
 
       {/* ——— Mezunlarımız (öne çıkan) ——— */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-[#0b2e5b] py-16 md:py-20">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-orange/20 blur-3xl" />
-        <div className="absolute -bottom-32 -left-24 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
-        <div className="container px-4 relative">
+      <section className="bg-primary py-16 md:py-20">
+        <div className="container px-4">
           <motion.div {...fadeUp} className="text-center mb-10 md:mb-14">
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
               <GraduationCap className="w-4 h-4" />
@@ -76,7 +74,7 @@ export default function BasarilarPage() {
                   viewport={{ once: true }}
                   transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.2 + i * 0.08 }}
                 >
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]" />
+                  <Star className="w-6 h-6 text-amber-400 fill-amber-400" />
                 </motion.span>
               ))}
             </div>
@@ -199,7 +197,7 @@ export default function BasarilarPage() {
       />
 
       {/* ——— CTA ——— */}
-      <section className="py-14 md:py-16 bg-gradient-to-r from-primary to-[#0b2e5b]">
+      <section className="py-14 md:py-16 bg-primary">
         <div className="container px-4 text-center">
           <motion.div {...fadeUp}>
             <h2 className="text-2xl md:text-3xl font-display font-black text-white mb-3">
