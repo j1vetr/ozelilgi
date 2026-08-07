@@ -95,96 +95,95 @@ function LGSSlideContent({ student, lang }: { student: LGSStudent; lang: string 
   const label = lang === "tr" ? student.labelTR : student.labelEN;
   const desc  = lang === "tr" ? student.descTR  : student.descEN;
   const quote = lang === "tr" ? student.quoteTR : student.quoteEN;
-  const ctaLabel = lang === "tr" ? "Ön Kayıt Yap" : "Pre-Register";
+  const ctaLabel    = lang === "tr" ? "Ön Kayıt Yap"  : "Pre-Register";
   const subCtaLabel = lang === "tr" ? "Başarılarımız" : "Our Achievements";
 
   return (
-    /* Full-height flex — text aligned LEFT, taking ~50% of width */
-    <div className="relative h-full w-full flex items-center">
-      <div className="container px-6 md:px-12">
-        {/* Left column — max half the viewport */}
+    /* Mobile: bottom-anchored text over dark overlay. Desktop: left column. */
+    <div className="relative h-full w-full flex items-end md:items-center pb-36 md:pb-0">
+      <div className="container px-5 md:px-12">
         <motion.div
           key={student.name}
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="max-w-[52%] md:max-w-[46%]"
+          className="w-full md:max-w-[48%]"
         >
-          {/* School badge */}
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-xs md:text-sm font-bold mb-5 shadow-sm"
+            className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white px-3 py-1.5 rounded-full text-xs font-bold mb-3 shadow-sm"
           >
-            <Trophy className="w-3.5 h-3.5 text-brand-orange shrink-0" />
+            <Trophy className="w-3 h-3 text-brand-orange shrink-0" />
             Boğaziçi İlgi Koleji · {label}
           </motion.div>
 
-          {/* Student name — large & bold */}
+          {/* Student name */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-primary leading-tight mb-3"
-            style={{ textShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+            className="text-3xl sm:text-4xl md:text-6xl font-display font-black text-white leading-tight mb-2 md:mb-3"
+            style={{ textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
           >
             {name}
           </motion.h2>
 
-          {/* Gold star row */}
+          {/* Stars */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="flex gap-1 mb-5"
+            transition={{ delay: 0.28 }}
+            className="flex gap-1 mb-3 md:mb-5"
           >
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-brand-orange text-brand-orange" />
+              <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-brand-orange text-brand-orange" />
             ))}
           </motion.div>
 
-          {/* Description */}
+          {/* Description — desktop only */}
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="text-sm md:text-base text-gray-700 leading-relaxed mb-5"
+            className="hidden md:block text-sm md:text-base text-white/85 leading-relaxed mb-4"
           >
             {desc}
           </motion.p>
 
-          {/* Quote */}
+          {/* Quote — desktop only */}
           <motion.blockquote
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
-            className="border-l-4 border-brand-orange pl-4 mb-8 text-sm md:text-base text-gray-600 italic leading-relaxed"
+            transition={{ delay: 0.42 }}
+            className="hidden md:block border-l-4 border-brand-orange pl-4 mb-7 text-sm md:text-base text-white/75 italic leading-relaxed"
           >
             {quote}
           </motion.blockquote>
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            className="flex flex-col sm:flex-row gap-3"
+            transition={{ delay: 0.5 }}
+            className="flex flex-row gap-2 md:gap-3"
           >
             <Link href="/kayit/on-kayit">
               <Button
                 size="default"
-                className="h-12 px-7 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-bold shadow-lg shadow-brand-orange/30 justify-center"
+                className="h-10 md:h-12 px-5 md:px-7 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white font-bold shadow-lg shadow-black/30 justify-center text-sm md:text-base"
               >
-                {ctaLabel} <ArrowRight className="ml-2 w-4 h-4" />
+                {ctaLabel} <ArrowRight className="ml-1.5 w-3.5 h-3.5 md:w-4 md:h-4" />
               </Button>
             </Link>
             <Link href="/basarilar">
               <Button
                 size="default"
                 variant="outline"
-                className="h-12 px-7 rounded-full border-2 border-primary/30 text-primary hover:bg-primary/5 font-semibold justify-center"
+                className="h-10 md:h-12 px-5 md:px-7 rounded-full border-2 border-white/40 text-white hover:bg-white/15 backdrop-blur-sm font-semibold justify-center text-sm md:text-base"
               >
                 {subCtaLabel}
               </Button>
@@ -261,7 +260,7 @@ function DefaultSlideContent({ slide, lang }: { slide: HeroSlide; lang: string }
             transition={{ delay: 0.55 }}
             className="inline-block text-sm font-semibold tracking-wide text-white bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-brand-orange"
           >
-            #herçocuközelilgiyihakerder
+            #herçocuközelilgiyihakeder
           </motion.span>
         </motion.div>
       </div>
@@ -303,7 +302,7 @@ export function HeroSlider() {
             alt="Hero"
             className={`w-full h-full object-cover ${
               activeSlide === 0 ? "object-[72%_center] md:object-center" : ""
-            } ${isLGS ? "object-right md:object-right" : ""}`}
+            } ${isLGS ? "object-[70%_20%] md:object-right" : ""}`}
             loading={activeSlide === 0 ? "eager" : "lazy"}
             fetchPriority={activeSlide === 0 ? "high" : "auto"}
             decoding={activeSlide === 0 ? "sync" : "async"}
@@ -311,10 +310,14 @@ export function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Overlay — dark for regular slides, light for LGS slides */}
+      {/* Overlay */}
       {isLGS ? (
-        /* Light left gradient so text is readable, right stays clear */
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent pointer-events-none" />
+        <>
+          {/* Desktop: dark left band so white text is readable, right stays relatively clear */}
+          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-black/75 via-black/45 to-black/10 pointer-events-none" />
+          {/* Mobile: dark gradient from bottom so text at bottom is readable, student visible above */}
+          <div className="absolute inset-0 md:hidden bg-gradient-to-t from-black/85 via-black/50 to-black/20 pointer-events-none" />
+        </>
       ) : (
         <>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 pointer-events-none" />
@@ -386,7 +389,7 @@ export function HeroSlider() {
 
       {/* Marquee Strip */}
       <div className="absolute bottom-16 left-0 right-0 overflow-hidden z-10">
-        <div className={`${isLGS ? "bg-white/70 border-y border-gray-200" : "bg-white/10 backdrop-blur-md border-y border-white/10"} py-3`}>
+        <div className="bg-white/10 backdrop-blur-md border-y border-white/10 py-3">
           <motion.div
             animate={{ x: [0, -1920] }}
             transition={{ x: { duration: 30, repeat: Infinity, ease: "linear" } }}
@@ -394,8 +397,8 @@ export function HeroSlider() {
           >
             {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
               <div key={i} className="flex items-center gap-6">
-                <span className={`font-medium text-sm ${isLGS ? "text-gray-700" : "text-white"}`}>{item}</span>
-                <span className={isLGS ? "text-gray-400" : "text-white/30"}>|</span>
+                <span className="font-medium text-sm text-white">{item}</span>
+                <span className="text-white/30">|</span>
               </div>
             ))}
           </motion.div>
