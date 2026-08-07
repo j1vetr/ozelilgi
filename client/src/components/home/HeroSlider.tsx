@@ -64,7 +64,7 @@ const heroSlides: HeroSlide[] = [
       quoteEN: "\"At Boğaziçi İlgi, I didn't just learn lessons — I learned to think.\"",
     },
   },
-  { image: "/images/building-drone-1.webp", duration: 5000 },
+  { image: "/images/building-lgs-banner.webp", duration: 5000 },
   { image: "/images/music-room-1.webp", duration: 5000 },
   { image: "/images/wall-mural-nature.webp", duration: 5000 },
 ];
