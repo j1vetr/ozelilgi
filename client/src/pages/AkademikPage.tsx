@@ -16,6 +16,12 @@ const AKADEMIK_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
     descTR: "Çekmeköy anaokulu arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde 3-6 yaş için oyun temelli öğrenme, İngilizce eğitim, müzik ve yaratıcı atölyeler.",
     descEN: "Looking for a preschool in Çekmeköy? Boğaziçi İlgi Koleji offers play-based learning, English education, music and creative workshops for ages 3-6.",
   },
+  "oyun-grubu": {
+    titleTR: "Çekmeköy Oyun Grubu | Özel Boğaziçi İlgi Koleji",
+    titleEN: "Play Group in Çekmeköy | Özel Boğaziçi İlgi Koleji",
+    descTR: "Çekmeköy'de 2-3 yaş oyun grubu. Boğaziçi İlgi Koleji'nde çocuğunuzun ilk adımlarını oyun temelli, sevgi dolu bir ortamda atmasını sağlıyoruz.",
+    descEN: "Play group for ages 2-3 in Çekmeköy. At Boğaziçi İlgi Koleji, we ensure your child takes their first steps in a play-based, loving environment.",
+  },
   ilkokul: {
     titleTR: "Çekmeköy İlkokulu | Özel Boğaziçi İlgi Koleji",
     titleEN: "Primary School in Çekmeköy | Özel Boğaziçi İlgi Koleji",
@@ -28,19 +34,13 @@ const AKADEMIK_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
     descTR: "Çekmeköy ortaokulu arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde 5-8. sınıf için LGS hazırlık, 2. yabancı dil, robotik ve kariyer rehberliği.",
     descEN: "Looking for a middle school in Çekmeköy? Boğaziçi İlgi Koleji offers LGS exam prep, second foreign language, robotics and career guidance for grades 5-8.",
   },
-  "yaratici-tasarim": {
-    titleTR: "Yaratıcı Tasarım Atölyesi | Özel Boğaziçi İlgi Koleji",
-    titleEN: "Creative Design Workshop | Özel Boğaziçi İlgi Koleji",
-    descTR: "Boğaziçi İlgi Koleji Yaratıcı Tasarım Atölyesi'nde grafik tasarım, illüstrasyon, dijital sanat ve 3D modelleme ile öğrencilerin yaratıcı potansiyellerini keşfediyoruz.",
-    descEN: "At Boğaziçi İlgi Koleji Creative Design Workshop, we discover students' creative potential through graphic design, illustration, digital art and 3D modeling.",
-  },
 };
 
 const levelIcons: Record<string, any> = {
   "anaokulu": Baby,
+  "oyun-grubu": Star,
   "ilkokul": BookOpen,
   "ortaokul": GraduationCap,
-  "yaratici-tasarim": Palette
 };
 
 export default function AkademikPage() {
@@ -83,9 +83,9 @@ function AkademikOverview() {
             const Icon = levelIcons[key] || GraduationCap;
             const colors = {
               anaokulu: { primary: "#F97316", gradient: "from-orange-500 to-amber-500", bg: "bg-orange-50", ring: "ring-orange-200" },
+              "oyun-grubu": { primary: "#EC4899", gradient: "from-pink-500 to-rose-500", bg: "bg-pink-50", ring: "ring-pink-200" },
               ilkokul: { primary: "#3B82F6", gradient: "from-blue-500 to-indigo-500", bg: "bg-blue-50", ring: "ring-blue-200" },
               ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-50", ring: "ring-emerald-200" },
-              "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-500", bg: "bg-violet-50", ring: "ring-violet-200" }
             };
             const color = colors[key as keyof typeof colors];
 
@@ -185,9 +185,9 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
 
   const colors: Record<string, { primary: string; gradient: string; bg: string; light: string }> = {
     anaokulu: { primary: "#F97316", gradient: "from-orange-500 to-amber-500", bg: "bg-orange-500", light: "bg-orange-50" },
+    "oyun-grubu": { primary: "#EC4899", gradient: "from-pink-500 to-rose-500", bg: "bg-pink-500", light: "bg-pink-50" },
     ilkokul: { primary: "#3B82F6", gradient: "from-blue-500 to-indigo-500", bg: "bg-blue-500", light: "bg-blue-50" },
     ortaokul: { primary: "#10B981", gradient: "from-emerald-500 to-teal-500", bg: "bg-emerald-500", light: "bg-emerald-50" },
-    "yaratici-tasarim": { primary: "#8B5CF6", gradient: "from-violet-500 to-purple-500", bg: "bg-violet-500", light: "bg-violet-50" }
   };
   const color = colors[slug] || colors.ilkokul;
   const seo = AKADEMIK_SEO[slug] || AKADEMIK_SEO["ilkokul"];

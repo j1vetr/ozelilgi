@@ -20,7 +20,8 @@ const facilityIcons: Record<string, any> = {
   "spor": Dumbbell, "sports": Dumbbell,
   "kutuphane": BookOpen, "library": BookOpen,
   "yemekhane": Utensils, "cafeteria": Utensils,
-  "rehberlik": HeartHandshake, "counseling": HeartHandshake
+  "rehberlik": HeartHandshake, "counseling": HeartHandshake,
+  "bahce": Leaf, "garden": Leaf,
 };
 
 const facilityColors: Record<string, { gradient: string; light: string; primary: string }> = {
@@ -39,7 +40,9 @@ const facilityColors: Record<string, { gradient: string; light: string; primary:
   "yemekhane": { gradient: "from-yellow-500 to-orange-500", light: "bg-yellow-50", primary: "#EAB308" },
   "cafeteria": { gradient: "from-yellow-500 to-orange-500", light: "bg-yellow-50", primary: "#EAB308" },
   "rehberlik": { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", primary: "#EC4899" },
-  "counseling": { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", primary: "#EC4899" }
+  "counseling": { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", primary: "#EC4899" },
+  "bahce": { gradient: "from-green-500 to-lime-500", light: "bg-green-50", primary: "#22C55E" },
+  "garden": { gradient: "from-green-500 to-lime-500", light: "bg-green-50", primary: "#22C55E" },
 };
 
 export default function KampusPage() {

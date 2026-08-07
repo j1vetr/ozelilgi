@@ -87,6 +87,34 @@ export default function KayitPage() {
         breadcrumbs={[{ label: T("nav.enrollment", lang), href: "/kayit" }]}
       />
 
+      {/* Fotoğraf Galeri Banner */}
+      <div className="container px-4 pt-8 pb-2 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 rounded-3xl overflow-hidden">
+          {[
+            "/images/preschool-orange-1.webp",
+            "/images/primary-class-1.webp",
+            "/images/coding-lab-1.webp",
+            "/images/garden-swing.webp",
+          ].map((src, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.08 }}
+              className="relative h-40 md:h-52 overflow-hidden"
+            >
+              <img
+                src={src}
+                alt=""
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       <div className="container py-12 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

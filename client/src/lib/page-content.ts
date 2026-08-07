@@ -2,8 +2,14 @@ export const PAGE_CONTENT = {
   kurumsal: {
     "hakkimizda": {
       title: "Hakkımızda",
-      subtitle: "26+ Yıllık Tecrübe ile Kaliteli Eğitim",
-      content: `Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.`,
+      subtitle: "Geleceği Sevgi, Deneyim ve Keşifle İnşa Ediyoruz",
+      content: `Çekmeköy Boğaziçi Özel İlgi Okulları olarak, 26 yıla dayanan öğretmenlik deneyimine sahip kurucularımızın vizyonuyla, kendimizi tamamen geleceğin teminatı olan çocuklarımıza adıyoruz. Eğitimin içinden gelen bir kadronun tecrübesiyle; ticari kaygılardan uzak, sadece ve sadece öğrencilerin ihtiyaçlarını ve gelişimini odağına alan bir eğitim anlayışını benimsiyoruz.
+
+Anaokulundan başlayarak üniversite çağına kadar eğitimin her aşamasında; her çocuğun eşsiz yeteneklerle donatıldığına ve her birinin kendine özgü bir potansiyele sahip olduğuna inanıyoruz. Eğitimde asıl amacımız; bu üstün özellikleri keşfetmek, doğru ve planlı bir rehberlikle geliştirmek ve bireysel üretkenliğe dönüştürmektir.
+
+Eğitimin olmazsa olmazının koşulsuz sevgi ve sarsılmaz bir güven olduğuna inanıyoruz. Sevgi ve güvenle donatılmış bir ortamda yetişen her bir öğrencimizin; dünyadaki ve ülkemizdeki yenilikleri yakından takip eden, kendi öğrenme ve gelişme hızına göre şekillendirilen programlarla ilerleyen, becerilerini ve ilgi alanlarını en üst düzeyde geliştiren, özgüveni yüksek, yaratıcı ve liderlik vasıfları gelişmiş, toplum bilincine sahip, doğaya ve tüm canlılara saygılı bireyler olmasını hedefliyoruz.
+
+Çekmeköy Boğaziçi Özel İlgi Okulları çatısı altında, değişimin ve ilerlemenin sınırı olmadığını bilerek her gün daha iyisi için çalışıyoruz. Çünkü biliyoruz ki; ilgi, sevgi ve doğru eğitimle yetişen her çocuk, üstün yeteneklerini keşfetmiş mutlu ve başarılı bir bireydir.`,
       features: [
         { label: "Anaokulu Sınıfı", value: "4 Adet" },
         { label: "Kuruluş", value: "2013" }
@@ -32,8 +38,8 @@ Boğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının ya
     "vizyon-misyon": {
       title: "Vizyon & Misyon",
       subtitle: "Geleceği Şekillendiriyoruz",
-      vision: "Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.",
-      mission: "Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.",
+      vision: "Çekmeköy Boğaziçi Özel İlgi Okulları olarak vizyonumuz; öğrencilerimizi kendini tanıyan, yeteneklerini bilen, doğru kararlar alabilen, çevresine ve dünyaya karşı sorumlu, geleceği şekillendirmeye hazır liderler olarak yetiştirmektir.",
+      mission: "Çekmeköy Boğaziçi Özel İlgi Okulları misyonu; ticari kaygılardan uzak, öğrencinin ihtiyacını her şeyin merkezine alan bir anlayışla; 26+ yıllık öğretmenlik tecrübesiyle, her çocuğu bireysel olarak tanıyarak ve onlara koşulsuz sevgiyle yaklaşarak — Atatürk ilkelerine bağlı, özgüvenli, yaratıcı, doğayı ve insanı seven, topluma katkı sunan bireyler yetiştirmektir.",
       values: [
         { title: "Saygı", desc: "Bireysel farklılıklara ve değerlere saygı" },
         { title: "Dürüstlük", desc: "Şeffaf ve güvenilir iletişim" },
@@ -153,13 +159,19 @@ export const CAMPUS_FACILITIES = [
     id: "kodlama",
     title: "Kodlama Atölyesi", 
     desc: "Yazılım ve robotik eğitimi",
-    image: "/images/classroom-smartboard.webp"
+    image: "/images/coding-lab-1.webp"
   },
   { 
     id: "fen",
     title: "Fen Bilgisi Laboratuvarı", 
     desc: "Deneysel öğrenme ortamı",
-    image: "/images/science-room-1.webp"
+    image: "/images/science-lab-new.webp"
+  },
+  { 
+    id: "bahce",
+    title: "Bahçe & Oyun Alanı", 
+    desc: "Açık hava oyun ve etkinlik alanı",
+    image: "/images/garden-slide.webp"
   },
   { 
     id: "spor",
@@ -191,17 +203,33 @@ export const CAMPUS_GALLERY = [
   "/images/building-drone-1.webp",
   "/images/building-drone-2.webp",
   "/images/outdoor-entrance-ataturk.jpg",
+  "/images/preschool-orange-1.webp",
+  "/images/preschool-orange-2.webp",
+  "/images/preschool-blue-1.webp",
+  "/images/preschool-blue-2.webp",
+  "/images/playgroup-1.webp",
+  "/images/playgroup-2.webp",
+  "/images/playgroup-3.webp",
+  "/images/primary-class-1.webp",
+  "/images/primary-class-2.webp",
+  "/images/primary-class-3.webp",
+  "/images/coding-lab-1.webp",
+  "/images/coding-lab-2.webp",
+  "/images/coding-lab-3.webp",
+  "/images/coding-lab-4.webp",
+  "/images/science-lab-new.webp",
+  "/images/art-room-new-1.webp",
+  "/images/art-room-new-2.webp",
+  "/images/garden-swing.webp",
+  "/images/garden-playhouse.webp",
+  "/images/garden-slide.webp",
+  "/images/wall-mural-nature.webp",
+  "/images/wall-mural-building.webp",
+  "/images/school-slogan-board.webp",
   "/images/sports-hall-1.webp",
   "/images/music-room-1.webp",
   "/images/art-room-1.webp",
-  "/images/classroom-smartboard.webp",
-  "/images/kindergarten-kitchen.jpg",
-  "/images/hallway-underwater.webp",
   "/images/library-1.jpg",
-  "/images/science-room-1.webp",
   "/images/cafeteria-1.jpg",
-  "/images/playground-slide-1.jpg",
   "/images/entrance-stairs.jpg",
-  "/images/music-room-2.jpg",
-  "/images/classroom-blue-1.jpg"
 ];

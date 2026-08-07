@@ -1,0 +1,3 @@
+- [Hero Slider LGS slides](hero-lgs-slides.md) — slides 2-3 are LGS student success cards with light bg; require per-slide dark text + left-aligned layout; special `isLGS` branch in HeroSlider.
+- [Akademik kademe yapısı](akademik-kademeler.md) — 4 kademeler: anaokulu, oyun-grubu (2-3 yaş), ilkokul, ortaokul; yaratici-tasarim kaldırıldı; translations.ts + AkademikPage + nav + footer hepsinde tutarlı olmalı.
+- [Yeni fotoğraflar — dosya adları](yeni-fotograflar.md) — 23 WhatsApp foto WebP olarak public/images/ altında; akademik, kampüs, galeri, haberler'de kullanılıyor.

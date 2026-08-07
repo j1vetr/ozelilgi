@@ -178,25 +178,7 @@ function HakkimizdaContent() {
         ))}
       </div>
 
-      {content.principles && (
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold text-primary mb-4">{t("Eğitim Prensiplerimiz", "Our Educational Principles")}</h3>
-          <div className="space-y-2">
-            {content.principles.map((principle: string, i: number) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.08 }}
-                className="flex items-center gap-3 bg-primary/5 rounded-xl px-4 py-3"
-              >
-                <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-sm text-gray-700">{principle}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Eğitim Prensiplerimiz bölümü kaldırıldı — içerik yukarıdaki metne dahil edildi */}
 
       <div>
         <h3 className="text-lg font-semibold text-primary mb-4 text-center">{t("Kampüs İmkanları", "Campus Facilities")}</h3>
