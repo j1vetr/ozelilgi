@@ -100,7 +100,7 @@ function LGSSlideContent({ student, lang }: { student: LGSStudent; lang: string 
 
   return (
     /* Mobile: bottom-anchored text over dark overlay. Desktop: left column. */
-    <div className="relative h-full w-full flex items-end md:items-center pb-36 md:pb-0">
+    <div className="relative h-full w-full flex items-center">
       <div className="container px-5 md:px-12">
         <motion.div
           key={student.name}
