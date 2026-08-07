@@ -108,7 +108,7 @@ function LGSSlideContent({ student, lang }: { student: LGSStudent; lang: string 
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="w-full md:max-w-[48%]"
+          className="w-full md:max-w-[48%] flex flex-col items-center text-center"
         >
           {/* Badge */}
           <motion.div
