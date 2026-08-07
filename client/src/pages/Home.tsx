@@ -25,8 +25,8 @@ export default function Home() {
       />
       <HeroSlider />
       <WhyBogaziciSection />
-      <FAQSection />
       <StatsSection />
+      <FAQSection />
       <SchoolLevels />
       <AnnouncementsSection />
       <GuidesSection />

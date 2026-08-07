@@ -464,7 +464,7 @@ export function getPageContentTranslated(lang: Language) {
         "ortaokul": {
           title: "Ortaokul", subtitle: "LGS'ye Hazırlık ve Geleceğe Yön Verme", ages: "5-8. Sınıf", color: "#10B981",
           image: "/images/primary-class-3.webp",
-          galleryImages: ["/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
+          galleryImages: ["/images/primary-class-3.webp", "/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
           content: "Ortaokul Eğitim Sistemimiz\n\nOrtaokul dönemi; akademik branşlaşmanın başladığı, soyut düşünme becerilerinin geliştiği ve liselere geçiş sınavlarına (LGS) hazırlığın yoğunlaştığı kritik bir süreçtir. Çekmeköy Boğaziçi İlgi Koleji olarak, 26 yılı aşan öğretmenlik tecrübemizle öğrencilerimizi hem LGS'ye en üst düzeyde hazırlıyor hem de onları geleceğe yön veren, özgüvenli bireyler olarak yetiştiriyoruz.\n\nBirebir Takip ve Akademik Başarı\n\nBaşarımızın en temel anahtarı; ticari kaygılardan uzak, kendisini tamamen öğrenciye adayan uzman kadromuzun uyguladığı birebir ve sistemli takip anlayışıdır.\n\nLGS Hazırlıkta \"Biz Bize Yeteriz\"\n\nEğitim modelimiz; öğrencilerimizin herhangi bir dış kursa veya özel derse ihtiyaç duymadan, LGS hazırlık sürecinde ihtiyaç duydukları tüm akademik desteği okulumuz bünyesinde almaları üzerine kurulmuştur. 8. sınıftaki öğrencilerimize atanan danışman öğretmenimiz; sınav maratonu boyunca hem akademik takibi yürütür hem de psikolojik rehberlik sağlar.\n\nÇünkü Biliyoruz Ki:\n\n26 yıllık öğretmenlik tecrübesi, ilgi ve sevgiyle büyüyen her Çekmeköy Boğaziçi İlgi öğrencisi; Atatürk ilkelerine bağlı, değerlerine sahip çıkan, doğayı seven, LGS'de ve hayatta başarıya ulaşmış mutlu bir bireydir.",
           features: [
             { title: "LGS ve Beceri Temelli Yaklaşım", desc: "Analiz etme, yorumlama ve hayatın içinde kullanma yetkinliği; yeni nesil soru tiplerine hakimiyet" },
@@ -583,7 +583,7 @@ export function getPageContentTranslated(lang: Language) {
       "ortaokul": {
         title: "Middle School", subtitle: "LGS Preparation and Shaping the Future", ages: "Grades 5-8", color: "#10B981",
         image: "/images/primary-class-3.webp",
-        galleryImages: ["/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
+        galleryImages: ["/images/primary-class-3.webp", "/images/sports-hall-1.webp", "/images/music-room-1.webp", "/images/library-2.jpg"],
         content: "Middle school is a critical period when academic specialization begins, abstract thinking skills develop, and preparation for high school entrance exams (LGS) intensifies. As Çekmeköy Boğaziçi İlgi Koleji, with our 26+ years of teaching experience, we both prepare our students for LGS at the highest level and raise them as confident individuals who give direction to the future.\n\nOur educational model is built on students receiving all the academic support they need for LGS preparation within our school, without needing any external tutoring center or private lessons.",
         features: [
           { title: "LGS & Skills-Based Approach", desc: "Competency in analyzing, interpreting, and applying knowledge in real life; mastery of new generation question types" },
