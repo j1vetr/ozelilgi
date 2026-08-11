@@ -434,7 +434,7 @@ function AchievementSection({
 
 const GRADUATES = [
   {
-    name: "Burcu Beril Kaya",
+    name: "Burcu Beril KARA",
     image: "/images/lgs-burcu-beril-kaya.webp",
     labelTR: "LGS Başarı Öğrencimiz",
     labelEN: "Our LGS Success Graduate",
@@ -446,7 +446,7 @@ const GRADUATES = [
     quoteEN: "\"My teachers were always by my side. My success was possible thanks to their dedication.\"",
   },
   {
-    name: "Kaan Ege Alp",
+    name: "Kaan Ege ALP",
     image: "/images/lgs-kaan-ege-alp.webp",
     labelTR: "LGS Başarı Öğrencimiz",
     labelEN: "Our LGS Success Graduate",

@@ -38,9 +38,9 @@ const heroSlides: HeroSlide[] = [
     image: "/images/lgs-burcu-beril-kaya.webp",
     duration: 8000,
     lgsStudent: {
-      name: "Burcu Beril Kaya",
-      nameTR: "Burcu Beril Kaya",
-      nameEN: "Burcu Beril Kaya",
+      name: "Burcu Beril KARA",
+      nameTR: "Burcu Beril KARA",
+      nameEN: "Burcu Beril KARA",
       labelTR: "LGS Başarı Öğrencisi",
       labelEN: "LGS Success Graduate",
       descTR: "Ortaokul yıllarında aldığı güçlü akademik temel ve bireysel koçluk desteğiyle hayallerini gerçeğe dönüştürdü.",
@@ -53,9 +53,9 @@ const heroSlides: HeroSlide[] = [
     image: "/images/lgs-kaan-ege-alp.webp",
     duration: 8000,
     lgsStudent: {
-      name: "Kaan Ege Alp",
-      nameTR: "Kaan Ege Alp",
-      nameEN: "Kaan Ege Alp",
+      name: "Kaan Ege ALP",
+      nameTR: "Kaan Ege ALP",
+      nameEN: "Kaan Ege ALP",
       labelTR: "LGS Başarı Öğrencisi",
       labelEN: "LGS Success Graduate",
       descTR: "Kodlama, robotik ve güçlü akademik programla donandı; LGS'de harika bir başarı elde etti.",
@@ -270,7 +270,7 @@ function DefaultSlideContent({ slide, lang }: { slide: HeroSlide; lang: string }
             transition={{ delay: 0.55 }}
             className="inline-block text-sm font-semibold tracking-wide text-white bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-brand-orange"
           >
-            #herçocuközelilgiyihakeder
+            #heröğrenciözelilgiyihakeder
           </motion.span>
         </motion.div>
       </div>

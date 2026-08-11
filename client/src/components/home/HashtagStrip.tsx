@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const HASHTAGS = [
-  "#herçocuközelilgiyihakeder",
+  "#heröğrenciözelilgiyihakeder",
   "#geleceğinliderleri",
   "#özelilgiözelgelecek",
   "#ilgiilebüyüyennesiller",
