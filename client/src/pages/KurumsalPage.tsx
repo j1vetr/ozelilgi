@@ -178,7 +178,23 @@ function HakkimizdaContent() {
         ))}
       </div>
 
-      {/* Eğitim Prensiplerimiz bölümü kaldırıldı — içerik yukarıdaki metne dahil edildi */}
+      {content.principlesTitle && (
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
+          <h3 className="text-lg md:text-xl font-display font-bold text-primary mb-3">{content.principlesTitle}</h3>
+          <p className="text-gray-600 leading-relaxed text-sm md:text-base mb-4">{content.principlesIntro}</p>
+          <ul className="space-y-2.5 mb-5">
+            {content.principles?.map((item: string, i: number) => (
+              <li key={i} className="flex items-start gap-2.5">
+                <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-gray-600 text-sm md:text-base leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+          {content.principlesClosing?.map((para: string, i: number) => (
+            <p key={i} className="text-gray-600 leading-relaxed text-sm md:text-base mb-3 last:mb-0">{para}</p>
+          ))}
+        </div>
+      )}
 
       <div>
         <h3 className="text-lg font-semibold text-primary mb-4 text-center">{t("Kampüs İmkanları", "Campus Facilities")}</h3>
@@ -308,6 +324,19 @@ function VizyonMisyonContent() {
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">{t("Misyonumuz", "Our Mission")}</h3>
                 <p className="text-gray-600 leading-relaxed">{content.mission}</p>
+                {content.missionLead && (
+                  <>
+                    <p className="text-gray-700 font-medium leading-relaxed mt-4">{content.missionLead}</p>
+                    <ul className="space-y-2 mt-3">
+                      {content.missionItems?.map((item: string, i: number) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-1" />
+                          <span className="text-gray-600 text-sm leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             </div>
             <div className="absolute top-4 right-4 w-20 h-20 bg-green-100 rounded-full opacity-50 blur-2xl" />

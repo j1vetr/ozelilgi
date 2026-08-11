@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
@@ -20,8 +21,11 @@ import {
   FlaskConical,
   Medal,
   ArrowRight,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -196,6 +200,9 @@ export default function BasarilarPage() {
         testPrefix="sports"
       />
 
+      {/* ——— Sanat Atölyesi Sergisi ——— */}
+      <SanatSergisiSection />
+
       {/* ——— CTA ——— */}
       <section className="py-14 md:py-16 bg-primary">
         <div className="container px-4 text-center">
@@ -224,6 +231,126 @@ export default function BasarilarPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+/* ————— Sanat Sergisi Galerisi ————— */
+
+const SERGI_IMAGES = [
+  { src: "/images/sergi-salon-genel.webp", span: "col-span-2 row-span-2" },
+  { src: "/images/sergi-frida-pano-1.webp", span: "" },
+  { src: "/images/sergi-frida-pano-2.webp", span: "" },
+  { src: "/images/sergi-tablo-sehpa-1.webp", span: "" },
+  { src: "/images/sergi-tablo-sehpa-2.webp", span: "" },
+  { src: "/images/sergi-tablo-3.webp", span: "" },
+  { src: "/images/sergi-tablo-4.webp", span: "" },
+  { src: "/images/sergi-tablo-5.webp", span: "" },
+  { src: "/images/sergi-tablo-6.webp", span: "" },
+  { src: "/images/sergi-tablo-7.webp", span: "" },
+  { src: "/images/sergi-tablo-8.webp", span: "" },
+  { src: "/images/sergi-tablo-9.webp", span: "" },
+];
+
+function SanatSergisiSection() {
+  const { lang, t } = useLanguage();
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const prev = () => setLightbox(i => (i !== null ? (i - 1 + SERGI_IMAGES.length) % SERGI_IMAGES.length : 0));
+  const next = () => setLightbox(i => (i !== null ? (i + 1) % SERGI_IMAGES.length : 0));
+
+  return (
+    <section className="py-16 md:py-20 bg-gray-50">
+      <div className="container px-4">
+        <motion.div {...fadeUp} className="text-center mb-10 md:mb-14">
+          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+            <Palette className="w-4 h-4" />
+            {t("Sanat Atölyesi Sergisi", "Art Workshop Exhibition")}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-display font-black text-primary mb-2">
+            {t("Öğrencilerimizin Eserleri", "Works by Our Students")}
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+            {t(
+              "Yıl sonu sanat atölyesi sergimizde öğrencilerimiz; tablolarını, maskelerini ve özgün eserlerini velileriyle buluşturdu.",
+              "At our year-end art workshop exhibition, students shared their paintings, masks and original works with their families."
+            )}
+          </p>
+        </motion.div>
+
+        {/* Masonry-style grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] gap-3">
+          {SERGI_IMAGES.map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: (i % 4) * 0.07, duration: 0.4 }}
+              className={`relative overflow-hidden rounded-2xl cursor-pointer group shadow-md hover:shadow-xl transition-shadow ${img.span}`}
+              onClick={() => setLightbox(i)}
+            >
+              <img
+                src={img.src}
+                alt={t("Sanat sergisi", "Art exhibition") + ` ${i + 1}`}
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                  {t("Büyüt", "View")}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            onClick={() => setLightbox(null)}
+          >
+            <button
+              className="absolute top-4 right-4 text-white/80 hover:text-white bg-white/10 rounded-full p-2 transition-colors"
+              onClick={() => setLightbox(null)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white bg-white/10 rounded-full p-3 transition-colors"
+              onClick={e => { e.stopPropagation(); prev(); }}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white bg-white/10 rounded-full p-3 transition-colors"
+              onClick={e => { e.stopPropagation(); next(); }}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+            <motion.img
+              key={lightbox}
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.2 }}
+              src={SERGI_IMAGES[lightbox].src}
+              alt={t("Sanat sergisi", "Art exhibition") + ` ${lightbox + 1}`}
+              className="max-h-[88vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
+              onClick={e => e.stopPropagation()}
+            />
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+              {lightbox + 1} / {SERGI_IMAGES.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }
 
@@ -465,7 +592,7 @@ const SPORTS_ARTS_ITEMS = [
   },
   {
     icon: Palette,
-    image: "/images/art-room-new-1.webp",
+    image: "/images/sergi-frida-pano-2.webp",
     levelTR: "Tüm Kademeler",
     levelEN: "All Levels",
     titleTR: "Görsel Sanatlar Sergileri",
