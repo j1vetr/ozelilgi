@@ -5,28 +5,15 @@ import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 
 const REELS = [
-  { code: "DaDQzmQA8qH", label: "Okul Kareler" },
-  { code: "DZ9EcMSI7BU", label: "Okul Kareler" },
-  { code: "DZu8eW6IGpA", label: "Okul Kareler" },
-  { code: "DZr1VnQAJ38", label: "Okul Kareler" },
-  { code: "DZog9enIOpB", label: "Okul Kareler" },
-  { code: "DZX5_A1Agj4", label: "Okul Kareler" },
-  { code: "DXwCDUoAafz", label: "Okul Kareler" },
-  { code: "DXjdzJ5iFpD", label: "Okul Kareler" },
-  { code: "DYJZhSvIkOW", label: "Okul Kareler" },
-];
-
-// Gradient palettes — one per reel, cycles
-const GRADIENTS = [
-  "from-violet-600 via-purple-500 to-pink-500",
-  "from-pink-500 via-rose-500 to-orange-400",
-  "from-orange-400 via-amber-400 to-yellow-300",
-  "from-emerald-500 via-teal-500 to-cyan-500",
-  "from-blue-600 via-indigo-500 to-violet-500",
-  "from-rose-500 via-pink-500 to-fuchsia-500",
-  "from-amber-500 via-orange-500 to-red-500",
-  "from-cyan-500 via-sky-500 to-blue-500",
-  "from-fuchsia-500 via-violet-500 to-purple-600",
+  { code: "DaDQzmQA8qH", thumb: "/images/sergi-frida-pano-1.webp" },
+  { code: "DZ9EcMSI7BU", thumb: "/images/sergi-tablo-sehpa-1.webp" },
+  { code: "DZu8eW6IGpA", thumb: "/images/sergi-salon-genel.webp" },
+  { code: "DZr1VnQAJ38", thumb: "/images/art-room-new-1.webp" },
+  { code: "DZog9enIOpB", thumb: "/images/sergi-frida-pano-2.webp" },
+  { code: "DZX5_A1Agj4", thumb: "/images/sports-hall-1.webp" },
+  { code: "DXwCDUoAafz", thumb: "/images/primary-class-1.webp" },
+  { code: "DXjdzJ5iFpD", thumb: "/images/sergi-tablo-sehpa-2.webp" },
+  { code: "DYJZhSvIkOW", thumb: "/images/music-room-1.webp" },
 ];
 
 function ReelCard({ reel, index, onClick }: { reel: typeof REELS[0]; index: number; onClick: () => void }) {
@@ -36,20 +23,21 @@ function ReelCard({ reel, index, onClick }: { reel: typeof REELS[0]; index: numb
       className="flex-shrink-0 w-[160px] cursor-pointer group"
       onClick={onClick}
     >
-      <div className={`relative aspect-[9/16] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-b ${GRADIENTS[index % GRADIENTS.length]}`}>
-        {/* Decorative pattern */}
-        <div className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(circle at 30% 20%, white 1px, transparent 1px), radial-gradient(circle at 70% 60%, white 1px, transparent 1px), radial-gradient(circle at 50% 80%, white 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+      <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-xl bg-gray-800">
+        {/* School photo thumbnail */}
+        <img
+          src={reel.thumb}
+          alt="Okul Reeli"
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+        {/* Dark scrim */}
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
 
-        {/* Instagram badge */}
-        <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-full">
+        {/* Instagram badge top-left */}
+        <div className="absolute top-3 left-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-full">
           <Instagram className="w-3 h-3" />
           Reel
         </div>
@@ -59,15 +47,15 @@ function ReelCard({ reel, index, onClick }: { reel: typeof REELS[0]; index: numb
           <motion.div
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.95 }}
-            className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/60 flex items-center justify-center shadow-xl group-hover:bg-white/30 transition-colors"
+            className="w-12 h-12 rounded-full bg-white/25 backdrop-blur-sm border-2 border-white/70 flex items-center justify-center shadow-xl group-hover:bg-white/40 transition-colors"
           >
-            <Instagram className="w-6 h-6 text-white" />
+            <Instagram className="w-5 h-5 text-white" />
           </motion.div>
         </div>
 
         {/* Bottom label */}
-        <div className="absolute bottom-0 inset-x-0 px-3 py-3 bg-gradient-to-t from-black/60 to-transparent">
-          <p className="text-white text-[11px] font-semibold truncate">Özel Boğaziçi İlgi</p>
+        <div className="absolute bottom-0 inset-x-0 px-3 py-3 bg-gradient-to-t from-black/70 to-transparent">
+          <p className="text-white text-[11px] font-semibold leading-tight">Özel Boğaziçi İlgi</p>
         </div>
       </div>
     </div>
