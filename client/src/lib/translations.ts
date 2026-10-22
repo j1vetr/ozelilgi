@@ -10,8 +10,6 @@ const ui: TranslationMap = {
   "nav.enrollment": { tr: "Kayıt", en: "Enrollment" },
   "nav.news": { tr: "Haberler", en: "News" },
   "nav.contact": { tr: "İletişim", en: "Contact" },
-  "nav.about.about": { tr: "Hakkımızda", en: "About Us" },
-  "nav.about.founder": { tr: "Kurucu Mesajı", en: "Founder's Message" },
   "nav.about.story": { tr: "Kuruluş Hikâyesi", en: "Our Founding Story" },
   "nav.about.logo": { tr: "Logomuzun Hikâyesi", en: "The Story of Our Logo" },
   "nav.about.board": { tr: "Yönetim Kurulu", en: "Board of Directors" },
@@ -19,7 +17,6 @@ const ui: TranslationMap = {
   "nav.about.advisors": { tr: "Danışmanlar", en: "Advisors" },
   "nav.about.vision": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
   "nav.about.approach": { tr: "Eğitim Yaklaşımımız", en: "Our Approach" },
-  "nav.about.policy": { tr: "Eğitim Politikamız", en: "Our Education Policy" },
   "nav.academic.preschool": { tr: "Anaokulu", en: "Preschool" },
   "nav.academic.primary": { tr: "İlkokul", en: "Primary School" },
   "nav.academic.middle": { tr: "Ortaokul", en: "Middle School" },
@@ -155,24 +152,9 @@ const ui: TranslationMap = {
   "preregister.grade.primary": { tr: "İlkokul", en: "Primary School" },
   "preregister.grade.middle": { tr: "Ortaokul", en: "Middle School" },
 
-  "about.title": { tr: "Hakkımızda", en: "About Us" },
-  "about.subtitle": { tr: "26+ Yıllık Tecrübe ile Kaliteli Eğitim", en: "Quality Education with 26+ Years of Experience" },
-  "about.content": { tr: "Çekmeköy'ün merkezinde bulunan kampüsümüz 2013 yılında inşa edilmiş modern bir yapıdır. Geniş kapalı alanı ve bahçesi ile öğrencilerimize ferah bir eğitim ortamı sunuyoruz.", en: "Our campus, located in the center of Çekmeköy, is a modern building constructed in 2013. With its large indoor area and garden, we offer students a spacious learning environment." },
-  "about.preschool_class": { tr: "Anaokulu Sınıfı", en: "Preschool Classrooms" },
-  "about.founded": { tr: "Kuruluş", en: "Founded" },
 
-  "founder.title": { tr: "Kurucu Mesajı", en: "Founder's Message" },
-  "founder.subtitle": { tr: "Değerlerimiz ve Vizyonumuz", en: "Our Values and Vision" },
-  "founder.content": { tr: "Değerli Velilerimiz ve Sevgili Öğrenciler,\n\nGeleceğimizin teminatı olan çocuklarımızı en iyi şekilde yetiştirmek, onlara güvenli ve nitelikli bir eğitim ortamı sunmak en büyük sorumluluğumuzdur.\n\nBoğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının yanı sıra, milli ve manevi değerlerine bağlı, evrensel düşünebilen, sorgulayan ve üreten bireyler olmalarını önemsiyoruz.", en: "Dear Parents and Students,\n\nRaising our children, who are the guarantee of our future, in the best possible way and providing them with a safe and quality educational environment is our greatest responsibility.\n\nAs Boğaziçi İlgi College, we care not only about our students' academic success but also about raising individuals who are committed to their national and moral values, who think universally, question, and create." },
 
-  "vision.title": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
-  "vision.subtitle": { tr: "Geleceği Şekillendiriyoruz", en: "Shaping the Future" },
-  "vision.vision": { tr: "Ulusal ve uluslararası platformlarda başarılarıyla tanınan, eğitimde öncü ve örnek bir kurum olmak; geleceği şekillendirecek lider bireyler yetiştirmektir.", en: "To be a pioneering and exemplary institution recognized for its achievements on national and international platforms; to raise leaders who will shape the future." },
-  "vision.mission": { tr: "Atatürk ilke ve inkılaplarına bağlı, çağdaş, demokratik, eleştirel düşünebilen, toplumsal sorumluluk bilinci gelişmiş, yaratıcı ve üretken bireyler yetiştirmektir.", en: "To raise individuals who adhere to Atatürk's principles and reforms, who are modern, democratic, capable of critical thinking, socially responsible, creative, and productive." },
 
-  "approach.title": { tr: "Eğitim Yaklaşımımız", en: "Our Approach" },
-  "approach.subtitle": { tr: "Öğrenci Merkezli Modern Eğitim", en: "Student-Centered Modern Education" },
-  "approach.content": { tr: "Öğrenci merkezli eğitim modelimiz, her çocuğun bireysel öğrenme hızına ve stiline saygı duyar. Yaparak ve yaşayarak öğrenme ilkesiyle, teorik bilgiyi pratiğe dönüştüren uygulamalar sunuyoruz.", en: "Our student-centered education model respects each child's individual learning pace and style. With the principle of learning by doing, we offer applications that transform theoretical knowledge into practice." },
 
   "news.title": { tr: "Haberler & Duyurular", en: "News & Announcements" },
   "news.subtitle": { tr: "Okulumuzdan Son Gelişmeler", en: "Latest Updates from Our School" },
@@ -369,86 +351,6 @@ export function getCampusFacilitiesTranslated(lang: Language) {
 export function getPageContentTranslated(lang: Language) {
   if (lang === "tr") {
     return {
-      kurumsal: {
-        "hakkimizda": {
-          title: "Hakkımızda", subtitle: "Geleceği Sevgi, Deneyim ve Keşifle İnşa Ediyoruz",
-          content: "Çekmeköy Boğaziçi Özel İlgi Okulları olarak, 26 yıla dayanan öğretmenlik deneyimine sahip kurucularımızın vizyonuyla, kendimizi tamamen geleceğin teminatı olan çocuklarımıza adıyoruz. Eğitimin içinden gelen bir kadronun tecrübesiyle; ticari kaygılardan uzak, sadece ve sadece öğrencilerin ihtiyaçlarını ve gelişimini odağına alan bir eğitim anlayışını benimsiyoruz.\n\nAnaokulundan başlayarak üniversite çağına kadar eğitimin her aşamasında; her çocuğun eşsiz yeteneklerle donatıldığına ve her birinin kendine özgü bir potansiyele sahip olduğuna inanıyoruz. Eğitimde asıl amacımız; bu üstün özellikleri keşfetmek, doğru ve planlı bir rehberlikle geliştirmek ve bireysel üretkenliğe dönüştürmektir.",
-          features: [
-            { label: "Öğretmenlik Tecrübesi", value: "26+ Yıl" },
-            { label: "Kampüs Kuruluşu", value: "2013" },
-            { label: "Eğitim Kademesi", value: "3" },
-            { label: "Memnuniyet", value: "%100" }
-          ],
-          principlesTitle: "Eğitim Prensiplerimiz ve Amacımız",
-          principlesIntro: "Eğitimin olmazsa olmazının koşulsuz sevgi ve sarsılmaz bir güven olduğuna inanıyoruz. Sevgi ve güvenle donatılmış bir ortamda yetişen her bir öğrencimizin;",
-          principles: [
-            "Dünyadaki ve ülkemizdeki yenilikleri yakından takip eden,",
-            "Kendi öğrenme ve gelişme hızına göre şekillendirilen programlarla ilerleyen,",
-            "Becerilerini ve ilgi alanlarını en üst düzeyde geliştiren,",
-            "Özgüveni yüksek, yaratıcı ve liderlik vasıfları gelişmiş,",
-            "Toplum bilincine sahip, doğaya ve tüm canlılara saygılı bireyler olmasını hedefliyoruz."
-          ],
-          principlesClosing: [
-            "Çekmeköy Boğaziçi Özel İlgi Okulları çatısı altında, değişimin ve ilerlemenin sınırı olmadığını bilerek her gün daha iyisi için çalışıyoruz. Çocuklarımızın aldıkları eğitimin izlerini yaşam boyu taşıyacaklarının farkındalığıyla, onların geleceğini bugünden güvenle inşa ediyoruz.",
-            "Çünkü biliyoruz ki; ilgi, sevgi ve doğru eğitimle yetişen her çocuk, üstün yeteneklerini keşfetmiş mutlu ve başarılı bir bireydir."
-          ],
-          facilities: ["Görsel Sanatlar Atölyesi", "Müzik Atölyesi", "Kodlama Atölyesi", "Fen Bilgisi Laboratuvarı", "Kapalı Spor Salonu", "Kütüphane", "Yemekhane", "Rehberlik Odası"]
-        },
-        "kurucu-mesaji": {
-          title: "Kurucu Mesajı", subtitle: "Değerlerimiz ve Vizyonumuz", videoId: "pN3J4PxcR1I",
-          content: "Değerli Velilerimiz ve Sevgili Öğrenciler,\n\nGeleceğimizin teminatı olan çocuklarımızı en iyi şekilde yetiştirmek, onlara güvenli ve nitelikli bir eğitim ortamı sunmak en büyük sorumluluğumuzdur.\n\nBoğaziçi İlgi Koleji olarak, öğrencilerimizin akademik başarılarının yanı sıra, milli ve manevi değerlerine bağlı, evrensel düşünebilen, sorgulayan ve üreten bireyler olmalarını önemsiyoruz."
-        },
-        "vizyon-misyon": {
-          title: "Vizyon & Misyon", subtitle: "Geleceği Şekillendiriyoruz",
-          vision: "Ulusal ve uluslararası platformlarda başarılarıyla örnek gösterilen, 26 yılı aşan öğretmenlik tecrübesi ve özgün eğitim yaklaşımıyla geleceğe yön veren öncü bir kurum olmak; Atatürk ilke ve inkılaplarının ışığında, evrensel değerlerle donatılmış lider bireyler yetiştirmektir.",
-          mission: "Çekmeköy Özel Boğaziçi İlgi Okulları olarak; \"Her çocuk özel ilgiyi hak eder\" ve \"Daha iyi bir eğitim mümkün\" anlayışıyla hareket ederiz. Çeyrek asırlık öğretmenlik tecrübemiz, bilimin rehberliği ve koşulsuz sevgiyle harmanladığımız eğitim-öğretim programlarımız sayesinde öğrencilerimizi hayata hazırlarız.",
-          missionLead: "Boğaziçi İlgi Okulları;",
-          missionItems: [
-            "Aklı hür, vicdanı hür, vatansever ve Atatürk ilke ve devrimlerini benimsemiş,",
-            "Bilimi ve akılcı düşünmeyi hayat felsefesi edinmiş,",
-            "Kendi yeteneklerini ve potansiyelini keşfetmiş, özgüveni ve yaratıcılığı yüksek,",
-            "Değişen dünyanın ve teknolojinin ötesine geçerken milli ve evrensel değerlerinden ödün vermeyen,",
-            "Toplum bilincine sahip, doğaya, çevresine ve tüm canlılara duyarlı,",
-            "Yaşam boyu öğrenmeyi ilke edinmiş, vizyon sahibi ve üretken bireyler yetiştirmeyi misyon edinmiştir."
-          ],
-          values: [
-            { title: "Vatanseverlik", desc: "Aklı hür, vicdanı hür, Atatürk ilke ve devrimlerini benimsemiş bireyler" },
-            { title: "Bilimsel Düşünce", desc: "Bilimi ve akılcı düşünmeyi hayat felsefesi edinmiş" },
-            { title: "Özgüven & Yaratıcılık", desc: "Kendi yeteneklerini keşfetmiş, özgüveni ve yaratıcılığı yüksek" },
-            { title: "Evrensel Değerler", desc: "Değişen dünyada milli ve evrensel değerlerinden ödün vermeyen" },
-            { title: "Doğa & Toplum Bilinci", desc: "Toplum bilincine sahip, doğaya, çevresine ve tüm canlılara duyarlı" },
-            { title: "Yaşam Boyu Öğrenme", desc: "Yaşam boyu öğrenmeyi ilke edinmiş, vizyon sahibi ve üretken" }
-          ]
-        },
-        "egitim-yaklasimimiz": {
-          title: "Eğitim Yaklaşımımız", subtitle: "Öğrenci Merkezli Modern Eğitim",
-          content: "Öğrenci merkezli eğitim modelimiz, her çocuğun bireysel öğrenme hızına ve stiline saygı duyar. Yaparak ve yaşayarak öğrenme ilkesiyle, teorik bilgiyi pratiğe dönüştüren uygulamalar sunuyoruz.",
-          timeline: [
-            { year: "2000", title: "Kuruluş", desc: "Boğaziçi İlgi Okulları eğitim hayatına başladı" },
-            { year: "2010", title: "Cambridge Programı", desc: "Uluslararası Cambridge İngilizce programı başlatıldı" },
-            { year: "2013", title: "Çekmeköy Kampüsü", desc: "Modern Çekmeköy kampüsümüz hizmete açıldı" },
-            { year: "2015", title: "STEM Eğitimi", desc: "Kodlama ve robotik eğitimleri müfredata eklendi" },
-            { year: "2020", title: "Dijital Dönüşüm", desc: "Akıllı tahta ve tablet destekli eğitime geçildi" },
-            { year: "2024", title: "Yapay Zeka", desc: "AI destekli kişiselleştirilmiş öğrenme sistemleri" }
-          ],
-          principles: [
-            { title: "Bütünsel Gelişim", desc: "Akademik, sosyal ve duygusal gelişimi birlikte destekliyoruz.", icon: "heart" },
-            { title: "Aktif Öğrenme", desc: "Yaparak ve yaşayarak öğrenme metodlarını uyguluyoruz.", icon: "zap" },
-            { title: "Disiplinlerarası Çalışma", desc: "Farklı disiplinleri birleştiren projeler geliştiriyoruz.", icon: "layers" },
-            { title: "Teknoloji Entegrasyonu", desc: "Modern teknolojileri eğitim sürecine dahil ediyoruz.", icon: "cpu" }
-          ]
-        },
-        "egitim-politikamiz": {
-          title: "Eğitim Politikamız", subtitle: "Öğrenci Odaklı, Değer Temelli Eğitim Anlayışı",
-          content: "Çekmeköy Özel Boğaziçi İlgi Okulları, kuruluşundan bu yana öğretmen vizyonunu ve öğrenci odaklı yaklaşımını merkezine alarak yenilikçi ve kararlı bir şekilde yoluna devam etmektedir.\n\nZamanın gereklerini ve öğrencilerimizin üstün faydasını gözeterek hazırlanan özgün eğitim programlarımız; yetkin ve tutkuyla çalışan akademik kadromuzun emeği, sevgi ve saygıya dayalı kurum kültürümüzle bütünleşmektedir.\n\nAmacımız; ticari kaygılardan uzak, kendisini tamamen öğrenci yetiştirmeye adamış uzman kadromuzla, her bir çocuğumuzun gelişim hızına ve ilgisine özel çözümler sunarak mutlu, başarılı ve geleceğe güvenle bakan nesiller inşa etmektir.",
-          principles: [
-            { title: "Öğrenci Odaklı Yaklaşım", desc: "Her bir çocuğun gelişim hızına ve ilgisine özel çözümler sunarak mutlu ve başarılı nesiller inşa ediyoruz.", icon: "heart" },
-            { title: "Özgün Eğitim Programları", desc: "Zamanın gereklerini ve öğrencilerimizin üstün faydasını gözeterek hazırlanan, yetkin akademik kadromuzun uyguladığı programlar.", icon: "zap" },
-            { title: "Ticari Kaygılardan Uzak", desc: "Kendimizi tamamen öğrenci yetiştirmeye adamış uzman kadromuzla eğitimde kaliteyi her şeyin üstünde tutuyoruz.", icon: "shield" },
-            { title: "Koşulsuz Sevgi ve Güven", desc: "Eğitimin olmazsa olmazının koşulsuz sevgi ve sarsılmaz bir güven olduğuna inanıyor; tüm çalışmalarımızı bu temele inşa ediyoruz.", icon: "sparkles" }
-          ]
-        }
-      },
       akademik: {
         "anaokulu": {
           title: "Anaokulu", subtitle: "Keşfeden, Sorgulayan Minik Zihinler", ages: "3-6 Yaş", color: "#F97316",
@@ -646,86 +548,6 @@ export function getPageContentTranslated(lang: Language) {
     };
   }
   return {
-    kurumsal: {
-      "hakkimizda": {
-        title: "About Us", subtitle: "Building the Future with Love, Experience and Discovery",
-        content: "As Çekmeköy Boğaziçi Özel İlgi Okulları, with the vision of our founders who have 26 years of teaching experience, we devote ourselves entirely to our children who are the guarantee of the future. With the experience of a staff that comes from within education, we adopt an educational approach that is far from commercial concerns and focused solely on the needs and development of students.\n\nAt every stage of education from preschool through university age, we believe that every child is endowed with unique talents and each has their own unique potential. Our main goal in education is to discover these superior qualities, develop them with correct and planned guidance, and transform them into individual productivity.",
-        features: [
-          { label: "Teaching Experience", value: "26+ Years" },
-          { label: "Campus Founded", value: "2013" },
-          { label: "Education Levels", value: "3" },
-          { label: "Satisfaction", value: "100%" }
-        ],
-        principlesTitle: "Our Educational Principles and Purpose",
-        principlesIntro: "We believe that unconditional love and unshakable trust are the essentials of education. We aim for each of our students, raised in an environment of love and trust, to become individuals who are:",
-        principles: [
-          "Closely following innovations in our country and around the world,",
-          "Advancing with programs shaped according to their own learning and development pace,",
-          "Developing their skills and areas of interest to the highest level,",
-          "Highly self-confident, creative and with strong leadership qualities,",
-          "Socially aware and respectful of nature and all living beings."
-        ],
-        principlesClosing: [
-          "Under the roof of Çekmeköy Boğaziçi Özel İlgi Okulları, knowing that change and progress have no limits, we work every day to do better. Aware that our children will carry the marks of the education they receive throughout their lives, we build their future with confidence starting today.",
-          "Because we know that every child raised with attention, love and the right education is a happy and successful individual who has discovered their exceptional talents."
-        ],
-        facilities: ["Visual Arts Workshop", "Music Workshop", "Coding Workshop", "Science Laboratory", "Indoor Sports Hall", "Library", "Cafeteria", "Counseling Office"]
-      },
-      "kurucu-mesaji": {
-        title: "Founder's Message", subtitle: "Our Values and Vision", videoId: "pN3J4PxcR1I",
-        content: "Dear Parents and Students,\n\nRaising our children, who are the guarantee of our future, in the best possible way and providing them with a safe and quality educational environment is our greatest responsibility.\n\nAs Boğaziçi İlgi College, we care not only about our students' academic success but also about raising individuals who are committed to their national and moral values, who think universally, question, and create."
-      },
-      "vizyon-misyon": {
-        title: "Vision & Mission", subtitle: "Shaping the Future",
-        vision: "To be a pioneering institution that sets an example with its achievements on national and international platforms, guiding the future with more than 26 years of teaching experience and an original educational approach; to raise leader individuals endowed with universal values in the light of Atatürk's principles and reforms.",
-        mission: "As Çekmeköy Özel Boğaziçi İlgi Okulları, we act with the understanding that \"Every child deserves special attention\" and \"Better education is possible.\" With our quarter century of teaching experience and educational programs blended with the guidance of science and unconditional love, we prepare our students for life.",
-        missionLead: "Boğaziçi İlgi Okulları has made it its mission to raise individuals who are:",
-        missionItems: [
-          "Free in mind, free in conscience, patriotic and committed to Atatürk's principles and reforms,",
-          "Embracing science and rational thinking as a philosophy of life,",
-          "Aware of their own talents and potential, highly self-confident and creative,",
-          "Going beyond the changing world and technology without compromising their national and universal values,",
-          "Socially aware and sensitive to nature, their environment and all living beings,",
-          "Committed to lifelong learning, visionary and productive."
-        ],
-        values: [
-          { title: "Patriotism", desc: "Free-minded, free-conscient individuals who embrace Atatürk's principles and reforms" },
-          { title: "Scientific Thinking", desc: "Adopting science and rational thinking as a life philosophy" },
-          { title: "Confidence & Creativity", desc: "Discovering own talents and potential, high self-confidence and creativity" },
-          { title: "Universal Values", desc: "Not compromising national and universal values while going beyond the changing world and technology" },
-          { title: "Nature & Social Awareness", desc: "Sensitive to society, nature, environment, and all living beings" },
-          { title: "Lifelong Learning", desc: "Adopting lifelong learning as a principle, visionary and productive individuals" }
-        ]
-      },
-      "egitim-yaklasimimiz": {
-        title: "Our Approach", subtitle: "Student-Centered Modern Education",
-        content: "Our student-centered education model respects each child's individual learning pace and style. With the principle of learning by doing, we offer applications that transform theoretical knowledge into practice.",
-        timeline: [
-          { year: "2000", title: "Founded", desc: "Boğaziçi İlgi Schools began its educational journey" },
-          { year: "2010", title: "Cambridge Program", desc: "International Cambridge English program launched" },
-          { year: "2013", title: "Çekmeköy Campus", desc: "Modern Çekmeköy campus opened" },
-          { year: "2015", title: "STEM Education", desc: "Coding and robotics education added to curriculum" },
-          { year: "2020", title: "Digital Transformation", desc: "Transition to smart board and tablet-supported education" },
-          { year: "2024", title: "Artificial Intelligence", desc: "AI-powered personalized learning systems" }
-        ],
-        principles: [
-          { title: "Holistic Development", desc: "We support academic, social, and emotional development together.", icon: "heart" },
-          { title: "Active Learning", desc: "We apply learning by doing and experiencing methods.", icon: "zap" },
-          { title: "Interdisciplinary Work", desc: "We develop projects that combine different disciplines.", icon: "layers" },
-          { title: "Technology Integration", desc: "We integrate modern technologies into the educational process.", icon: "cpu" }
-        ]
-      },
-      "egitim-politikamiz": {
-        title: "Our Education Policy", subtitle: "Student-Centered, Value-Based Educational Approach",
-        content: "Çekmeköy Özel Boğaziçi İlgi Okulları has continued its journey innovatively and resolutely, placing the teacher's vision and student-centered approach at its core since its establishment.\n\nOur original educational programs, prepared by taking into account the requirements of the times and the superior benefit of our students, are integrated with the effort of our competent and passionate academic staff and our institutional culture based on love and respect.\n\nOur goal is to build happy, successful generations who look to the future with confidence by offering special solutions for each child's development pace and interest, with an expert staff completely dedicated to raising students, free from commercial concerns.",
-        principles: [
-          { title: "Student-Centered Approach", desc: "Building happy and successful generations by offering special solutions for each child's development pace and interest.", icon: "heart" },
-          { title: "Original Education Programs", desc: "Programs prepared taking into account the requirements of the times and implemented by our competent academic staff.", icon: "zap" },
-          { title: "Free from Commercial Concerns", desc: "With our expert staff completely dedicated to raising students, we place quality in education above everything.", icon: "shield" },
-          { title: "Unconditional Love and Trust", desc: "We believe unconditional love and unwavering trust are the indispensables of education; we build all our work on this foundation.", icon: "sparkles" }
-        ]
-      }
-    },
     akademik: {
       "anaokulu": {
         title: "Preschool", subtitle: "Curious, Questioning Little Minds", ages: "Ages 3-6", color: "#F97316",

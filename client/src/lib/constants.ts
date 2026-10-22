@@ -22,8 +22,6 @@ export const NAVIGATION = [
     title: "Kurumsal",
     href: "/kurumsal",
     items: [
-      { title: "Hakkımızda", href: "/kurumsal/hakkimizda" },
-      { title: "Kurucu Mesajı", href: "/kurumsal/kurucu-mesaji" },
       { title: "Vizyon & Misyon", href: "/kurumsal/vizyon-misyon" },
       { title: "Eğitim Yaklaşımımız", href: "/kurumsal/egitim-yaklasimimiz" },
     ],

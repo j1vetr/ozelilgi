@@ -80,30 +80,25 @@ const ROUTE_META: Record<string, RouteMeta> = {
     description:
       "Özel Boğaziçi İlgi Koleji Çekmeköy kampüsünden fotoğraflar. Fen laboratuvarı, spor salonu, müzik ve sanat atölyelerimizi görsel olarak keşfedin.",
   },
-  "/kurumsal/hakkimizda": {
-    title: "Hakkımızda | Özel Boğaziçi İlgi Koleji Çekmeköy",
+  "/kurumsal/kurulus-hikayesi": {
+    title: "Kuruluş Hikâyesi | Özel Boğaziçi İlgi Koleji Çekmeköy",
     description:
-      "2013 yılında kurulan Özel Boğaziçi İlgi Koleji Çekmeköy, modern kampüsü ve deneyimli kadrosuyla Çekmeköy'ün seçkin özel okuludur. Anaokulu, ilkokul ve ortaokul kademeleri.",
+      "Bazı hayaller nesillerin geleceğine dokunmak için doğar. Boğaziçi Eğitim İlgi Okulları'nın kuruluş hikâyesini okuyun.",
   },
-  "/kurumsal/kurucu-mesaji": {
-    title: "Kurucu Mesajı | Özel Boğaziçi İlgi Koleji Çekmeköy",
+  "/kurumsal/logomuzun-hikayesi": {
+    title: "Logomuzun Hikâyesi | Özel Boğaziçi İlgi Koleji Çekmeköy",
     description:
-      "Özel Boğaziçi İlgi Koleji kurucusunun eğitim vizyonu ve mesajını okuyun. Her öğrenciye özel ilgi gösteren, kaliteli eğitim sunan Çekmeköy'ün köklü özel okulu.",
+      "Özel Boğaziçi İlgi Okulları logosundaki güneşin, figürlerin ve renklerin anlamı.",
   },
   "/kurumsal/vizyon-misyon": {
     title: "Vizyon & Misyon | Özel Boğaziçi İlgi Koleji Çekmeköy",
     description:
-      "Boğaziçi İlgi Koleji'nin vizyonu; ulusal ve uluslararası platformlarda tanınan, öncü bir eğitim kurumu olmak ve lider bireyler yetiştirmektir.",
+      "Özel Boğaziçi İlgi Okulları'nın misyonu ve vizyonu: bilimsel düşünceyi ve özgür öğrenme kültürünü esas alan, nitelikli eğitimin öncü kurumlarından biri olmak.",
   },
   "/kurumsal/egitim-yaklasimimiz": {
     title: "Eğitim Yaklaşımımız | Özel Boğaziçi İlgi Koleji Çekmeköy",
     description:
-      "Öğrenci merkezli eğitim, STEM projeleri, Cambridge İngilizce ve aktif öğrenme yöntemleriyle Boğaziçi İlgi Koleji'nin modern eğitim yaklaşımını keşfedin.",
-  },
-  "/kurumsal/egitim-politikamiz": {
-    title: "Eğitim Politikamız | Özel Boğaziçi İlgi Koleji Çekmeköy",
-    description:
-      "Öğrenci odaklı, ticari kaygılardan uzak, koşulsuz sevgi ve sarsılmaz güvene dayalı eğitim politikamızla her çocuğu geleceğe hazırlıyoruz.",
+      "Akademik başarıyı kişisel gelişimle bütünleştiren, anaokulundan ortaokula uzanan Boğaziçi vizyonlu eğitim yaklaşımımızın sekiz ilkesi.",
   },
   "/programlar": {
     title: "Eğitim Programları | Yabancı Dil, STEM, Sanat | Boğaziçi İlgi Koleji Çekmeköy",
