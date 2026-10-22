@@ -8,6 +8,7 @@ import { KurulusHikayesiContent } from "./kurumsal/FoundingStoryPage";
 import { LogomuzunHikayesiContent } from "./kurumsal/LogoStoryPage";
 import { VizyonMisyonContent } from "./kurumsal/VisionMissionPage";
 import { EgitimYaklasimiContent } from "./kurumsal/ApproachPage";
+import { YonetimKuruluContent, IdariKadroContent, DanismanlarContent } from "./kurumsal/TeamPages";
 
 const NEW_SEO: Record<string, { titleTR: string; titleEN: string; path: string }> = {
   "kurulus-hikayesi": { titleTR: "Kuruluş Hikâyesi", titleEN: "Our Founding Story", path: "/kurumsal/kurulus-hikayesi" },
@@ -101,17 +102,3 @@ export default function KurumsalPage() {
     </div>
   );
 }
-
-function SkeletonPage({ titleKey }: { titleKey: string }) {
-  const { lang, t } = useLanguage();
-  return (
-    <div className="max-w-3xl mx-auto text-center py-12">
-      <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-4">{T(titleKey, lang)}</h2>
-      <p className="text-muted-foreground">{t("İçerik yakında eklenecek", "Content coming soon")}</p>
-    </div>
-  );
-}
-
-function YonetimKuruluContent() { return <SkeletonPage titleKey="nav.about.board" />; }
-function IdariKadroContent() { return <SkeletonPage titleKey="nav.about.staff" />; }
-function DanismanlarContent() { return <SkeletonPage titleKey="nav.about.advisors" />; }
