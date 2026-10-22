@@ -6,6 +6,8 @@ import { useLanguage } from "@/lib/i18n";
 import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
+import { KurulusHikayesiContent } from "./kurumsal/FoundingStoryPage";
+import { LogomuzunHikayesiContent } from "./kurumsal/LogoStoryPage";
 import { 
   ArrowRight, Target, Eye, Lightbulb, BookOpen, BookOpenCheck, Building2, Users, 
   Heart, Zap, Layers, Cpu, Star, Shield, Sparkles, HandshakeIcon,
@@ -58,6 +60,17 @@ const NEW_SEO: Record<string, { titleTR: string; titleEN: string; path: string }
   "danismanlar": { titleTR: "Danışmanlar", titleEN: "Advisors", path: "/kurumsal/danismanlar" },
 };
 
+const NEW_DESC: Record<string, { tr: string; en: string }> = {
+  "kurulus-hikayesi": {
+    tr: "Bazı hayaller nesillerin geleceğine dokunmak için doğar. Boğaziçi Eğitim İlgi Okulları'nın kuruluş hikâyesini okuyun.",
+    en: "Some dreams are born to touch the future of generations. Read the founding story of Boğaziçi Education İlgi Schools.",
+  },
+  "logomuzun-hikayesi": {
+    tr: "Özel Boğaziçi İlgi Okulları logosundaki güneşin, figürlerin ve renklerin anlamı.",
+    en: "The meaning of the sun, the figures and the colors in the Özel Boğaziçi İlgi Schools logo.",
+  },
+};
+
 const VALID_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon", "egitim-yaklasimimiz", "yonetim-kurulu", "idari-kadro", "danismanlar", "hakkimizda", "kurucu-mesaji", "egitim-politikamiz"] as const;
 type KurumsalSlug = typeof VALID_SLUGS[number];
 // Eski sayfalar yeni içerikler hazır olana kadar erişilebilir kalır (menüde görünmez).
@@ -86,8 +99,8 @@ export default function KurumsalPage() {
     : {
         titleTR: `${fresh.titleTR} | Özel Boğaziçi İlgi Koleji Çekmeköy`,
         titleEN: `${fresh.titleEN} | Özel Boğaziçi İlgi Koleji Çekmeköy`,
-        descTR: "Boğaziçi Vizyonuyla Geleceğe. Özel Boğaziçi İlgi Okulları Çekmeköy.",
-        descEN: "Towards the Future with the Boğaziçi Vision. Özel Boğaziçi İlgi Schools Çekmeköy.",
+        descTR: NEW_DESC[slug]?.tr ?? "Boğaziçi Vizyonuyla Geleceğe. Özel Boğaziçi İlgi Okulları Çekmeköy.",
+        descEN: NEW_DESC[slug]?.en ?? "Towards the Future with the Boğaziçi Vision. Özel Boğaziçi İlgi Schools Çekmeköy.",
         path: fresh.path,
       };
 
@@ -134,8 +147,6 @@ function SkeletonPage({ titleKey }: { titleKey: string }) {
   );
 }
 
-function KurulusHikayesiContent() { return <SkeletonPage titleKey="nav.about.story" />; }
-function LogomuzunHikayesiContent() { return <SkeletonPage titleKey="nav.about.logo" />; }
 function YonetimKuruluContent() { return <SkeletonPage titleKey="nav.about.board" />; }
 function IdariKadroContent() { return <SkeletonPage titleKey="nav.about.staff" />; }
 function DanismanlarContent() { return <SkeletonPage titleKey="nav.about.advisors" />; }
