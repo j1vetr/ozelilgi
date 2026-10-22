@@ -84,7 +84,7 @@ export default function KurumsalPage() {
       />
       <PageHeader
         title={T("nav.about", lang)}
-        subtitle={t("Özel Boğaziçi İlgi Koleji Çekmeköy", "Özel Boğaziçi İlgi College Çekmeköy")}
+        subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
         breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/kurulus-hikayesi" }]}
       />
 

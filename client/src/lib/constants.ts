@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 export const SCHOOL_INFO = {
   name: "Özel Boğaziçi İlgi Koleji Çekmeköy",
   shortName: "Boğaziçi İlgi",
-  slogan: "Her öğrenci özel ilgi hak eder",
+  slogan: "Boğaziçi Vizyonuyla Geleceğe",
   phone: "0216 642 8 642",
   email: "info@ozelbogaziciilgiokullari.k12.tr",
   address: "Mimar Sinan, Yeşil Kayalar Cd. No: 46 - 48, 34782 Çekmeköy/İstanbul",

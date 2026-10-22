@@ -16,8 +16,8 @@ type HeroSlide = {
 const heroSlides: HeroSlide[] = [
   {
     image: "/images/building-lgs-banner.webp",
-    titleTR: "Her Çocuk Özel İlgiyi Hak Eder",
-    titleEN: "Every Child Deserves Special Attention",
+    titleTR: "Boğaziçi Vizyonuyla Geleceğe",
+    titleEN: "Towards the Future with the Boğaziçi Vision",
     duration: 8000,
   },
   { image: "/images/music-room-1.webp", duration: 5000 },
@@ -109,7 +109,7 @@ function DefaultSlideContent({ slide, lang }: { slide: HeroSlide; lang: string }
             transition={{ delay: 0.55 }}
             className="inline-block text-sm font-semibold tracking-wide text-white bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-brand-orange"
           >
-            #heröğrenciözelilgiyihakeder
+            #boğaziçivizyonuylageleceğe
           </motion.span>
         </motion.div>
       </div>

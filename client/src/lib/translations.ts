@@ -16,7 +16,7 @@ const ui: TranslationMap = {
   "nav.about.staff": { tr: "İdari Kadro", en: "Administrative Staff" },
   "nav.about.advisors": { tr: "Danışmanlar", en: "Advisors" },
   "nav.about.vision": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
-  "nav.about.approach": { tr: "Eğitim Yaklaşımımız", en: "Our Approach" },
+  "nav.about.approach": { tr: "Eğitim Yaklaşımımız", en: "Our Approach to Education" },
   "nav.academic.preschool": { tr: "Anaokulu", en: "Preschool" },
   "nav.academic.primary": { tr: "İlkokul", en: "Primary School" },
   "nav.academic.middle": { tr: "Ortaokul", en: "Middle School" },
@@ -30,8 +30,8 @@ const ui: TranslationMap = {
   "nav.overview": { tr: "Genel Bakış", en: "Overview" },
   "nav.preregister": { tr: "Ön Kayıt Yap", en: "Pre-Register" },
 
-  "hero.title": { tr: "Geleceğin Liderlerini Yetiştiriyoruz", en: "Raising the Leaders of Tomorrow" },
-  "hero.subtitle": { tr: "Akademik mükemmellik, güçlü karakter gelişimi ve modern eğitim yaklaşımıyla öğrencilerimizi dünyaya hazırlıyoruz.", en: "Preparing our students for the world with academic excellence, strong character development, and a modern educational approach." },
+  "hero.title": { tr: "Boğaziçi Vizyonuyla Geleceğe", en: "Towards the Future with the Boğaziçi Vision" },
+  "hero.subtitle": { tr: "Anaokulundan ortaokula uzanan, akademik başarıyı kişisel gelişimle bütünleştiren bir eğitim yolculuğu.", en: "An educational journey from kindergarten to middle school that integrates academic success with personal development." },
   "hero.cta": { tr: "Kampüsü Keşfet", en: "Explore Campus" },
 
   "stats.experience": { tr: "Yıllık Tecrübe", en: "Years of Experience" },
@@ -46,8 +46,8 @@ const ui: TranslationMap = {
   "features.arts.title": { tr: "Sanat ve Spor", en: "Arts & Sports" },
   "features.arts.desc": { tr: "Her öğrencinin yeteneğini keşfeden bütünsel gelişim.", en: "Holistic development that discovers every student's talent." },
 
-  "school.slogan": { tr: "Her öğrenci özel ilgi hak eder", en: "Every student deserves special attention" },
-  "school.description": { tr: "Anaokulu, İlkokul ve Ortaokul kademelerinde kaliteli eğitim.", en: "Quality education at Preschool, Primary, and Middle School levels." },
+  "school.slogan": { tr: "Boğaziçi Vizyonuyla Geleceğe", en: "Towards the Future with the Boğaziçi Vision" },
+  "school.description": { tr: "Anaokulundan ortaokula uzanan bütüncül eğitim yolculuğu.", en: "A holistic educational journey from kindergarten to middle school." },
 
   "footer.corporate": { tr: "Kurumsal", en: "Corporate" },
   "footer.academic": { tr: "Akademik", en: "Academic" },
@@ -68,13 +68,13 @@ const ui: TranslationMap = {
   "campus360.drag_desktop_detail": { tr: "Sağa, sola, yukarı ve aşağı sürükleyerek okulun her köşesini keşfedin.", en: "Drag left, right, up, and down to explore every corner of the school." },
   "campus360.drag_mobile_detail": { tr: "Sağa ve sola kaydırarak okulun her köşesini keşfedin.", en: "Swipe left and right to explore every corner of the school." },
 
-  "cta.title": { tr: "Çocuğunuzun Geleceğini Şekillendirin", en: "Shape Your Child's Future" },
+  "cta.title": { tr: "Her Çocuğun Geleceğinde Bir İz Bırakmak", en: "Leaving a Mark on Every Child's Future" },
   "cta.desc": { tr: "Okulumuzun sunduğu eğitim imkanlarını keşfedin, kampüsümüzü ziyaret edin.", en: "Discover the educational opportunities our school offers, visit our campus." },
   "cta.register": { tr: "Ön Kayıt Yap", en: "Pre-Register" },
   "cta.contact": { tr: "Bizi Arayın", en: "Call Us" },
 
   "levels.title": { tr: "Eğitim Birimleri", en: "Education Levels" },
-  "levels.desc": { tr: "Her yaş grubuna özel hazırlanmış eğitim programlarımız.", en: "Our education programs specially designed for each age group." },
+  "levels.desc": { tr: "Anaokulundan ortaokula uzanan, birbirini tamamlayan bütüncül eğitim yolculuğu.", en: "A holistic educational journey from kindergarten to middle school, where each stage complements the next." },
   "levels.preschool": { tr: "Anaokulu", en: "Preschool" },
   "levels.preschool.ages": { tr: "3-6 Yaş", en: "Ages 3-6" },
   "levels.preschool.desc": { tr: "Oyun ve keşif temelli öğrenme ile merak duygusunu geliştiriyoruz.", en: "We foster curiosity through play-based and discovery learning." },

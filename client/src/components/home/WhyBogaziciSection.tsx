@@ -1,11 +1,14 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "wouter";
+import { useLanguage } from "@/lib/i18n";
 import { ArrowRight, Info, Target, MessageSquare, BookOpenCheck } from "lucide-react";
 
 const cards = [
   {
     title: "Kuruluş Hikâyesi",
+    titleEN: "Our Founding Story",
     desc: "Bazı hayaller nesillerin geleceğine dokunmak için doğar. Okulumuzun hikâyesini okuyun.",
+    descEN: "Some dreams are born to touch the future of generations. Read our school's story.",
     href: "/kurumsal/kurulus-hikayesi",
     icon: Info,
     color: "#3B82F6",
@@ -13,7 +16,9 @@ const cards = [
   },
   {
     title: "Vizyon – Misyon",
+    titleEN: "Vision & Mission",
     desc: "Boğaziçi'nin bilimsel düşünce, özgürlük ve evrensel değerlerinden ilham alan vizyonumuz ve misyonumuz.",
+    descEN: "Our vision and mission, inspired by Boğaziçi's scientific thought, freedom and universal values.",
     href: "/kurumsal/vizyon-misyon",
     icon: Target,
     color: "#10B981",
@@ -21,7 +26,9 @@ const cards = [
   },
   {
     title: "Logomuzun Hikâyesi",
+    titleEN: "The Story of Our Logo",
     desc: "Logomuzdaki güneşin, figürlerin ve renklerin anlamını keşfedin.",
+    descEN: "Discover the meaning of the sun, the figures and the colors in our logo.",
     href: "/kurumsal/logomuzun-hikayesi",
     icon: MessageSquare,
     color: "#F97316",
@@ -29,7 +36,9 @@ const cards = [
   },
   {
     title: "Eğitim Yaklaşımımız",
+    titleEN: "Our Approach to Education",
     desc: "Akademik başarıyı kişisel gelişimle bütünleştiren sekiz ilkeyi inceleyin.",
+    descEN: "Explore the eight principles that integrate academic success with personal development.",
     href: "/kurumsal/egitim-yaklasimimiz",
     icon: BookOpenCheck,
     color: "#8B5CF6",
@@ -48,6 +57,7 @@ const cardVariants: Variants = {
 };
 
 export function WhyBogaziciSection() {
+  const { lang, t } = useLanguage();
   return (
     <section className="py-20 md:py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
       {/* Decorative blobs */}
@@ -63,13 +73,13 @@ export function WhyBogaziciSection() {
           className="text-center mb-12"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-4">
-            Kurumsal
+            {t("Kurumsal", "About Us")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">
-            Neden Boğaziçi İlgi Okulları?
+            {t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
           </h2>
           <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            26 yıllık öğretmenlik deneyimine sahip kurucularımızın vizyonuyla; ticari kaygılardan uzak, sadece ve sadece öğrencilerin ihtiyaçlarını ve gelişimini odağına alan bir eğitim anlayışını benimsiyoruz.
+            {t("Boğaziçi'nin bilimsel düşünce, özgürlük, araştırma ve kültürel zenginlik anlayışından ilham alarak; anaokulundan ortaokula uzanan, akademik başarıyı kişisel gelişimle bütünleştiren bir eğitim yolculuğu hedefliyoruz.", "Inspired by Boğaziçi's understanding of scientific thought, freedom, research and cultural richness, we aim for an educational journey from kindergarten to middle school that integrates academic success with personal development.")}
           </p>
         </motion.div>
 
@@ -106,16 +116,16 @@ export function WhyBogaziciSection() {
                     {/* Text */}
                     <div className="flex-1">
                       <h3 className="text-lg font-display font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-200">
-                        {card.title}
+                        {lang === "tr" ? card.title : card.titleEN}
                       </h3>
                       <p className="text-gray-500 text-sm leading-relaxed">
-                        {card.desc}
+                        {lang === "tr" ? card.desc : card.descEN}
                       </p>
                     </div>
 
                     {/* Arrow */}
                     <div className="flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200" style={{ color: card.color }}>
-                      <span>İncele</span>
+                      <span>{t("İncele", "Explore")}</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </div>

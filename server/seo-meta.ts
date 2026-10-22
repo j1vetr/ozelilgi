@@ -17,7 +17,7 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/": {
     title: "Özel Boğaziçi İlgi Koleji Çekmeköy | Anaokulu, İlkokul ve Ortaokul",
     description:
-      "Çekmeköy'de özel okul arıyorsanız doğru adrestesiniz! Boğaziçi İlgi Koleji'nde anaokulu, ilkokul ve ortaokul kademelerinde 26+ yıllık deneyimle kaliteli eğitim. Hemen ön kayıt yaptırın.",
+      "Çekmeköy'de anaokulundan ortaokula uzanan bütüncül eğitim yolculuğu. Boğaziçi Vizyonuyla Geleceğe. Özel Boğaziçi İlgi Koleji'nde hemen ön kayıt yaptırın.",
   },
   "/kayit": {
     title: "Kayıt Bilgileri | Çekmeköy Özel Okul | Boğaziçi İlgi Koleji",

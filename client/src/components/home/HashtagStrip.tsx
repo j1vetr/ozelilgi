@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 
 const HASHTAGS = [
-  "#heröğrenciözelilgiyihakeder",
   "#geleceğinliderleri",
-  "#özelilgiözelgelecek",
+  "#boğaziçivizyonuylageleceğe",
   "#ilgiilebüyüyennesiller",
-  "#sevgiveilgiyleeğitim",
+  "#herçocuğunpotansiyelinikeşfet",
 ];
 
 export function HashtagStrip() {
