@@ -94,7 +94,10 @@ export function Navbar() {
           <img
             src="/images/navbar-logo.png"
             alt="Özel Boğaziçi İlgi Okulları"
-            className="w-[72px] h-[72px] md:w-24 md:h-24 rounded-full object-contain shadow-lg transition-transform duration-300 group-hover:scale-105"
+            className={cn(
+              "rounded-full object-contain shadow-lg transition-all duration-300 group-hover:scale-105",
+              scrolled ? "w-16 h-16 md:w-20 md:h-20" : "w-24 h-24 md:w-32 md:h-32"
+            )}
             loading="eager"
             fetchPriority="high"
           />
