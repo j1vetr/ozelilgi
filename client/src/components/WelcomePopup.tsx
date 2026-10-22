@@ -88,7 +88,7 @@ export function WelcomePopup() {
                     <img
                       src="/images/navbar-logo.png"
                       alt="Özel Boğaziçi İlgi Okulları"
-                      className="h-[52px] w-auto object-contain"
+                      className="h-16 w-16 object-contain"
                     />
                   </div>
 

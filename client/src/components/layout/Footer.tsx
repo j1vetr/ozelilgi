@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center">
-              <img src="/images/footer-logo.png" alt="Özel Boğaziçi İlgi Okulları" className="object-contain" style={{ width: "280px", height: "auto" }} />
+              <img src="/images/footer-logo.png" alt="Özel Boğaziçi İlgi Okulları" className="object-contain" style={{ width: "150px", height: "auto" }} />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               {T("school.slogan", lang)}. {T("school.description", lang)}
