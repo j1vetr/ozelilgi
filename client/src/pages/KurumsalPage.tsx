@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useRoute, Link } from "wouter";
+import { useRoute, Redirect } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
@@ -50,40 +50,46 @@ const KURUMSAL_SEO: Record<string, { titleTR: string; titleEN: string; descTR: s
   },
 };
 
-const VALID_SLUGS = ["hakkimizda", "kurucu-mesaji", "vizyon-misyon", "egitim-yaklasimimiz", "egitim-politikamiz"] as const;
-const SLUG_ALIASES: Record<string, string> = {};
+const NEW_SEO: Record<string, { titleTR: string; titleEN: string; path: string }> = {
+  "kurulus-hikayesi": { titleTR: "Kuruluş Hikâyesi", titleEN: "Our Founding Story", path: "/kurumsal/kurulus-hikayesi" },
+  "logomuzun-hikayesi": { titleTR: "Logomuzun Hikâyesi", titleEN: "The Story of Our Logo", path: "/kurumsal/logomuzun-hikayesi" },
+  "yonetim-kurulu": { titleTR: "Yönetim Kurulu", titleEN: "Board of Directors", path: "/kurumsal/yonetim-kurulu" },
+  "idari-kadro": { titleTR: "İdari Kadro", titleEN: "Administrative Staff", path: "/kurumsal/idari-kadro" },
+  "danismanlar": { titleTR: "Danışmanlar", titleEN: "Advisors", path: "/kurumsal/danismanlar" },
+};
 
-function normalizeSlug(raw: string | undefined): typeof VALID_SLUGS[number] {
-  if (!raw) return "hakkimizda";
-  if (SLUG_ALIASES[raw]) return SLUG_ALIASES[raw] as typeof VALID_SLUGS[number];
-  if ((VALID_SLUGS as readonly string[]).includes(raw)) return raw as typeof VALID_SLUGS[number];
-  return "hakkimizda";
+const VALID_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon", "egitim-yaklasimimiz", "yonetim-kurulu", "idari-kadro", "danismanlar", "hakkimizda", "kurucu-mesaji", "egitim-politikamiz"] as const;
+type KurumsalSlug = typeof VALID_SLUGS[number];
+// Eski sayfalar yeni içerikler hazır olana kadar erişilebilir kalır (menüde görünmez).
+const SLUG_ALIASES: Record<string, KurumsalSlug> = {};
+
+function resolveSlug(raw: string | undefined): KurumsalSlug | null {
+  if (!raw) return null;
+  if ((VALID_SLUGS as readonly string[]).includes(raw)) return raw as KurumsalSlug;
+  return null;
 }
 
 export default function KurumsalPage() {
   const { lang, t } = useLanguage();
-  const PAGE_CONTENT = getPageContentTranslated(lang);
-  const [match, params] = useRoute("/kurumsal/:slug");
-  const slug = normalizeSlug(params?.slug) as keyof typeof PAGE_CONTENT.kurumsal;
-  const [activeTab, setActiveTab] = useState(slug);
+  const [, params] = useRoute("/kurumsal/:slug");
+  const rawSlug = params?.slug;
+  const slug = resolveSlug(rawSlug);
 
-  const tabs = [
-    { id: "hakkimizda", label: T("nav.about.about", lang), icon: Building2 },
-    { id: "kurucu-mesaji", label: T("nav.about.founder", lang), icon: Users },
-    { id: "vizyon-misyon", label: T("nav.about.vision", lang), icon: Target },
-    { id: "egitim-yaklasimimiz", label: T("nav.about.approach", lang), icon: Lightbulb },
-    { id: "egitim-politikamiz", label: T("nav.about.policy", lang), icon: BookOpenCheck },
-  ];
+  if (!slug) {
+    return <Redirect to={`/kurumsal/${(rawSlug && SLUG_ALIASES[rawSlug]) || "kurulus-hikayesi"}`} replace />;
+  }
 
-  useEffect(() => {
-    setActiveTab(slug);
-  }, [slug]);
-
-  const handleTabChange = (tabId: string) => {
-    setActiveTab(tabId as keyof typeof PAGE_CONTENT.kurumsal);
-  };
-
-  const seo = KURUMSAL_SEO[activeTab] || KURUMSAL_SEO["hakkimizda"];
+  const old = KURUMSAL_SEO[slug];
+  const fresh = NEW_SEO[slug];
+  const seo = old
+    ? { titleTR: old.titleTR, titleEN: old.titleEN, descTR: old.descTR, descEN: old.descEN, path: old.path }
+    : {
+        titleTR: `${fresh.titleTR} | Özel Boğaziçi İlgi Koleji Çekmeköy`,
+        titleEN: `${fresh.titleEN} | Özel Boğaziçi İlgi Koleji Çekmeköy`,
+        descTR: "Boğaziçi Vizyonuyla Geleceğe. Özel Boğaziçi İlgi Okulları Çekmeköy.",
+        descEN: "Towards the Future with the Boğaziçi Vision. Özel Boğaziçi İlgi Schools Çekmeköy.",
+        path: fresh.path,
+      };
 
   return (
     <div className="bg-background min-h-screen">
@@ -94,56 +100,45 @@ export default function KurumsalPage() {
         descriptionEN={seo.descEN}
         canonical={seo.path}
       />
-      <PageHeader 
-        title={T("nav.about", lang)} 
+      <PageHeader
+        title={T("nav.about", lang)}
         subtitle={t("Özel Boğaziçi İlgi Koleji Çekmeköy", "Özel Boğaziçi İlgi College Çekmeköy")}
-        breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/hakkimizda" }]}
+        breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/kurulus-hikayesi" }]}
       />
 
       <div className="container py-10 px-4">
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            return (
-              <Link key={tab.id} href={`/kurumsal/${tab.id}`}>
-                <motion.button
-                  onClick={() => handleTabChange(tab.id)}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-primary text-white shadow-lg shadow-primary/20'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {tab.label}
-                </motion.button>
-              </Link>
-            );
-          })}
-        </div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            {activeTab === "hakkimizda" && <HakkimizdaContent />}
-            {activeTab === "kurucu-mesaji" && <KurucuMesajiContent />}
-            {activeTab === "vizyon-misyon" && <VizyonMisyonContent />}
-            {activeTab === "egitim-yaklasimimiz" && <EgitimYaklasimiContent />}
-            {activeTab === "egitim-politikamiz" && <EgitimPolitikasiContent />}
-          </motion.div>
-        </AnimatePresence>
+        <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+          {slug === "kurulus-hikayesi" && <KurulusHikayesiContent />}
+          {slug === "logomuzun-hikayesi" && <LogomuzunHikayesiContent />}
+          {slug === "vizyon-misyon" && <VizyonMisyonContent />}
+          {slug === "egitim-yaklasimimiz" && <EgitimYaklasimiContent />}
+          {slug === "yonetim-kurulu" && <YonetimKuruluContent />}
+          {slug === "idari-kadro" && <IdariKadroContent />}
+          {slug === "danismanlar" && <DanismanlarContent />}
+          {slug === "hakkimizda" && <HakkimizdaContent />}
+          {slug === "kurucu-mesaji" && <KurucuMesajiContent />}
+          {slug === "egitim-politikamiz" && <EgitimPolitikasiContent />}
+        </motion.div>
       </div>
     </div>
   );
 }
+
+function SkeletonPage({ titleKey }: { titleKey: string }) {
+  const { lang, t } = useLanguage();
+  return (
+    <div className="max-w-3xl mx-auto text-center py-12">
+      <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-4">{T(titleKey, lang)}</h2>
+      <p className="text-muted-foreground">{t("İçerik yakında eklenecek", "Content coming soon")}</p>
+    </div>
+  );
+}
+
+function KurulusHikayesiContent() { return <SkeletonPage titleKey="nav.about.story" />; }
+function LogomuzunHikayesiContent() { return <SkeletonPage titleKey="nav.about.logo" />; }
+function YonetimKuruluContent() { return <SkeletonPage titleKey="nav.about.board" />; }
+function IdariKadroContent() { return <SkeletonPage titleKey="nav.about.staff" />; }
+function DanismanlarContent() { return <SkeletonPage titleKey="nav.about.advisors" />; }
 
 function HakkimizdaContent() {
   const { lang, t } = useLanguage();

@@ -12,6 +12,11 @@ const ui: TranslationMap = {
   "nav.contact": { tr: "İletişim", en: "Contact" },
   "nav.about.about": { tr: "Hakkımızda", en: "About Us" },
   "nav.about.founder": { tr: "Kurucu Mesajı", en: "Founder's Message" },
+  "nav.about.story": { tr: "Kuruluş Hikâyesi", en: "Our Founding Story" },
+  "nav.about.logo": { tr: "Logomuzun Hikâyesi", en: "The Story of Our Logo" },
+  "nav.about.board": { tr: "Yönetim Kurulu", en: "Board of Directors" },
+  "nav.about.staff": { tr: "İdari Kadro", en: "Administrative Staff" },
+  "nav.about.advisors": { tr: "Danışmanlar", en: "Advisors" },
   "nav.about.vision": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
   "nav.about.approach": { tr: "Eğitim Yaklaşımımız", en: "Our Approach" },
   "nav.about.policy": { tr: "Eğitim Politikamız", en: "Our Education Policy" },
@@ -217,11 +222,13 @@ export function getNavigationTranslated(lang: Language) {
       title: getTranslation("nav.about", lang),
       href: "/kurumsal",
       items: [
-        { title: getTranslation("nav.about.about", lang), href: "/kurumsal/hakkimizda" },
-        { title: getTranslation("nav.about.founder", lang), href: "/kurumsal/kurucu-mesaji" },
+        { title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
+        { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
         { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
         { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
-        { title: getTranslation("nav.about.policy", lang), href: "/kurumsal/egitim-politikamiz" },
+        { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
+        { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
+        { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
       ],
     },
     {
@@ -266,11 +273,13 @@ export function getNavigationTranslated(lang: Language) {
 export function getFooterLinksTranslated(lang: Language) {
   return {
     kurumsal: [
-      { title: getTranslation("nav.about.about", lang), href: "/kurumsal/hakkimizda" },
-      { title: getTranslation("nav.about.founder", lang), href: "/kurumsal/kurucu-mesaji" },
+      { title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
+      { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
       { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
       { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
-      { title: getTranslation("nav.about.policy", lang), href: "/kurumsal/egitim-politikamiz" },
+      { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
+      { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
+      { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
       { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
     ],
     akademik: [

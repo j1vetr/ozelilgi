@@ -123,7 +123,37 @@ export function Navbar() {
                 {item.title}
                 {item.items && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
               </Link>
-              {item.items && (
+              {item.items && item.href === "/kurumsal" && (
+                <div
+                  data-testid="navbar-mega-menu"
+                  className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-300"
+                >
+                  <div className="relative bg-white rounded-3xl overflow-hidden w-[560px] xl:w-[640px] min-h-[320px] border border-gray-100">
+                    <img
+                      src="/images/bogazici-logo-yuvarlak.png"
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute -right-16 -bottom-16 w-80 h-80 object-contain opacity-15 pointer-events-none select-none"
+                    />
+                    <div className="relative z-10 flex flex-col py-6 pl-4">
+                      {item.items.map((subItem, subIdx) => (
+                        <Link
+                          key={subIdx}
+                          href={subItem.href}
+                          data-testid={`navbar-dropdown-link-${idx}-${subIdx}`}
+                          className={cn(
+                            "block w-fit px-6 py-3 text-[15px] font-semibold transition-colors rounded-xl",
+                            location === subItem.href ? "text-brand-orange" : "text-primary hover:text-brand-orange"
+                          )}
+                        >
+                          {subItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+              {item.items && item.href !== "/kurumsal" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                   <div className="bg-white rounded-2xl shadow-2xl p-2 min-w-[220px] border border-gray-100/80">
                     {item.items.map((subItem, subIdx) => (
