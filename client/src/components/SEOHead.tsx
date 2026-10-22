@@ -78,7 +78,7 @@ export const SCHOOL_SCHEMA = {
     "closes": "18:30"
   },
   "image": `${SITE_URL}/images/building-drone-1.webp`,
-  "logo": `${SITE_URL}/images/navbar-logo.png`,
+  "logo": `${SITE_URL}/images/bogazici-logo-yuvarlak.png`,
   "hasMap": "https://maps.google.com/?q=Özel+Boğaziçi+İlgi+Koleji+Çekmeköy",
   "foundingDate": "2000",
   "numberOfEmployees": { "@type": "QuantitativeValue", "value": 50 },

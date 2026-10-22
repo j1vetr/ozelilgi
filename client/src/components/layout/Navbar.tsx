@@ -92,7 +92,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center group" data-testid="navbar-logo-link">
           <img
-            src="/images/navbar-logo.png"
+            src="/images/bogazici-logo-yuvarlak.png"
             alt="Özel Boğaziçi İlgi Okulları"
             className={cn(
               "rounded-full object-contain shadow-lg transition-all duration-300 group-hover:scale-105",
@@ -215,7 +215,7 @@ export function Navbar() {
               <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100 shrink-0">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   <img
-                    src="/images/navbar-logo.png"
+                    src="/images/bogazici-logo-yuvarlak.png"
                     alt="Özel Boğaziçi İlgi Okulları"
                     className="h-14 w-14 object-contain"
                   />

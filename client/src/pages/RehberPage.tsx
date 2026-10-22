@@ -113,7 +113,7 @@ function GuideDetail({ slug }: { slug: string }) {
     publisher: {
       "@type": "Organization",
       name: "Özel Boğaziçi İlgi Koleji Çekmeköy",
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/navbar-logo.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/bogazici-logo-yuvarlak.png` },
     },
   };
 

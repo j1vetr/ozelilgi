@@ -86,7 +86,7 @@ export function WelcomePopup() {
                   {/* Logo */}
                   <div className="relative mt-2 flex justify-center sm:justify-start">
                     <img
-                      src="/images/navbar-logo.png"
+                      src="/images/bogazici-logo-yuvarlak.png"
                       alt="Özel Boğaziçi İlgi Okulları"
                       className="h-16 w-16 object-contain"
                     />
