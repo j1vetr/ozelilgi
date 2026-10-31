@@ -8,26 +8,50 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { getNavigationTranslated, T } from "@/lib/translations";
 
-/* ── Dil değiştirici — TR | EN ─────────────────────────────── */
-function LangToggle({ scrolled, testId, className }: { scrolled?: boolean; testId?: string; className?: string }) {
+/* ── Yuvarlak bayraklar ─────────────────────────────────────── */
+function RoundFlagTR() {
+  return (
+    <svg viewBox="0 0 32 32" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><clipPath id="clipTR"><circle cx="16" cy="16" r="16" /></clipPath></defs>
+      <g clipPath="url(#clipTR)">
+        <rect width="32" height="32" fill="#E30A17" />
+        <circle cx="13" cy="16" r="6.4" fill="#fff" />
+        <circle cx="14.6" cy="16" r="5.1" fill="#E30A17" />
+        <polygon points="21.6,16 18.9,17.9 19.9,14.8 17.3,12.9 20.5,12.9" fill="#fff" />
+      </g>
+    </svg>
+  );
+}
+
+function RoundFlagGB() {
+  return (
+    <svg viewBox="0 0 32 32" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <clipPath id="clipGB"><circle cx="16" cy="16" r="16" /></clipPath>
+        <clipPath id="clipGBX"><rect width="32" height="32" /></clipPath>
+      </defs>
+      <g clipPath="url(#clipGB)">
+        <rect width="32" height="32" fill="#012169" />
+        <path d="M0,0 L32,32 M32,0 L0,32" stroke="#fff" strokeWidth="6.4" />
+        <g clipPath="url(#clipGBX)">
+          <path d="M0,0 L32,32 M32,0 L0,32" stroke="#C8102E" strokeWidth="2.2" />
+        </g>
+        <path d="M16,0 V32 M0,16 H32" stroke="#fff" strokeWidth="10" />
+        <path d="M16,0 V32 M0,16 H32" stroke="#C8102E" strokeWidth="6" />
+      </g>
+    </svg>
+  );
+}
+
+/* ── Dil değiştirici: iki yuvarlak bayrak ────────────────────── */
+function LangToggle({ testId, className }: { scrolled?: boolean; testId?: string; className?: string }) {
   const { lang, setLang } = useLanguage();
-  const items: { code: "tr" | "en"; label: string }[] = [
-    { code: "tr", label: "TR" },
-    { code: "en", label: "EN" },
+  const items = [
+    { code: "tr" as const, label: "Türkçe", flag: <RoundFlagTR /> },
+    { code: "en" as const, label: "English", flag: <RoundFlagGB /> },
   ];
   return (
-    <div
-      role="group"
-      aria-label="Language"
-      data-testid={testId}
-      className={cn(
-        "inline-flex items-center rounded-full p-0.5 border transition-colors duration-300",
-        scrolled === false
-          ? "bg-white/10 border-white/30 backdrop-blur-md"
-          : "bg-gray-100 border-gray-200",
-        className
-      )}
-    >
+    <div role="group" aria-label="Language" data-testid={testId} className={cn("inline-flex items-center gap-2", className)}>
       {items.map((it) => {
         const active = lang === it.code;
         return (
@@ -36,16 +60,14 @@ function LangToggle({ scrolled, testId, className }: { scrolled?: boolean; testI
             type="button"
             onClick={() => setLang(it.code)}
             aria-pressed={active}
+            aria-label={it.label}
+            title={it.label}
             className={cn(
-              "px-2.5 py-1 rounded-full text-xs font-bold tracking-wide cursor-pointer transition-colors duration-200 focus:outline-none",
-              active
-                ? "bg-brand-orange text-white"
-                : scrolled === false
-                  ? "text-white/80 hover:text-white"
-                  : "text-gray-500 hover:text-primary"
+              "w-8 h-8 rounded-full overflow-hidden cursor-pointer transition-all duration-200 focus:outline-none ring-2 ring-offset-1 ring-offset-transparent",
+              active ? "ring-brand-orange opacity-100 scale-105" : "ring-gray-300 opacity-60 hover:opacity-100"
             )}
           >
-            {it.label}
+            {it.flag}
           </button>
         );
       })}
