@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Trophy,
   Star,
-  Quote,
   GraduationCap,
   Users,
   ClipboardCheck,
@@ -51,84 +50,6 @@ export default function BasarilarPage() {
         subtitle={T("achievements.subtitle", lang)}
         breadcrumbs={[{ label: T("achievements.title", lang), href: "/basarilar" }]}
       />
-
-      {/* ——— Mezunlarımız (öne çıkan) ——— */}
-      <section className="bg-primary py-16 md:py-20">
-        <div className="container px-4">
-          <motion.div {...fadeUp} className="text-center mb-10 md:mb-14">
-            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
-              <GraduationCap className="w-4 h-4" />
-              {t("Mezunlarımız", "Our Graduates")}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display font-black text-white mb-3">
-              {t("LGS'de Parlayan Yıldızlarımız", "Our Shining Stars in LGS")}
-            </h2>
-            <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base">
-              {t(
-                "Ortaokulumuzdan mezun olan öğrencilerimiz, güçlü akademik temelleri ve bireysel koçluk desteğiyle LGS'de hedefledikleri okullara yerleşiyor.",
-                "Graduates of our middle school reach the schools they aim for in LGS with strong academic foundations and individual coaching support."
-              )}
-            </p>
-            <div className="flex justify-center gap-1.5 mt-5">
-              {[...Array(5)].map((_, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ scale: 0, rotate: -30 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.2 + i * 0.08 }}
-                >
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400" />
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            {GRADUATES.map((g, i) => (
-              <motion.div
-                key={g.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-2xl"
-                data-testid={`card-graduate-${i}`}
-              >
-                <div className="relative h-64 md:h-72 overflow-hidden">
-                  <img
-                    src={g.image}
-                    alt={g.name}
-                    className="w-full h-full object-cover object-[70%_20%]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-amber-400 text-primary text-xs font-black uppercase tracking-wide px-3 py-1.5 rounded-full shadow-lg">
-                    <Trophy className="w-3.5 h-3.5" />
-                    {t("LGS Başarısı", "LGS Success")}
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-2xl font-display font-black text-white drop-shadow">{g.name}</h3>
-                    <span className="text-xs font-bold text-amber-300 uppercase tracking-wide">
-                      {lang === "tr" ? g.labelTR : g.labelEN}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {lang === "tr" ? g.descTR : g.descEN}
-                  </p>
-                  <div className="flex gap-2.5 items-start bg-primary/5 rounded-xl p-4">
-                    <Quote className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-                    <p className="text-gray-700 text-sm italic leading-relaxed">
-                      {lang === "tr" ? g.quoteTR : g.quoteEN}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ——— Başarıyı nasıl inşa ediyoruz ——— */}
       <section className="py-14 md:py-16 bg-white border-b border-gray-100">
@@ -431,33 +352,6 @@ function AchievementSection({
 }
 
 /* ————— Veriler ————— */
-
-const GRADUATES = [
-  {
-    name: "Burcu Beril KARA",
-    image: "/images/lgs-burcu-beril-kaya.webp",
-    labelTR: "LGS Başarı Öğrencimiz",
-    labelEN: "Our LGS Success Graduate",
-    descTR:
-      "Ortaokul yıllarında aldığı güçlü akademik temel ve bireysel koçluk desteğiyle hayallerini gerçeğe dönüştürdü.",
-    descEN:
-      "With the strong academic foundation and individual coaching she received in middle school, she turned her dreams into reality.",
-    quoteTR: "\"Öğretmenlerim her zaman yanımdaydı. Başarım onların emeğiyle mümkün oldu.\"",
-    quoteEN: "\"My teachers were always by my side. My success was possible thanks to their dedication.\"",
-  },
-  {
-    name: "Kaan Ege ALP",
-    image: "/images/lgs-kaan-ege-alp.webp",
-    labelTR: "LGS Başarı Öğrencimiz",
-    labelEN: "Our LGS Success Graduate",
-    descTR:
-      "Kodlama, robotik ve güçlü akademik programla donandı; LGS'de harika bir başarı elde etti.",
-    descEN:
-      "Equipped with coding, robotics and a strong academic program, he achieved great success in LGS.",
-    quoteTR: "\"Boğaziçi İlgi'de sadece ders değil, düşünmeyi öğrendim.\"",
-    quoteEN: "\"At Boğaziçi İlgi, I didn't just learn lessons — I learned to think.\"",
-  },
-];
 
 const PILLARS = [
   {
