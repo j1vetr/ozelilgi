@@ -8,48 +8,48 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import { getNavigationTranslated, T } from "@/lib/translations";
 
-/* ── Bayraklar ─────────────────────────────────────────────── */
-function FlagTR({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
-  const dims = size === "lg" ? "w-9 h-6" : size === "sm" ? "w-6 h-4" : "w-8 h-5";
-  return (
-    <svg viewBox="0 0 30 20" className={cn(dims, "rounded-[3px] shadow-sm shrink-0")} xmlns="http://www.w3.org/2000/svg">
-      <rect width="30" height="20" fill="#E30A17"/>
-      <circle cx="10.5" cy="10" r="5.5" fill="#fff"/>
-      <circle cx="11.8" cy="10" r="4.4" fill="#E30A17"/>
-      <polygon points="18.5,10 16.5,11.4 17.2,9.1 15.4,7.8 17.7,7.8" fill="#fff"/>
-    </svg>
-  );
-}
-
-function FlagGB({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
-  const dims = size === "lg" ? "w-9 h-6" : size === "sm" ? "w-6 h-4" : "w-8 h-5";
-  return (
-    <svg viewBox="0 0 60 30" className={cn(dims, "rounded-[3px] shadow-sm shrink-0")} xmlns="http://www.w3.org/2000/svg">
-      <rect width="60" height="30" fill="#012169"/>
-      {/* diagonals white */}
-      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="8"/>
-      {/* cross white */}
-      <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10"/>
-      {/* diagonals red — clipped to quadrants manually */}
-      <path d="M0,0 L24,12 M36,18 L60,30 M60,0 L36,12 M24,18 L0,30" stroke="#C8102E" strokeWidth="5"/>
-      {/* cross red */}
-      <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6"/>
-    </svg>
-  );
-}
-
-/* ── Dil butonu — sadece bayrak ────────────────────────────── */
-function LangFlag({ scrolled }: { scrolled: boolean }) {
+/* ── Dil değiştirici — TR | EN ─────────────────────────────── */
+function LangToggle({ scrolled, testId, className }: { scrolled?: boolean; testId?: string; className?: string }) {
   const { lang, setLang } = useLanguage();
+  const items: { code: "tr" | "en"; label: string }[] = [
+    { code: "tr", label: "TR" },
+    { code: "en", label: "EN" },
+  ];
   return (
-    <button
-      onClick={() => setLang(lang === "tr" ? "en" : "tr")}
-      data-testid="lang-switcher-desktop"
-      title={lang === "tr" ? "Switch to English" : "Türkçe'ye geç"}
-      className="cursor-pointer hover:scale-110 hover:opacity-90 transition-all duration-200 focus:outline-none"
+    <div
+      role="group"
+      aria-label="Language"
+      data-testid={testId}
+      className={cn(
+        "inline-flex items-center rounded-full p-0.5 border transition-colors duration-300",
+        scrolled === false
+          ? "bg-white/10 border-white/30 backdrop-blur-md"
+          : "bg-gray-100 border-gray-200",
+        className
+      )}
     >
-      {lang === "tr" ? <FlagGB /> : <FlagTR />}
-    </button>
+      {items.map((it) => {
+        const active = lang === it.code;
+        return (
+          <button
+            key={it.code}
+            type="button"
+            onClick={() => setLang(it.code)}
+            aria-pressed={active}
+            className={cn(
+              "px-2.5 py-1 rounded-full text-xs font-bold tracking-wide cursor-pointer transition-colors duration-200 focus:outline-none",
+              active
+                ? "bg-brand-orange text-white"
+                : scrolled === false
+                  ? "text-white/80 hover:text-white"
+                  : "text-gray-500 hover:text-primary"
+            )}
+          >
+            {it.label}
+          </button>
+        );
+      })}
+    </div>
   );
 }
 
@@ -90,7 +90,7 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center group" data-testid="navbar-logo-link">
+        <Link href="/" className="flex items-center group ml-2 md:ml-0" data-testid="navbar-logo-link">
           <img
             src="/images/bogazici-logo-yuvarlak.png"
             alt="Özel Boğaziçi İlgi Okulları"
@@ -175,7 +175,7 @@ export function Navbar() {
 
         {/* Desktop sağ — bayrak + iletişim */}
         <div className="hidden lg:flex items-center gap-4">
-          <LangFlag scrolled={scrolled} />
+          <LangToggle scrolled={scrolled} testId="lang-switcher-desktop" />
           <Link href="/iletisim">
             <Button
               size="lg"
@@ -198,14 +198,7 @@ export function Navbar() {
 
         {/* Mobil sağ — bayrak + hamburger */}
         <div className="flex items-center gap-3 lg:hidden">
-          <button
-            onClick={() => setLang(lang === "tr" ? "en" : "tr")}
-            data-testid="lang-switcher-mobile"
-            title={lang === "tr" ? "Switch to English" : "Türkçe'ye geç"}
-            className="cursor-pointer hover:scale-110 hover:opacity-90 transition-all duration-200 focus:outline-none"
-          >
-            {lang === "tr" ? <FlagGB /> : <FlagTR />}
-          </button>
+          <LangToggle scrolled={scrolled} testId="lang-switcher-mobile" />
           <button
             data-testid="navbar-mobile-toggle"
             className={cn(
@@ -363,15 +356,7 @@ export function Navbar() {
                 </a>
 
                 {/* Dil seçimi — bayrak + etiket */}
-                <button
-                  onClick={() => setLang(lang === "tr" ? "en" : "tr")}
-                  className="w-full flex items-center justify-center gap-2.5 py-2.5 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
-                >
-                  {lang === "tr" ? <FlagGB size="lg" /> : <FlagTR size="lg" />}
-                  <span className="text-sm font-semibold text-gray-600">
-                    {lang === "tr" ? "Switch to English" : "Türkçe'ye geç"}
-                  </span>
-                </button>
+                <LangToggle className="self-center mx-auto flex w-fit" />
               </div>
             </motion.div>
           </>
