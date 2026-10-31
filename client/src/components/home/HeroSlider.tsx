@@ -1,35 +1,11 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "wouter";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage, type Language } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 
-type HeroSlide = {
-  image: string;
-  duration: number;
-  titleTR?: string;
-  titleEN?: string;
-};
-
-const heroSlides: HeroSlide[] = [
-  {
-    image: "/images/building-lgs-banner.webp",
-    titleTR: "Boğaziçi Vizyonuyla Geleceğe",
-    titleEN: "Towards the Future with the Boğaziçi Vision",
-    duration: 8000,
-  },
-  { image: "/images/music-room-1.webp", duration: 5000 },
-  { image: "/images/wall-mural-nature.webp", duration: 5000 },
-];
-
-function preloadImages() {
-  heroSlides.slice(1).forEach((slide) => {
-    const img = new Image();
-    img.src = slide.image;
-  });
-}
+const VIDEO_ID = "hFKbWg6j204";
 
 const marqueeItems = [
   "Anaokulu",
@@ -45,7 +21,7 @@ const marqueeItems = [
 ];
 
 /* ─── Default Slide Content ──────────────────────────────────── */
-function DefaultSlideContent({ slide, lang }: { slide: HeroSlide; lang: string }) {
+function DefaultSlideContent({ lang }: { lang: Language }) {
   return (
     <div className="relative h-full container flex flex-col justify-center items-center text-center px-4">
       <div className="max-w-3xl">
@@ -56,9 +32,7 @@ function DefaultSlideContent({ slide, lang }: { slide: HeroSlide; lang: string }
           data-testid="hero-title"
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-5"
         >
-          {lang === "tr"
-            ? (slide.titleTR ?? T("hero.title", lang))
-            : (slide.titleEN ?? T("hero.title", lang))}
+          {T("hero.title", lang)}
         </motion.h1>
 
         <motion.p
@@ -119,92 +93,31 @@ function DefaultSlideContent({ slide, lang }: { slide: HeroSlide; lang: string }
 
 /* ─── Main HeroSlider ────────────────────────────────────────── */
 export function HeroSlider() {
-  const [activeSlide, setActiveSlide] = useState(0);
   const { lang } = useLanguage();
-
-  useEffect(() => {
-    const idleTimeout = setTimeout(preloadImages, 2000);
-    const timer = setTimeout(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, heroSlides[activeSlide].duration);
-    return () => { clearTimeout(timer); clearTimeout(idleTimeout); };
-  }, [activeSlide]);
-
-  const currentSlide = heroSlides[activeSlide];
+  const src = `https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&playsinline=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1`;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden bg-black">
 
-      {/* Background Images */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeSlide}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0"
-        >
-          <img
-            src={currentSlide.image}
-            alt="Hero"
-            className="w-full h-full object-cover"
-            loading={activeSlide === 0 ? "eager" : "lazy"}
-            fetchPriority={activeSlide === 0 ? "high" : "auto"}
-            decoding={activeSlide === 0 ? "sync" : "async"}
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Background Video */}
+      <div className="absolute inset-0 pointer-events-none">
+        <iframe
+          src={src}
+          title="Özel Boğaziçi İlgi Koleji tanıtım videosu"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          referrerPolicy="strict-origin-when-cross-origin"
+          tabIndex={-1}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-0 w-[max(100vw,177.78vh)] h-[max(56.25vw,100vh)]"
+        />
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
 
-      {/* Slide Content */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`default-${activeSlide}`}
-          className="absolute inset-0 flex"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <DefaultSlideContent slide={currentSlide} lang={lang} />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Slide Indicators - Right Side (desktop) */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2 z-10">
-        {heroSlides.map((_, idx) => (
-          <motion.button
-            key={idx}
-            onClick={() => setActiveSlide(idx)}
-            whileHover={{ scale: 1.2 }}
-            data-testid={`hero-slide-indicator-${idx}`}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-500 ${
-              activeSlide === idx
-                ? "bg-brand-orange scale-110"
-                : "bg-white/40 hover:bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Slide Indicators - Bottom (mobile) */}
-      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex gap-2 lg:hidden z-10">
-        {heroSlides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveSlide(idx)}
-            data-testid={`hero-slide-indicator-mobile-${idx}`}
-            className={`h-1 rounded-full transition-all duration-500 ${
-              activeSlide === idx
-                ? "w-6 bg-brand-orange"
-                : "w-2.5 bg-white/40"
-            }`}
-          />
-        ))}
+      {/* Content */}
+      <div className="absolute inset-0 flex">
+        <DefaultSlideContent lang={lang} />
       </div>
 
       {/* Marquee Strip */}
