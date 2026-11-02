@@ -29,7 +29,7 @@ export function FeaturesShowcase() {
       icon: Dumbbell,
       title: t("Spor Salonu", "Sports Hall"),
       description: t("Basketbol, voleybol ve jimnastik için tam donanımlı spor alanı.", "Fully equipped sports area for basketball, volleyball, and gymnastics."),
-      image: "/images/sports-hall-1.webp",
+      image: "/images/spor-salonu-1.webp",
       color: "from-orange-500 to-amber-600",
       bgColor: "bg-orange-500"
     },
@@ -37,7 +37,7 @@ export function FeaturesShowcase() {
       icon: BookOpen,
       title: t("Kütüphane", "Library"),
       description: t("Zengin kitap koleksiyonu ve sessiz çalışma alanları.", "Rich book collection and quiet study areas."),
-      image: "/images/kutuphane-gercek.webp",
+      image: "/images/kutuphane-yeni-1.webp",
       color: "from-blue-500 to-indigo-600",
       bgColor: "bg-blue-500"
     },

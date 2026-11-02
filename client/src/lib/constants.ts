@@ -24,6 +24,9 @@ export const NAVIGATION = [
     items: [
       { title: "Vizyon & Misyon", href: "/kurumsal/vizyon-misyon" },
       { title: "Eğitim Yaklaşımımız", href: "/kurumsal/egitim-yaklasimimiz" },
+      { title: "BİLİVA Eğitim Modeli", href: "/kurumsal/biliva-egitim-modeli" },
+      { title: "BİLİVA'da Sanat, Spor ve Kulüpler", href: "/kurumsal/biliva-sanat-spor-kulupler" },
+      { title: "Bütüncül Eğitim Modelimiz", href: "/kurumsal/butuncul-egitim-modelimiz" },
     ],
   },
   {
@@ -33,6 +36,9 @@ export const NAVIGATION = [
       { title: "Anaokulu", href: "/akademik/anaokulu" },
       { title: "İlkokul", href: "/akademik/ilkokul" },
       { title: "Ortaokul", href: "/akademik/ortaokul" },
+      { title: "Akademik Zenginleştirme Birimi (ZEP)", href: "/akademik/zenginlestirme-birimi" },
+      { title: "Psikolojik Danışmanlık ve Rehberlik Birimi", href: "/akademik/rehberlik-birimi" },
+      { title: "Yabancı Dil Eğitimi", href: "/akademik/yabanci-dil-egitimi" },
     ],
   },
   {

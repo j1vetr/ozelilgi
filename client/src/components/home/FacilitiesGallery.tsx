@@ -20,11 +20,17 @@ const facilities = [
   { id: 12, image: "/images/entrance-stairs.jpg", title: "Çok Dilli Hoş Geldiniz Merdiveni", category: "Giriş" },
   { id: 13, image: "/images/entrance-lobby.webp", title: "Ana Giriş Holü", category: "Giriş" },
   { id: 14, image: "/images/welcome-stairs.jpg", title: "Renkli Karşılama Alanı", category: "Giriş" },
+  { id: 48, image: "/images/giris-holu-kat-tabela.webp", title: "Giriş Holü ve Kat Tabelası", category: "Giriş" },
+  { id: 49, image: "/images/vitrin-bilgi-5-harf.webp", title: "Giriş Vitrini", category: "Giriş" },
+  { id: 50, image: "/images/merdiven-ingilizce.webp", title: "İngilizce Kelimelerle Renkli Merdiven", category: "Giriş" },
+  { id: 51, image: "/images/bahce-bayrak-ataturk.webp", title: "Bayrak Direkleri ve Atatürk Büstü", category: "Giriş" },
   
   // Spor Salonu
   { id: 15, image: "/images/sports-hall-1.webp", title: "Spor Salonu - Basketbol Sahası", category: "Spor" },
   { id: 16, image: "/images/sports-hall-2.jpg", title: "Spor Salonu - Voleybol Sahası", category: "Spor" },
   { id: 17, image: "/images/sports-court.jpg", title: "Açık Hava Spor Alanı", category: "Spor" },
+  { id: 52, image: "/images/spor-salonu-1.webp", title: "Kapalı Spor Salonu", category: "Spor" },
+  { id: 53, image: "/images/spor-salonu-2.webp", title: "Spor Salonu Duvar Resimleri", category: "Spor" },
   
   // Müzik Odası
   { id: 18, image: "/images/music-room-1.webp", title: "Müzik Odası - Piyano ve Davullar", category: "Müzik" },
@@ -61,10 +67,17 @@ const facilities = [
   // Koridorlar
   { id: 40, image: "/images/hallway-underwater.webp", title: "Sualtı Temalı Koridor - Balık ve Dalgıç", category: "Koridor" },
   { id: 41, image: "/images/hallway-classroom.jpg", title: "Sınıflar Arası Koridor", category: "Koridor" },
+  { id: 54, image: "/images/koridor-duvar-resmi.webp", title: "Duvar Resimli Koridor", category: "Koridor" },
+  { id: 55, image: "/images/koridor-posterler.webp", title: "Posterlerle Süslü Koridor", category: "Koridor" },
   
   // Kütüphane
   { id: 42, image: "/images/kutuphane-gercek.webp", title: "Kütüphane", category: "Kütüphane" },
   { id: 43, image: "/images/library-2.jpg", title: "Kütüphane - Okuma Köşesi", category: "Kütüphane" },
+  { id: 56, image: "/images/kutuphane-yeni-1.webp", title: "Kütüphane - Çalışma Masaları", category: "Kütüphane" },
+  { id: 57, image: "/images/kutuphane-yeni-2.webp", title: "Kütüphane - Kitaplık ve Okuma Alanı", category: "Kütüphane" },
+  
+  // Kodlama
+  { id: 58, image: "/images/kodlama-atolyesi-yeni.webp", title: "Kodlama ve Robotik Atölyesi", category: "Kodlama" },
   
   // Laboratuvar
   { id: 44, image: "/images/science-room-1.webp", title: "Fen Bilgisi Laboratuvarı", category: "Laboratuvar" },
@@ -75,7 +88,7 @@ const facilities = [
   { id: 47, image: "/images/cafeteria-2.jpg", title: "Yemekhane - Oturma Alanı", category: "Yemekhane" },
 ];
 
-const categories = ["Tümü", "Bina", "Giriş", "Spor", "Müzik", "Sanat", "Sınıf", "Anaokulu", "Oyun Alanı", "Koridor", "Kütüphane", "Laboratuvar", "Yemekhane"];
+const categories = ["Tümü", "Bina", "Giriş", "Spor", "Müzik", "Sanat", "Sınıf", "Anaokulu", "Oyun Alanı", "Koridor", "Kütüphane", "Kodlama", "Laboratuvar", "Yemekhane"];
 
 export function FacilitiesGallery() {
   const [activeCategory, setActiveCategory] = useState("Tümü");

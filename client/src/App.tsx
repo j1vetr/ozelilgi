@@ -13,6 +13,10 @@ import { useLocation } from "wouter";
 import { useEffect, lazy, Suspense } from "react";
 
 const KurumsalPage = lazy(() => import("@/pages/KurumsalPage"));
+const SanatSporKuluplerPage = lazy(() => import("@/pages/SanatSporKuluplerPage"));
+const ZepPage = lazy(() => import("@/pages/ZepPage"));
+const RehberlikBirimiPage = lazy(() => import("@/pages/RehberlikBirimiPage"));
+const YabanciDilPage = lazy(() => import("@/pages/YabanciDilPage"));
 const AkademikPage = lazy(() => import("@/pages/AkademikPage"));
 const IletisimPage = lazy(() => import("@/pages/IletisimPage"));
 const KayitPage = lazy(() => import("@/pages/KayitPage"));
@@ -55,8 +59,12 @@ function Router() {
             <Route path="/" component={Home} />
             
             <Route path="/kurumsal" component={KurumsalPage} />
+            <Route path="/kurumsal/biliva-sanat-spor-kulupler" component={SanatSporKuluplerPage} />
             <Route path="/kurumsal/:slug" component={KurumsalPage} />
             
+            <Route path="/akademik/zenginlestirme-birimi" component={ZepPage} />
+            <Route path="/akademik/rehberlik-birimi" component={RehberlikBirimiPage} />
+            <Route path="/akademik/yabanci-dil-egitimi" component={YabanciDilPage} />
             <Route path="/akademik" component={AkademikPage} />
             <Route path="/akademik/:slug" component={AkademikPage} />
 

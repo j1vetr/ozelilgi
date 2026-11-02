@@ -16,6 +16,8 @@ const ui: TranslationMap = {
   "nav.about.staff": { tr: "İdari Kadro", en: "Administrative Staff" },
   "nav.about.advisors": { tr: "Danışmanlar", en: "Advisors" },
   "nav.about.vision": { tr: "Vizyon & Misyon", en: "Vision & Mission" },
+  "nav.about.holistic": { tr: "Bütüncül Eğitim Modelimiz", en: "Our Holistic Education Model" },
+  "nav.about.biliva": { tr: "BİLİVA Eğitim Modeli", en: "BİLİVA Education Model" },
   "nav.about.approach": { tr: "Eğitim Yaklaşımımız", en: "Our Approach to Education" },
   "nav.academic.preschool": { tr: "Anaokulu", en: "Preschool" },
   "nav.academic.primary": { tr: "İlkokul", en: "Primary School" },
@@ -208,6 +210,10 @@ export function getNavigationTranslated(lang: Language) {
         { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
         { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
         { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
+        { title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
+      { title: lang === "tr" ? "BİLİVA'da Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs at BİLİVA", href: "/kurumsal/biliva-sanat-spor-kulupler" },
+        { title: lang === "tr" ? "BİLİVA'da Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs at BİLİVA", href: "/kurumsal/biliva-sanat-spor-kulupler" },
+        { title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
         { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
         { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
         { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
@@ -221,6 +227,9 @@ export function getNavigationTranslated(lang: Language) {
         { title: lang === "tr" ? "Oyun Grubu (2-3 Yaş)" : "Play Group (Ages 2-3)", href: "/akademik/oyun-grubu" },
         { title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
         { title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
+        { title: lang === "tr" ? "Akademik Zenginleştirme Birimi (ZEP)" : "Academic Enrichment Unit (ZEP)", href: "/akademik/zenginlestirme-birimi" },
+        { title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik Birimi" : "Psychological Counseling and Guidance Unit", href: "/akademik/rehberlik-birimi" },
+        { title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
         { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
       ],
     },
@@ -259,6 +268,8 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
       { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
       { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
+      { title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
+      { title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
       { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
       { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
       { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
@@ -269,6 +280,9 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: lang === "tr" ? "Oyun Grubu (2-3 Yaş)" : "Play Group (Ages 2-3)", href: "/akademik/oyun-grubu" },
       { title: lang === "tr" ? "Çekmeköy İlkokulu" : "Primary School in Çekmeköy", href: "/akademik/ilkokul" },
       { title: lang === "tr" ? "Çekmeköy Ortaokulu" : "Middle School in Çekmeköy", href: "/akademik/ortaokul" },
+      { title: lang === "tr" ? "Akademik Zenginleştirme (ZEP)" : "Academic Enrichment (ZEP)", href: "/akademik/zenginlestirme-birimi" },
+      { title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik" : "Counseling and Guidance", href: "/akademik/rehberlik-birimi" },
+      { title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
       { title: lang === "tr" ? "Kampüs İmkanları" : "Campus Facilities", href: "/kampus/imkanlar" },
       { title: getTranslation("nav.campus.gallery", lang), href: "/kampus/galeri" },
     ],
@@ -326,25 +340,25 @@ export function getCampusFacilitiesTranslated(lang: Language) {
     return [
       { id: "sanat", title: "Görsel Sanatlar Atölyesi", desc: "Yaratıcılığı geliştiren sanat eğitimi", image: "/images/art-room-new-1.webp" },
       { id: "muzik", title: "Müzik Atölyesi", desc: "Enstrüman ve ses eğitimi", image: "/images/music-room-1.webp" },
-      { id: "kodlama", title: "Kodlama Atölyesi", desc: "Yazılım ve robotik eğitimi", image: "/images/coding-lab-1.webp" },
+      { id: "kodlama", title: "Kodlama Atölyesi", desc: "Yazılım ve robotik eğitimi", image: "/images/kodlama-atolyesi-yeni.webp" },
       { id: "fen", title: "Fen Bilgisi Laboratuvarı", desc: "Deneysel öğrenme ortamı", image: "/images/science-lab-new.webp" },
       { id: "bahce", title: "Bahçe & Oyun Alanı", desc: "Açık hava oyun ve etkinlik alanı", image: "/images/garden-slide.webp" },
-      { id: "spor", title: "Kapalı Spor Salonu", desc: "Fiziksel gelişim aktiviteleri", image: "/images/sports-hall-1.webp" },
-      { id: "kutuphane", title: "Kütüphane", desc: "Okuma ve araştırma merkezi", image: "/images/kutuphane-gercek.webp" },
+      { id: "spor", title: "Kapalı Spor Salonu", desc: "Fiziksel gelişim aktiviteleri", image: "/images/spor-salonu-1.webp" },
+      { id: "kutuphane", title: "Kütüphane", desc: "Okuma ve araştırma merkezi", image: "/images/kutuphane-yeni-1.webp" },
       { id: "yemekhane", title: "Yemekhane", desc: "Sağlıklı ve hijyenik beslenme", image: "/images/yemekhane-gercek.webp" },
-      { id: "rehberlik", title: "Rehberlik Odası", desc: "Bireysel danışmanlık hizmeti", image: "/images/entrance-lobby.webp" },
+      { id: "rehberlik", title: "Rehberlik Odası", desc: "Bireysel danışmanlık hizmeti", image: "/images/koridor-posterler.webp" },
     ];
   }
   return [
     { id: "art", title: "Visual Arts Workshop", desc: "Art education that develops creativity", image: "/images/art-room-new-1.webp" },
     { id: "music", title: "Music Workshop", desc: "Instrument and vocal training", image: "/images/music-room-1.webp" },
-    { id: "coding", title: "Coding Workshop", desc: "Software and robotics education", image: "/images/coding-lab-1.webp" },
+    { id: "coding", title: "Coding Workshop", desc: "Software and robotics education", image: "/images/kodlama-atolyesi-yeni.webp" },
     { id: "science", title: "Science Laboratory", desc: "Experimental learning environment", image: "/images/science-lab-new.webp" },
     { id: "garden", title: "Garden & Play Area", desc: "Outdoor play and activity area", image: "/images/garden-slide.webp" },
-    { id: "sports", title: "Indoor Sports Hall", desc: "Physical development activities", image: "/images/sports-hall-1.webp" },
-    { id: "library", title: "Library", desc: "Reading and research center", image: "/images/kutuphane-gercek.webp" },
+    { id: "sports", title: "Indoor Sports Hall", desc: "Physical development activities", image: "/images/spor-salonu-1.webp" },
+    { id: "library", title: "Library", desc: "Reading and research center", image: "/images/kutuphane-yeni-1.webp" },
     { id: "cafeteria", title: "Cafeteria", desc: "Healthy and hygienic nutrition", image: "/images/yemekhane-gercek.webp" },
-    { id: "counseling", title: "Counseling Office", desc: "Individual counseling service", image: "/images/entrance-lobby.webp" },
+    { id: "counseling", title: "Counseling Office", desc: "Individual counseling service", image: "/images/koridor-posterler.webp" },
   ];
 }
 
@@ -353,49 +367,27 @@ export function getPageContentTranslated(lang: Language) {
     return {
       akademik: {
         "anaokulu": {
-          title: "Anaokulu", subtitle: "Keşfeden, Sorgulayan Minik Zihinler", ages: "3-6 Yaş", color: "#F97316",
+          title: "Anaokulu", subtitle: "Küçük Adımlar, Büyük Keşifler", ages: "3-6 Yaş", color: "#F97316",
           image: "/images/preschool-orange-1.webp",
-          galleryImages: ["/images/preschool-orange-1.webp", "/images/preschool-orange-2.webp", "/images/preschool-blue-1.webp", "/images/preschool-blue-2.webp", "/images/garden-slide.webp"],
-          content: "Okul öncesi eğitim; özgüvenin ve öğrenme merakının perçinlendiği, dil ve düşünme becerilerinin geliştiği, toplumsal değerlerin kazandırıldığı ve insanın hayatı boyunca izlerini taşıdığı hazine değerindeki yılları kapsar.",
+          galleryImages: ["/images/preschool-orange-1.webp", "/images/preschool-orange-2.webp", "/images/preschool-blue-1.webp", "/images/preschool-blue-2.webp", "/images/garden-slide.webp", "/images/koridor-duvar-resmi.webp"],
+          content: "Özel Boğaziçi İlgi Okulları olarak anaokulunu, çocuklarımızın yalnızca ilkokula hazırlandığı bir dönem değil; kendilerini, çevrelerini ve dünyayı keşfetmeye başladıkları, öğrenme sevgisinin temellerini attıkları çok değerli bir gelişim yolculuğu olarak görüyoruz.",
           richSections: [
-            {
-              body: "Okul öncesi eğitim; özgüvenin ve öğrenme merakının perçinlendiği, dil ve düşünme becerilerinin geliştiği, toplumsal değerlerin kazandırıldığı ve insanın hayatı boyunca izlerini taşıdığı hazine değerindeki yılları kapsar."
-            },
-            {
-              body: "Bilimsel araştırmalar, okul öncesi eğitimdeki yatırımların bireyin geleceğine katma değerinin en yüksek olduğu dönemi işaret etmektedir. Donanımlı bir okul öncesi eğitim süreci, 6 yaşındaki bir çocuğun zihinsel ve dilsel gelişiminde akranlarına kıyasla devasa bir fark oluşturmasını sağlar."
-            },
-            {
-              body: "26 yıllık öğretmenlik tecrübemizle biliyoruz ki: Hayatta her büyük başarı, doğru zamanda gösterilen özel bir ilgi ve sevgiyle başlar. Boğaziçi İlgi Okulları'nda her çocuk, içindeki potansiyelin ortaya çıkması için gerekli zamanı, sabrı, planlı çabayı ve en önemlisi koşulsuz sevgiyi hak eder. Bizler, çocuklarımızın içindeki o eşsiz potansiyeli keşfeder; doğru yönlendirmelerle geleceğe güvenle bakan güçlü bireyler yetiştiririz."
-            },
-            {
-              heading: "Dünya Standartlarında, Özgün Eğitim",
-              body: "Dünyadaki yetkin okul öncesi yaklaşımları göz önünde bulundurularak hazırlanan Boğaziçi İlgi Okul Öncesi Programı;",
-              bullets: [
-                "Her çocuğun özel ve tek olduğunu kabul eder, bireysel gelişim hızını ve farklılıklarını gözetir.",
-                "Öğrenciye adım adım komut vermek yerine onun merak duygusunu ve keşfetme arzusunu tetikler.",
-                "Öğretmenin sadece bilgi aktaran değil, sevgiyle rehberlik eden konumda olduğu etkileşimli bir öğrenme ortamı sunar.",
-                "Ezberden uzak; yaparak, deneyerek, yaşayarak ve eğlenerek öğrenmeyi esas alan, oyun temelli yapılandırılmış etkinliklerle desteklenir.",
-                "İlkokula hazırlık sürecinde gerekli motor, sosyal, duygusal, dil ve bilişsel becerileri en üst seviyeye taşırken; yaşam ve öz bakım becerilerini kazandırır.",
-                "Doğaya, insana, canlılara ve farklılıklara saygılı; Atatürk ilke ve inkılaplarına bağlı, toplumsal sorumluluk bilinci yüksek bireyler yetiştirmeyi amaçlar."
-              ]
-            },
-            {
-              body: "Boğaziçi İlgi Anaokulu öğrencilerinin gününün önemli bir kısmı İngilizce ile geçer. Anaokulundan itibaren entegre bir şekilde yürütülen programımız sayesinde öğrencilerimizin dili bir \"ders\" olarak değil, doğal bir \"yaşam aracı\" olarak edinmeleri sağlanır."
-            },
-            {
-              body: "Tüm derslerde, beş duyuyu harekete geçiren duyu materyalleri ve özel eğitim araçları kullanılır. Çocuklarımız matematikle oyun oynayarak tanışır, ses farkındalığını ritimle geliştirir; doğaya dokunarak, kirlenerek ve keşfederek çevresini tanır."
-            },
-            {
-              highlight: "Çünkü Biliyoruz Ki: Her çocuk özel ilgiyi hak eder ve ilgiyle büyüyen her Boğaziçi İlgi öğrencisi, üstün yetenekleriyle donatılmış mutlu bir bireydir."
-            }
+            { highlight: "Her büyük gelecek, merakla atılan küçük bir adımla başlar." },
+            { body: "Özel Boğaziçi İlgi Okulları olarak anaokulunu, çocuklarımızın yalnızca ilkokula hazırlandığı bir dönem değil; kendilerini, çevrelerini ve dünyayı keşfetmeye başladıkları, öğrenme sevgisinin temellerini attıkları çok değerli bir gelişim yolculuğu olarak görüyoruz.\n\nHer çocuğun kendine özgü bir dünyası, öğrenme biçimi ve keşfedilmeyi bekleyen yetenekleri olduğuna inanıyoruz. Eğitim anlayışımızın merkezinde çocuğu tanımak, bireysel farklılıklarına saygı duymak ve kendisini güvende, mutlu ve değerli hissetmesini sağlamak vardır." },
+            { heading: "BİLİVA ile Güçlenen Öğrenme", body: "BİLİVA Eğitim Modelimizin ilgi, bilimsel düşünme, keşif ve araştırma ilkeleri; anaokulumuzda çocukların yaşlarına ve gelişim özelliklerine uygun bir öğrenme anlayışına dönüşür. Çocuklarımızı soru sormaya, gözlem yapmaya, denemeye ve fikirlerini özgürce ifade etmeye teşvik ederiz." },
+            { heading: "Oyunla Öğrenme ve Çok Yönlü Gelişim", body: "Oyun, okul öncesi dönemin en doğal öğrenme yoludur. Dil, düşünme, iletişim, problem çözme ve yaratıcılık becerilerini oyun ve deneyim temelli süreçlerle desteklemeyi esas alırız. Sanat, müzik, hareket, doğa ve keşif deneyimlerini çocukların hayal gücünü, fiziksel gelişimini ve çevre farkındalığını besleyen alanlar olarak görürüz." },
+            { heading: "Sosyal ve Duygusal Güçlenme", body: "Çocuklarımızın duygularını tanımasını, kendilerini ifade etmesini, arkadaşlık ilişkileri kurmasını, paylaşmayı öğrenmesini ve sorumluluk almasını önemseriz. Aileyle kurulan güvene dayalı iş birliğini bu gelişim yolculuğunun vazgeçilmez parçası kabul ederiz." },
+            { heading: "İlkokula Güçlü Bir Başlangıç", body: "İlkokula hazırlığı yalnızca harfleri ve sayıları öğrenmek olarak görmeyiz. Bizim için gerçek hazırlık; öğrenmeye istekli olmak, dikkatini geliştirmek, kendine güvenmek, iletişim kurabilmek ve yeni deneyimlere cesaretle yaklaşabilmektir.\n\nAmacımız; merakını kaybetmeyen, öğrenmekten mutluluk duyan, kendisini özgürce ifade eden ve güçlü temeller üzerinde büyüyen çocuklar yetiştirmektir." },
+            { highlight: "Çünkü geleceği şekillendirecek büyük fikirler, bugün bir çocuğun sorduğu küçük bir soruyla başlayabilir." },
+            { body: "Özel Boğaziçi İlgi Okulları  •  Boğaziçi Vizyonuyla Geleceğe" },
           ],
           features: [
-            { title: "Bireysel Gelişim", desc: "Her çocuğun özel ve tek olduğunu kabul eder; bireysel gelişim hızını ve farklılıklarını gözetir" },
-            { title: "Keşfeden Zihinler", desc: "Merak duygusunu ve keşfetme arzusunu tetikler; yaparak, deneyerek, yaşayarak öğrenme" },
-            { title: "Oyun Temelli Öğrenme", desc: "Ezberden uzak, eğlenerek öğrenmeyi esas alan oyun temelli yapılandırılmış etkinlikler" },
-            { title: "İlkokula Hazırlık", desc: "Motor, sosyal, duygusal, dil ve bilişsel becerileri ile yaşam ve öz bakım becerilerini kazandırır" },
-            { title: "Bütünleşik İngilizce", desc: "Anaokulundan itibaren dili doğal bir yaşam aracı olarak edindiren program" },
-            { title: "Değerler & Doğa Sevgisi", desc: "Doğaya, insana ve canlılara saygılı; Atatürk ilkelerine bağlı bireyler" }
+            { title: "Çocuğu Tanımak", desc: "Bireysel farklılıklara saygı duyan, çocuğun kendisini güvende, mutlu ve değerli hissetmesini sağlayan eğitim anlayışı" },
+            { title: "BİLİVA ile Güçlenen Öğrenme", desc: "İlgi, bilimsel düşünme, keşif ve araştırma ilkeleri; soru sorma, gözlem yapma ve denemeye teşvik" },
+            { title: "Oyunla Öğrenme", desc: "Dil, düşünme, iletişim, problem çözme ve yaratıcılık becerilerini oyun ve deneyim temelli süreçlerle destekleme" },
+            { title: "Çok Yönlü Gelişim", desc: "Sanat, müzik, hareket, doğa ve keşif deneyimleriyle hayal gücü, fiziksel gelişim ve çevre farkındalığı" },
+            { title: "Sosyal ve Duygusal Güçlenme", desc: "Duyguları tanıma, kendini ifade etme, arkadaşlık kurma, paylaşma ve sorumluluk alma; aileyle güvene dayalı iş birliği" },
+            { title: "İlkokula Güçlü Bir Başlangıç", desc: "Öğrenmeye istekli olmak, dikkati geliştirmek, kendine güvenmek ve yeni deneyimlere cesaretle yaklaşmak" },
           ]
         },
         "oyun-grubu": {
@@ -406,142 +398,55 @@ export function getPageContentTranslated(lang: Language) {
           features: []
         },
         "ilkokul": {
-          title: "İlkokul", subtitle: "Güçlü Akademik Temeller", ages: "1-4. Sınıf", color: "#3B82F6",
+          title: "İlkokul", subtitle: "Merakla Başlayan, Bilimle Güçlenen Bir Gelecek", ages: "1-4. Sınıf", color: "#3B82F6",
           image: "/images/primary-class-1.webp",
-          galleryImages: ["/images/primary-class-1.webp", "/images/primary-class-2.webp", "/images/primary-class-3.webp", "/images/library-1.jpg", "/images/art-room-1.webp"],
-          content: "Hayatta her büyük başarı, doğru zamanda gösterilen özel bir ilgi ve sevgiyle başlar.",
+          galleryImages: ["/images/primary-class-1.webp", "/images/primary-class-2.webp", "/images/primary-class-3.webp", "/images/library-1.jpg", "/images/art-room-1.webp", "/images/merdiven-ingilizce.webp", "/images/koridor-posterler.webp"],
+          content: "Özel Boğaziçi İlgi Okulları olarak ilkokul dönemini, çocuklarımızın yalnızca okuma, yazma ve temel akademik beceriler kazandığı bir süreç değil; düşünmeyi öğrenme, merakını bilgiye dönüştürme, kendisini tanıdığı ve öğrenme alışkanlıklarını geliştirdiği önemli bir eğitim yolculuğu olarak görüyoruz.",
           richSections: [
-            {
-              body: "Hayatta her büyük başarı, doğru zamanda gösterilen özel bir ilgi ve sevgiyle başlar. Çekmeköy Boğaziçi İlgi Okulları olarak her bir çocuğumuzun içindeki potansiyeli ortaya çıkarmak için gerekli zamanı, sabrı, planlı çabayı ve en önemlisi koşulsuz sevgiyi hak ettiğine inanıyoruz. 26 yıllık öğretmenlik tecrübemizle bu potansiyeli keşfediyor, geleceği aydınlatacak özgüvenli bireyler yetiştiriyoruz."
-            },
-            {
-              heading: "Okuluna Koşa Koşa Gelen Bireyler",
-              body: "Çocuklarımızın okulunu sevmesi bizim en büyük önceliğimizdir. Her bir öğrencimizin kapıdan içeri mutlu, huzurlu ve güvende girmesini önemseriz. 26 yılı aşan öğretmenlik tecrübesine sahip uzman kadromuzla, akademik başarıyı sevgi dolu ve sağlam bir temel üzerine inşa ediyoruz. Eğitim hayatına doğru zamanda ve mutlu bir başlangıç yapabilmek adına okula başlama süreçlerimizi detaylı gözlem ve rehberlik ölçümleriyle yönlendiriyoruz."
-            },
-            {
-              heading: "Bilgiyi Değere Dönüştüren Eğitim Anlayışı",
-              body: "Başarımızın en önemli anahtarı her bir öğrencimizi yakından tanıyan ve takip eden bireysel eğitim anlayışımızdır. Öğrencilerimizin bilgiyi sadece ezberlemelerini değil, analiz etme, eleştirel düşünme, bilgiyi hayatın içinde kullanma ve yaratıcılık becerilerine dönüştürmelerini destekliyoruz.\n\nİlkokul kadememizde temel amacımız; öğrencilerimize okuma, yazma, matematik ve fen bilimleri gibi temel disiplinleri eksiksiz kazandırırken, aynı zamanda araştıran, sorgulayan ve problem çözme yeteneği gelişmiş bireyler yetiştirmektir."
-            },
-            {
-              heading: "Öne Çıkan Eğitim Programlarımız",
-              programs: [
-                {
-                  num: "1",
-                  title: "Doğa, Canlı Sevgisi ve Bilim Programı",
-                  body: "\"Üretken merak\" sahibi birey; iç motivasyonu yüksek, araştıran ve hayatı anlamlandırarak yaşayan kişidir. Boğaziçi İlgi Doğa ve Bilim Programı, sorgulamayı doğa sevgisiyle buluşturur. Çevreye, doğaya ve canlılara duyarlı nesiller yetiştirirken öğrencilerimizin doğadaki sistemleri keşfederek bilimsel soru sorma ve düşünme becerilerini geliştiririz."
-                },
-                {
-                  num: "2",
-                  title: "Rehberlik ve PDR Çalışmaları",
-                  body: "Eğitim-öğretim programlarımız, güçlü Psikolojik Danışmanlık ve Rehberlik (PDR) birimimizle desteklenir. Öğrencilerimizin duygusal, sosyal ve akademik gelişimleri birebir takip edilir. Kendini ifade edebilen, ne istediğini bilen, özgüveni yüksek ve toplumsal sorumluluk bilincine sahip bireyler olmaları için sistemli rehberlik sunulur."
-                },
-                {
-                  num: "3",
-                  title: "Yabancı Dil Eğitimi",
-                  body: "Dünyanın kabul gördüğü Communicative Language Teaching (İletişimsel Dil Eğitimi) yaklaşımı, hareket odaklı Total Physical Response (TPR) yöntemi ve Montessori felsefesinin çocuk merkezli, somut deneyime dayanan ilkeleriyle İngilizceyi ders olmaktan çıkarıp yaşayan bir iletişim aracına dönüştürüyoruz. Sınıf duvarlarını aşan interaktif atölyeler, drama çalışmaları ve zenginleştirilmiş materyaller sayesinde öğrencilerimizin dili doğal akışında deneyimleyerek akıcı bir şekilde konuşmalarını ve özgüvenle kullanmalarını sağlıyoruz."
-                },
-                {
-                  num: "4",
-                  title: "\"Her Çocuk Bir Yetenek\" Atölyeleri",
-                  body: "Bizler, her çocuğun üstün yeteneklerle donatıldığına inanıyoruz. 1. sınıftan itibaren müzik, spor, görsel sanatlar, bilişim ve drama atölyeleriyle öğrencilerimizin ilgilerini keşfetmelerini sağlıyoruz. Öğretmenlerimizin yönlendirmesiyle yeteneklerini derinleştirebilecekleri özel kulüp ve atölye çalışmalarına katılarak potansiyellerini en üst seviyeye taşıyorlar."
-                },
-                {
-                  num: "5",
-                  title: "Geleceğin Teknolojisi: Robotik ve Kodlama",
-                  body: "Değişen dünyanın gereksinimlerine uyum sağlamak adına ilkokulun tüm kademelerinde sunulan Robotik ve Kodlama müfredatımız sayesinde öğrencilerimiz algoritmik düşünme, mantıksal yürütme ve teknolojik okuryazarlık yetkinlikleri kazanır."
-                }
-              ]
-            },
-            {
-              heading: "Velimiz, En Yakın Paydaşımız",
-              body: "Eğitimin bir sacayağı olduğuna inanıyor, velilerimizle açıklık, şeffaflık ve güven ilkesi doğrultusunda iletişim kuruyoruz. Öğrenci takip sistemlerimiz ve düzenli bildirimlerimiz sayesinde velilerimiz, çocuklarının akademik ve sosyal gelişimini anlık olarak takip edebilmektedir.\n\nAyrıca Boğaziçi İlgi Ebeveyn Akademisi çatısı altında düzenlediğimiz rehberlik seminerleri ve ebeveyn eğitimleriyle, çocuklarımızın gelişim yolculuğunda ailelerimizle el ele yürüyoruz."
-            },
-            {
-              highlight: "Çünkü Biliyoruz Ki: Öğretmenlik tecrübemiz ve koşulsuz sevgimizle büyüyen her Çekmeköy Boğaziçi İlgi öğrencisi; değerlerine bağlı, doğaya saygılı, üstün yeteneklerini keşfetmiş mutlu ve başarılı bir bireydir."
-            }
+            { highlight: "Güçlü bir gelecek, sağlam temeller üzerinde yükselir." },
+            { body: "Özel Boğaziçi İlgi Okulları olarak ilkokul dönemini, çocuklarımızın yalnızca okuma, yazma ve temel akademik beceriler kazandığı bir süreç değil; düşünmeyi öğrenme, merakını bilgiye dönüştürme, kendisini tanıdığı ve öğrenme alışkanlıklarını geliştirdiği önemli bir eğitim yolculuğu olarak görüyoruz.\n\nBoğaziçi’nin bilimsel düşünce, özgürlük, akademik yetkinlik ve evrensel değerlerinden ilham alan eğitim anlayışımızda, her çocuğun kendine özgü bir potansiyele sahip olduğuna inanıyoruz. Bu nedenle öğrencilerimizin bireysel farklılıklarını gözeten güçlü akademik temeller kazanmalarını ve öğrenmeye karşı kalıcı bir ilgi geliştirmelerini hedefliyoruz." },
+            { heading: "BİLİVA ile Düşünen ve Üreten Çocuklar", body: "BİLİVA Eğitim Modelimiz, ilkokulda öğrencilerimizin bilimsel düşünme, keşfetme, liderlik, ilişkilendirme, vizyon geliştirme ve araştırıp üretme becerilerini destekleyen eğitim anlayışımızın temelini oluşturur.\n\nÇocuklarımızın yalnızca doğru cevaplara ulaşmasını değil; doğru soruları sormasını, neden-sonuç ilişkileri kurmasını, farklı fikirleri değerlendirmesini ve öğrendiklerini günlük yaşamla ilişkilendirmesini önemsiyoruz." },
+            { heading: "Güçlü Akademik Temel", body: "İlkokul eğitimimizin önceliklerinden biri, öğrencilerimize okuduğunu anlama, kendini doğru ifade etme, matematiksel düşünme, problem çözme ve öğrenmeyi öğrenme becerilerinde sağlam bir temel kazandırmaktır.\n\nBilgiyi ezberlemenin ötesine geçen; anlamayı, yorumlamayı, sorgulamayı ve uygulamayı merkeze alan bir öğrenme kültürünü benimsiyoruz." },
+            { heading: "ZEP ile Her Çocuğun Potansiyeline Değer", body: "ZEP – Zenginleştirilmiş Eğitim Programımız, her öğrencinin öğrenme hızını, ilgi alanlarını, güçlü yönlerini ve gelişim ihtiyaçlarını dikkate alan yaklaşımımızı tamamlar.\n\nAmacımız, çocuklarımızı birbirleriyle karşılaştırmak değil; her birinin kendi gelişim yolculuğunda ilerlemesini desteklemektir. Öğrencilerimizin meraklarını derinleştirmelerini, farklı alanları keşfetmelerini ve öğrenme motivasyonlarını güçlendirmelerini önemsiyoruz." },
+            { heading: "Yabancı Dil ve Dünyaya Açılan Bakış", body: "Yabancı dil öğrenimini yalnızca kelime ve dil bilgisi kazanımı olarak değil; iletişim kurmanın, farklı kültürleri tanımanın ve dünyaya daha geniş bir pencereden bakmanın önemli bir parçası olarak görüyoruz.\n\nÖğrencilerimizin yabancı dilde karşılıklı bir tutum geliştirmelerini, yaşlarına uygun iletişim becerileri kazanmalarını ve dili kullanma cesaretlerini artırmalarını hedefliyoruz." },
+            { heading: "Sanat, Spor ve Çok Yönlü Gelişim", body: "Sanat, müzik, spor, kültür ve doğayla kurulan ilişkiyi eğitimin tamamlayıcı unsurları olarak değil, çocuğun bütüncül gelişiminin vazgeçilmez parçaları olarak değerlendiriyoruz.\n\nÇocuklarımızın yaratıcılıklarını, estetik duyarlılıklarını, fiziksel becerilerini, takım çalışması alışkanlıklarını ve farklı alanlardaki yeteneklerini geliştirmelerini destekleyen bir eğitim anlayışını benimsiyoruz." },
+            { heading: "Güçlü Karakter, Sağlam Değerler", body: "Akademik gelişimin yanında öğrencilerimizin özgüvenli, sorumluluk sahibi, saygılı, empati kurabilen ve düşüncelerini özgürce ifade edebilen bireyler olarak yetişmesini önemsiyoruz.\n\nÇünkü bizim için eğitim, yalnızca başarılı öğrenciler yetiştirmek değil; bilgisiyle, karakteriyle ve davranışlarıyla çevresine değer katabilen insanlar yetiştirmektir." },
+            { heading: "Geleceğe Güvenle Hazırlanan Nesiller", body: "Özel Boğaziçi İlgi Okulları İlkokulunda hedefimiz; öğrenmeyi seven, araştıran, sorgulayan, güçlü akademik temellere sahip, çok yönlü gelişen ve kendi potansiyelinin farkında olan çocuklar yetiştirmektir.\n\nBiz çocuklarımızı yalnızca bir sonraki sınıfa değil; düşünen, üreten ve sorumluluk alan bireyler olarak geleceğe hazırlamayı amaçlıyoruz." },
+            { body: "Özel Boğaziçi İlgi Okulları  •  Boğaziçi Vizyonuyla Geleceğe\n\nBİLİVA Eğitim Modeli  |  İlgiyle Keşfet. Bilimle Geliş. Geleceğe Yön Ver." },
           ],
           features: [
-            { title: "Doğa, Canlı Sevgisi ve Bilim", desc: "\"Üretken merak\" sahibi bireyler yetiştiren, sorgulamayı doğa sevgisiyle buluşturan özgün program" },
-            { title: "Rehberlik ve PDR", desc: "Duygusal, sosyal ve akademik gelişimi birebir takip eden güçlü PDR birimi" },
-            { title: "Yabancı Dil Eğitimi", desc: "CLT, TPR ve Montessori yöntemleriyle İngilizceyi yaşayan bir iletişim aracına dönüştürüyoruz" },
-            { title: "Her Çocuk Bir Yetenek Atölyeleri", desc: "1. sınıftan itibaren müzik, spor, görsel sanatlar, bilişim ve drama atölyeleri" },
-            { title: "Robotik ve Kodlama", desc: "Algoritmik düşünme, mantıksal yürütme ve teknolojik okuryazarlık" },
-            { title: "Veli-Okul Dayanışması", desc: "Şeffaf iletişim ve Boğaziçi İlgi Ebeveyn Akademisi ile ailelerle el ele" }
+            { title: "BİLİVA ile Düşünen ve Üreten", desc: "Bilimsel düşünme, keşfetme, liderlik, ilişkilendirme, vizyon geliştirme ve araştırıp üretme becerileri" },
+            { title: "Güçlü Akademik Temel", desc: "Okuduğunu anlama, kendini doğru ifade etme, matematiksel düşünme ve problem çözmede sağlam temel" },
+            { title: "ZEP ile Her Çocuğun Potansiyeline Değer", desc: "Öğrenme hızını, ilgi alanlarını ve güçlü yönleri dikkate alan, her çocuğun kendi yolculuğunu destekleyen yaklaşım" },
+            { title: "Yabancı Dil ve Dünyaya Açılan Bakış", desc: "İletişim kurma, farklı kültürleri tanıma ve dili kullanma cesaretini artırma" },
+            { title: "Sanat, Spor ve Çok Yönlü Gelişim", desc: "Yaratıcılık, estetik duyarlılık, fiziksel beceriler ve takım çalışması alışkanlığı" },
+            { title: "Güçlü Karakter, Sağlam Değerler", desc: "Özgüvenli, sorumluluk sahibi, saygılı ve empati kurabilen bireyler" },
           ]
         },
         "ortaokul": {
-          title: "Ortaokul", subtitle: "LGS'ye Hazırlık ve Geleceğe Yön Verme", ages: "5-8. Sınıf", color: "#10B981",
-          image: "/images/library-2.jpg",
-          galleryImages: ["/images/library-2.jpg", "/images/sports-hall-1.webp", "/images/music-room-1.webp"],
-          content: "Ortaokul dönemi akademik branşlaşmanın başladığı, soyut düşünme becerilerinin geliştiği ve liselere geçiş sınavlarına (LGS) hazırlığın yoğunlaştığı kritik bir süreçtir.",
+          title: "Ortaokul", subtitle: "Bilimsel Düşünceden Güçlü Bir Geleceğe", ages: "5-8. Sınıf", color: "#10B981",
+          image: "/images/kutuphane-yeni-1.webp",
+          galleryImages: ["/images/kutuphane-yeni-1.webp", "/images/kutuphane-yeni-2.webp", "/images/spor-salonu-1.webp", "/images/kodlama-atolyesi-yeni.webp", "/images/music-room-1.webp"],
+          content: "Özel Boğaziçi İlgi Okulları olarak ortaokul dönemini, öğrencilerimizin ilkokulda kazandıkları akademik temelleri derinleştirdikleri, ilgi ve yeteneklerini daha yakından tanıdıkları, kendi öğrenme sorumluluklarını üstlenmeye başladıkları önemli bir gelişim yolculuğu olarak görüyoruz.",
           richSections: [
-            {
-              body: "Ortaokul dönemi akademik branşlaşmanın başladığı, soyut düşünme becerilerinin geliştiği ve liselere geçiş sınavlarına (LGS) hazırlığın yoğunlaştığı kritik bir süreçtir. Çekmeköy Boğaziçi İlgi Koleji olarak, 26 yılı aşan öğretmenlik tecrübemizle öğrencilerimizi hem LGS'ye en üst düzeyde hazırlıyor hem de onları geleceğe yön veren, özgüvenli bireyler olarak yetiştiriyoruz.\n\nZamanın gereklerini ve öğrencilerimizin üstün faydasını önceleyen özgün eğitim-öğretim programlarımız sayesinde, öğrencilerimizin yalnızca akademik alanlarda değil, yaşamın her kulvarında başarı elde etmelerini hedefliyoruz."
-            },
-            {
-              heading: "Birebir Takip ve Akademik Başarı",
-              body: "Başarımızın en temel anahtarı, ticari kaygılardan uzak, kendisini tamamen öğrenciye adayan uzman kadromuzun uyguladığı birebir ve sistemli takip anlayışıdır.",
-              bullets: [
-                "LGS ve Beceri Temelli Yaklaşım: Öğrencilerimiz, yeni nesil ve beceri temelli sorular aracılığıyla bilgiyi sadece ezberlemekle kalmaz; analiz etme, yorumlama ve hayatın içinde kullanma yetkinliği kazanır.",
-                "Analitik Ölçme ve Değerlendirme: Bireysel takip sistemimiz doğrultusunda, konu kazanımlarının yanı sıra mantık ve muhakeme becerileri de detaylıca analiz edilir.",
-                "Etüt ve Akademik Destek: Genel deneme sınavları sonuçlarına göre eksikleri belirlenen öğrencilerimiz, okulumuz bünyesinde düzenlenen özel etüt ve birebir tamamlama programlarıyla kesintisiz desteklenir."
-              ]
-            },
-            {
-              heading: "LGS Hazırlıkta \"Biz Bize Yeteriz\"",
-              body: "Eğitim modelimiz; öğrencilerimizin herhangi bir dış kursa veya özel derse ihtiyaç duymadan, LGS hazırlık sürecinde ihtiyaç duydukları tüm akademik desteği okulumuz bünyesinde almaları üzerine kurulmuştur.",
-              bullets: [
-                "Birebir Akademik Koçluk: 8. sınıftaki öğrencilerimize atanan danışman öğretmenimiz, sınav maratonu boyunca hem akademik takibi yürütür hem de psikolojik rehberlik sağlar.",
-                "Verimli Çalışma Disiplini: Sınav grubu öğrencilerimizin disiplinli ve planlı bir çalışma ritmi yakalamaları için özel çalışma kampları ve takip programları uygulanır.",
-                "Veli-Okul Dayanışması: Öğrencilerimizin akademik ve gelişimsel süreçleri, velilerimizle şeffaf ve anlık iletişim kanalları üzerinden düzenli olarak paylaşılır."
-              ]
-            },
-            {
-              heading: "Öne Çıkan Eğitim Programlarımız",
-              programs: [
-                {
-                  num: "1",
-                  title: "Doğa, Canlı Sevgisi ve Bilim Programı",
-                  body: "\"Üretken merak\" sahibi birey; sorgulayan, araştıran ve çevresini anlamlandırarak yaşayan kişidir. Boğaziçi İlgi Doğa ve Bilim Programı; bilimsel merakı doğa sevgisiyle birleştirir. Öğrencilerimiz, doğadaki sistemleri keşfederken bilimsel soru sorma becerisi kazanır, çevreye, doğaya ve tüm canlılara saygılı bireyler olarak yetişir."
-                },
-                {
-                  num: "2",
-                  title: "Rehberlik ve PDR Çalışmaları",
-                  body: "Ergenlik döneminin getirdiği duygusal ve sosyal değişimler, PDR birimimiz tarafından hassasiyetle yönetilir. Öğrencilerimizin özgüven kazanmaları, hedef belirlemeleri, zaman yönetimi ve sınav kaygısıyla baş etmeleri için bireysel görüşmeler ve grup çalışmaları yürütülür."
-                },
-                {
-                  num: "3",
-                  title: "Yabancı Dil Eğitimi",
-                  body: "İngilizce: Communicative Language Teaching yaklaşımını Task-Based Learning metoduyla destekleyerek çocuklarımıza dili sadece kitaplar üzerinde öğrenmek yerine, hayatın içinden projelerle bizzat deneyimleme fırsatı sunuyoruz. İnteraktif dersler ve günlük hayat pratikleriyle öğrencilerimiz dili ezberden çıkarıp yaşayan bir iletişim aracına dönüştürür.\n\nAlmanca (İkinci Yabancı Dil): Günlük konuşma dilini merkeze alan ve dili doğal akışında edindiren bir yaklaşımla ikinci yabancı dil eğitimi sunulur."
-                },
-                {
-                  num: "4",
-                  title: "Teknoloji ve Geleceğin Becerileri",
-                  body: "İlkokuldan itibaren devam eden Robotik ve Kodlama programımız ortaokulda ileri seviye uygulamalara dönüşür. Öğrencilerimiz algoritmik düşünme, yazılım, tasarım ve kodlama alanlarında çağın gerektirdiği teknolojik okuryazarlık düzeyine ulaşırlar."
-                },
-                {
-                  num: "5",
-                  title: "Aydın Okur ve Yazarlık Programı",
-                  body: "Okumak okulumuzda bir zorunluluk değil, derinleşme sürecidir. Etkileşimli okuma saatlerinde öğrencilerimiz kitapları analiz eder, disiplinler arası bağlar kurar ve düşüncelerini yaratıcı yazarlık çalışmalarıyla kağıda dökerler."
-                },
-                {
-                  num: "6",
-                  title: "Sanat, Spor ve Kulüp Çalışmaları",
-                  body: "Her öğrencimizin en az bir sanat ve bir spor dalıyla ilgilenmesini önemseriz. Geniş kulüp yelpazemiz (STEM, Sanat, Basketbol, Voleybol, Müzik, Eko-Okul, Hayvanları Koruma, Satranç ve daha fazlası) sayesinde öğrencilerimiz ilgi alanlarını derinleştirir, haftalık ders temposunu dengelerler."
-                }
-              ]
-            },
-            {
-              highlight: "Çünkü Biliyoruz Ki: 26 yıllık öğretmenlik tecrübesi, ilgi ve sevgiyle büyüyen her Çekmeköy Boğaziçi İlgi öğrencisi; Atatürk ilkelerine bağlı, değerlerine sahip çıkan, doğayı seven, LGS'de ve hayatta başarıya ulaşmış mutlu bir bireydir."
-            }
+            { highlight: "Bilgiyi sorgulayan, düşüncelerini geliştiren ve geleceğine yön veren nesiller." },
+            { body: "Özel Boğaziçi İlgi Okulları olarak ortaokul dönemini, öğrencilerimizin ilkokulda kazandıkları akademik temelleri derinleştirdikleri, ilgi ve yeteneklerini daha yakından tanıdıkları, kendi öğrenme sorumluluklarını üstlenmeye başladıkları önemli bir gelişim yolculuğu olarak görüyoruz.\n\nBu dönemde öğrencilerimizin yalnızca akademik başarılarını artırmayı değil; bilimsel düşünme becerilerini geliştirmelerini, kendilerini özgürce ifade etmelerini, farklı bakış açılarına saygı duymalarını ve geleceğe ilişkin hedeflerini bilinçli biçimde oluşturmalarını önemsiyoruz.\n\nBoğaziçi’nin bilimsel sorgulama, özgür düşünce, akademik yetkinlik ve evrensel değerlerinden ilham alan eğitim anlayışımızla öğrencilerimizi düşünen, araştıran, üreten ve sorumluluk alan bireyler olarak geleceğe hazırlamayı amaçlıyoruz." },
+            { heading: "BİLİVA ile Bilgiden Düşünceye, Düşünceden Üretime", body: "BİLİVA Eğitim Modelimiz, ortaokulda öğrencilerimizin bilimsel düşünme, ilgiyle keşfetme, liderlik, ilişkilendirme, vizyon geliştirme, araştırma ve üretim becerilerini destekleyen eğitim yaklaşımımızın temelini oluşturur.\n\nÖğrencilerimizin bilgiyi yalnızca öğrenmelerini değil; sorgulamalarını, farklı kaynaklardan değerlendirmelerini, disiplinler arasında bağlantılar kurmalarını ve karşılaştıkları sorunlara çözüm geliştirmelerini önemseriz.\n\nAraştırma, gözlem, deney, tartışma ve proje geliştirme süreçlerini öğrencilerimizin düşünsel gelişimini destekleyen önemli öğrenme deneyimleri olarak ele alırız." },
+            { heading: "Akademik Derinlik ve Güçlü Öğrenme Becerileri", body: "Ortaokul eğitimimizin temel hedeflerinden biri, öğrencilerimizin Türkçe, matematik, fen bilimleri, sosyal bilimler ve diğer öğrenme alanlarında güçlü bir akademik birikim geliştirmeleridir.\n\nOkuduğunu anlama, yorumlama, analitik düşünme, problem çözme, eleştirel değerlendirme ve etkili iletişim becerilerini akademik gelişimin ayrılmaz parçaları olarak görürüz.\n\nÖğrencilerimizin ne öğrendiklerini bilmeleri kadar, nasıl öğrendiklerinin farkına varmaları ve kendi öğrenme süreçlerini yönetebilmeleri de bizim için önemlidir." },
+            { heading: "ZEP ile Bireysel Gelişim ve Akademik Zenginleşme", body: "ZEP – Zenginleştirilmiş Eğitim Programımız, öğrencilerimizin ilgi alanlarını, güçlü yönlerini, öğrenme ihtiyaçlarını ve bireysel gelişim süreçlerini dikkate alan yaklaşımımızı tamamlar.\n\nHer öğrencinin farklı bir öğrenme yolculuğu olduğuna inanırız. Bu nedenle öğrencilerimizin potansiyellerini keşfetmelerini, akademik gelişimlerini güçlendirmelerini ve farklı alanlarda kendilerini deneme cesareti kazanmalarını hedefleriz.\n\nAmacımız, öğrencilerimizin yalnızca mevcut başarılarını geliştirmek değil; öğrenme motivasyonlarını ve kendi gelişimlerine duydukları güveni de artırmaktır." },
+            { heading: "Araştırma, Proje ve Üretim Kültürü", body: "Ortaokul yıllarını, öğrencilerimizin merak ettikleri konuları daha derinlemesine inceleyebildikleri ve fikirlerini somut çalışmalara dönüştürmeyi öğrendikleri bir dönem olarak değerlendiriyoruz.\n\nBilimsel araştırma yaklaşımını, proje geliştirme süreçlerini, yaratıcı düşünmeyi ve iş birliğini öğrencilerimizin öğrenme deneyimlerinin önemli parçaları olarak görüyoruz.\n\nÇünkü inanıyoruz ki gerçek öğrenme, bilgiyi kullanarak yeni sorular sorabilmek ve anlamlı çözümler üretebilmekle güçlenir." },
+            { heading: "Yabancı Dil ve Küresel Bakış Açısı", body: "Yabancı dil eğitimini, öğrencilerimizin dünyayla iletişim kurabilmelerini, farklı kültürleri anlayabilmelerini ve kendilerini daha geniş bir çevrede ifade edebilmelerini sağlayan önemli bir gelişim alanı olarak görüyoruz.\n\nÖğrencilerimizin yabancı dilde iletişim kurma özgüvenlerini geliştirmelerini, dil öğrenmeye karşı olumlu tutumlarını sürdürmelerini ve kültürler arası farkındalık kazanmalarını hedefliyoruz." },
+            { heading: "Sanat, Spor ve Sosyal Gelişim", body: "Ortaokul döneminde öğrencilerimizin akademik gelişimlerini; sanat, müzik, spor, kültürel etkinlikler ve sosyal sorumluluk bilinciyle bütünleştirmeyi önemsiyoruz.\n\nÖğrencilerimizin farklı yeteneklerini keşfetmelerini, ekip çalışması yapabilmelerini, ortak hedefler için sorumluluk üstlenmelerini ve kendilerini farklı alanlarda ifade edebilmelerini destekleyen bir eğitim anlayışını benimsiyoruz." },
+            { heading: "Ergenlik Döneminde Güven, Rehberlik ve Öz Farkındalık", body: "Ortaokul yıllarının öğrencilerimizin fiziksel, zihinsel, sosyal ve duygusal açıdan önemli değişimler yaşadığı bir dönem olduğunun farkındayız.\n\nBu süreçte öğrencilerimizin kendilerini tanımalarını, duygularını yönetmelerini, sağlıklı ilişkiler kurmalarını, karar verme becerilerini geliştirmelerini ve karşılaştıkları güçlüklerle başa çıkabilmelerini önemseriz.\n\nOkul ve aile arasındaki güvene dayalı iş birliğini de öğrencilerimizin gelişim yolculuğunun önemli bir parçası olarak kabul ederiz." },
+            { heading: "Lise Yolculuğuna Bilinçli Hazırlık", body: "Öğrencilerimizin lise eğitimine hazırlığını yalnızca sınav başarısıyla sınırlı görmüyoruz." },
           ],
           features: [
-            { title: "LGS ve Beceri Temelli Yaklaşım", desc: "Analiz etme, yorumlama ve hayatın içinde kullanma yetkinliği, yeni nesil soru tiplerine hakimiyet" },
-            { title: "Birebir Akademik Koçluk", desc: "8. sınıf öğrencilerine atanan danışman öğretmen ile akademik takip ve psikolojik rehberlik" },
-            { title: "Yabancı Dil Eğitimi", desc: "İngilizce CLT ve TBL yaklaşımı ile proje odaklı öğrenme, Almanca ikinci yabancı dil" },
-            { title: "Teknoloji ve Geleceğin Becerileri", desc: "İleri robotik, kodlama, algoritmik düşünme ve dijital okuryazarlık uygulamaları" },
-            { title: "Aydın Okur ve Yazarlık Programı", desc: "Analitik okuma, disiplinlerarası bağlar ve yaratıcı yazarlık çalışmaları" },
-            { title: "Sanat, Spor ve Kulüpler", desc: "STEM, sanat, basketbol, voleybol, müzik, satranç, eko-okul ve daha fazlası" }
+            { title: "BİLİVA ile Bilgiden Üretime", desc: "Bilimsel düşünme, ilgiyle keşfetme, liderlik, ilişkilendirme, vizyon geliştirme, araştırma ve üretim becerileri" },
+            { title: "Akademik Derinlik", desc: "Türkçe, matematik, fen ve sosyal bilimlerde güçlü akademik birikim; öğrenmeyi öğrenme" },
+            { title: "ZEP ile Akademik Zenginleşme", desc: "İlgi alanlarını, güçlü yönleri ve bireysel gelişim süreçlerini dikkate alan yaklaşım" },
+            { title: "Araştırma, Proje ve Üretim", desc: "Merak edilen konuları derinlemesine inceleme, fikirleri somut çalışmalara dönüştürme" },
+            { title: "Yabancı Dil ve Küresel Bakış", desc: "Yabancı dilde iletişim özgüveni ve kültürler arası farkındalık" },
+            { title: "Güven, Rehberlik ve Öz Farkındalık", desc: "Ergenlik döneminde kendini tanıma, duyguları yönetme ve sağlıklı ilişkiler kurma" },
           ]
         }
       }
@@ -550,49 +455,27 @@ export function getPageContentTranslated(lang: Language) {
   return {
     akademik: {
       "anaokulu": {
-        title: "Preschool", subtitle: "Curious, Questioning Little Minds", ages: "Ages 3-6", color: "#F97316",
+        title: "Preschool", subtitle: "Small Steps, Big Discoveries", ages: "Ages 3-6", color: "#F97316",
         image: "/images/preschool-orange-1.webp",
-        galleryImages: ["/images/preschool-orange-1.webp", "/images/preschool-orange-2.webp", "/images/preschool-blue-1.webp", "/images/preschool-blue-2.webp", "/images/garden-slide.webp"],
-        content: "Preschool education encompasses precious years during which self-confidence and the curiosity to learn are established, language and thinking skills develop, social values are acquired, and whose traces a person carries throughout their life.",
+        galleryImages: ["/images/preschool-orange-1.webp", "/images/preschool-orange-2.webp", "/images/preschool-blue-1.webp", "/images/preschool-blue-2.webp", "/images/garden-slide.webp", "/images/koridor-duvar-resmi.webp"],
+        content: "At Özel Boğaziçi İlgi Schools, we see preschool not merely as a period in which our children prepare for primary school, but as a very valuable developmental journey in which they begin to discover themselves, their surroundings and the world, and lay the foundations of a love of learning.",
         richSections: [
-          {
-            body: "Preschool education encompasses precious years during which self-confidence and the curiosity to learn are established, language and thinking skills develop, social values are acquired, and whose traces a person carries throughout their life."
-          },
-          {
-            body: "Scientific research indicates that investment in preschool education yields the highest added value for an individual's future. A well-equipped preschool process can create an enormous difference in the mental and linguistic development of a 6-year-old compared to their peers."
-          },
-          {
-            body: "With our 26+ years of teaching experience, we know: Every great success in life begins with special attention and love shown at the right time. At Boğaziçi İlgi Okulları, every child deserves the time, patience, planned effort, and most importantly unconditional love needed to bring out their inner potential. We discover each child's unique potential and raise strong individuals who look confidently towards the future."
-          },
-          {
-            heading: "World-Class, Original Education",
-            body: "The Boğaziçi İlgi Preschool Program, designed with the world's leading early childhood approaches in mind;",
-            bullets: [
-              "Accepts that every child is unique and respects individual developmental pace.",
-              "Triggers the child's curiosity and desire to explore rather than giving step-by-step commands.",
-              "Provides an interactive learning environment where the teacher is a loving guide, not merely a transmitter of knowledge.",
-              "Supported by play-based structured activities centred on learning through doing, experiencing, living and having fun — far from rote memorisation.",
-              "Brings motor, social, emotional, language and cognitive skills to the highest level in preparation for primary school, while building life and self-care skills.",
-              "Aims to raise individuals respectful of nature, people, living beings and differences, committed to Atatürk's principles and with a high sense of social responsibility."
-            ]
-          },
-          {
-            body: "A significant part of Boğaziçi İlgi Preschool students' day is spent in English. Through our integrated programme running from preschool, students acquire the language not as a 'lesson' but as a natural 'tool of life'."
-          },
-          {
-            body: "In all lessons, sensory materials and special educational tools that engage all five senses are used. Our children meet mathematics through play, develop phonological awareness through rhythm, and discover their environment by touching, exploring and getting hands-on with nature."
-          },
-          {
-            highlight: "Because We Know: Every child deserves special attention, and every Boğaziçi İlgi student who grows with love and care is a happy individual equipped with outstanding abilities."
-          }
+          { highlight: "Every great future begins with a small step taken out of curiosity." },
+          { body: "At Özel Boğaziçi İlgi Schools, we see preschool not merely as a period in which our children prepare for primary school, but as a very valuable developmental journey in which they begin to discover themselves, their surroundings and the world, and lay the foundations of a love of learning.\n\nWe believe that every child has a world of their own, a way of learning and talents waiting to be discovered. At the center of our approach to education are getting to know the child, respecting individual differences and helping them feel safe, happy and valued." },
+          { heading: "Learning Strengthened by BİLİVA", body: "The interest, scientific thinking, discovery and research principles of our BİLİVA Education Model turn into an approach to learning in our preschool that suits children's ages and developmental characteristics. We encourage our children to ask questions, observe, experiment and express their ideas freely." },
+          { heading: "Learning Through Play and Multifaceted Development", body: "Play is the most natural way of learning in the preschool years. We base our work on supporting language, thinking, communication, problem solving and creativity skills through play and experience-based processes. We see art, music, movement, nature and discovery experiences as areas that nourish children's imagination, physical development and environmental awareness." },
+          { heading: "Social and Emotional Empowerment", body: "We care that our children recognize their emotions, express themselves, build friendships, learn to share and take responsibility. We regard trust-based cooperation with families as an indispensable part of this developmental journey." },
+          { heading: "A Strong Start to Primary School", body: "We do not see preparation for primary school as merely learning letters and numbers. For us, real preparation means being eager to learn, developing attention, believing in oneself, being able to communicate and approaching new experiences with courage.\n\nOur aim is to raise children who do not lose their curiosity, take joy in learning, express themselves freely and grow on strong foundations." },
+          { highlight: "Because the big ideas that will shape the future can begin today with a small question asked by a child." },
+          { body: "Özel Boğaziçi İlgi Schools  •  Towards the Future with the Boğaziçi Vision" },
         ],
         features: [
-          { title: "Individual Development", desc: "Acknowledges that every child is unique; respects individual developmental pace" },
-          { title: "Curious Minds", desc: "Triggers curiosity and the desire to explore; learning by doing and experiencing" },
-          { title: "Play-Based Learning", desc: "Structured activities centered on learning through fun, far from rote memorization" },
-          { title: "Primary School Readiness", desc: "Brings motor, social, emotional, language, and cognitive skills to the highest level" },
-          { title: "Integrated English", desc: "A program that acquires language as a natural tool of life from preschool" },
-          { title: "Values & Love of Nature", desc: "Individuals respectful of nature and living beings, committed to Atatürk's principles" }
+          { title: "Getting to Know the Child", desc: "An approach that respects individual differences and helps the child feel safe, happy and valued" },
+          { title: "Learning Strengthened by BİLİVA", desc: "Interest, scientific thinking, discovery and research principles; encouraging questions, observation and experimentation" },
+          { title: "Learning Through Play", desc: "Supporting language, thinking, communication, problem solving and creativity through play and experience-based processes" },
+          { title: "Multifaceted Development", desc: "Imagination, physical development and environmental awareness through art, music, movement, nature and discovery" },
+          { title: "Social and Emotional Empowerment", desc: "Recognizing emotions, self-expression, friendships, sharing and responsibility; trust-based cooperation with families" },
+          { title: "A Strong Start to Primary School", desc: "Eagerness to learn, developing attention, self-confidence and approaching new experiences with courage" },
         ]
       },
       "oyun-grubu": {
@@ -603,142 +486,55 @@ export function getPageContentTranslated(lang: Language) {
         features: []
       },
       "ilkokul": {
-        title: "Primary School", subtitle: "Strong Academic Foundations", ages: "Grades 1-4", color: "#3B82F6",
+        title: "Primary School", subtitle: "A Future That Begins with Curiosity and Grows Stronger with Science", ages: "Grades 1-4", color: "#3B82F6",
         image: "/images/primary-class-1.webp",
-        galleryImages: ["/images/primary-class-1.webp", "/images/primary-class-2.webp", "/images/primary-class-3.webp", "/images/library-1.jpg", "/images/art-room-1.webp"],
-        content: "Every great success in life begins with special attention and love shown at the right time.",
+        galleryImages: ["/images/primary-class-1.webp", "/images/primary-class-2.webp", "/images/primary-class-3.webp", "/images/library-1.jpg", "/images/art-room-1.webp", "/images/merdiven-ingilizce.webp", "/images/koridor-posterler.webp"],
+        content: "At Özel Boğaziçi İlgi Schools, we see the primary school years not merely as a process in which our children acquire reading, writing and basic academic skills, but as an important educational journey in which they learn to think, turn their curiosity into knowledge, get to know themselves and develop learning habits.",
         richSections: [
-          {
-            body: "Every great success in life begins with special attention and love shown at the right time. As Çekmeköy Boğaziçi İlgi Okulları, we believe that every child deserves the time, patience, planned effort, and most importantly unconditional love needed to bring out their inner potential. With our 26+ years of teaching experience, we discover this potential and raise confident individuals who will illuminate the future."
-          },
-          {
-            heading: "Children Who Run to School",
-            body: "Our top priority is for our children to love their school. We care that every student enters through the door happy, peaceful and safe. With our expert team of 26+ years of teaching experience, we build academic success on a loving and solid foundation. We guide school entry processes with detailed observation and counselling assessments so that every child makes a happy and timely start to their education life."
-          },
-          {
-            heading: "An Approach That Transforms Knowledge into Value",
-            body: "The most important key to our success is our individual education approach that closely knows and monitors every student. We support students not just to memorise knowledge, but to develop skills in analysis, critical thinking, applying knowledge in real life and creativity.\n\nOur main goal at primary school level is to fully equip students with core disciplines such as reading, writing, mathematics and science, while at the same time raising individuals who research, question and have developed problem-solving abilities."
-          },
-          {
-            heading: "Our Standout Education Programmes",
-            programs: [
-              {
-                num: "1",
-                title: "Nature, Living Beings and Science Programme",
-                body: "A person with 'productive curiosity' is highly internally motivated, researches, and lives by making sense of life. The Boğaziçi İlgi Nature and Science Programme brings inquiry together with love of nature. While raising generations sensitive to the environment, nature and living beings, we help students discover the systems in nature and develop scientific questioning and thinking skills."
-              },
-              {
-                num: "2",
-                title: "Guidance and Counselling",
-                body: "Our educational programmes are supported by our strong Psychological Counselling and Guidance (PDR) unit. Students' emotional, social and academic development is monitored one-on-one. Systematic guidance is provided for them to become individuals who can express themselves, know what they want, have high self-confidence and a sense of social responsibility."
-              },
-              {
-                num: "3",
-                title: "Foreign Language Education",
-                body: "Using the globally recognised Communicative Language Teaching approach, the movement-based Total Physical Response (TPR) method and Montessori philosophy's child-centred, concrete-experience principles, we transform English from a lesson into a living communication tool. Through interactive workshops, drama activities and enriched materials that break down classroom walls, students experience the language in its natural flow, speaking fluently and using it with confidence."
-              },
-              {
-                num: "4",
-                title: "\"Every Child Has a Talent\" Workshops",
-                body: "We believe every child is endowed with outstanding talents. From Grade 1, music, sports, visual arts, IT and drama workshops allow our students to discover their interests. Through special clubs and workshops where they can deepen their talents with the guidance of our teachers, they bring their potential to the highest level."
-              },
-              {
-                num: "5",
-                title: "The Technology of the Future: Robotics and Coding",
-                body: "Through our Robotics and Coding curriculum offered across all primary school grades, our students gain skills in algorithmic thinking, logical reasoning and technological literacy to adapt to the requirements of a changing world."
-              }
-            ]
-          },
-          {
-            heading: "Our Parents, Our Closest Partners",
-            body: "We believe education is a three-legged stool and communicate with our parents based on the principles of openness, transparency and trust. Thanks to our student monitoring systems and regular notifications, parents can follow their children's academic and social development in real time.\n\nThrough guidance seminars and parent training programmes organised under the Boğaziçi İlgi Parent Academy, we walk hand in hand with families throughout their children's development journey."
-          },
-          {
-            highlight: "Because We Know: Every Çekmeköy Boğaziçi İlgi student who grows with our teaching experience and unconditional love is a happy and successful individual committed to their values, respectful of nature and who has discovered their outstanding talents."
-          }
+          { highlight: "A strong future rises on solid foundations." },
+          { body: "At Özel Boğaziçi İlgi Schools, we see the primary school years not merely as a process in which our children acquire reading, writing and basic academic skills, but as an important educational journey in which they learn to think, turn their curiosity into knowledge, get to know themselves and develop learning habits.\n\nIn our approach to education, inspired by Boğaziçi's scientific thought, freedom, academic competence and universal values, we believe that every child has a unique potential. For this reason, we aim for our students to gain strong academic foundations that respect their individual differences and to develop a lasting interest in learning." },
+          { heading: "Thinking and Creating Children with BİLİVA", body: "Our BİLİVA Education Model forms the basis of our approach, supporting our primary school students' skills of scientific thinking, discovery, leadership, connection, developing vision, and researching and creating.\n\nWe care that our children not only reach the right answers but ask the right questions, establish cause and effect relationships, evaluate different ideas and relate what they learn to daily life." },
+          { heading: "A Strong Academic Foundation", body: "One of the priorities of our primary education is to give our students a solid foundation in reading comprehension, expressing themselves correctly, mathematical thinking, problem solving and learning how to learn.\n\nWe embrace a learning culture that goes beyond memorizing knowledge and centers on understanding, interpreting, questioning and applying." },
+          { heading: "Valuing Every Child's Potential with ZEP", body: "Our ZEP – Enriched Education Program complements our approach, which takes into account every student's learning pace, interests, strengths and developmental needs.\n\nOur aim is not to compare our children with one another but to support each of them as they progress on their own developmental journey. We care that our students deepen their curiosity, explore different areas and strengthen their motivation to learn." },
+          { heading: "Foreign Language and a View Opening to the World", body: "We see foreign language learning not only as the acquisition of vocabulary and grammar but as an important part of communicating, getting to know different cultures and looking at the world through a wider window.\n\nWe aim for our students to develop a mutual attitude in the foreign language, gain age-appropriate communication skills and increase their courage to use the language." },
+          { heading: "Art, Sports and Multifaceted Development", body: "We regard our relationship with art, music, sports, culture and nature not as complementary elements of education but as indispensable parts of the child's holistic development.\n\nWe embrace an approach to education that supports our children in developing their creativity, aesthetic sensitivity, physical skills, teamwork habits and talents in different areas." },
+          { heading: "Strong Character, Sound Values", body: "Alongside academic development, we care that our students grow up as self-confident, responsible, respectful individuals who can empathize and express their thoughts freely.\n\nBecause for us, education is not only about raising successful students but about raising people who can add value to their surroundings with their knowledge, character and behavior." },
+          { heading: "Generations Preparing for the Future with Confidence", body: "Our goal at Özel Boğaziçi İlgi Schools Primary School is to raise children who love learning, research, question, have strong academic foundations, develop in many ways and are aware of their own potential.\n\nWe aim to prepare our children for the future not merely for the next grade but as individuals who think, create and take responsibility." },
+          { body: "Özel Boğaziçi İlgi Schools  •  Towards the Future with the Boğaziçi Vision\n\nBİLİVA Education Model  |  Discover with Interest. Grow with Science. Give Direction to the Future." },
         ],
         features: [
-          { title: "Nature, Science & Living", desc: "An original programme combining inquiry with love of nature" },
-          { title: "Guidance & Counselling", desc: "A strong counselling unit closely monitoring emotional, social, and academic development" },
-          { title: "Foreign Language Education", desc: "English as a living communication tool using CLT, TPR and Montessori methods" },
-          { title: "Every Child Has a Talent", desc: "Music, sports, visual arts, IT, and drama workshops from grade 1" },
-          { title: "Robotics & Coding", desc: "Algorithmic thinking, logical reasoning, and technological literacy" },
-          { title: "Parent-School Partnership", desc: "Hand in hand with families through transparent communication and the Parent Academy" }
+          { title: "Thinking and Creating with BİLİVA", desc: "Skills of scientific thinking, discovery, leadership, connection, developing vision, and researching and creating" },
+          { title: "A Strong Academic Foundation", desc: "A solid foundation in reading comprehension, self-expression, mathematical thinking and problem solving" },
+          { title: "Valuing Every Child's Potential with ZEP", desc: "An approach that considers learning pace, interests and strengths and supports each child's own journey" },
+          { title: "Foreign Language and a View Opening to the World", desc: "Communicating, getting to know different cultures and increasing the courage to use the language" },
+          { title: "Art, Sports and Multifaceted Development", desc: "Creativity, aesthetic sensitivity, physical skills and teamwork habits" },
+          { title: "Strong Character, Sound Values", desc: "Self-confident, responsible, respectful individuals who can empathize" },
         ]
       },
       "ortaokul": {
-        title: "Middle School", subtitle: "LGS Preparation and Shaping the Future", ages: "Grades 5-8", color: "#10B981",
-        image: "/images/library-2.jpg",
-        galleryImages: ["/images/library-2.jpg", "/images/sports-hall-1.webp", "/images/music-room-1.webp"],
-        content: "Middle school is a critical period when academic specialisation begins, abstract thinking skills develop, and preparation for high school entrance exams (LGS) intensifies.",
+        title: "Middle School", subtitle: "From Scientific Thought to a Strong Future", ages: "Grades 5-8", color: "#10B981",
+        image: "/images/kutuphane-yeni-1.webp",
+        galleryImages: ["/images/kutuphane-yeni-1.webp", "/images/kutuphane-yeni-2.webp", "/images/spor-salonu-1.webp", "/images/kodlama-atolyesi-yeni.webp", "/images/music-room-1.webp"],
+        content: "At Özel Boğaziçi İlgi Schools, we see the middle school years as an important developmental journey in which our students deepen the academic foundations they gained in primary school, get to know their interests and talents more closely and begin to take on responsibility for their own learning.",
         richSections: [
-          {
-            body: "Middle school is a critical period when academic specialisation begins, abstract thinking skills develop, and preparation for high school entrance exams (LGS) intensifies. As Çekmeköy Boğaziçi İlgi Koleji, with our 26+ years of teaching experience, we both prepare our students for LGS at the highest level and raise them as confident individuals who give direction to the future.\n\nThrough our original education programmes that prioritise the needs of the times and the supreme benefit of our students, we aim for them to achieve success not only in academic fields but in every lane of life."
-          },
-          {
-            heading: "One-on-One Monitoring and Academic Success",
-            body: "The most fundamental key to our success is the one-on-one and systematic monitoring approach applied by our expert team who are entirely dedicated to the student, free from commercial concerns.",
-            bullets: [
-              "LGS and Skills-Based Approach: Through new-generation and skills-based questions, our students do not merely memorise knowledge; they develop competency in analysing, interpreting and applying knowledge in real life.",
-              "Analytical Assessment: In line with our individual monitoring system, logic and reasoning skills are analysed in detail alongside subject attainments.",
-              "Study Sessions and Academic Support: Students whose gaps are identified through general mock exam results receive continuous support through special study sessions and one-on-one catch-up programmes held within our school."
-            ]
-          },
-          {
-            heading: "\"We Are Enough for Ourselves\" in LGS Preparation",
-            body: "Our education model is built on students receiving all the academic support they need for LGS preparation within our school, without needing any external course or private tuition.",
-            bullets: [
-              "One-on-One Academic Coaching: The advisor teacher assigned to our 8th grade students both carries out academic monitoring and provides psychological guidance throughout the exam marathon.",
-              "Productive Study Discipline: Special study camps and monitoring programmes are applied so that exam-group students leave summer lethargy behind and find a disciplined, planned work rhythm.",
-              "Parent-School Solidarity: Students' academic and developmental processes are regularly shared with parents through transparent, real-time communication channels."
-            ]
-          },
-          {
-            heading: "Our Standout Education Programmes",
-            programs: [
-              {
-                num: "1",
-                title: "Nature, Living Beings and Science Programme",
-                body: "A person with 'productive curiosity' questions, researches and lives by making sense of their environment. The Boğaziçi İlgi Nature and Science Programme combines scientific curiosity with love of nature. While discovering the systems in nature, students develop scientific questioning skills and grow up as individuals respectful of the environment, nature and all living beings."
-              },
-              {
-                num: "2",
-                title: "Guidance and Counselling",
-                body: "The emotional and social changes brought by adolescence are sensitively managed by our counselling unit. Individual meetings and group sessions are conducted to help students gain self-confidence, set goals, manage their time and cope with exam anxiety."
-              },
-              {
-                num: "3",
-                title: "Foreign Language Education",
-                body: "English: By combining the Communicative Language Teaching approach with the Task-Based Learning method, we offer children the chance to experience the language through real-life projects rather than just books. Through interactive lessons and daily life practice, students transform the language from something memorised into a living communication tool.\n\nGerman (Second Foreign Language): Second foreign language education is offered through an approach that centres everyday spoken language and acquires it in its natural flow."
-              },
-              {
-                num: "4",
-                title: "Technology and the Skills of the Future",
-                body: "Our Robotics and Coding programme, which continues from primary school, transforms into advanced-level applications in middle school. Students reach the level of technological literacy required by the age in the fields of algorithmic thinking, software, design and coding."
-              },
-              {
-                num: "5",
-                title: "Enlightened Reading and Writing Programme",
-                body: "Reading at our school is not an obligation but a deepening process. In interactive reading hours, students analyse books, make cross-disciplinary connections and put their thoughts on paper through creative writing activities."
-              },
-              {
-                num: "6",
-                title: "Arts, Sports and Club Activities",
-                body: "We care that every student is involved in at least one art and one sports branch. Thanks to our wide club range (STEM, Arts, Basketball, Volleyball, Music, Eco-School, Animal Protection, Chess and more), students deepen their areas of interest and balance their weekly lesson tempo."
-              }
-            ]
-          },
-          {
-            highlight: "Because We Know: Every Çekmeköy Boğaziçi İlgi student who grows with 26 years of teaching experience, attention and love is a happy individual committed to Atatürk's principles, standing by their values, loving nature and achieving success in LGS and in life."
-          }
+          { highlight: "Generations who question knowledge, develop their thoughts and give direction to their future." },
+          { body: "At Özel Boğaziçi İlgi Schools, we see the middle school years as an important developmental journey in which our students deepen the academic foundations they gained in primary school, get to know their interests and talents more closely and begin to take on responsibility for their own learning.\n\nIn this period, we care not only about raising our students' academic achievement but about their developing scientific thinking skills, expressing themselves freely, respecting different perspectives and shaping their goals for the future consciously.\n\nWith our approach to education, inspired by Boğaziçi's scientific inquiry, free thought, academic competence and universal values, we aim to prepare our students for the future as individuals who think, research, create and take responsibility." },
+          { heading: "From Knowledge to Thought, From Thought to Production with BİLİVA", body: "Our BİLİVA Education Model forms the basis of our approach, supporting our middle school students' skills of scientific thinking, discovering with interest, leadership, connection, developing vision, research and production.\n\nWe care that our students not only learn knowledge but question it, evaluate it from different sources, make connections between disciplines and develop solutions to the problems they face.\n\nWe treat research, observation, experiments, discussion and project development as important learning experiences that support our students' intellectual development." },
+          { heading: "Academic Depth and Strong Learning Skills", body: "One of the main goals of our middle school education is for our students to build a strong academic foundation in Turkish, mathematics, science, social sciences and other areas of learning.\n\nWe regard reading comprehension, interpretation, analytical thinking, problem solving, critical evaluation and effective communication as inseparable parts of academic development.\n\nIt is as important to us that our students know how they learn as what they learn, and that they can manage their own learning processes." },
+          { heading: "Individual Development and Academic Enrichment with ZEP", body: "Our ZEP – Enriched Education Program complements our approach, which takes into account our students' interests, strengths, learning needs and individual developmental processes.\n\nWe believe that every student has a different learning journey. For this reason, we aim for our students to discover their potential, strengthen their academic development and gain the courage to try themselves in different areas.\n\nOur aim is not only to improve our students' current achievements but also to increase their motivation to learn and their confidence in their own development." },
+          { heading: "A Culture of Research, Projects and Production", body: "We regard the middle school years as a period in which our students can examine the subjects they are curious about in more depth and learn to turn their ideas into concrete work.\n\nWe see the scientific research approach, project development processes, creative thinking and collaboration as important parts of our students' learning experiences.\n\nBecause we believe that real learning is strengthened by being able to ask new questions and produce meaningful solutions using knowledge." },
+          { heading: "Foreign Language and a Global Perspective", body: "We see foreign language education as an important area of development that enables our students to communicate with the world, understand different cultures and express themselves in a wider environment.\n\nWe aim for our students to develop confidence in communicating in a foreign language, maintain a positive attitude toward language learning and gain intercultural awareness." },
+          { heading: "Art, Sports and Social Development", body: "In the middle school period, we care about integrating our students' academic development with art, music, sports, cultural events and a sense of social responsibility.\n\nWe embrace an approach to education that supports our students in discovering their different talents, working as a team, taking responsibility for common goals and expressing themselves in different areas." },
+          { heading: "Trust, Guidance and Self-Awareness in Adolescence", body: "We are aware that the middle school years are a period in which our students experience important physical, mental, social and emotional changes.\n\nDuring this process, we care that our students get to know themselves, manage their emotions, build healthy relationships, develop decision-making skills and cope with the difficulties they encounter.\n\nWe also regard trust-based cooperation between school and family as an important part of our students' developmental journey." },
+          { heading: "Conscious Preparation for the High School Journey", body: "We do not see our students' preparation for high school education as limited to exam success alone." },
         ],
         features: [
-          { title: "LGS & Skills-Based Approach", desc: "Competency in analysing, interpreting and applying knowledge in real life; mastery of new-generation question types" },
-          { title: "1-on-1 Academic Coaching", desc: "Personal advisor teacher for 8th graders providing academic tracking and psychological guidance" },
-          { title: "Foreign Language Education", desc: "English CLT and TBL approach with project-based learning; German as a second foreign language" },
-          { title: "Technology & Future Skills", desc: "Advanced robotics, coding, algorithmic thinking and digital literacy applications" },
-          { title: "Reading and Writing Programme", desc: "Analytical reading, interdisciplinary connections and creative writing activities" },
-          { title: "Arts, Sports & Clubs", desc: "STEM, arts, basketball, volleyball, music, chess, eco-school and much more" }
+          { title: "From Knowledge to Production with BİLİVA", desc: "Skills of scientific thinking, discovering with interest, leadership, connection, developing vision, research and production" },
+          { title: "Academic Depth", desc: "A strong academic foundation in Turkish, mathematics, science and social sciences; learning how to learn" },
+          { title: "Academic Enrichment with ZEP", desc: "An approach that considers interests, strengths and individual developmental processes" },
+          { title: "Research, Projects and Production", desc: "Examining subjects of curiosity in depth and turning ideas into concrete work" },
+          { title: "Foreign Language and a Global Perspective", desc: "Confidence in communicating in a foreign language and intercultural awareness" },
+          { title: "Trust, Guidance and Self-Awareness", desc: "Getting to know oneself, managing emotions and building healthy relationships in adolescence" },
         ]
       }
     }

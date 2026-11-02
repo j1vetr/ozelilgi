@@ -8,6 +8,8 @@ import { KurulusHikayesiContent } from "./kurumsal/FoundingStoryPage";
 import { LogomuzunHikayesiContent } from "./kurumsal/LogoStoryPage";
 import { VizyonMisyonContent } from "./kurumsal/VisionMissionPage";
 import { EgitimYaklasimiContent } from "./kurumsal/ApproachPage";
+import { BilivaContent } from "./kurumsal/BilivaPage";
+import { ButunculEgitimContent } from "./kurumsal/HolisticPage";
 import { YonetimKuruluContent, IdariKadroContent, DanismanlarContent } from "./kurumsal/TeamPages";
 
 const NEW_SEO: Record<string, { titleTR: string; titleEN: string; path: string }> = {
@@ -15,6 +17,8 @@ const NEW_SEO: Record<string, { titleTR: string; titleEN: string; path: string }
   "logomuzun-hikayesi": { titleTR: "Logomuzun Hikâyesi", titleEN: "The Story of Our Logo", path: "/kurumsal/logomuzun-hikayesi" },
   "vizyon-misyon": { titleTR: "Vizyon & Misyon", titleEN: "Vision & Mission", path: "/kurumsal/vizyon-misyon" },
   "egitim-yaklasimimiz": { titleTR: "Eğitim Yaklaşımımız", titleEN: "Our Approach to Education", path: "/kurumsal/egitim-yaklasimimiz" },
+  "biliva-egitim-modeli": { titleTR: "BİLİVA Eğitim Modeli", titleEN: "The BİLİVA Education Model", path: "/kurumsal/biliva-egitim-modeli" },
+  "butuncul-egitim-modelimiz": { titleTR: "Bütüncül Eğitim Modelimiz", titleEN: "Our Holistic Education Model", path: "/kurumsal/butuncul-egitim-modelimiz" },
   "yonetim-kurulu": { titleTR: "Yönetim Kurulu", titleEN: "Board of Directors", path: "/kurumsal/yonetim-kurulu" },
   "idari-kadro": { titleTR: "İdari Kadro", titleEN: "Administrative Staff", path: "/kurumsal/idari-kadro" },
   "danismanlar": { titleTR: "Danışmanlar", titleEN: "Advisors", path: "/kurumsal/danismanlar" },
@@ -29,6 +33,14 @@ const NEW_DESC: Record<string, { tr: string; en: string }> = {
     tr: "Akademik başarıyı kişisel gelişimle bütünleştiren, anaokulundan ortaokula uzanan Boğaziçi vizyonlu eğitim yaklaşımımızın sekiz ilkesi.",
     en: "The eight principles of our Boğaziçi-inspired approach to education, from kindergarten to middle school, which integrates academic success with personal development.",
   },
+  "biliva-egitim-modeli": {
+    tr: "BİLİVA Eğitim Modeli: İlgiyle Keşfet. Bilimle Geliş. Geleceğe Yön Ver. Bilimsel düşünceyi, bireysel ilgiyi ve araştırmayı buluşturan bütüncül eğitim yaklaşımı.",
+    en: "The BİLİVA Education Model: Discover with Interest. Grow with Science. Give Direction to the Future. A holistic approach that brings together scientific thought, individual interest and research.",
+  },
+  "butuncul-egitim-modelimiz": {
+    tr: "Çocuğun zihinsel, sosyal, duygusal, fiziksel ve kültürel yönden bir bütün olarak geliştiği Boğaziçi vizyonlu bütüncül eğitim modelimiz.",
+    en: "Our Boğaziçi-inspired holistic education model, in which the child develops as a whole mentally, socially, emotionally, physically and culturally.",
+  },
   "kurulus-hikayesi": {
     tr: "Bazı hayaller nesillerin geleceğine dokunmak için doğar. Boğaziçi Eğitim İlgi Okulları'nın kuruluş hikâyesini okuyun.",
     en: "Some dreams are born to touch the future of generations. Read the founding story of Boğaziçi Education İlgi Schools.",
@@ -39,7 +51,7 @@ const NEW_DESC: Record<string, { tr: string; en: string }> = {
   },
 };
 
-const VALID_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon", "egitim-yaklasimimiz", "yonetim-kurulu", "idari-kadro", "danismanlar"] as const;
+const VALID_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon", "egitim-yaklasimimiz", "biliva-egitim-modeli", "butuncul-egitim-modelimiz", "yonetim-kurulu", "idari-kadro", "danismanlar"] as const;
 type KurumsalSlug = typeof VALID_SLUGS[number];
 // Eski adresler yeni sayfalara yönlendirilir.
 const SLUG_ALIASES: Record<string, KurumsalSlug> = {
@@ -94,6 +106,8 @@ export default function KurumsalPage() {
           {slug === "logomuzun-hikayesi" && <LogomuzunHikayesiContent />}
           {slug === "vizyon-misyon" && <VizyonMisyonContent />}
           {slug === "egitim-yaklasimimiz" && <EgitimYaklasimiContent />}
+          {slug === "biliva-egitim-modeli" && <BilivaContent />}
+          {slug === "butuncul-egitim-modelimiz" && <ButunculEgitimContent />}
           {slug === "yonetim-kurulu" && <YonetimKuruluContent />}
           {slug === "idari-kadro" && <IdariKadroContent />}
           {slug === "danismanlar" && <DanismanlarContent />}

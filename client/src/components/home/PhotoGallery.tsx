@@ -13,6 +13,11 @@ const photos = [
   { src: "/images/building-playground.webp", alt: "Bahçe ve Oyun Alanı" },
   { src: "/images/school-exterior-2.webp", alt: "Okul Binası" },
   { src: "/images/sports-court.jpg", alt: "Spor Sahası" },
+  { src: "/images/vitrin-bilgi-5-harf.webp", alt: "Giriş Vitrini" },
+  { src: "/images/bahce-bayrak-ataturk.webp", alt: "Bayrak Direkleri ve Atatürk Büstü" },
+  { src: "/images/kodlama-atolyesi-yeni.webp", alt: "Kodlama ve Robotik Atölyesi" },
+  { src: "/images/koridor-duvar-resmi.webp", alt: "Duvar Resimli Koridor" },
+  { src: "/images/merdiven-ingilizce.webp", alt: "İngilizce Kelimelerle Renkli Merdiven" },
 ];
 
 export function PhotoGallery() {

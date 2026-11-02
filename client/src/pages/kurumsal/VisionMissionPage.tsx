@@ -5,7 +5,6 @@ import {
   MISSION_CLOSING, MISSION_SLOGAN, MISSION_TEXT, MISSION_TITLE, STUDENT_TITLE, STUDENT_TRAITS,
   VISION_PARAS, VISION_SLOGAN, VISION_TITLE,
 } from "./missionContent";
-import { BilivaSection } from "./BilivaSection";
 
 const fade = {
   initial: { opacity: 0, y: 24 },
@@ -56,8 +55,6 @@ export function VizyonMisyonContent() {
         </div>
         <p className="mt-8 font-display font-bold text-lg md:text-xl">{L(VISION_SLOGAN)}</p>
       </motion.section>
-
-      <BilivaSection />
     </div>
   );
 }

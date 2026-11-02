@@ -39,6 +39,21 @@ const ROUTE_META: Record<string, RouteMeta> = {
     description:
       "Boğaziçi İlgi Koleji Çekmeköy'de anaokulu (3-6 yaş), ilkokul (1-4. sınıf) ve ortaokul (5-8. sınıf) kademelerinde kaliteli akademik programlar. Çekmeköy'ün seçkin özel okulu.",
   },
+  "/akademik/zenginlestirme-birimi": {
+    title: "ZEP Zenginleştirilmiş Eğitim Programı | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    description:
+      "ZEP Zenginleştirilmiş Eğitim Programı: BİLİVA Eğitim Modelinin bireysel ilgi ve bilimsel düşünme ilkelerini akademik öğrenmeyle buluşturan, her çocuğun potansiyelini destekleyen program.",
+  },
+  "/akademik/rehberlik-birimi": {
+    title: "Psikolojik Danışmanlık ve Rehberlik Birimi | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    description:
+      "Her çocuğu tanıyan, her gelişime değer veren rehberlik: bireysel görüşmeler, sürekli gelişim takibi, sosyal-duygusal gelişim ve aile iş birliği.",
+  },
+  "/akademik/yabanci-dil-egitimi": {
+    title: "Yabancı Dil Eğitimi | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    description:
+      "Anaokulundan ortaokula iletişim odaklı İngilizce, ikinci yabancı dil Almanca, Cambridge English sınavları ve uluslararası öğrenci değişim programları.",
+  },
   "/akademik/anaokulu": {
     title: "Çekmeköy Anaokulu | Özel Boğaziçi İlgi Koleji",
     description:
@@ -99,6 +114,21 @@ const ROUTE_META: Record<string, RouteMeta> = {
     title: "Eğitim Yaklaşımımız | Özel Boğaziçi İlgi Koleji Çekmeköy",
     description:
       "Akademik başarıyı kişisel gelişimle bütünleştiren, anaokulundan ortaokula uzanan Boğaziçi vizyonlu eğitim yaklaşımımızın sekiz ilkesi.",
+  },
+  "/kurumsal/biliva-sanat-spor-kulupler": {
+    title: "BİLİVA'da Sanat, Spor ve Kulüpler | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    description:
+      "BİLİVA ile müzik, resim, drama, futbol, basketbol, voleybol, satranç, robotik kodlama ve öğrenci kulüpleriyle çok yönlü gelişim.",
+  },
+  "/kurumsal/biliva-egitim-modeli": {
+    title: "BİLİVA Eğitim Modeli | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    description:
+      "BİLİVA Eğitim Modeli: İlgiyle Keşfet. Bilimle Geliş. Geleceğe Yön Ver. Bilimsel düşünceyi, bireysel ilgiyi ve araştırmayı buluşturan bütüncül eğitim yaklaşımı.",
+  },
+  "/kurumsal/butuncul-egitim-modelimiz": {
+    title: "Bütüncül Eğitim Modelimiz | Özel Boğaziçi İlgi Koleji Çekmeköy",
+    description:
+      "Çocuğun zihinsel, sosyal, duygusal, fiziksel ve kültürel yönden bir bütün olarak geliştiği Boğaziçi vizyonlu bütüncül eğitim modelimiz.",
   },
   "/programlar": {
     title: "Eğitim Programları | Yabancı Dil, STEM, Sanat | Boğaziçi İlgi Koleji Çekmeköy",

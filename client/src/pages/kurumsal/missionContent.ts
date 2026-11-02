@@ -83,6 +83,7 @@ export const PRINCIPLES: Principle[] = [
 export const APPROACH_SIGNATURE: Localized = { tr: "ÖZEL BOĞAZİÇİ İLGİ OKULLARI", en: "ÖZEL BOĞAZİÇİ İLGİ SCHOOLS" };
 
 /* ─── BİLİVA Eğitim Modeli ─────────────────────────────────── */
+export const BILIVA_SCHOOL: Localized = { tr: "ÖZEL BOĞAZİÇİ İLGİ OKULLARI", en: "ÖZEL BOĞAZİÇİ İLGİ SCHOOLS" };
 export const BILIVA_TITLE: Localized = { tr: "BİLİVA Eğitim Modeli", en: "The BİLİVA Education Model" };
 export const BILIVA_TAGLINE: Localized = {
   tr: "İlgiyle Keşfet. Bilimle Geliş. Geleceğe Yön Ver.",

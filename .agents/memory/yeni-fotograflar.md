@@ -34,3 +34,8 @@ description: 2026 Ağustos yüklemesi — 23 WhatsApp fotoğrafı + 2 LGS başar
 | garden-slide.webp | kampüs imkanlar (bahçe kartı) |
 | wall-mural-nature.webp | hero slider slide 5 |
 | CAMPUS_GALLERY | tüm yeni fotoğraflar eklendi |
+
+## Kasım 2026 yüklemesi (13 JPEG, 11 benzersiz WebP)
+- giris-holu-kat-tabela, vitrin-bilgi-5-harf, merdiven-ingilizce, bahce-bayrak-ataturk, koridor-duvar-resmi, koridor-posterler, kodlama-atolyesi-yeni, spor-salonu-1/2, kutuphane-yeni-1/2 (public/images).
+- Çerçeveli kopyalar (mozaik kenarlıklı) atlandı; kutuphane-yeni-2 çerçevesi kırpıldı.
+- Kampüs imkanlar kartlarında kodlama, spor, kütüphane ve rehberlik görselleri bunlarla değiştirildi. Eski `entrance-lobby.webp` aslında bina drone fotoğrafıydı, rehberlik kartında yanlıştı.

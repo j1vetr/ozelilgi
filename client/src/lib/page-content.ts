@@ -89,7 +89,7 @@ export const CAMPUS_FACILITIES = [
     id: "kodlama",
     title: "Kodlama Atölyesi", 
     desc: "Yazılım ve robotik eğitimi",
-    image: "/images/coding-lab-1.webp"
+    image: "/images/kodlama-atolyesi-yeni.webp"
   },
   { 
     id: "fen",
@@ -107,13 +107,13 @@ export const CAMPUS_FACILITIES = [
     id: "spor",
     title: "Kapalı Spor Salonu", 
     desc: "Fiziksel gelişim aktiviteleri",
-    image: "/images/sports-hall-1.webp"
+    image: "/images/spor-salonu-1.webp"
   },
   { 
     id: "kutuphane",
     title: "Kütüphane", 
     desc: "Okuma ve araştırma merkezi",
-    image: "/images/kutuphane-gercek.webp"
+    image: "/images/kutuphane-yeni-1.webp"
   },
   { 
     id: "yemekhane",
@@ -162,4 +162,15 @@ export const CAMPUS_GALLERY = [
   "/images/library-1.jpg",
   "/images/cafeteria-1.jpg",
   "/images/entrance-stairs.jpg",
+  "/images/giris-holu-kat-tabela.webp",
+  "/images/vitrin-bilgi-5-harf.webp",
+  "/images/bahce-bayrak-ataturk.webp",
+  "/images/merdiven-ingilizce.webp",
+  "/images/koridor-duvar-resmi.webp",
+  "/images/koridor-posterler.webp",
+  "/images/spor-salonu-1.webp",
+  "/images/kutuphane-yeni-1.webp",
+  "/images/kodlama-atolyesi-yeni.webp",
+  "/images/spor-salonu-2.webp",
+  "/images/kutuphane-yeni-2.webp",
 ];
