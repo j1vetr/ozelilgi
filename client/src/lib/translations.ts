@@ -196,7 +196,15 @@ export function getTranslation(key: string, lang: Language): string {
 
 export const T = getTranslation;
 
-export function getNavigationTranslated(lang: Language) {
+export type NavSubItem = { title: string; href: string; group?: string };
+export type NavItem = { title: string; href: string; items?: NavSubItem[]; mega?: boolean; matches?: string[] };
+
+export function getNavigationTranslated(lang: Language): NavItem[] {
+  const about = lang === "tr" ? "Hakkımızda" : "About";
+  const staff = lang === "tr" ? "Kadromuz" : "Our Team";
+  const model = lang === "tr" ? "Modelimiz" : "Our Model";
+  const support = lang === "tr" ? "Destek ve Zenginleştirme" : "Support and Enrichment";
+  const levels = lang === "tr" ? "Kademeler" : "Levels";
   return [
     {
       title: getTranslation("nav.home", lang),
@@ -205,31 +213,39 @@ export function getNavigationTranslated(lang: Language) {
     {
       title: getTranslation("nav.about", lang),
       href: "/kurumsal",
+      mega: true,
       items: [
-        { title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
-        { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
-        { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
-        { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
-        { title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
-      { title: lang === "tr" ? "BİLİVA'da Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs at BİLİVA", href: "/kurumsal/biliva-sanat-spor-kulupler" },
-        { title: lang === "tr" ? "BİLİVA'da Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs at BİLİVA", href: "/kurumsal/biliva-sanat-spor-kulupler" },
-        { title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
-        { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
-        { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
-        { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
+        { group: about, title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
+        { group: about, title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
+        { group: about, title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
+        { group: staff, title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
+        { group: staff, title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
+        { group: staff, title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
+      ],
+    },
+    {
+      title: lang === "tr" ? "Eğitim Modelimiz" : "Our Education Model",
+      href: "/kurumsal/biliva-egitim-modeli",
+      mega: true,
+      matches: ["/kurumsal/biliva", "/kurumsal/butuncul", "/kurumsal/egitim-yaklasimimiz", "/akademik/zenginlestirme-birimi", "/akademik/rehberlik-birimi", "/akademik/yabanci-dil-egitimi"],
+      items: [
+        { group: model, title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
+        { group: model, title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
+        { group: model, title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
+        { group: support, title: lang === "tr" ? "Akademik Zenginleştirme Birimi (ZEP)" : "Academic Enrichment Unit (ZEP)", href: "/akademik/zenginlestirme-birimi" },
+        { group: support, title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik" : "Psychological Counseling and Guidance", href: "/akademik/rehberlik-birimi" },
+        { group: support, title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
+        { group: support, title: lang === "tr" ? "BİLİVA'da Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs at BİLİVA", href: "/kurumsal/biliva-sanat-spor-kulupler" },
       ],
     },
     {
       title: getTranslation("nav.academic", lang),
       href: "/akademik",
       items: [
-        { title: getTranslation("nav.academic.preschool", lang), href: "/akademik/anaokulu" },
-        { title: lang === "tr" ? "Oyun Grubu (2-3 Yaş)" : "Play Group (Ages 2-3)", href: "/akademik/oyun-grubu" },
-        { title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
-        { title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
-        { title: lang === "tr" ? "Akademik Zenginleştirme Birimi (ZEP)" : "Academic Enrichment Unit (ZEP)", href: "/akademik/zenginlestirme-birimi" },
-        { title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik Birimi" : "Psychological Counseling and Guidance Unit", href: "/akademik/rehberlik-birimi" },
-        { title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
+        { group: levels, title: lang === "tr" ? "Oyun Grubu (2-3 Yaş)" : "Play Group (Ages 2-3)", href: "/akademik/oyun-grubu" },
+        { group: levels, title: getTranslation("nav.academic.preschool", lang), href: "/akademik/anaokulu" },
+        { group: levels, title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
+        { group: levels, title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
         { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
       ],
     },
@@ -267,22 +283,25 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
       { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
       { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
-      { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
-      { title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
-      { title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
       { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
       { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
       { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
       { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
+    ],
+    model: [
+      { title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
+      { title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
+      { title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
+      { title: lang === "tr" ? "Akademik Zenginleştirme (ZEP)" : "Academic Enrichment (ZEP)", href: "/akademik/zenginlestirme-birimi" },
+      { title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik" : "Counseling and Guidance", href: "/akademik/rehberlik-birimi" },
+      { title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
+      { title: lang === "tr" ? "Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs", href: "/kurumsal/biliva-sanat-spor-kulupler" },
     ],
     akademik: [
       { title: lang === "tr" ? "Çekmeköy Anaokulu" : "Preschool in Çekmeköy", href: "/akademik/anaokulu" },
       { title: lang === "tr" ? "Oyun Grubu (2-3 Yaş)" : "Play Group (Ages 2-3)", href: "/akademik/oyun-grubu" },
       { title: lang === "tr" ? "Çekmeköy İlkokulu" : "Primary School in Çekmeköy", href: "/akademik/ilkokul" },
       { title: lang === "tr" ? "Çekmeköy Ortaokulu" : "Middle School in Çekmeköy", href: "/akademik/ortaokul" },
-      { title: lang === "tr" ? "Akademik Zenginleştirme (ZEP)" : "Academic Enrichment (ZEP)", href: "/akademik/zenginlestirme-birimi" },
-      { title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik" : "Counseling and Guidance", href: "/akademik/rehberlik-birimi" },
-      { title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
       { title: lang === "tr" ? "Kampüs İmkanları" : "Campus Facilities", href: "/kampus/imkanlar" },
       { title: getTranslation("nav.campus.gallery", lang), href: "/kampus/galeri" },
     ],

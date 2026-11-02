@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center">
               <img src="/images/bogazici-logo-yuvarlak.png" alt="Özel Boğaziçi İlgi Okulları" className="object-contain" style={{ width: "150px", height: "auto" }} />
@@ -52,6 +52,24 @@ export function Footer() {
                   <Link 
                     href={link.href}
                     data-testid={`footer-kurumsal-link-${idx}`}
+                    className="text-sm text-primary-foreground/60 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-accent/50" />
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-base font-semibold mb-5 text-accent">{lang === "tr" ? "Eğitim Modelimiz" : "Our Education Model"}</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.model.map((link, idx) => (
+                <li key={idx}>
+                  <Link 
+                    href={link.href}
+                    data-testid={`footer-model-link-${idx}`}
                     className="text-sm text-primary-foreground/60 hover:text-white transition-colors flex items-center gap-2"
                   >
                     <span className="w-1 h-1 rounded-full bg-accent/50" />

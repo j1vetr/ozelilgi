@@ -6,7 +6,17 @@ import { SCHOOL_INFO } from "@/lib/constants";
 import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
-import { getNavigationTranslated, T } from "@/lib/translations";
+import { getNavigationTranslated, T, type NavSubItem } from "@/lib/translations";
+
+function groupItems(items: NavSubItem[]) {
+  const groups: { label?: string; items: NavSubItem[] }[] = [];
+  items.forEach((it) => {
+    const last = groups[groups.length - 1];
+    if (last && last.label === it.group) last.items.push(it);
+    else groups.push({ label: it.group, items: [it] });
+  });
+  return groups;
+}
 
 function RoundFlagTR() {
   return <img src="/flags/tr.svg" alt="" className="w-full h-full" draggable={false} />;
@@ -110,7 +120,7 @@ export function Navbar() {
                 data-testid={`navbar-nav-link-${idx}`}
                 className={cn(
                   "px-3.5 xl:px-4 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-1.5",
-                  (item.href === "/" ? location === "/" : location.startsWith(item.href))
+                  (item.href === "/" ? location === "/" : item.matches ? item.matches.some((m) => location.startsWith(m)) : location.startsWith(item.href))
                     ? scrolled ? "bg-primary text-white shadow-md" : "bg-white text-primary shadow-md"
                     : scrolled ? "text-gray-700 hover:bg-gray-100 hover:text-primary" : "text-white hover:bg-white/20"
                 )}
@@ -118,37 +128,47 @@ export function Navbar() {
                 {item.title}
                 {item.items && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
               </Link>
-              {item.items && item.href === "/kurumsal" && (
+              {item.items && item.mega && (
                 <div
                   data-testid="navbar-mega-menu"
                   className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-300"
                 >
-                  <div className="relative bg-white rounded-3xl overflow-hidden w-[560px] xl:w-[640px] min-h-[320px] border border-gray-100">
+                  <div className="relative bg-white rounded-3xl overflow-hidden w-[560px] xl:w-[640px] border border-gray-100 shadow-2xl">
                     <img
                       src="/images/bogazici-logo-yuvarlak.png"
                       alt=""
                       aria-hidden="true"
-                      className="absolute -right-16 -bottom-16 w-80 h-80 object-contain opacity-15 pointer-events-none select-none"
+                      className="absolute -right-16 -bottom-16 w-80 h-80 object-contain opacity-10 pointer-events-none select-none"
                     />
-                    <div className="relative z-10 flex flex-col py-6 pl-4">
-                      {item.items.map((subItem, subIdx) => (
-                        <Link
-                          key={subIdx}
-                          href={subItem.href}
-                          data-testid={`navbar-dropdown-link-${idx}-${subIdx}`}
-                          className={cn(
-                            "block w-fit px-6 py-3 text-[15px] font-semibold transition-colors rounded-xl",
-                            location === subItem.href ? "text-brand-orange" : "text-primary hover:text-brand-orange"
+                    <div className="relative z-10 grid grid-cols-2 gap-x-6 p-6">
+                      {groupItems(item.items).map((g, gi) => (
+                        <div key={gi} className="mb-3">
+                          {g.label && (
+                            <p className="px-3 pb-2 mb-1 text-xs font-bold uppercase tracking-wider text-brand-orange border-b border-gray-100">{g.label}</p>
                           )}
-                        >
-                          {subItem.title}
-                        </Link>
+                          {g.items.map((subItem) => {
+                            const subIdx = item.items!.indexOf(subItem);
+                            return (
+                              <Link
+                                key={subIdx}
+                                href={subItem.href}
+                                data-testid={`navbar-dropdown-link-${idx}-${subIdx}`}
+                                className={cn(
+                                  "block px-3 py-2.5 text-[15px] font-semibold transition-colors rounded-xl hover:bg-gray-50",
+                                  location === subItem.href ? "text-brand-orange" : "text-primary hover:text-brand-orange"
+                                )}
+                              >
+                                {subItem.title}
+                              </Link>
+                            );
+                          })}
+                        </div>
                       ))}
                     </div>
                   </div>
                 </div>
               )}
-              {item.items && item.href !== "/kurumsal" && (
+              {item.items && !item.mega && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                   <div className="bg-white rounded-2xl shadow-2xl p-2 min-w-[220px] border border-gray-100/80">
                     {item.items.map((subItem, subIdx) => (
@@ -290,8 +310,11 @@ export function Navbar() {
                                   {T("nav.overview", lang)}
                                 </Link>
                                 {item.items.map((subItem, subIdx) => (
+                                  <div key={subIdx}>
+                                    {subItem.group && subItem.group !== item.items![subIdx - 1]?.group && (
+                                      <p className="px-3 pt-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-brand-orange">{subItem.group}</p>
+                                    )}
                                   <Link
-                                    key={subIdx}
                                     href={subItem.href}
                                     data-testid={`mobile-dropdown-link-${i}-${subIdx}`}
                                     className={cn(
@@ -302,6 +325,7 @@ export function Navbar() {
                                   >
                                     {subItem.title}
                                   </Link>
+                                  </div>
                                 ))}
                               </div>
                             </motion.div>
