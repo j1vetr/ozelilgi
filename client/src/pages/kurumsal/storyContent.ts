@@ -13,7 +13,7 @@ export const FOUNDING_OPENING: Localized[] = [
   { tr: "Bazı hayaller bir insanın hayatını değiştirir. Bazıları ise nesillere ve geleceğe dokunmak için doğar.", en: "Some dreams change a person's life. Others are born to touch generations and the future." },
   { tr: "Boğaziçi Eğitim İlgi Okulları’nın hikâyesi, yıllar önce Boğaziçi Üniversitesi’nin kütüphanesinde, henüz kendi eğitim yolculuğunun başında olan genç bir öğrencinin zihninde filizlenen bir hayalle başladı.", en: "The story of Boğaziçi Education İlgi Schools began with a dream that sprouted years ago in the library of Boğaziçi University, in the mind of a young student still at the beginning of his own educational journey." },
 ];
-export const FOUNDER_NAME_LINE: Localized = { tr: "O genç, Aziz Akkan’dı.", en: "That young man was Aziz Akkan." };
+export const FOUNDER_NAME_LINE: Localized = { tr: "O genç, Aziz Akten’di.", en: "That young man was Aziz Akten." };
 
 export const FOUNDING_BACKGROUND: Localized[] = [
   { tr: "Boğaziçi Üniversitesi’ni üstün başarılarla kazanan ve dereceyle tamamlayan abisi ve ablası sayesinde, henüz ortaokul ve lise yıllarında bu köklü üniversitenin akademik ve kültürel atmosferiyle tanışmıştı.", en: "Thanks to his older brother and sister, who entered Boğaziçi University with outstanding success and graduated with honors, he had become familiar with the academic and cultural atmosphere of this well-established university while still in middle and high school." },
