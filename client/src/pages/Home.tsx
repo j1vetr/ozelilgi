@@ -1,7 +1,7 @@
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { SchoolLevels } from "@/components/home/SchoolLevels";
 import { StatsSection } from "@/components/home/StatsSection";
-import { WhyBogaziciSection } from "@/components/home/WhyBogaziciSection";
+import { EducationModelSection } from "@/components/home/EducationModelSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { AnnouncementsSection } from "@/components/home/AnnouncementsSection";
 import { GuidesSection } from "@/components/home/GuidesSection";
@@ -24,10 +24,10 @@ export default function Home() {
         jsonLd={SCHOOL_SCHEMA}
       />
       <HeroSlider />
-      <WhyBogaziciSection />
+      <EducationModelSection />
+      <SchoolLevels />
       <StatsSection />
       <FAQSection />
-      <SchoolLevels />
       <AnnouncementsSection />
       <GuidesSection />
       <VideoSlider />

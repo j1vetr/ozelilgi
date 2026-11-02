@@ -34,7 +34,7 @@ const faqsTR = [
   },
   {
     q: "Kulüp ve atölye çalışmaları nelerdir?",
-    a: "Robotik ve Kodlama, Görsel Sanatlar, Müzik, Drama, Basketbol, Voleybol, Satranç, Eko-Okul, Doğa ve Bilim kulüpleri gibi pek çok seçenek mevcuttur. Her öğrencinin en az bir sanat ve bir spor dalıyla ilgilenmesi teşvik edilmektedir."
+    a: "Sanat, müzik (piyano ve gitar), resim, drama, futbol, basketbol, voleybol, satranç ve robotik kodlama alanlarında çalışmalar ve öğrenci kulüpleri yürütülmektedir. Ayrıntılar için Sanat, Spor ve Kulüpler sayfamıza bakabilirsiniz."
   },
   {
     q: "Veliler çocuklarının gelişimini nasıl takip edebiliyor?",
@@ -77,7 +77,7 @@ const faqsEN = [
   },
   {
     q: "What clubs and workshops are available?",
-    a: "We offer many options including Robotics & Coding, Visual Arts, Music, Drama, Basketball, Volleyball, Chess, Eco-School, and Nature & Science clubs. Each student is encouraged to be involved in at least one art and one sports activity."
+    a: "Activities and student clubs are run in art, music (piano and guitar), painting, drama, football, basketball, volleyball, chess and robotic coding. See our Art, Sports and Clubs page for details."
   },
   {
     q: "How can parents track their child's development?",

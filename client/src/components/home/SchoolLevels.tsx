@@ -29,7 +29,7 @@ export function SchoolLevels() {
     {
       id: "anaokulu",
       title: T("levels.preschool", lang),
-      subtitle: t("Okul öncesi eğitim", "Preschool education"),
+      subtitle: t("Küçük adımlar, büyük keşifler", "Small steps, big discoveries"),
       ages: T("levels.preschool.ages", lang),
       description: T("levels.preschool.desc", lang),
       image: "/images/preschool-orange-1.webp",
@@ -39,15 +39,15 @@ export function SchoolLevels() {
       gradient: "from-orange-500 to-amber-500",
       icon: Palette,
       features: t(
-        "Oyun Odaklı Eğitim,Drama & Müzik,Erken Okuma Yazma,Sosyal Beceriler",
-        "Play-Based Learning,Drama & Music,Early Literacy,Social Skills"
+        "Oyunla Öğrenme,BİLİVA ile Keşif,Sosyal ve Duygusal Güçlenme,İlkokula Güçlü Başlangıç",
+        "Learning Through Play,Discovery with BİLİVA,Social and Emotional Empowerment,A Strong Start to Primary School"
       ).split(","),
       stat: { icon: Star, label: t("Mutlu Öğrenci", "Happy Students"), value: "150+" }
     },
     {
       id: "ilkokul",
       title: T("levels.primary", lang),
-      subtitle: t("Temel eğitim", "Basic education"),
+      subtitle: t("Merakla başlayan, bilimle güçlenen", "Starting with curiosity, growing stronger with science"),
       ages: T("levels.primary.ages", lang),
       description: T("levels.primary.desc", lang),
       image: "/images/primary-class-1.webp",
@@ -57,26 +57,26 @@ export function SchoolLevels() {
       gradient: "from-blue-500 to-indigo-500",
       icon: BookOpen,
       features: t(
-        "Cambridge İngilizce,Kodlama Eğitimi,STEM Projeleri,Matematik Atölyesi",
-        "Cambridge English,Coding Education,STEM Projects,Math Workshop"
+        "BİLİVA ile Düşünen Çocuklar,Güçlü Akademik Temel,ZEP ile Bireysel Destek,Yabancı Dil ve Dünyaya Bakış",
+        "Thinking Children with BİLİVA,Strong Academic Foundation,Individual Support with ZEP,Foreign Language and a Global View"
       ).split(","),
       stat: { icon: Users, label: t("Uzman Öğretmen", "Expert Teachers"), value: "25+" }
     },
     {
       id: "ortaokul",
       title: T("levels.middle", lang),
-      subtitle: t("Ortaöğretime hazırlık", "High school preparation"),
+      subtitle: t("Bilimsel düşünceden güçlü bir geleceğe", "From scientific thought to a strong future"),
       ages: T("levels.middle.ages", lang),
       description: T("levels.middle.desc", lang),
-      image: "/images/primary-class-3.webp",
+      image: "/images/kutuphane-yeni-1.webp",
       color: "#10B981",
       colorLight: "rgba(16, 185, 129, 0.12)",
       colorMid: "rgba(16, 185, 129, 0.25)",
       gradient: "from-emerald-500 to-teal-500",
       icon: GraduationCap,
       features: t(
-        "LGS Hazırlık,2. Yabancı Dil,Proje Bazlı Öğrenme,Kariyer Rehberliği",
-        "Exam Preparation,2nd Foreign Language,Project-Based Learning,Career Counseling"
+        "Akademik Derinlik,ZEP ile Zenginleşme,Araştırma ve Proje Kültürü,Güven ve Rehberlik",
+        "Academic Depth,Enrichment with ZEP,Research and Project Culture,Trust and Guidance"
       ).split(","),
       stat: { icon: Award, label: t("Yıllık Tecrübe", "Years of Experience"), value: "25+" }
     }

@@ -125,7 +125,7 @@ export const CAMPUS_FACILITIES = [
     id: "rehberlik",
     title: "Rehberlik Odası", 
     desc: "Bireysel danışmanlık hizmeti",
-    image: "/images/entrance-lobby.webp"
+    image: "/images/koridor-posterler.webp"
   }
 ];
 
