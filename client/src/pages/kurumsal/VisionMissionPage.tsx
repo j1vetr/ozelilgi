@@ -40,7 +40,7 @@ export function VizyonMisyonContent() {
         </div>
 
         <div className="mt-8 space-y-4 text-base md:text-lg leading-relaxed text-white/90">
-          {MISSION_CLOSING.map((p, i) => <p key={i}>{L(p)}</p>)}
+          {MISSION_CLOSING.map((p, i) => <p key={i} className="font-bold text-white">{L(p)}</p>)}
         </div>
         <p className="mt-6 text-brand-orange font-display font-bold text-lg">{L(MISSION_SLOGAN)}</p>
       </motion.section>
