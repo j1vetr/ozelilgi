@@ -35,10 +35,9 @@ export function KurulusHikayesiContent() {
         ))}
       </motion.div>
 
-      <motion.div {...fade} className="bg-primary text-white rounded-2xl px-6 py-8 md:px-10 md:py-10 mb-10">
-        <p className="text-sm uppercase tracking-widest text-brand-orange mb-2 font-semibold">Aziz Akten</p>
-        <p className="text-2xl md:text-3xl font-display font-bold">{L(FOUNDER_NAME_LINE)}</p>
-      </motion.div>
+      <motion.p {...fade} className="text-gray-700 leading-relaxed text-base md:text-lg font-semibold mb-5">
+        {L(FOUNDER_NAME_LINE)}
+      </motion.p>
 
       <div className="space-y-5 mb-10">
         {FOUNDING_BACKGROUND.map((p, i) => (
@@ -50,14 +49,11 @@ export function KurulusHikayesiContent() {
         {L(FOUNDING_QUOTE)}
       </motion.blockquote>
 
-      <ol className="space-y-4 mb-8">
+      <div className="space-y-5 mb-8">
         {FOUNDING_QUESTIONS.map((q, i) => (
-          <motion.li key={i} {...fade} className="flex gap-4 bg-gray-50 border border-gray-100 rounded-xl p-5">
-            <span className="shrink-0 w-9 h-9 rounded-full bg-brand-orange text-white font-bold flex items-center justify-center">{i + 1}</span>
-            <span className="text-gray-800 leading-relaxed">{L(q)}</span>
-          </motion.li>
+          <motion.p key={i} {...fade} className="text-gray-700 leading-relaxed text-base md:text-lg">{L(q)}</motion.p>
         ))}
-      </ol>
+      </div>
       <motion.p {...fade} className="font-semibold text-primary text-lg mb-16">{L(FOUNDING_CLOSING_Q)}</motion.p>
 
       <div className="relative pl-8 md:pl-12 border-l-2 border-primary/20 space-y-16">
