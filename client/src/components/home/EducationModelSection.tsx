@@ -59,11 +59,11 @@ const CARDS: { title: Localized; desc: Localized; href: string; image: string; t
   },
 ];
 
-const LINKS: { title: Localized; href: string }[] = [
-  { title: { tr: "Kuruluş Hikâyesi", en: "Our Founding Story" }, href: "/kurumsal/kurulus-hikayesi" },
-  { title: { tr: "Vizyon ve Misyon", en: "Vision and Mission" }, href: "/kurumsal/vizyon-misyon" },
-  { title: { tr: "Logomuzun Hikâyesi", en: "The Story of Our Logo" }, href: "/kurumsal/logomuzun-hikayesi" },
-  { title: { tr: "BİLİVA Eğitim Modeli", en: "The BİLİVA Education Model" }, href: "/kurumsal/biliva-egitim-modeli" },
+const LINKS: { title: Localized; href: string; color: string }[] = [
+  { title: { tr: "Kuruluş Hikâyesi", en: "Our Founding Story" }, href: "/kurumsal/kurulus-hikayesi", color: "bg-brand-blue" },
+  { title: { tr: "Vizyon ve Misyon", en: "Vision and Mission" }, href: "/kurumsal/vizyon-misyon", color: "bg-brand-orange" },
+  { title: { tr: "Logomuzun Hikâyesi", en: "The Story of Our Logo" }, href: "/kurumsal/logomuzun-hikayesi", color: "bg-brand-green" },
+  { title: { tr: "BİLİVA Eğitim Modeli", en: "The BİLİVA Education Model" }, href: "/kurumsal/biliva-egitim-modeli", color: "bg-primary" },
 ];
 
 export function EducationModelSection() {
@@ -141,12 +141,25 @@ export function EducationModelSection() {
           ))}
         </div>
 
-        <nav className="mt-10 flex flex-wrap justify-center gap-3" aria-label={t("Kurumsal bağlantılar", "About us links")}>
-          {LINKS.map((l) => (
-            <Link key={l.href} href={l.href}>
-              <span className="rounded-full border border-gray-300 text-gray-700 hover:border-primary hover:text-primary px-5 py-2 text-sm font-semibold cursor-pointer">{L(l.title)}</span>
-            </Link>
-          ))}
+        <nav className="mt-16" aria-label={t("Kurumsal bağlantılar", "About us links")}>
+          <h3 className="text-center text-2xl md:text-3xl font-display font-bold text-primary mb-8">
+            {t("Bizi Daha Yakından Tanıyın", "Get to Know Us Better")}
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {LINKS.map((l, i) => (
+              <Link key={l.href} href={l.href}>
+                <div className={`group h-full min-h-[190px] rounded-3xl p-7 md:p-8 cursor-pointer flex flex-col justify-between text-white ${l.color}`} data-testid={`link-about-${i}`}>
+                  <span className="text-5xl font-display font-bold leading-none opacity-40">{`0${i + 1}`}</span>
+                  <div className="flex items-end justify-between gap-4 mt-10">
+                    <span className="text-xl font-display font-bold leading-snug">{L(l.title)}</span>
+                    <span className="shrink-0 w-11 h-11 rounded-full bg-white text-primary flex items-center justify-center">
+                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </nav>
       </div>
     </section>
