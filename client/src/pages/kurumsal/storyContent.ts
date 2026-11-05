@@ -88,7 +88,7 @@ export const CHAPTERS: Chapter[] = [
       { tr: "Biz çocukları yalnızca geleceğe hazırlamak değil, geleceği şekillendirecek gücü kendi içlerinde keşfetmelerini istiyoruz.", en: "We want not only to prepare children for the future, but for them to discover within themselves the power to shape it." },
       { tr: "Bir zamanlar bir üniversite kütüphanesinde başlayan bu hayal, bugün her çocuğun kendi hikâyesini yazabileceği bir geleceğe duyulan inançla yaşamaya devam ediyor.", en: "This dream, which once began in a university library, continues to live today with the belief in a future in which every child can write their own story." },
       { tr: "Çünkü bir geleceğin hangi mesleklere ihtiyaç duyacağını bilemeyiz. Ama o geleceği şekillendirecek çocuklara bugün nasıl bir eğitim sunmak istediğimizi çok iyi biliyoruz.", en: "Because we cannot know which professions a future will need. But we know very well what kind of education we want to offer today to the children who will shape that future." },
-      { tr: "Ve inanıyoruz ki bir ülkenin geleceğine yapılabilecek en değerli yatırım, çocuklarının eğitimine yapılan yatırımdır.", en: "And we believe that the most valuable investment in a country's future is the investment made in its children's education." },
+      { tr: "Ve inanıyoruz ki bir ülkenin geleceğine yapılabilecek en değerli yatırım, çocuklarının eğitimine gösterdiği özenle başlar.", en: "And we believe that the most valuable investment in a country's future begins with the care it shows for its children's education." },
     ],
   },
 ];
