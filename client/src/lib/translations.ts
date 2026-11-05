@@ -200,10 +200,7 @@ export type NavSubItem = { title: string; href: string; group?: string };
 export type NavItem = { title: string; href: string; items?: NavSubItem[]; mega?: boolean; matches?: string[] };
 
 export function getNavigationTranslated(lang: Language): NavItem[] {
-  const about = lang === "tr" ? "Hakkımızda" : "About";
-  const staff = lang === "tr" ? "Kadromuz" : "Our Team";
   const model = lang === "tr" ? "Modelimiz" : "Our Model";
-  const support = lang === "tr" ? "Destek ve Zenginleştirme" : "Support and Enrichment";
   const levels = lang === "tr" ? "Kademeler" : "Levels";
   return [
     {
@@ -213,29 +210,25 @@ export function getNavigationTranslated(lang: Language): NavItem[] {
     {
       title: getTranslation("nav.about", lang),
       href: "/kurumsal",
-      mega: true,
       items: [
-        { group: about, title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
-        { group: about, title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
-        { group: about, title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
-        { group: staff, title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
-        { group: staff, title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
-        { group: staff, title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
+        { title: lang === "tr" ? "Kuruluş Hikâyemiz" : "Our Founding Story", href: "/kurumsal/kurulus-hikayesi" },
+        { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
+        { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
       ],
     },
     {
       title: lang === "tr" ? "Eğitim Modelimiz" : "Our Education Model",
-      href: "/kurumsal/biliva-egitim-modeli",
+      href: "/kurumsal/egitim-yaklasimimiz",
       mega: true,
-      matches: ["/kurumsal/biliva", "/kurumsal/butuncul", "/kurumsal/egitim-yaklasimimiz", "/akademik/zenginlestirme-birimi", "/akademik/rehberlik-birimi", "/akademik/yabanci-dil-egitimi"],
+      matches: ["/kurumsal/biliva", "/kurumsal/butuncul", "/kurumsal/egitim-yaklasimimiz", "/akademik/zenginlestirme-birimi"],
       items: [
-        { group: model, title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
-        { group: model, title: getTranslation("nav.about.holistic", lang), href: "/kurumsal/butuncul-egitim-modelimiz" },
         { group: model, title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
-        { group: support, title: lang === "tr" ? "Akademik Zenginleştirme Birimi (ZEP)" : "Academic Enrichment Unit (ZEP)", href: "/akademik/zenginlestirme-birimi" },
-        { group: support, title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik" : "Psychological Counseling and Guidance", href: "/akademik/rehberlik-birimi" },
-        { group: support, title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
-        { group: support, title: lang === "tr" ? "BİLİVA'da Sanat, Spor ve Kulüpler" : "Art, Sports and Clubs at BİLİVA", href: "/kurumsal/biliva-sanat-spor-kulupler" },
+        { group: model, title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
+        { group: model, title: lang === "tr" ? "Bütüncül Eğitim Modeli" : "Holistic Education Model", href: "/kurumsal/butuncul-egitim-modelimiz" },
+        { group: model, title: lang === "tr" ? "Akademik Zenginleştirme Birimi" : "Academic Enrichment Unit", href: "/akademik/zenginlestirme-birimi" },
+        { group: levels, title: lang === "tr" ? "Okul Öncesi" : "Preschool", href: "/akademik/anaokulu" },
+        { group: levels, title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
+        { group: levels, title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
       ],
     },
     {
@@ -283,9 +276,6 @@ export function getFooterLinksTranslated(lang: Language) {
       { title: getTranslation("nav.about.story", lang), href: "/kurumsal/kurulus-hikayesi" },
       { title: getTranslation("nav.about.logo", lang), href: "/kurumsal/logomuzun-hikayesi" },
       { title: getTranslation("nav.about.vision", lang), href: "/kurumsal/vizyon-misyon" },
-      { title: getTranslation("nav.about.board", lang), href: "/kurumsal/yonetim-kurulu" },
-      { title: getTranslation("nav.about.staff", lang), href: "/kurumsal/idari-kadro" },
-      { title: getTranslation("nav.about.advisors", lang), href: "/kurumsal/danismanlar" },
       { title: lang === "tr" ? "Başarılarımız" : "Achievements", href: "/basarilar" },
     ],
     model: [
