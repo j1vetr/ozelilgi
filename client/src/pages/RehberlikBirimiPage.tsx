@@ -54,12 +54,10 @@ const SCI_TEXT: Localized = {
 const TESTS = ["BZ", "D2", "CAS", "Stroop"];
 
 const AGE_TITLE: Localized = { tr: "Her Yaşa Uygun Destek", en: "Support Suited to Every Age" };
-const AGES: { level: Localized; text: Localized; color: string }[] = [
-  { level: { tr: "Anaokulu", en: "Kindergarten" }, text: { tr: "Uyum, güven ve temel sosyal beceriler", en: "Adjustment, trust and basic social skills" }, color: "bg-brand-orange" },
-  { level: { tr: "İlkokul", en: "Primary School" }, text: { tr: "Öz güven, dikkat, çalışma alışkanlıkları ve arkadaşlık ilişkileri", en: "Self-confidence, attention, study habits and friendships" }, color: "bg-brand-blue" },
-  { level: { tr: "Ortaokul", en: "Middle School" }, text: { tr: "Öz farkındalık, akademik motivasyon, sınav sürecine ilişkin duygular ve gelecek hedefleri", en: "Self-awareness, academic motivation, feelings about the exam process and future goals" }, color: "bg-brand-green" },
-];
-const AGE_CLOSING: Localized = { tr: "Bu başlıkları yaşa uygun biçimde ele alıyoruz.", en: "We address these topics in an age-appropriate way." };
+const AGE_TEXT: Localized = {
+  tr: "Anaokulunda uyum, güven ve temel sosyal beceriler; ilkokulda öz güven, dikkat, çalışma alışkanlıkları ve arkadaşlık ilişkileri; ortaokulda ise öz farkındalık, akademik motivasyon, sınav sürecine ilişkin duygular ve gelecek hedeflerini yaşa uygun biçimde ele alıyoruz.",
+  en: "In kindergarten we address adjustment, trust and basic social skills. In primary school we address self-confidence, attention, study habits and friendships. In middle school we address self-awareness, academic motivation, feelings about the exam process and future goals, all in an age-appropriate way.",
+};
 
 const ETHICS_TITLE: Localized = { tr: "Aile İş Birliği, Gizlilik ve Etik Yaklaşım", en: "Family Cooperation, Confidentiality and Ethical Approach" };
 const ETHICS_TEXT: Localized = {
@@ -136,18 +134,10 @@ export default function RehberlikBirimiPage() {
             </ul>
           </motion.section>
 
-          <section className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-6">{L(AGE_TITLE)}</h2>
-            <div className="grid md:grid-cols-3 gap-5">
-              {AGES.map((a, i) => (
-                <motion.div key={i} {...fade} className="rounded-2xl overflow-hidden border border-gray-200 bg-white">
-                  <div className={`${a.color} text-white font-display font-bold text-xl px-6 py-4`}>{L(a.level)}</div>
-                  <p className="p-6 text-gray-700 leading-relaxed">{L(a.text)}</p>
-                </motion.div>
-              ))}
-            </div>
-            <p className="text-gray-600 mt-4">{L(AGE_CLOSING)}</p>
-          </section>
+          <motion.section {...fade} className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">{L(AGE_TITLE)}</h2>
+            <p className="text-gray-700 leading-relaxed text-base md:text-lg">{L(AGE_TEXT)}</p>
+          </motion.section>
 
           <motion.section {...fade} className="bg-brand-green text-white rounded-3xl p-6 md:p-10 mb-10">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">{L(ETHICS_TITLE)}</h2>

@@ -38,11 +38,6 @@ const BILIVA_TEXT: Localized[] = [
     en: "Because every child's success does not emerge in the same field. Some of our students discover their potential at a musical instrument, some in the painting studio, some on the sports field, some at the chessboard and some in a robotic coding project.",
   },
 ];
-const BILIVA_CHIPS: { letter: string; label: Localized; color: string }[] = [
-  { letter: "İ", label: { tr: "İlgiyle Keşfet", en: "Discover with Interest" }, color: "bg-brand-orange" },
-  { letter: "L", label: { tr: "Liderlik Et", en: "Lead" }, color: "bg-brand-blue" },
-  { letter: "A", label: { tr: "Araştır ve Üret", en: "Research and Create" }, color: "bg-brand-green" },
-];
 
 const ART_TITLE: Localized = { tr: "Müzik ve Sanatla Kendini İfade Et", en: "Express Yourself with Music and Art" };
 const ART_INTRO: Localized = {
@@ -194,16 +189,8 @@ export default function SanatSporKuluplerPage() {
 
           <motion.section {...fade} className="bg-gray-50 border border-gray-100 rounded-3xl p-6 md:p-10 mb-14">
             <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">{L(BILIVA_TITLE)}</h2>
-            <div className="space-y-3 text-gray-700 leading-relaxed mb-6 max-w-4xl">
+            <div className="space-y-3 text-gray-700 leading-relaxed max-w-4xl">
               {BILIVA_TEXT.map((p, i) => <p key={i}>{L(p)}</p>)}
-            </div>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {BILIVA_CHIPS.map((c, i) => (
-                <div key={i} className={`flex items-center gap-3 rounded-2xl text-white p-4 ${c.color}`}>
-                  <span className="text-4xl font-display font-bold leading-none">{c.letter}</span>
-                  <span className="font-display font-bold leading-tight">{L(c.label)}</span>
-                </div>
-              ))}
             </div>
           </motion.section>
 
