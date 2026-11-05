@@ -26,10 +26,6 @@ const BILIVA_TEXT: Localized = {
   tr: "BİLİVA Eğitim Modelimizin “İlgiyle Keşfet” ve “Bilimsel Düşün” ilkeleri rehberlik çalışmalarımıza yön verir. Öğrencilerimizin güçlü yönlerini, ilgi alanlarını ve desteklenmesi gereken becerilerini anlamak için bireysel görüşmeleri, öğretmen gözlemlerini, aile iş birliğini ve uygun değerlendirme araçlarını birlikte ele alıyoruz.",
   en: "The “Discover with Interest” and “Think Scientifically” principles of our BİLİVA Education Model guide our guidance work. To understand our students' strengths, interests and the skills that need support, we consider individual interviews, teacher observations, cooperation with families and appropriate assessment tools together.",
 };
-const BILIVA_CHIPS: { letter: string; label: Localized; color: string }[] = [
-  { letter: "İ", label: { tr: "İlgiyle Keşfet", en: "Discover with Interest" }, color: "bg-brand-orange" },
-  { letter: "B", label: { tr: "Bilimsel Düşün", en: "Think Scientifically" }, color: "bg-brand-blue" },
-];
 
 const PAIR: { title: Localized; text: Localized; color: string }[] = [
   {
@@ -116,19 +112,9 @@ export default function RehberlikBirimiPage() {
             <img src="/images/koridor-duvar-resmi.webp" alt={t("Her öğrenci özel ilgiyi hak eder yazılı koridor duvar resmi", "Corridor mural reading every student deserves special attention")} className="w-full rounded-2xl aspect-[3/4] object-cover" loading="lazy" />
           </motion.section>
 
-          <motion.section {...fade} className="grid md:grid-cols-[1fr_260px] gap-8 items-center bg-gray-50 border border-gray-100 rounded-3xl p-6 md:p-10 mb-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">{L(BILIVA_TITLE)}</h2>
-              <p className="text-gray-700 leading-relaxed">{L(BILIVA_TEXT)}</p>
-            </div>
-            <div className="flex md:flex-col gap-4 justify-center">
-              {BILIVA_CHIPS.map((c, i) => (
-                <div key={i} className={`flex-1 flex items-center gap-3 rounded-2xl text-white p-4 ${c.color}`}>
-                  <span className="text-4xl font-display font-bold leading-none">{c.letter}</span>
-                  <span className="font-display font-bold leading-tight">{L(c.label)}</span>
-                </div>
-              ))}
-            </div>
+          <motion.section {...fade} className="bg-gray-50 border border-gray-100 rounded-3xl p-6 md:p-10 mb-10">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">{L(BILIVA_TITLE)}</h2>
+            <p className="text-gray-700 leading-relaxed">{L(BILIVA_TEXT)}</p>
           </motion.section>
 
           <div className="grid md:grid-cols-2 gap-5 mb-10">
