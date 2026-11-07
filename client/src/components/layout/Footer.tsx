@@ -81,7 +81,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-base font-semibold mb-5 text-accent">{T("footer.academic", lang)}</h3>
+            <h3 className="font-display text-base font-semibold mb-5 text-accent">{lang === "tr" ? "Kademeler" : "Levels"}</h3>
             <ul className="space-y-2.5">
               {footerLinks.akademik.map((link, idx) => (
                 <li key={idx}>
@@ -99,7 +99,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-base font-semibold mb-5 text-accent">{T("footer.enrollment_contact", lang)}</h3>
+            <h3 className="font-display text-base font-semibold mb-5 text-accent">{lang === "tr" ? "Kampüs ve İletişim" : "Campus and Contact"}</h3>
             <ul className="space-y-2.5">
               {footerLinks.kayit.map((link, idx) => (
                 <li key={idx}>
