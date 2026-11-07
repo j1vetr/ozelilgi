@@ -1,19 +1,11 @@
-import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 
 type Localized = { tr: string; en: string };
 
-const fade = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.5 },
-};
-
 const SCHOOL: Localized = { tr: "ÖZEL BOĞAZİÇİ İLGİ OKULLARI", en: "ÖZEL BOĞAZİÇİ İLGİ SCHOOLS" };
-const TITLE: Localized = { tr: "Sanat, Spor ve Öğrenci Kulüplerimiz", en: "Our Art, Sports and Student Clubs" };
+const TITLE: Localized = { tr: "SANAT, SPOR VE ÖĞRENCİ KULÜPLERİMİZ", en: "Our Art, Sports and Student Clubs" };
 const SUBTITLE: Localized = { tr: "Yeteneklerini Keşfet, Tutkularınla Geleceğe Yön Ver", en: "Discover Your Talents, Shape the Future with Your Passions" };
 const QUOTE: Localized = { tr: "Her çocuğun keşfedilmeyi bekleyen bir yeteneği, gelişmeyi bekleyen bir tutkusu vardır.", en: "Every child has a talent waiting to be discovered and a passion waiting to develop." };
 const INTRO: Localized[] = [
@@ -44,14 +36,13 @@ const ART_INTRO: Localized = {
   tr: "Sanat eğitimi öğrencilerimizin yaratıcılıklarını, hayal güçlerini, estetik duyarlılıklarını ve özgün düşünme becerilerini geliştiren önemli bir öğrenme alanı olarak görüyoruz.",
   en: "We see art education as an important area of learning that develops our students' creativity, imagination, aesthetic sensitivity and original thinking skills.",
 };
-const ART_CARDS: { title: Localized; text: Localized; color: string }[] = [
+const ART_CARDS: { title: Localized; text: Localized }[] = [
   {
     title: { tr: "Piyano ve Gitar", en: "Piano and Guitar" },
     text: {
       tr: "Okulumuzda yürütülen piyano ve gitar çalışmaları, öğrencilerimizin müzikal yeteneklerini keşfetmelerine, ritim ve dinleme becerilerini geliştirmelerine ve müzikle güçlü bir bağ kurmalarına olanak tanır.",
       en: "The piano and guitar work carried out in our school allows our students to discover their musical talents, develop their rhythm and listening skills and build a strong bond with music.",
     },
-    color: "border-t-brand-orange",
   },
   {
     title: { tr: "Resim ve Drama", en: "Painting and Drama" },
@@ -59,7 +50,6 @@ const ART_CARDS: { title: Localized; text: Localized; color: string }[] = [
       tr: "Resim çalışmalarımızla gözlem, hayal gücü ve görsel ifade becerilerini; drama çalışmalarımızla iletişim, empati, özgüven ve yaratıcı düşünme becerilerini destekliyoruz. Bizim için sanatın değeri yalnızca ortaya çıkan eserde değil, öğrencinin kendisini keşfettiği süreçte saklıdır.",
       en: "With our painting work, we support observation, imagination and visual expression skills, and with our drama work, communication, empathy, self-confidence and creative thinking skills. For us, the value of art lies not only in the finished work but in the process in which the student discovers themselves.",
     },
-    color: "border-t-brand-blue",
   },
 ];
 
@@ -78,13 +68,8 @@ const SPORT_TEXT: Localized[] = [
     en: "We care that our students learn to trust their teammates, work hard for common goals, respect the rules and meet winning and losing with maturity. For us, athletic success gains meaning as much through the character and team spirit gained as through the score.",
   },
 ];
-const SPORTS: Localized[] = [
-  { tr: "Futbol", en: "Football" },
-  { tr: "Basketbol", en: "Basketball" },
-  { tr: "Voleybol", en: "Volleyball" },
-];
 
-const ROWS: { image?: string; word: Localized; title: Localized; text: Localized[]; color: string }[] = [
+const ROWS: { word: Localized; title: Localized; text: Localized[] }[] = [
   {
     word: { tr: "Satranç", en: "Chess" },
     title: { tr: "Satrançla Stratejik Düşünme", en: "Strategic Thinking with Chess" },
@@ -92,10 +77,8 @@ const ROWS: { image?: string; word: Localized; title: Localized; text: Localized
       tr: "Satranç çalışmalarımız, öğrencilerimizin dikkat, sabır, planlama, problem çözme ve farklı olasılıkları değerlendirme becerilerini destekler. Öğrencilerimizin hamlelerini sonuçlarını düşünmelerini, strateji geliştirmelerini ve kararlarının sorumluluğunu almalarını teşvik ediyoruz.",
       en: "Our chess work supports our students' attention, patience, planning, problem solving and ability to evaluate different possibilities. We encourage our students to think about the consequences of their moves, develop strategies and take responsibility for their decisions.",
     }],
-    color: "bg-brand-blue",
   },
   {
-    image: "/images/kodlama-atolyesi-yeni.webp",
     word: { tr: "Robotik", en: "Robotics" },
     title: { tr: "Robotik Kodlama ile Geleceği Tasarlayan Nesiller", en: "Generations Designing the Future with Robotic Coding" },
     text: [
@@ -112,7 +95,6 @@ const ROWS: { image?: string; word: Localized; title: Localized; text: Localized
         en: "We regard the processes of trying, making mistakes, rethinking and developing solutions as natural parts of learning. The “Think Scientifically”, “Connect” and “Research and Create” principles of our BİLİVA Education Model guide this work.",
       },
     ],
-    color: "bg-brand-green",
   },
 ];
 
@@ -126,13 +108,6 @@ const CLUB_TEXT: Localized[] = [
     tr: "Sanat, müzik, spor, satranç ve robotik kodlama gibi alanlardaki kulüp çalışmalarımız, öğrencilerimizin iletişim, ekip çalışması, liderlik ve ortak hedefler doğrultusunda hareket etme becerilerini destekler.",
     en: "Our club activities in areas such as art, music, sports, chess and robotic coding support our students' communication, teamwork, leadership and ability to act toward common goals.",
   },
-];
-const CLUBS: Localized[] = [
-  { tr: "Sanat", en: "Art" },
-  { tr: "Müzik", en: "Music" },
-  { tr: "Spor", en: "Sports" },
-  { tr: "Satranç", en: "Chess" },
-  { tr: "Robotik Kodlama", en: "Robotic Coding" },
 ];
 
 const END_TITLE: Localized = { tr: "Çok Yönlü Gelişim, Güçlü Bir Gelecek", en: "Multifaceted Development, a Strong Future" };
@@ -151,6 +126,16 @@ const END_QUOTE: Localized = {
   en: "Because we know that the achievements that shape a child's future sometimes begin on a piano key, sometimes with a paintbrush, sometimes on a football field, sometimes with a chess move and sometimes in a small robotic design.",
 };
 const SIGN: Localized = { tr: "Özel Boğaziçi İlgi Okulları | Boğaziçi Vizyonuyla Geleceğe.", en: "Özel Boğaziçi İlgi Schools | Towards the Future with the Boğaziçi Vision." };
+
+const SECTIONS: { title: Localized; paras: Localized[] }[] = [
+  { title: BILIVA_TITLE, paras: BILIVA_TEXT },
+  { title: ART_TITLE, paras: [ART_INTRO, ART_CARDS[0].text, ART_CARDS[1].text] },
+  { title: SPORT_TITLE, paras: SPORT_TEXT },
+  { title: ROWS[0].title, paras: ROWS[0].text },
+  { title: ROWS[1].title, paras: ROWS[1].text },
+  { title: CLUB_TITLE, paras: CLUB_TEXT },
+  { title: END_TITLE, paras: [...END_TEXT, END_QUOTE] },
+];
 
 export default function SanatSporKuluplerPage() {
   const { lang, t } = useLanguage();
@@ -172,91 +157,19 @@ export default function SanatSporKuluplerPage() {
       />
 
       <div className="container py-10 px-4">
-        <article className="max-w-5xl mx-auto" data-testid="page-sanat-spor-kulupler">
-          <header className="text-center mb-10">
-            <p className="text-primary/70 font-semibold tracking-widest text-sm mb-2">{L(SCHOOL)}</p>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-primary mb-4">{L(TITLE)}</h1>
-            <p className="text-brand-orange font-display font-bold text-lg md:text-xl">{L(SUBTITLE)}</p>
-          </header>
-
-          <motion.blockquote {...fade} className="border-l-8 border-yellow-400 bg-yellow-50 rounded-r-2xl px-6 py-5 md:px-10 md:py-7 mb-8">
-            <p className="text-xl md:text-3xl font-display font-bold text-primary leading-snug">{L(QUOTE)}</p>
-          </motion.blockquote>
-
-          <motion.div {...fade} className="space-y-4 max-w-4xl mx-auto mb-14 text-gray-700 leading-relaxed text-base md:text-lg">
-            {INTRO.map((p, i) => <p key={i}>{L(p)}</p>)}
-          </motion.div>
-
-          <motion.section {...fade} className="bg-gray-50 border border-gray-100 rounded-3xl p-6 md:p-10 mb-14">
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">{L(BILIVA_TITLE)}</h2>
-            <div className="space-y-3 text-gray-700 leading-relaxed max-w-4xl">
-              {BILIVA_TEXT.map((p, i) => <p key={i}>{L(p)}</p>)}
-            </div>
-          </motion.section>
-
-          <section className="mb-14">
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-3">{L(ART_TITLE)}</h2>
-            <p className="text-gray-700 leading-relaxed mb-6 max-w-4xl">{L(ART_INTRO)}</p>
-            <div className="grid md:grid-cols-2 gap-5">
-              {ART_CARDS.map((c, i) => (
-                <motion.div key={i} {...fade} className={`bg-white border-x border-b border-gray-200 border-t-4 ${c.color} rounded-2xl p-6 md:p-7`}>
-                  <h3 className="font-display font-bold text-primary text-xl mb-3">{L(c.title)}</h3>
-                  <p className="text-gray-700 leading-relaxed">{L(c.text)}</p>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          <motion.section {...fade} className="bg-primary text-white rounded-3xl p-6 md:p-10 mb-14">
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">{L(SPORT_TITLE)}</h2>
-            <div className="space-y-4 text-white/90 leading-relaxed mb-6 max-w-4xl">
-              {SPORT_TEXT.map((p, i) => <p key={i}>{L(p)}</p>)}
-            </div>
-            <img src="/images/spor-salonu-1.webp" alt={t("Kapalı spor salonu", "Indoor sports hall")} className="w-full rounded-2xl mb-6 aspect-[16/9] object-cover" loading="lazy" />
-            <ul className="flex flex-wrap gap-3">
-              {SPORTS.map((x, i) => (
-                <li key={i} className="rounded-full bg-white text-primary font-display font-bold px-5 py-2">{L(x)}</li>
-              ))}
-            </ul>
-          </motion.section>
-
-          <div className="space-y-5 mb-14">
-            {ROWS.map((r, i) => (
-              <motion.div key={i} {...fade} className="grid md:grid-cols-[200px_1fr] bg-white border border-gray-200 rounded-2xl overflow-hidden">
-                <div className={`${r.color} text-white font-display font-bold text-3xl md:text-4xl flex flex-col items-center justify-center gap-4 py-6 px-4`}>
-                  {L(r.word)}
-                  {r.image && <img src={r.image} alt={L(r.title)} className="w-full max-w-[180px] rounded-xl aspect-[2/3] object-cover" loading="lazy" />}
-                </div>
-                <div className="p-6 md:p-8">
-                  <h3 className="font-display font-bold text-primary text-xl md:text-2xl mb-3">{L(r.title)}</h3>
-                  <div className="space-y-3 text-gray-700 leading-relaxed">
-                    {r.text.map((p, j) => <p key={j}>{L(p)}</p>)}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.section {...fade} className="bg-brand-green text-white rounded-3xl p-6 md:p-10 mb-14">
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">{L(CLUB_TITLE)}</h2>
-            <div className="space-y-4 leading-relaxed mb-6 max-w-4xl">
-              {CLUB_TEXT.map((p, i) => <p key={i}>{L(p)}</p>)}
-            </div>
-            <ul className="flex flex-wrap gap-3">
-              {CLUBS.map((x, i) => (
-                <li key={i} className="rounded-full bg-white text-primary font-display font-bold px-5 py-2">{L(x)}</li>
-              ))}
-            </ul>
-          </motion.section>
-
-          <motion.section {...fade} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-5">{L(END_TITLE)}</h2>
-            <div className="space-y-4 text-gray-700 leading-relaxed text-base md:text-lg">
-              {END_TEXT.map((p, i) => <p key={i}>{L(p)}</p>)}
-            </div>
-            <p className="mt-8 border-l-8 border-yellow-400 bg-yellow-50 rounded-r-2xl px-6 py-5 text-left font-display font-bold text-primary text-lg leading-snug">{L(END_QUOTE)}</p>
-            <p className="text-brand-orange font-display font-bold mt-8">{L(SIGN)}</p>
-          </motion.section>
+        <article className="max-w-3xl mx-auto" data-testid="page-sanat-spor-kulupler">
+          <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(SCHOOL)}</p>
+          <h1 className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">{L(TITLE)}</h1>
+          <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(SUBTITLE)}</p>
+          <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(QUOTE)}</p>
+          {INTRO.map((x, i) => <p key={i} className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(x)}</p>)}
+          {SECTIONS.map((sec, i) => (
+            <section key={i}>
+              <h2 className="text-2xl font-display font-bold text-primary mt-10 mb-4">{L(sec.title)}</h2>
+              {sec.paras.map((x, j) => <p key={j} className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(x)}</p>)}
+            </section>
+          ))}
+          <p className="text-gray-700 leading-relaxed text-base md:text-lg mt-10 mb-5">{L(SIGN)}</p>
         </article>
       </div>
     </div>
