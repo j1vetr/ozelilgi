@@ -61,7 +61,6 @@ const FUTURE_TEXT: Localized = {
   en: "Our goal is to raise individuals who know themselves, take ownership of their learning processes, can express their emotions, can build healthy relationships and develop their potential with confidence.",
 };
 const SIGN1: Localized = { tr: "Özel Boğaziçi İlgi Okulları — Boğaziçi Vizyonuyla Geleceğe.", en: "Özel Boğaziçi İlgi Schools — Towards the Future with the Boğaziçi Vision." };
-const SIGN2: Localized = { tr: "Özel Boğaziçi İlgi Okulları  •  Boğaziçi Vizyonuyla Geleceğe", en: "Özel Boğaziçi İlgi Schools  •  Towards the Future with the Boğaziçi Vision" };
 
 const SECTIONS: { title: Localized; text: Localized }[] = [
   { title: BILIVA_TITLE, text: BILIVA_TEXT },
@@ -106,7 +105,6 @@ export default function RehberlikBirimiPage() {
             </section>
           ))}
           <p className="text-gray-700 leading-relaxed text-base md:text-lg mt-10 mb-5">{L(SIGN1)}</p>
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5 whitespace-pre">{L(SIGN2)}</p>
         </article>
       </div>
     </div>
