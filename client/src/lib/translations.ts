@@ -251,19 +251,6 @@ export function getNavigationTranslated(lang: Language): NavItem[] {
       ],
     },
     {
-      title: getTranslation("nav.enrollment", lang),
-      href: "/kayit",
-      items: [
-        { title: getTranslation("nav.enrollment.process", lang), href: "/kayit/kayit-sureci" },
-        { title: getTranslation("nav.enrollment.form", lang), href: "/kayit/on-kayit" },
-        { title: getTranslation("nav.guides", lang), href: "/rehber" },
-      ],
-    },
-    {
-      title: getTranslation("nav.news", lang),
-      href: "/haberler",
-    },
-    {
       title: getTranslation("nav.contact", lang),
       href: "/iletisim",
     },
