@@ -220,7 +220,7 @@ export function getNavigationTranslated(lang: Language): NavItem[] {
       title: lang === "tr" ? "Eğitim Modelimiz" : "Our Education Model",
       href: "/kurumsal/egitim-yaklasimimiz",
       mega: true,
-      matches: ["/kurumsal/biliva", "/kurumsal/butuncul", "/kurumsal/egitim-yaklasimimiz", "/akademik/zenginlestirme-birimi", "/akademik/rehberlik-birimi"],
+      matches: ["/kurumsal/biliva", "/kurumsal/butuncul", "/kurumsal/egitim-yaklasimimiz", "/akademik/zenginlestirme-birimi", "/akademik/rehberlik-birimi", "/akademik/yabanci-dil-egitimi"],
       items: [
         { group: model, title: getTranslation("nav.about.approach", lang), href: "/kurumsal/egitim-yaklasimimiz" },
         { group: model, title: getTranslation("nav.about.biliva", lang), href: "/kurumsal/biliva-egitim-modeli" },
@@ -230,6 +230,7 @@ export function getNavigationTranslated(lang: Language): NavItem[] {
         { group: levels, title: getTranslation("nav.academic.primary", lang), href: "/akademik/ilkokul" },
         { group: levels, title: getTranslation("nav.academic.middle", lang), href: "/akademik/ortaokul" },
         { group: levels, title: lang === "tr" ? "Psikolojik Danışmanlık ve Rehberlik" : "Counseling and Guidance", href: "/akademik/rehberlik-birimi" },
+        { group: levels, title: lang === "tr" ? "Yabancı Dil Eğitimi" : "Foreign Language Education", href: "/akademik/yabanci-dil-egitimi" },
       ],
     },
     {
