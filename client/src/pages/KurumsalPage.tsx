@@ -1,4 +1,4 @@
-import { useRoute, Redirect } from "wouter";
+import { useRoute, Redirect, Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
@@ -52,6 +52,7 @@ const NEW_DESC: Record<string, { tr: string; en: string }> = {
 };
 
 const VALID_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon", "egitim-yaklasimimiz", "biliva-egitim-modeli", "butuncul-egitim-modelimiz", "yonetim-kurulu", "idari-kadro", "danismanlar"] as const;
+const SECTION_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon"] as const;
 type KurumsalSlug = typeof VALID_SLUGS[number];
 // Eski adresler yeni sayfalara yönlendirilir.
 const SLUG_ALIASES: Record<string, KurumsalSlug> = {
@@ -76,6 +77,7 @@ export default function KurumsalPage() {
     return <Redirect to={`/kurumsal/${(rawSlug && SLUG_ALIASES[rawSlug]) || "kurulus-hikayesi"}`} replace />;
   }
 
+  const inSection = (SECTION_SLUGS as readonly string[]).includes(slug);
   const fresh = NEW_SEO[slug];
   const seo = {
     titleTR: `${fresh.titleTR} | Özel Boğaziçi İlgi Koleji Çekmeköy`,
@@ -101,6 +103,24 @@ export default function KurumsalPage() {
       />
 
       <div className="container py-10 px-4">
+        <div className={inSection ? "grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start" : ""}>
+        {inSection && (
+          <nav className="lg:sticky lg:top-32 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden" data-testid="kurumsal-sidebar">
+            {SECTION_SLUGS.map((sl) => {
+              const active = sl === slug;
+              return (
+                <Link
+                  key={sl}
+                  href={`/kurumsal/${sl}`}
+                  data-testid={`kurumsal-sidebar-${sl}`}
+                  className={`block px-6 py-4 text-base border-b border-gray-100 last:border-b-0 transition-colors ${active ? "font-bold text-primary border-b-2 border-b-brand-orange" : "text-gray-500 hover:text-primary"}`}
+                >
+                  {lang === "tr" ? NEW_SEO[sl].titleTR : NEW_SEO[sl].titleEN}
+                </Link>
+              );
+            })}
+          </nav>
+        )}
         <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
           {slug === "kurulus-hikayesi" && <KurulusHikayesiContent />}
           {slug === "logomuzun-hikayesi" && <LogomuzunHikayesiContent />}
@@ -112,6 +132,7 @@ export default function KurumsalPage() {
           {slug === "idari-kadro" && <IdariKadroContent />}
           {slug === "danismanlar" && <DanismanlarContent />}
         </motion.div>
+        </div>
       </div>
     </div>
   );
