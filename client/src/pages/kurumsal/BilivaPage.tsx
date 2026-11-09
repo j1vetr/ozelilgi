@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import {
   BILIVA_FOUR, BILIVA_FOUR_TITLE, BILIVA_INTRO, BILIVA_JOURNEY, BILIVA_JOURNEY_CLOSING, BILIVA_JOURNEY_INTRO,
-  BILIVA_JOURNEY_TITLE, BILIVA_LEAD, BILIVA_MORE, BILIVA_MORE_CLOSING, BILIVA_MORE_TITLE, BILIVA_SIGNATURE,
-  BILIVA_SCHOOL, BILIVA_SIX, BILIVA_SIX_CLOSING, BILIVA_SIX_TITLE, BILIVA_TAGLINE, BILIVA_TITLE, APPROACH_SLOGAN,
+  BILIVA_JOURNEY_TITLE, BILIVA_LEAD, BILIVA_MORE, BILIVA_MORE_CLOSING, BILIVA_MORE_TITLE,
+  BILIVA_SCHOOL, BILIVA_SIX, BILIVA_SIX_CLOSING, BILIVA_SIX_TITLE, BILIVA_TAGLINE, BILIVA_TITLE,
 } from "./missionContent";
 
 const fade = {
@@ -35,7 +35,6 @@ export function BilivaContent() {
           ))}
         </ul>
         <p className="text-brand-orange font-display font-bold text-lg md:text-xl">{L(BILIVA_TAGLINE)}</p>
-        <p className="text-primary font-display font-bold mt-1">{L(APPROACH_SLOGAN)}</p>
       </header>
 
       <p className="text-xl md:text-2xl font-display font-semibold text-primary leading-snug mb-5">{L(BILIVA_LEAD)}</p>
@@ -73,8 +72,6 @@ export function BilivaContent() {
         {BILIVA_MORE.map((p, i) => <p key={i}>{L(p)}</p>)}
         <p className="font-semibold text-primary">{L(BILIVA_MORE_CLOSING)}</p>
       </div>
-      <p className="mt-6 text-primary font-display font-bold">{L(BILIVA_SIGNATURE)}</p>
-      <p className="text-brand-orange font-display font-bold text-lg">{L(APPROACH_SLOGAN)}</p>
 
       <h3 className="text-2xl md:text-3xl font-display font-bold text-primary mt-12 mb-5">{L(BILIVA_SIX_TITLE)}</h3>
       <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
