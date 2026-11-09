@@ -14,7 +14,6 @@ export function KurulusHikayesiContent() {
       ? FOUNDING_PDF_BLOCKS
       : [
           { type: "title", text: FOUNDING_TITLE.en },
-          { type: "sub", text: SLOGAN.en },
           ...FOUNDING_OPENING.map((p) => ({ type: "p" as const, text: p.en })),
           { type: "p", text: FOUNDER_NAME_LINE.en },
           ...FOUNDING_BACKGROUND.map((p) => ({ type: "p" as const, text: p.en })),
@@ -25,8 +24,6 @@ export function KurulusHikayesiContent() {
             { type: "h" as const, text: ch.title.en },
             ...ch.paragraphs.map((p) => ({ type: "p" as const, text: p.en })),
           ]),
-          { type: "p", text: FOUNDING_SIGNATURE.en },
-          { type: "p", text: SLOGAN.en + "." },
         ];
 
   return (

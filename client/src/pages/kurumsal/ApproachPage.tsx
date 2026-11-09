@@ -22,7 +22,6 @@ export function EgitimYaklasimiContent() {
     <div className="max-w-6xl mx-auto" data-testid="page-egitim-yaklasimimiz">
       <header className="text-center max-w-3xl mx-auto mb-10">
         <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-3">{L(APPROACH_TITLE)}</h2>
-        <p className="text-brand-orange font-semibold tracking-wide">{L(APPROACH_SLOGAN)}</p>
       </header>
 
       <motion.div {...fade} className="bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-10 max-w-4xl mx-auto mb-12 space-y-4">
@@ -52,10 +51,6 @@ export function EgitimYaklasimiContent() {
         ))}
       </div>
 
-      <motion.footer {...fade} className="mt-12 text-center bg-primary text-white rounded-2xl py-10 px-6">
-        <p className="font-display font-bold tracking-wide text-lg md:text-xl mb-2">{L(APPROACH_SIGNATURE)}</p>
-        <p className="text-brand-orange font-semibold">{L(APPROACH_SLOGAN)}.</p>
-      </motion.footer>
     </div>
   );
 }

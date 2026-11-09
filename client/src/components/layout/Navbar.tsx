@@ -66,7 +66,7 @@ export function Navbar() {
   const [location] = useLocation();
   const { lang, setLang } = useLanguage();
   const NAVIGATION = getNavigationTranslated(lang);
-  const lightPage = /^\/kurumsal\/(kurulus-hikayesi|logomuzun-hikayesi|vizyon-misyon)/.test(location);
+  const lightPage = NAVIGATION.filter((n) => n.href === "/kurumsal" || n.href === "/kurumsal/egitim-yaklasimimiz").some((n) => n.items?.some((i) => i.href === location));
   const solid = scrolled || lightPage;
 
   useEffect(() => {

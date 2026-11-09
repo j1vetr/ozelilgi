@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { PageHeader } from "@/components/ui/PageHeader";
+import { SectionShell } from "@/components/layout/SectionShell";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 
@@ -73,13 +73,7 @@ export default function ZepPage() {
         descriptionEN="ZEP Enriched Education Program: a program that brings the individual interest and scientific thinking principles of the BİLİVA Education Model together with academic learning and supports every child's potential."
         canonical="/akademik/zenginlestirme-birimi"
       />
-      <PageHeader
-        title={t("Akademik", "Academics")}
-        subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
-        breadcrumbs={[{ label: t("Akademik", "Academics"), href: "/akademik" }]}
-      />
-
-      <div className="container py-10 px-4">
+      <SectionShell group="model" title={t("Akademik Zenginleştirme Birimi", "Academic Enrichment Unit")}>
         <article className="max-w-5xl mx-auto" data-testid="page-zep">
           <header className="text-center mb-10">
             <p className="text-primary/70 font-semibold tracking-widest text-sm mb-2">{L(SCHOOL)}</p>
@@ -131,12 +125,10 @@ export default function ZepPage() {
           </motion.section>
 
           <div className="text-center mt-10">
-            <p className="font-display font-bold text-primary">{L({ tr: "Özel Boğaziçi İlgi Okulları", en: "Özel Boğaziçi İlgi Schools" })}</p>
-            <p className="text-brand-orange font-display font-bold text-lg">{L(SLOGAN)}.</p>
             <p className="text-gray-500 text-sm font-semibold tracking-wide mt-4 whitespace-pre">{L(FOOTER_LABEL)}</p>
           </div>
         </article>
-      </div>
+      </SectionShell>
     </div>
   );
 }

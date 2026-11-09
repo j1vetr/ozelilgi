@@ -3,7 +3,6 @@ export type StoryBlock = { type: "title" | "sub" | "h" | "p"; text: string };
 
 export const FOUNDING_PDF_BLOCKS: StoryBlock[] = [
   { type: "title", text: "BOĞAZİÇİ EĞİTİM İLGİ OKULLARI’NIN KURULUŞU" },
-  { type: "sub", text: "Boğaziçi Vizyonuyla Geleceğe" },
   { type: "p", text: "Bazı hayaller bir insanın hayatını değiştirir. Bazıları ise nesillerin geleceğine dokunmak için doğar." },
   { type: "p", text: "Boğaziçi Eğitim İlgi Okulları’nın hikâyesi, yıllar önce Boğaziçi Üniversitesi’nin kütüphanesinde, henüz kendi eğitim yolculuğunun başında olan genç bir öğrencinin zihninde filizlenen bir hayalle başladı." },
   { type: "p", text: "O genç, Aziz Akten’di." },
@@ -56,6 +55,4 @@ export const FOUNDING_PDF_BLOCKS: StoryBlock[] = [
   { type: "p", text: "Bir zamanlar bir üniversite kütüphanesinde başlayan bu hayal, bugün her çocuğun kendi hikayesini yazabileceği bir geleceğe duyulan inançla yaşamaya devam ediyor." },
   { type: "p", text: "Çünkü biz geleceğin hangi mesleklere ihtiyaç duyacağını bilemeyiz. Ama o geleceği şekillendirecek çocuklara bugün nasıl bir eğitim sunmak istediğimizi çok iyi biliyoruz." },
   { type: "p", text: "Ve inanıyoruz ki bir ülkenin geleceğine yapılabilecek en değerli yatırım, çocuklarının eğitimine gösterdiği özenle başlar." },
-  { type: "p", text: "BOĞAZİÇİ EĞİTİM İLGİ OKULLARI" },
-  { type: "p", text: "Boğaziçi Vizyonuyla Geleceğe." },
 ];

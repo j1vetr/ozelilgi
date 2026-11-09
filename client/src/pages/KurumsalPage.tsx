@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { useRoute, Redirect, Link } from "wouter";
+import { useRoute, Redirect } from "wouter";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { useLanguage } from "@/lib/i18n";
 import { T } from "@/lib/translations";
 import { SEOHead } from "@/components/SEOHead";
+import { SectionShell } from "@/components/layout/SectionShell";
 import { KurulusHikayesiContent } from "./kurumsal/FoundingStoryPage";
 import { LogomuzunHikayesiContent } from "./kurumsal/LogoStoryPage";
 import { VizyonMisyonContent } from "./kurumsal/VisionMissionPage";
@@ -55,6 +54,7 @@ const NEW_DESC: Record<string, { tr: string; en: string }> = {
 
 const VALID_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon", "egitim-yaklasimimiz", "biliva-egitim-modeli", "butuncul-egitim-modelimiz", "yonetim-kurulu", "idari-kadro", "danismanlar"] as const;
 const SECTION_SLUGS = ["kurulus-hikayesi", "logomuzun-hikayesi", "vizyon-misyon"] as const;
+const MODEL_SLUGS = ["egitim-yaklasimimiz", "biliva-egitim-modeli", "butuncul-egitim-modelimiz"] as const;
 type KurumsalSlug = typeof VALID_SLUGS[number];
 // Eski adresler yeni sayfalara yönlendirilir.
 const SLUG_ALIASES: Record<string, KurumsalSlug> = {
@@ -72,7 +72,6 @@ function resolveSlug(raw: string | undefined): KurumsalSlug | null {
 export default function KurumsalPage() {
   const { lang, t } = useLanguage();
   const [, params] = useRoute("/kurumsal/:slug");
-  const [menuOpen, setMenuOpen] = useState(false);
   const rawSlug = params?.slug;
   const slug = resolveSlug(rawSlug);
 
@@ -90,6 +89,22 @@ export default function KurumsalPage() {
     path: fresh.path,
   };
 
+  const title = lang === "tr" ? fresh.titleTR : fresh.titleEN;
+  const content = (
+    <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+      {slug === "kurulus-hikayesi" && <KurulusHikayesiContent />}
+      {slug === "logomuzun-hikayesi" && <LogomuzunHikayesiContent />}
+      {slug === "vizyon-misyon" && <VizyonMisyonContent />}
+      {slug === "egitim-yaklasimimiz" && <EgitimYaklasimiContent />}
+      {slug === "biliva-egitim-modeli" && <BilivaContent />}
+      {slug === "butuncul-egitim-modelimiz" && <ButunculEgitimContent />}
+      {slug === "yonetim-kurulu" && <YonetimKuruluContent />}
+      {slug === "idari-kadro" && <IdariKadroContent />}
+      {slug === "danismanlar" && <DanismanlarContent />}
+    </motion.div>
+  );
+  const group = (SECTION_SLUGS as readonly string[]).includes(slug) ? "kurumsal" : (MODEL_SLUGS as readonly string[]).includes(slug) ? "model" : null;
+
   return (
     <div className="bg-background min-h-screen">
       <SEOHead
@@ -99,70 +114,18 @@ export default function KurumsalPage() {
         descriptionEN={seo.descEN}
         canonical={seo.path}
       />
-      {inSection ? (
-        <div className="pt-32 md:pt-40 pb-8 md:pb-10 bg-white border-b border-gray-100">
-          <div className="container px-4 text-center">
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary" data-testid="kurumsal-page-title">
-              {lang === "tr" ? NEW_SEO[slug].titleTR : NEW_SEO[slug].titleEN}
-            </h1>
-          </div>
-        </div>
+      {group ? (
+        <SectionShell group={group} title={title}>{content}</SectionShell>
       ) : (
-      <PageHeader
-        title={T("nav.about", lang)}
-        subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
-        breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/kurulus-hikayesi" }]}
-      />
+        <>
+          <PageHeader
+            title={T("nav.about", lang)}
+            subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
+            breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/kurulus-hikayesi" }]}
+          />
+          <div className="container py-10 px-4">{content}</div>
+        </>
       )}
-
-      <div className="container py-10 px-4">
-        <div className={inSection ? "grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start" : ""}>
-        {inSection && (
-          <div className="lg:sticky lg:top-28">
-          <div className="hidden lg:block mb-4 text-center">
-            <p className="font-display font-bold text-primary text-lg mb-3">{lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}</p>
-            <img src="/images/bogazici-logo-yuvarlak.png" alt="Özel Boğaziçi İlgi Okulları" className="w-28 h-28 rounded-full object-contain mx-auto" data-testid="kurumsal-sidebar-logo" />
-          </div>
-          <button
-            type="button"
-            onClick={() => setMenuOpen((v) => !v)}
-            className="lg:hidden w-full flex items-center justify-between bg-primary text-white font-semibold rounded-xl px-5 py-4"
-            data-testid="kurumsal-menu-toggle"
-          >
-            {lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}
-            <ChevronDown className={`w-5 h-5 transition-transform ${menuOpen ? "rotate-180" : ""}`} />
-          </button>
-          <nav className={`${menuOpen ? "block" : "hidden"} lg:block mt-2 lg:mt-0 bg-white border-2 border-primary rounded-2xl overflow-hidden`} data-testid="kurumsal-sidebar">
-            {SECTION_SLUGS.map((sl) => {
-              const active = sl === slug;
-              return (
-                <Link
-                  key={sl}
-                  onClick={() => setMenuOpen(false)}
-                  href={`/kurumsal/${sl}`}
-                  data-testid={`kurumsal-sidebar-${sl}`}
-                  className={`block px-6 py-4 text-base border-b border-primary/15 last:border-b-0 transition-colors ${active ? "font-bold bg-primary text-white" : "font-medium text-primary hover:bg-primary/10"}`}
-                >
-                  {lang === "tr" ? NEW_SEO[sl].titleTR : NEW_SEO[sl].titleEN}
-                </Link>
-              );
-            })}
-          </nav>
-          </div>
-        )}
-        <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-          {slug === "kurulus-hikayesi" && <KurulusHikayesiContent />}
-          {slug === "logomuzun-hikayesi" && <LogomuzunHikayesiContent />}
-          {slug === "vizyon-misyon" && <VizyonMisyonContent />}
-          {slug === "egitim-yaklasimimiz" && <EgitimYaklasimiContent />}
-          {slug === "biliva-egitim-modeli" && <BilivaContent />}
-          {slug === "butuncul-egitim-modelimiz" && <ButunculEgitimContent />}
-          {slug === "yonetim-kurulu" && <YonetimKuruluContent />}
-          {slug === "idari-kadro" && <IdariKadroContent />}
-          {slug === "danismanlar" && <DanismanlarContent />}
-        </motion.div>
-        </div>
-      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useRoute } from "wouter";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { SectionShell } from "@/components/layout/SectionShell";
 import { useLanguage } from "@/lib/i18n";
 import { T, getPageContentTranslated } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
@@ -309,16 +310,7 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
         canonical={`/akademik/${slug}`}
         jsonLd={levelJsonLd}
       />
-      <PageHeader 
-        title={h1Title} 
-        subtitle={content.subtitle}
-        breadcrumbs={[
-          { label: T("nav.academic", lang), href: "/akademik" },
-          { label: content.title, href: `/akademik/${slug}` }
-        ]}
-      />
-
-      <div className="container py-12 px-4">
+      <SectionShell group="model" title={h1Title}>
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -507,7 +499,7 @@ function AkademikDetail({ slug, content }: { slug: string; content: any }) {
             </div>
           </motion.div>
         </div>
-      </div>
+      </SectionShell>
     </div>
   );
 }

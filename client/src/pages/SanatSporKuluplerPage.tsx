@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/ui/PageHeader";
+import { SectionShell } from "@/components/layout/SectionShell";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 
@@ -150,13 +150,7 @@ export default function SanatSporKuluplerPage() {
         descriptionEN="Multifaceted development with BİLİVA through music, painting, drama, football, basketball, volleyball, chess, robotic coding and student clubs."
         canonical="/kurumsal/biliva-sanat-spor-kulupler"
       />
-      <PageHeader
-        title={t("Kurumsal", "About Us")}
-        subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
-        breadcrumbs={[{ label: t("Kurumsal", "About Us"), href: "/kurumsal" }]}
-      />
-
-      <div className="container py-10 px-4">
+      <SectionShell group="model" title={t("Sanat ve Spor Öğrenci Kulüplerimiz", "Art and Sports Student Clubs")}>
         <article className="max-w-3xl mx-auto" data-testid="page-sanat-spor-kulupler">
           <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(SCHOOL)}</p>
           <h1 className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">{L(TITLE)}</h1>
@@ -169,9 +163,8 @@ export default function SanatSporKuluplerPage() {
               {sec.paras.map((x, j) => <p key={j} className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(x)}</p>)}
             </section>
           ))}
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg mt-10 mb-5">{L(SIGN)}</p>
         </article>
-      </div>
+      </SectionShell>
     </div>
   );
 }

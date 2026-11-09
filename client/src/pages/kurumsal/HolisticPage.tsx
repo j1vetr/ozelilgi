@@ -114,7 +114,6 @@ export function ButunculEgitimContent() {
       <header className="text-center mb-10">
         <p className="text-primary/70 font-semibold tracking-widest text-sm mb-2">{L(SCHOOL)}</p>
         <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-3">{L(TITLE)}</h2>
-        <p className="text-brand-orange font-semibold tracking-wide">{L(SLOGAN)}</p>
       </header>
 
       <section className="grid md:grid-cols-[340px_1fr] gap-10 items-center mb-14">
@@ -139,8 +138,6 @@ export function ButunculEgitimContent() {
 
       <motion.div {...fade} className="bg-primary text-white rounded-3xl p-8 md:p-12 text-center">
         <p className="text-xl md:text-2xl font-display font-semibold leading-snug max-w-3xl mx-auto">{L(CLOSING)}</p>
-        <p className="mt-8 font-display font-bold">{L({ tr: "Özel Boğaziçi İlgi Okulları", en: "Özel Boğaziçi İlgi Schools" })}</p>
-        <p className="text-brand-orange font-display font-bold text-lg">{L(SLOGAN)}.</p>
       </motion.div>
 
       <p className="text-center text-gray-500 text-sm font-semibold tracking-wide mt-6">{L(FOOTER_LABEL)}</p>

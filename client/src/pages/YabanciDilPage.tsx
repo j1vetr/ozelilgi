@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/ui/PageHeader";
+import { SectionShell } from "@/components/layout/SectionShell";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/lib/i18n";
 
@@ -83,13 +83,7 @@ export default function YabanciDilPage() {
         descriptionEN="Communication-focused English from kindergarten to middle school, German as a second foreign language, Cambridge English exams and international student exchange programs."
         canonical="/akademik/yabanci-dil-egitimi"
       />
-      <PageHeader
-        title={t("Akademik", "Academics")}
-        subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
-        breadcrumbs={[{ label: t("Akademik", "Academics"), href: "/akademik" }]}
-      />
-
-      <div className="container py-10 px-4">
+      <SectionShell group="model" title={t("Yabancı Dil Eğitimi", "Foreign Language Education")}>
         <article className="max-w-3xl mx-auto" data-testid="page-yabanci-dil">
           <h1 className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">{L(TITLE)}</h1>
           <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(SUBTITLE)}</p>
@@ -100,10 +94,8 @@ export default function YabanciDilPage() {
               <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(sec.text)}</p>
             </section>
           ))}
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg mt-10">{L(SIGN)}</p>
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{L(SLOGAN)}</p>
         </article>
-      </div>
+      </SectionShell>
     </div>
   );
 }

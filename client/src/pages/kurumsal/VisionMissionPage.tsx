@@ -41,7 +41,6 @@ export function VizyonMisyonContent() {
         <div className="mt-8 space-y-4 text-base md:text-lg leading-relaxed text-white/90">
           {MISSION_CLOSING.map((p, i) => <p key={i} className="font-bold text-white">{L(p)}</p>)}
         </div>
-        <p className="mt-6 text-brand-orange font-display font-bold text-lg">{L(MISSION_SLOGAN)}</p>
       </motion.section>
 
       <motion.section {...fade} className="bg-brand-green text-white rounded-3xl p-6 md:p-12" data-testid="block-vizyon">
@@ -51,7 +50,6 @@ export function VizyonMisyonContent() {
             <p key={i} className={i === 0 ? "text-lg md:text-2xl leading-relaxed font-display" : "text-base md:text-lg leading-relaxed"}>{L(p)}</p>
           ))}
         </div>
-        <p className="mt-8 font-display font-bold text-lg md:text-xl">{L(VISION_SLOGAN)}</p>
       </motion.section>
     </div>
   );
