@@ -132,7 +132,7 @@ export default function KurumsalPage() {
             {lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}
             <ChevronDown className={`w-5 h-5 transition-transform ${menuOpen ? "rotate-180" : ""}`} />
           </button>
-          <nav className={`${menuOpen ? "block" : "hidden"} lg:block mt-2 lg:mt-0 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden`} data-testid="kurumsal-sidebar">
+          <nav className={`${menuOpen ? "block" : "hidden"} lg:block mt-2 lg:mt-0 bg-white border-2 border-primary rounded-2xl overflow-hidden`} data-testid="kurumsal-sidebar">
             {SECTION_SLUGS.map((sl) => {
               const active = sl === slug;
               return (
@@ -141,7 +141,7 @@ export default function KurumsalPage() {
                   onClick={() => setMenuOpen(false)}
                   href={`/kurumsal/${sl}`}
                   data-testid={`kurumsal-sidebar-${sl}`}
-                  className={`block px-6 py-4 text-base border-b border-gray-100 last:border-b-0 transition-colors ${active ? "font-bold text-primary border-b-2 border-b-brand-orange" : "text-gray-500 hover:text-primary"}`}
+                  className={`block px-6 py-4 text-base border-b border-primary/15 last:border-b-0 transition-colors ${active ? "font-bold bg-primary text-white" : "font-medium text-primary hover:bg-primary/10"}`}
                 >
                   {lang === "tr" ? NEW_SEO[sl].titleTR : NEW_SEO[sl].titleEN}
                 </Link>
