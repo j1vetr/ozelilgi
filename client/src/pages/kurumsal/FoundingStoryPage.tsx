@@ -32,7 +32,12 @@ export function KurulusHikayesiContent() {
   return (
     <article className="max-w-3xl mx-auto" data-testid="page-kurulus-hikayesi">
       {blocks.map((b, i) => {
-        if (b.type === "title") return <h2 key={i} className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">{b.text}</h2>;
+        if (b.type === "title") return (
+          <div key={i}>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">{b.text}</h2>
+            <img src="/images/bogazici-logo-yuvarlak.png" alt="Özel Boğaziçi İlgi Okulları" className="w-40 h-40 md:w-52 md:h-52 rounded-full object-contain mx-auto mb-8" data-testid="founding-story-logo" />
+          </div>
+        );
         if (b.type === "h") return <h3 key={i} className="text-2xl font-display font-bold text-primary mt-10 mb-4">{b.text}</h3>;
         return <p key={i} className="text-gray-700 leading-relaxed text-base md:text-lg mb-5">{b.text}</p>;
       })}
