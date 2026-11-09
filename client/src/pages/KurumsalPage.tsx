@@ -118,10 +118,10 @@ export default function KurumsalPage() {
       <div className="container py-10 px-4">
         <div className={inSection ? "grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start" : ""}>
         {inSection && (
-          <div>
-          <div className="hidden lg:block mb-4">
-            <img src="/images/bogazici-logo-yuvarlak.png" alt="Özel Boğaziçi İlgi Okulları" className="w-28 h-28 rounded-full object-contain mb-4" data-testid="kurumsal-sidebar-logo" />
-            <p className="font-display font-bold text-primary text-lg">{lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}</p>
+          <div className="lg:sticky lg:top-28">
+          <div className="hidden lg:block mb-4 text-center">
+            <p className="font-display font-bold text-primary text-lg mb-3">{lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}</p>
+            <img src="/images/bogazici-logo-yuvarlak.png" alt="Özel Boğaziçi İlgi Okulları" className="w-28 h-28 rounded-full object-contain mx-auto" data-testid="kurumsal-sidebar-logo" />
           </div>
           <button
             type="button"
@@ -132,7 +132,7 @@ export default function KurumsalPage() {
             {lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}
             <ChevronDown className={`w-5 h-5 transition-transform ${menuOpen ? "rotate-180" : ""}`} />
           </button>
-          <nav className={`${menuOpen ? "block" : "hidden"} lg:block mt-2 lg:mt-0 lg:sticky lg:top-32 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden`} data-testid="kurumsal-sidebar">
+          <nav className={`${menuOpen ? "block" : "hidden"} lg:block mt-2 lg:mt-0 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden`} data-testid="kurumsal-sidebar">
             {SECTION_SLUGS.map((sl) => {
               const active = sl === slug;
               return (
