@@ -66,6 +66,8 @@ export function Navbar() {
   const [location] = useLocation();
   const { lang, setLang } = useLanguage();
   const NAVIGATION = getNavigationTranslated(lang);
+  const lightPage = /^\/kurumsal\/(kurulus-hikayesi|logomuzun-hikayesi|vizyon-misyon)/.test(location);
+  const solid = scrolled || lightPage;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -88,7 +90,7 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled
+        solid
           ? "py-2 bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100/50"
           : "py-4 bg-transparent"
       )}
@@ -101,7 +103,7 @@ export function Navbar() {
             alt="Özel Boğaziçi İlgi Okulları"
             className={cn(
               "rounded-full object-contain shadow-lg transition-all duration-300 group-hover:scale-105",
-              scrolled ? "w-16 h-16 md:w-20 md:h-20" : "w-24 h-24 md:w-32 md:h-32"
+              solid ? "w-16 h-16 md:w-20 md:h-20" : "w-24 h-24 md:w-32 md:h-32"
             )}
             loading="eager"
             fetchPriority="high"
@@ -111,7 +113,7 @@ export function Navbar() {
         {/* Desktop nav */}
         <nav className={cn(
           "hidden lg:flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300",
-          scrolled ? "bg-gray-50/80" : "bg-white/10 backdrop-blur-md border border-white/20"
+          solid ? "bg-gray-50/80" : "bg-white/10 backdrop-blur-md border border-white/20"
         )}>
           {NAVIGATION.map((item, idx) => (
             <div key={idx} className="relative group">
@@ -121,8 +123,8 @@ export function Navbar() {
                 className={cn(
                   "px-3.5 xl:px-4 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-1.5",
                   (item.href === "/" ? location === "/" : item.matches ? item.matches.some((m) => location.startsWith(m)) : location.startsWith(item.href))
-                    ? scrolled ? "bg-primary text-white shadow-md" : "bg-white text-primary shadow-md"
-                    : scrolled ? "text-gray-700 hover:bg-gray-100 hover:text-primary" : "text-white hover:bg-white/20"
+                    ? solid ? "bg-primary text-white shadow-md" : "bg-white text-primary shadow-md"
+                    : solid ? "text-gray-700 hover:bg-gray-100 hover:text-primary" : "text-white hover:bg-white/20"
                 )}
               >
                 {item.title}
@@ -197,7 +199,7 @@ export function Navbar() {
               data-testid="navbar-contact-button"
               className={cn(
                 "rounded-full px-6 font-semibold transition-all duration-300 gap-2",
-                scrolled
+                solid
                   ? "bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg shadow-brand-orange/25"
                   : "bg-white text-primary hover:bg-white/90 shadow-xl"
               )}
@@ -218,7 +220,7 @@ export function Navbar() {
             data-testid="navbar-mobile-toggle"
             className={cn(
               "p-2.5 rounded-xl transition-all",
-              scrolled
+              solid
                 ? "text-primary bg-gray-100 hover:bg-gray-200"
                 : "text-white bg-white/10 hover:bg-white/20 backdrop-blur-md"
             )}

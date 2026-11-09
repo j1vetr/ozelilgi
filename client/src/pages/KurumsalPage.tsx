@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { useRoute, Redirect, Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -70,6 +72,7 @@ function resolveSlug(raw: string | undefined): KurumsalSlug | null {
 export default function KurumsalPage() {
   const { lang, t } = useLanguage();
   const [, params] = useRoute("/kurumsal/:slug");
+  const [menuOpen, setMenuOpen] = useState(false);
   const rawSlug = params?.slug;
   const slug = resolveSlug(rawSlug);
 
@@ -96,21 +99,42 @@ export default function KurumsalPage() {
         descriptionEN={seo.descEN}
         canonical={seo.path}
       />
+      {inSection ? (
+        <div className="pt-32 md:pt-40 pb-8 md:pb-10 bg-white border-b border-gray-100">
+          <div className="container px-4 text-center">
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary" data-testid="kurumsal-page-title">
+              {lang === "tr" ? NEW_SEO[slug].titleTR : NEW_SEO[slug].titleEN}
+            </h1>
+          </div>
+        </div>
+      ) : (
       <PageHeader
         title={T("nav.about", lang)}
         subtitle={t("Boğaziçi Vizyonuyla Geleceğe", "Towards the Future with the Boğaziçi Vision")}
         breadcrumbs={[{ label: T("nav.about", lang), href: "/kurumsal/kurulus-hikayesi" }]}
       />
+      )}
 
       <div className="container py-10 px-4">
         <div className={inSection ? "grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start" : ""}>
         {inSection && (
-          <nav className="lg:sticky lg:top-32 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden" data-testid="kurumsal-sidebar">
+          <div>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden w-full flex items-center justify-between bg-primary text-white font-semibold rounded-xl px-5 py-4"
+            data-testid="kurumsal-menu-toggle"
+          >
+            {lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}
+            <ChevronDown className={`w-5 h-5 transition-transform ${menuOpen ? "rotate-180" : ""}`} />
+          </button>
+          <nav className={`${menuOpen ? "block" : "hidden"} lg:block mt-2 lg:mt-0 lg:sticky lg:top-32 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden`} data-testid="kurumsal-sidebar">
             {SECTION_SLUGS.map((sl) => {
               const active = sl === slug;
               return (
                 <Link
                   key={sl}
+                  onClick={() => setMenuOpen(false)}
                   href={`/kurumsal/${sl}`}
                   data-testid={`kurumsal-sidebar-${sl}`}
                   className={`block px-6 py-4 text-base border-b border-gray-100 last:border-b-0 transition-colors ${active ? "font-bold text-primary border-b-2 border-b-brand-orange" : "text-gray-500 hover:text-primary"}`}
@@ -120,6 +144,7 @@ export default function KurumsalPage() {
               );
             })}
           </nav>
+          </div>
         )}
         <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
           {slug === "kurulus-hikayesi" && <KurulusHikayesiContent />}
