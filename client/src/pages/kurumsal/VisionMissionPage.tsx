@@ -21,7 +21,6 @@ export function VizyonMisyonContent() {
   return (
     <div className="max-w-5xl mx-auto space-y-8 md:space-y-12" data-testid="page-vizyon-misyon">
       <motion.section {...fade} className="bg-primary text-white rounded-3xl p-6 md:p-12" data-testid="block-misyon">
-        <p className="text-brand-orange font-semibold tracking-widest text-sm mb-3">01</p>
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">{L(MISSION_TITLE)}</h2>
         <p className="text-lg md:text-2xl leading-relaxed font-display">{L(MISSION_TEXT)}</p>
 
@@ -46,7 +45,6 @@ export function VizyonMisyonContent() {
       </motion.section>
 
       <motion.section {...fade} className="bg-brand-green text-white rounded-3xl p-6 md:p-12" data-testid="block-vizyon">
-        <p className="text-white/80 font-semibold tracking-widest text-sm mb-3">02</p>
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">{L(VISION_TITLE)}</h2>
         <div className="space-y-5">
           {VISION_PARAS.map((p, i) => (
