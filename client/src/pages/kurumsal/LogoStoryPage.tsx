@@ -43,7 +43,7 @@ export function LogomuzunHikayesiContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45 }}
-                className={`bg-white border border-gray-100 border-l-4 ${accents[i % accents.length]} rounded-xl p-6 text-gray-700 leading-relaxed text-base md:text-lg`}
+                className={`bg-white border-2 ${accents[i % accents.length]} rounded-xl p-6 text-gray-700 leading-relaxed text-base md:text-lg`}
               >
                 {L(p)}
               </motion.p>

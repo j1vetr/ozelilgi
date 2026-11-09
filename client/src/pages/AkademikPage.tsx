@@ -198,12 +198,7 @@ function RichContent({ sections, color }: { sections: any[]; color: { primary: s
                 {s.programs.map((p: any, j: number) => (
                   <div key={j} className="rounded-xl p-4 border border-gray-100 bg-gray-50">
                     <div className="flex items-start gap-3">
-                      <span
-                        className="w-7 h-7 rounded-full text-white text-xs font-black flex items-center justify-center shrink-0 mt-0.5"
-                        style={{ backgroundColor: color.primary }}
-                      >
-                        {p.num}
-                      </span>
+                      <span className="w-2 h-2 rounded-full shrink-0 mt-1.5" style={{ backgroundColor: color.primary }} />
                       <div>
                         <h4 className="font-bold text-gray-800 text-sm mb-1">{p.title}</h4>
                         <p className="text-gray-500 text-xs leading-relaxed">{p.body}</p>

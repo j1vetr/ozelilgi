@@ -175,9 +175,6 @@ export default function KayitSureciPage() {
                           <step.icon className="w-6 h-6 text-white" />
                         </div>
                         <div className={isLeft ? 'md:text-right' : ''}>
-                          <span className="text-xs font-bold uppercase tracking-wider" style={{ color: step.color }}>
-                            {t("Adım", "Step")} {step.step}
-                          </span>
                           <h3 className="font-bold text-gray-900 text-lg">{step.title}</h3>
                         </div>
                       </div>

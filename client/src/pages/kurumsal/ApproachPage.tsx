@@ -40,9 +40,7 @@ export function EgitimYaklasimiContent() {
             data-testid={`principle-${i + 1}`}
           >
             <div className="flex items-start gap-4 mb-4">
-              <span className={`shrink-0 w-12 h-12 rounded-xl text-white font-display font-bold text-xl flex items-center justify-center ${ACCENTS[i % ACCENTS.length]}`}>
-                {i + 1}
-              </span>
+              <span className={`shrink-0 w-2 self-stretch rounded-full ${ACCENTS[i % ACCENTS.length]}`} />
               <h3 className="text-xl md:text-2xl font-display font-bold text-primary leading-snug pt-0.5">{L(pr.title)}</h3>
             </div>
             <div className="space-y-3">

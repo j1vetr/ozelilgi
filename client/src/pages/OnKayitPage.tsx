@@ -173,7 +173,7 @@ export default function OnKayitPage() {
                   <ol className="space-y-4 relative">
                     <li className="flex gap-4">
                       <div className="flex flex-col items-center">
-                        <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shadow-lg">1</div>
+                        <div className="w-3 h-3 rounded-full bg-orange-500 mt-1.5"></div>
                         <div className="w-0.5 h-full bg-gray-200 mt-2" />
                       </div>
                       <div className="pb-4">
@@ -183,7 +183,7 @@ export default function OnKayitPage() {
                     </li>
                     <li className="flex gap-4">
                       <div className="flex flex-col items-center">
-                        <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow-lg">2</div>
+                        <div className="w-3 h-3 rounded-full bg-blue-500 mt-1.5"></div>
                         <div className="w-0.5 h-full bg-gray-200 mt-2" />
                       </div>
                       <div className="pb-4">
@@ -193,7 +193,7 @@ export default function OnKayitPage() {
                     </li>
                     <li className="flex gap-4">
                       <div className="flex flex-col items-center">
-                        <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-sm shadow-lg">3</div>
+                        <div className="w-3 h-3 rounded-full bg-green-500 mt-1.5"></div>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">{t("Kesin Kayıt", "Final Registration")}</h4>

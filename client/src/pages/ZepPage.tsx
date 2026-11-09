@@ -103,7 +103,7 @@ export default function ZepPage() {
                   className="flex items-stretch bg-white border border-gray-200 rounded-2xl overflow-hidden"
                   style={{ marginLeft: `calc(${i} * var(--zep-step))` }}
                 >
-                  <span className={`shrink-0 w-14 md:w-20 flex items-center justify-center text-white font-display font-bold text-2xl md:text-3xl ${g.color}`}>{i + 1}</span>
+                  <span className={`shrink-0 w-3 md:w-4 ${g.color}`} />
                   <div className="p-4 md:p-6">
                     <h3 className="font-display font-bold text-primary text-lg mb-1">{L(g.label)}</h3>
                     <p className="text-gray-700 leading-relaxed">{L(g.text)}</p>

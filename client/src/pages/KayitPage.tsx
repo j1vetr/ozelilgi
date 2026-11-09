@@ -217,7 +217,7 @@ export default function KayitPage() {
                   className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold text-lg shadow-lg"
                   style={{ backgroundColor: step.color }}
                 >
-                  {step.step}
+                  <step.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-sm mb-1">{step.title}</h3>
                 <p className="text-gray-500 text-xs">{step.desc}</p>

@@ -47,7 +47,6 @@ export function BilivaContent() {
       <div className="grid md:grid-cols-2 gap-5">
         {BILIVA_FOUR.map((item, i) => (
           <motion.div key={i} {...fade} className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
-            <p className="text-brand-orange font-bold text-sm mb-1">{i + 1}</p>
             <h4 className="text-xl font-display font-bold text-primary mb-3">{L(item.title)}</h4>
             <div className="space-y-3 text-gray-700 leading-relaxed">
               {item.paragraphs.map((p, j) => <p key={j}>{L(p)}</p>)}
