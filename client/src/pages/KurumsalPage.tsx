@@ -119,6 +119,10 @@ export default function KurumsalPage() {
         <div className={inSection ? "grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-start" : ""}>
         {inSection && (
           <div>
+          <div className="hidden lg:block mb-4">
+            <img src="/images/bogazici-logo-yuvarlak.png" alt="Özel Boğaziçi İlgi Okulları" className="w-28 h-28 rounded-full object-contain mb-4" data-testid="kurumsal-sidebar-logo" />
+            <p className="font-display font-bold text-primary text-lg">{lang === "tr" ? "Kurumsal Menü" : "Corporate Menu"}</p>
+          </div>
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
